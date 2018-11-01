@@ -1,17 +1,12 @@
 <!DOCTYPE html>
 <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-<script src='three.js/examples/vendor/three.js/build/three.js'></script>
- <script src="three.js/examples/vendor/three.js/examples/js/libs/stats.min.js"></script>
- <!-- jsartookit -->
- <script src="three.js/vendor/jsartoolkit5/build/artoolkit.min.js"></script>
- <script src="three.js/vendor/jsartoolkit5/js/artoolkit.api.js"></script>
- <!-- include threex.artoolkit -->
- <script src="three.js/src/threex/threex-arbasecontrols.js"></script>
- <script src="three.js/src/threex/threex-artoolkitsource.js"></script>
- <script src="three.js/src/threex/threex-artoolkitcontext.js"></script>
- <script src="three.js/src/threex/threex-armarkercontrols.js"></script>
-
- <script src="js/spriteSheet.js"></script>
+<!-- three.js library -->
+<script src='three.js/examples/vendor/three.js/build/three.min.js'></script>
+<script src="three.js/examples/vendor/three.js/examples/js/libs/stats.min.js"></script>
+<!-- ar.js -->
+<script src="three.js/build/ar.js"></script>
+<script src="js/spriteSheet.js"></script>
+<script>THREEx.ArToolkitContext.baseURL = 'three.js/'</script>
   <!--<head>
     <title>Instascan</title>
     <script type="text/javascript" src="instascan.min.js"></script>
@@ -162,7 +157,7 @@
 		 })
 
 		 // build a smoothedControls
-	/*var smoothedRoot = new THREE.Group()
+	var smoothedRoot = new THREE.Group()
 	scene.add(smoothedRoot)
 	var smoothedControls = new THREEx.ArSmoothedControls(smoothedRoot, {
 		lerpPosition: 0.4,
@@ -171,13 +166,13 @@
 	})
 	onRenderFcts.push(function(delta){
 		smoothedControls.update(markerRoot)
-	})*/
+	})
 		 //////////////////////////////////////////////////////////////////////////////////
 	 // add an object in the scene
 	 //////////////////////////////////////////////////////////////////////////////////
 
 
-	var arWorldRoot = markerRoot
+	var arWorldRoot = smoothedRoot
 	var texture = new THREE.TextureLoader().load( "assets/testSpriteSheet.png" );
 	CreateSpriteSheets(texture,[{anim:"loop",frames:[21,22,23,24,25,26,27,14,15,16,17,18,19,20,7,8,9,10,11,12,13,0,1,2,3,4,5],speed:0.05,onComplete:null}],74.3,87,520,347);
 

@@ -5970,7 +5970,7 @@ ARjs.Source.prototype._initSourceWebcam = function(onReady, onError) {
 
 	// get available devices
 	navigator.mediaDevices.enumerateDevices().then(function(devices) {
-                var userMediaConstraints = {
+            var userMediaConstraints = {
 			audio: false,
 			video: {
 				facingMode: 'environment',
@@ -5985,7 +5985,16 @@ ARjs.Source.prototype._initSourceWebcam = function(onReady, onError) {
 					// max: 1080
 				}
 		  	}
+
+
 		}
+
+		/*userMediaConstraints = {
+
+			audio:false,
+			video:true
+
+		}*/
 
 		if (null !== _this.parameters.deviceId) {
 			userMediaConstraints.video.deviceId = {
@@ -6011,10 +6020,44 @@ ARjs.Source.prototype._initSourceWebcam = function(onReady, onError) {
 				clearInterval(interval)
 			}, 1000/50);
 		}).catch(function(error) {
-			onError({
-				name: error.name,
-				message: error.message
-			});
+			if(error.message == "Invalid constraint"){
+
+				userMediaConstraints = {
+				audio: false,
+				video: {
+					facingMode: 'environment',
+					
+			  	}
+			  }
+			  	navigator.mediaDevices.getUserMedia(userMediaConstraints).then(function success(stream) {
+					// set the .src of the domElement
+					domElement.srcObject = stream;
+					// to start the video, when it is possible to start it only on userevent. like in android
+					document.body.addEventListener('click', function(){
+						domElement.play();
+					})
+					// domElement.play();
+
+		// TODO listen to loadedmetadata instead
+					// wait until the video stream is ready
+					var interval = setInterval(function() {
+						if (!domElement.videoWidth)	return;
+						onReady()
+						clearInterval(interval)
+					}, 1000/50);
+				}).catch(function(error) {
+					onError({
+					name: error.name,
+					message: error.message
+				});
+				});
+			}
+			else{
+				onError({
+					name: error.name,
+					message: error.message
+				});
+			}
 		});
 	}).catch(function(error) {
 		onError({
