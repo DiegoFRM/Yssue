@@ -6,42 +6,23 @@
 <!-- ar.js -->
 <script src="three.js/build/ar.js"></script>
 <script src="js/spriteSheet.js"></script>
+<script src="js/spineController.js"></script>
+<script src="lib/spine-threejs/spine-js/spine.js"></script>
 <script>THREEx.ArToolkitContext.baseURL = 'three.js/'</script>
-  <!--<head>
-    <title>Instascan</title>
-    <script type="text/javascript" src="instascan.min.js"></script>
-  </head>
-  <body>
-    <video id="preview"></video>
-    <p id="resultText"></p>
-    <script type="text/javascript">
-      var t = document.getElementById("resultText");
-      let scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
-      scanner.addListener('scan', function (content) {
-        console.log(content);
-        t.innerHTML = content;
-      });
-      Instascan.Camera.getCameras().then(function (cameras) {
-        if (cameras.length > 0) {
-          scanner.start(cameras[0]);
-        } else {
-          console.error('No cameras found.');
-          t.innerHTML = "No camera";
-        }
-      }).catch(function (e) {
-        console.error(e);
-        t.innerHTML = e;
-      });
-    </script>
-  </body>-->
+
   <body style='margin : 0px; overflow: hidden; font-family: Monospace;'>
   	<div style='position: absolute; top: 10px; width:100%; text-align: center; z-index: 1;'>
   	</div>
   	<script type="text/javascript">
 
   		var currentMarkers = []
-
+  		var currentAnim = "";
   		function FindMarker(markerId){
+  			if(currentAnim != markerId){
+  				currentAnim = markerId;
+  				loadSpine(arWorldRoot,currentAnim)
+  			}
+
   			if(currentMarkers.indexOf(markerId) ==-1){
   				console.log("findMarker with name ",markerId)
   				currentMarkers.push(markerId)
@@ -84,6 +65,7 @@
 
 		// Create a camera
 		 var camera = new THREE.Camera();
+		 camera.position.z = 200;
 		 scene.add(camera);
 
 		 ////////////////////////////////////////////////////////////////////////////////
@@ -150,9 +132,20 @@
 		var markerRoot = new THREE.Group
 		 scene.add(markerRoot)
 		 var artoolkitMarker = new THREEx.ArMarkerControls(arToolkitContext, markerRoot, {
-		 type : 'pattern',
-		 patternUrl : 'data/data/patt.hiro',
+		 //type : 'barcode',
+		 //value:5,
+		 type:'pattern',
+		 patternUrl:'data/data/pattern_1.patt',
 		 nameId:'ar1'
+		 // patternUrl : '../../data/data/patt.kanji'
+		 })
+
+		 var artoolkitMarker2 = new THREEx.ArMarkerControls(arToolkitContext, markerRoot, {
+		 //type : 'barcode',
+		 //value:5,
+		 type:'pattern',
+		 patternUrl:'data/data/pattern_1B.patt',
+		 nameId:'ar1B'
 		 // patternUrl : '../../data/data/patt.kanji'
 		 })
 
@@ -173,7 +166,7 @@
 
 
 	var arWorldRoot = smoothedRoot
-	var texture = new THREE.TextureLoader().load( "assets/testSpriteSheet.png" );
+	/*var texture = new THREE.TextureLoader().load( "assets/testSpriteSheet.png" );
 	CreateSpriteSheets(texture,[{anim:"loop",frames:[21,22,23,24,25,26,27,14,15,16,17,18,19,20,7,8,9,10,11,12,13,0,1,2,3,4,5],speed:0.05,onComplete:null}],74.3,87,520,347);
 
 	//CreateSpriteSheets(texture,[{anim:"loop",frames:[15],speed:1,onComplete:null}],74.2,87,520,347);
@@ -182,10 +175,44 @@
     var mesh = new THREE.Mesh(geometry, material);
    	mesh.rotation.x = -Math.PI/2;
     mesh.position.y =0.1;
-    arWorldRoot .add(mesh)
+    arWorldRoot.add(mesh)*/
+
+    var texture = new THREE.TextureLoader().load( "assets/ar1Bad_sky.png" );
+   	var material = new THREE.MeshBasicMaterial({map: texture});
+    var geometry = new THREE.PlaneGeometry(500, 220);
+    var ar1BadMesh = new THREE.Mesh(geometry, material);
+    ar1BadMesh.rotation.x = -Math.PI/2;
+    ar1BadMesh.position.y=-200;
+    ar1BadMesh.position.z = -10;
+    arWorldRoot.add(ar1BadMesh);
+
+    var texture = new THREE.TextureLoader().load( "assets/ar1Bad_floor.png" );
+   	var material = new THREE.MeshBasicMaterial({map: texture});
+    var geometry = new THREE.PlaneGeometry(500, 100);
+    var mesh = new THREE.Mesh(geometry, material);
+    //ar1BadMesh.rotation.x = -Math.PI/2;
+    mesh.position.y = -60;
+    mesh.position.z=100;
+ 	ar1BadMesh.add(mesh)
+ 	ar1BadMesh.visible = false;
+
+ 	var texture = new THREE.TextureLoader().load( "assets/ar1Bad_house.png" );
+   	var material = new THREE.MeshBasicMaterial({map: texture, transparent:true});
+    var geometry = new THREE.PlaneGeometry(200, 60);
+    var mesh = new THREE.Mesh(geometry, material);
+    //ar1BadMesh.rotation.x = -Math.PI/2;
+    mesh.position.y = 5;
+    mesh.position.z=190;
+    ar1BadMesh.add(mesh)
+
+    //loadSpine(arWorldRoot)
 	onRenderFcts.push(function(delta){
-	 //mesh.rotation.x += 0.1
-	 texture.update(delta)
+
+	 if(anim!=null){
+	 	//anim.rotation.z += 0.1
+		 anim.update(delta)
+	}
+	 //texture.update(delta)
 
 	 })
 
