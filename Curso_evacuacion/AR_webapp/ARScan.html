@@ -234,7 +234,7 @@
 	texture.magFilter = THREE.LinearFilter;
 	texture.format = THREE.RGBFormat;
    	var material = new THREE.MeshBasicMaterial({map: texture});
-    var geometry = new THREE.PlaneGeometry(500, 220);
+    var geometry = new THREE.PlaneGeometry(200, 220);
     var videoMesh = new THREE.Mesh(geometry, material);
     videoMesh.rotation.x = -Math.PI/2;
     videoMesh.position.y=-200;
