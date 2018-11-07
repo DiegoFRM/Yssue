@@ -11,14 +11,36 @@
 <script>THREEx.ArToolkitContext.baseURL = 'three.js/'</script>
 
   <body style='margin : 0px; overflow: hidden; font-family: Monospace;'>
+
+  	<div style="position:absolute; top:100%;" >
+  		<video id="videoElement" src="assets/SampleVideo.mp4" width="320" height="240" playsinline loop autoplay muted>
+		 
+		</video>
+  	</div>
   	<div style='position: absolute; top: 10px; width:100%; text-align: center; z-index: 1;'>
   	</div>
+  	
   	<script type="text/javascript">
 
+  		window.addEventListener("touchstart",function(){
+  			console.log("touch window")
+  			videoElement.play();
+  		},false)
+
+  		var videoElement = document.getElementById("videoElement");
+
+  		videoElement.playsinline = true;
+		videoElement.muted = true;
+		videoElement.autoplay=true;
+		videoElement.load();
+		
+  		//videoElement.play();
   		var currentMarkers = []
   		var currentAnim = "";
   		function FindMarker(markerId){
+  			
   			if(currentAnim != markerId){
+  				videoElement.pause();
   				currentAnim = markerId;
   				loadSpine(arWorldRoot,currentAnim)
   			}
@@ -205,9 +227,22 @@
     mesh.position.z=190;
     ar1BadMesh.add(mesh)
 
+    var texture = new THREE.VideoTexture(videoElement);
+    texture.minFilter = THREE.LinearFilter;
+	texture.magFilter = THREE.LinearFilter;
+	texture.format = THREE.RGBFormat;
+   	var material = new THREE.MeshBasicMaterial({map: texture});
+    var geometry = new THREE.PlaneGeometry(500, 220);
+    var videoMesh = new THREE.Mesh(geometry, material);
+    videoMesh.rotation.x = -Math.PI/2;
+    videoMesh.position.y=-200;
+    videoMesh.position.z = -10;
+    videoMesh.visible = false;
+    arWorldRoot.add(videoMesh);
+
     //loadSpine(arWorldRoot)
 	onRenderFcts.push(function(delta){
-
+		
 	 if(anim!=null){
 	 	//anim.rotation.z += 0.1
 		 anim.update(delta)

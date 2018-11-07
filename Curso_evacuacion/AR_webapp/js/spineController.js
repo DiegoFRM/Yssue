@@ -212,11 +212,22 @@ function loadSpine(objectAdd,markId){
 	var scale
 	var z
 	ar1BadMesh.visible =false;
+	videoMesh.visible = false;
+console.log("loadSpine")
 	switch(markId){
 		case "ar1":
 		number = 8;
 		scale = 0.08;
 		z = 20;
+
+		videoElement.playsinline = true;
+		videoElement.muted = true;
+		videoElement.autoplay=true;
+		videoElement.load();
+		
+		
+		videoMesh.visible = true;
+		//videoElement.play();
 		break;
 		case "ar1B":
 		ar1BadMesh.visible = true;
