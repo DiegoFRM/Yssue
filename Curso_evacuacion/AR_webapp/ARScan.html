@@ -9,6 +9,7 @@
 <script src="js/spineController.js"></script>
 <script src="lib/spine-threejs/spine-js/spine.js"></script>
 <script>THREEx.ArToolkitContext.baseURL = 'three.js/'</script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 
   <body style='margin : 0px; overflow: hidden; font-family: Monospace;'>
 
@@ -201,7 +202,7 @@
 
     var texture = new THREE.TextureLoader().load( "assets/ar1Bad_sky.png" );
    	var material = new THREE.MeshBasicMaterial({map: texture});
-    var geometry = new THREE.PlaneGeometry(500, 220);
+    var geometry = new THREE.PlaneGeometry(200, 220);
     var ar1BadMesh = new THREE.Mesh(geometry, material);
     ar1BadMesh.rotation.x = -Math.PI/2;
     ar1BadMesh.position.y=-200;
@@ -210,22 +211,23 @@
 
     var texture = new THREE.TextureLoader().load( "assets/ar1Bad_floor.png" );
    	var material = new THREE.MeshBasicMaterial({map: texture});
-    var geometry = new THREE.PlaneGeometry(500, 100);
+    var geometry = new THREE.PlaneGeometry(200, 100);
     var mesh = new THREE.Mesh(geometry, material);
     //ar1BadMesh.rotation.x = -Math.PI/2;
     mesh.position.y = -60;
-    mesh.position.z=100;
+    mesh.position.z=50;
  	ar1BadMesh.add(mesh)
  	ar1BadMesh.visible = false;
 
  	var texture = new THREE.TextureLoader().load( "assets/ar1Bad_house.png" );
    	var material = new THREE.MeshBasicMaterial({map: texture, transparent:true});
-    var geometry = new THREE.PlaneGeometry(200, 60);
-    var mesh = new THREE.Mesh(geometry, material);
+    var geometry = new THREE.PlaneGeometry(100, 60);
+    var mesh2 = new THREE.Mesh(geometry, material);
     //ar1BadMesh.rotation.x = -Math.PI/2;
-    mesh.position.y = 5;
-    mesh.position.z=190;
-    ar1BadMesh.add(mesh)
+    mesh2.position.y = 5;
+    mesh2.position.z=100;
+    //TweenMax.to(mesh2,1,{alpha:0,yoyo:true,repeat:-1})
+    ar1BadMesh.add(mesh2)
 
     var texture = new THREE.VideoTexture(videoElement);
     texture.minFilter = THREE.LinearFilter;
