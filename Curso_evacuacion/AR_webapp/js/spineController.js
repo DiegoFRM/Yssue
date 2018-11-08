@@ -211,7 +211,7 @@ function loadSpine(objectAdd,markId){
 	var number = 1;
 	var scale
 	var z
-	ar1BadMesh.visible =false;
+	capa3Mesh.visible =false;
 	videoMesh.visible = false;
 console.log("loadSpine")
 	switch(markId){
@@ -220,17 +220,23 @@ console.log("loadSpine")
 		scale = 0.08;
 		z = 20;
 
-		videoElement.playsinline = true;
+		/*videoElement.playsinline = true;
 		videoElement.muted = true;
 		videoElement.autoplay=true;
 		videoElement.load();
-		
-		
-		videoMesh.visible = true;
-		//videoElement.play();
+		videoMesh.visible = true;*/
+		capa3Mesh.visible = true;
+		capa3Mesh.material.map = layerTexture3[0];
+		capa2Mesh.material.map = layerTexture2[0];
+		capa1Mesh.material.map = layerTexture1[0];
+		answerResponse.material.map = correctTexture;
 		break;
 		case "ar1B":
-		ar1BadMesh.visible = true;
+		capa3Mesh.visible = true;
+		capa3Mesh.material.map = layerTexture3[1];
+		capa2Mesh.material.map = layerTexture2[1];
+		capa1Mesh.material.map = layerTexture1[1];
+		answerResponse.material.map = dangerTexture;
 		number = 4;
 		scale = 0.05;
 		z = 15;
