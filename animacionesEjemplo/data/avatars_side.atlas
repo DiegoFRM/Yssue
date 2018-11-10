@@ -1,124 +1,152 @@
 
 avatars_side.png
-size: 1024,256
+size: 512,512
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
 normal2/side_arm1
-  rotate: true
-  xy: 231, 88
+  rotate: false
+  xy: 2, 30
   size: 90, 123
   orig: 90, 123
   offset: 0, 0
   index: -1
 normal2/side_arm2
-  rotate: true
-  xy: 606, 137
+  rotate: false
+  xy: 111, 172
   size: 61, 137
   orig: 61, 137
   offset: 0, 0
   index: -1
 normal2/side_body1
   rotate: false
-  xy: 122, 100
+  xy: 2, 155
   size: 107, 154
   orig: 107, 154
   offset: 0, 0
   index: -1
 normal2/side_body2
   rotate: false
-  xy: 2, 55
+  xy: 2, 311
   size: 118, 199
   orig: 118, 199
   offset: 0, 0
   index: -1
-normal2/side_foot1
-  rotate: false
-  xy: 122, 54
+normal2/side_foot1_a
+  rotate: true
+  xy: 94, 66
   size: 87, 44
   orig: 87, 44
   offset: 0, 0
   index: -1
-normal2/side_foot2
+normal2/side_foot1_b
   rotate: false
-  xy: 2, 5
+  xy: 174, 173
+  size: 71, 62
+  orig: 71, 62
+  offset: 0, 0
+  index: -1
+normal2/side_foot2_a
+  rotate: true
+  xy: 174, 237
   size: 86, 48
   orig: 86, 48
   offset: 0, 0
   index: -1
-normal2/side_forearm1
+normal2/side_foot2_b
   rotate: false
-  xy: 356, 55
+  xy: 301, 263
+  size: 72, 62
+  orig: 72, 62
+  offset: 0, 0
+  index: -1
+normal2/side_forearm1
+  rotate: true
+  xy: 386, 442
   size: 68, 123
   orig: 68, 123
   offset: 0, 0
   index: -1
 normal2/side_forearm2
   rotate: false
-  xy: 426, 89
+  xy: 396, 349
   size: 108, 91
   orig: 108, 91
   offset: 0, 0
   index: -1
 normal2/side_hand1
-  rotate: false
-  xy: 536, 102
+  rotate: true
+  xy: 94, 2
   size: 62, 78
   orig: 62, 78
   offset: 0, 0
   index: -1
 normal2/side_hand1_b
-  rotate: true
-  xy: 822, 163
+  rotate: false
+  xy: 183, 95
   size: 36, 76
   orig: 36, 76
   offset: 0, 0
   index: -1
+normal2/side_hand1_c
+  rotate: false
+  xy: 221, 119
+  size: 45, 52
+  orig: 45, 52
+  offset: 0, 0
+  index: -1
+normal2/side_hand1_d
+  rotate: false
+  xy: 140, 83
+  size: 41, 87
+  orig: 41, 87
+  offset: 0, 0
+  index: -1
 normal2/side_hand2
   rotate: false
-  xy: 745, 137
+  xy: 224, 264
   size: 75, 61
   orig: 75, 61
   offset: 0, 0
   index: -1
 normal2/side_head
   rotate: true
-  xy: 426, 2
+  xy: 396, 262
   size: 85, 98
   orig: 85, 98
   offset: 0, 0
   index: -1
 normal2/side_leg1
   rotate: true
-  xy: 418, 182
+  xy: 198, 438
   size: 72, 186
   orig: 72, 186
   offset: 0, 0
   index: -1
 normal2/side_leg2
-  rotate: true
-  xy: 231, 180
+  rotate: false
+  xy: 122, 325
   size: 74, 185
   orig: 74, 185
   offset: 0, 0
   index: -1
 normal2/side_neck
   rotate: true
-  xy: 900, 150
+  xy: 247, 213
   size: 49, 52
   orig: 49, 52
   offset: 0, 0
   index: -1
 normal2/side_shin1
   rotate: true
-  xy: 606, 200
+  xy: 198, 382
   size: 54, 196
   orig: 54, 196
   offset: 0, 0
   index: -1
 normal2/side_shin2
   rotate: true
-  xy: 804, 201
+  xy: 198, 327
   size: 53, 196
   orig: 53, 196
   offset: 0, 0

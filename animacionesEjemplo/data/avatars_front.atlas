@@ -1,257 +1,285 @@
 
 avatars_front.png
-size: 1024,512
+size: 1024,1024
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
 normal/men_arm1
-  rotate: true
-  xy: 2, 2
+  rotate: false
+  xy: 301, 679
   size: 99, 120
   orig: 99, 120
   offset: 0, 0
   index: -1
 normal/men_arm2
-  rotate: false
-  xy: 181, 207
+  rotate: true
+  xy: 417, 796
   size: 99, 120
   orig: 99, 120
   offset: 0, 0
   index: -1
 normal/men_body1
   rotate: false
-  xy: 2, 103
+  xy: 2, 622
   size: 137, 181
   orig: 137, 181
   offset: 0, 0
   index: -1
 normal/men_body2
   rotate: false
-  xy: 402, 357
+  xy: 284, 876
   size: 123, 145
   orig: 123, 145
   offset: 0, 0
   index: -1
 normal/men_foot1
   rotate: true
-  xy: 312, 199
+  xy: 160, 488
   size: 38, 71
   orig: 38, 71
   offset: 0, 0
   index: -1
 normal/men_foot2
-  rotate: true
-  xy: 385, 210
+  rotate: false
+  xy: 2, 2
   size: 39, 71
   orig: 39, 71
   offset: 0, 0
   index: -1
 normal/men_forearm1
   rotate: true
-  xy: 181, 132
+  xy: 293, 801
   size: 73, 122
   orig: 73, 122
   offset: 0, 0
   index: -1
 normal/men_forearm2
   rotate: true
-  xy: 402, 282
+  xy: 402, 721
   size: 73, 122
   orig: 73, 122
   offset: 0, 0
   index: -1
 normal/men_hand1_a
   rotate: true
-  xy: 750, 287
+  xy: 594, 907
   size: 36, 76
   orig: 36, 76
   offset: 0, 0
   index: -1
 normal/men_hand1_b
-  rotate: false
-  xy: 458, 198
+  rotate: true
+  xy: 43, 16
   size: 57, 51
   orig: 57, 51
   offset: 0, 0
   index: -1
-normal/men_hand2_a
+normal/men_hand1_c
+  rotate: false
+  xy: 67, 89
+  size: 45, 52
+  orig: 45, 52
+  offset: 0, 0
+  index: -1
+normal/men_hand1_d
   rotate: true
-  xy: 305, 161
+  xy: 929, 980
+  size: 41, 87
+  orig: 41, 87
+  offset: 0, 0
+  index: -1
+normal/men_hand2_a
+  rotate: false
+  xy: 602, 829
   size: 36, 76
   orig: 36, 76
   offset: 0, 0
   index: -1
 normal/men_hand2_b
-  rotate: false
-  xy: 517, 196
+  rotate: true
+  xy: 67, 200
   size: 57, 51
   orig: 57, 51
   offset: 0, 0
   index: -1
+normal/men_hand2_c
+  rotate: false
+  xy: 673, 863
+  size: 45, 52
+  orig: 45, 52
+  offset: 0, 0
+  index: -1
+normal/men_hand2_d
+  rotate: true
+  xy: 141, 622
+  size: 40, 86
+  orig: 40, 86
+  offset: 0, 0
+  index: -1
 normal/men_head
   rotate: false
-  xy: 312, 239
+  xy: 160, 528
   size: 70, 92
   orig: 70, 92
   offset: 0, 0
   index: -1
 normal/men_leg1
   rotate: true
-  xy: 719, 438
+  xy: 409, 897
   size: 64, 183
   orig: 64, 183
   offset: 0, 0
   index: -1
 normal/men_leg2
-  rotate: true
-  xy: 719, 373
+  rotate: false
+  xy: 2, 75
   size: 63, 182
   orig: 63, 182
   offset: 0, 0
   index: -1
 normal/men_neck
-  rotate: true
-  xy: 576, 200
+  rotate: false
+  xy: 67, 143
   size: 47, 55
   orig: 47, 55
   offset: 0, 0
   index: -1
 normal/men_shin1
   rotate: true
-  xy: 692, 325
+  xy: 601, 975
   size: 46, 161
   orig: 46, 161
   offset: 0, 0
   index: -1
 normal/men_shin2
-  rotate: true
-  xy: 855, 320
+  rotate: false
+  xy: 62, 288
   size: 46, 161
   orig: 46, 161
   offset: 0, 0
   index: -1
 normal/men_vest
   rotate: false
-  xy: 2, 286
+  xy: 2, 805
   size: 149, 216
   orig: 149, 216
   offset: 0, 0
   index: -1
 normal1/women_arm1
   rotate: true
-  xy: 526, 296
+  xy: 153, 800
   size: 46, 138
   orig: 46, 138
   offset: 0, 0
   index: -1
 normal1/women_arm2
-  rotate: true
-  xy: 526, 249
+  rotate: false
+  xy: 254, 660
   size: 45, 138
   orig: 45, 138
   offset: 0, 0
   index: -1
 normal1/women_body1
   rotate: false
-  xy: 153, 329
+  xy: 153, 848
   size: 129, 173
   orig: 129, 173
   offset: 0, 0
   index: -1
 normal1/women_body2
   rotate: false
-  xy: 904, 368
+  xy: 141, 664
   size: 111, 134
   orig: 111, 134
   offset: 0, 0
   index: -1
 normal1/women_foot1
-  rotate: true
-  xy: 305, 128
+  rotate: false
+  xy: 640, 830
   size: 31, 75
   orig: 31, 75
   offset: 0, 0
   index: -1
 normal1/women_foot2
   rotate: true
-  xy: 750, 254
+  xy: 160, 455
   size: 31, 75
   orig: 31, 75
   offset: 0, 0
   index: -1
 normal1/women_forearm1
-  rotate: false
-  xy: 282, 207
+  rotate: true
+  xy: 601, 945
   size: 28, 120
   orig: 28, 120
   offset: 0, 0
   index: -1
 normal1/women_forearm2
   rotate: true
-  xy: 384, 251
+  xy: 402, 690
   size: 29, 120
   orig: 29, 120
   offset: 0, 0
   index: -1
 normal1/women_hand1_a
-  rotate: false
-  xy: 124, 49
+  rotate: true
+  xy: 672, 917
   size: 26, 52
   orig: 26, 52
   offset: 0, 0
   index: -1
 normal1/women_hand2_a
-  rotate: false
-  xy: 633, 195
+  rotate: true
+  xy: 62, 259
   size: 27, 52
   orig: 27, 52
   offset: 0, 0
   index: -1
 normal1/women_head
-  rotate: true
-  xy: 666, 262
+  rotate: false
+  xy: 539, 813
   size: 61, 82
   orig: 61, 82
   offset: 0, 0
   index: -1
 normal1/women_leg1
-  rotate: true
-  xy: 527, 444
+  rotate: false
+  xy: 2, 259
   size: 58, 190
   orig: 58, 190
   offset: 0, 0
   index: -1
 normal1/women_leg2
   rotate: true
-  xy: 527, 384
+  xy: 409, 963
   size: 58, 190
   orig: 58, 190
   offset: 0, 0
   index: -1
 normal1/women_neck
-  rotate: false
-  xy: 124, 11
+  rotate: true
+  xy: 673, 830
   size: 31, 36
   orig: 31, 36
   offset: 0, 0
   index: -1
 normal1/women_shin1
   rotate: true
-  xy: 527, 344
+  xy: 764, 983
   size: 38, 163
   orig: 38, 163
   offset: 0, 0
   index: -1
 normal1/women_shin2
   rotate: false
-  xy: 141, 121
+  xy: 120, 457
   size: 38, 163
   orig: 38, 163
   offset: 0, 0
   index: -1
 normal1/women_vest
   rotate: false
-  xy: 284, 333
+  xy: 2, 451
   size: 116, 169
   orig: 116, 169
   offset: 0, 0
