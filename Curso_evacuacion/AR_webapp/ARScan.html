@@ -241,16 +241,16 @@
     var geometry = new THREE.PlaneGeometry(240, 165);
     var capa1Mesh = new THREE.Mesh(geometry, material);
     capa1Mesh.position.y = 20;
-    capa1Mesh.position.z=100;
+    capa1Mesh.position.z=50;
     capa3Mesh.add(capa1Mesh)
 
     var correctTexture = new THREE.TextureLoader().load( "assets/correctTexture.png" );
     var dangerTexture = new THREE.TextureLoader().load( "assets/dangerTexture.png" );
 
     var material = new THREE.MeshBasicMaterial({map: correctTexture, transparent:true});
-    var geometry = new THREE.PlaneGeometry(50, 50);
+    var geometry = new THREE.PlaneGeometry(20, 20);
     var answerResponse = new THREE.Mesh(geometry, material);
-    answerResponse.y = 0;
+    answerResponse.y = 50;
     answerResponse.position.z = 100;
 	
 	capa3Mesh.add(answerResponse);

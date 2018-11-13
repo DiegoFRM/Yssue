@@ -189,7 +189,7 @@
 var anim;
 
 
-function load (name, scale, z, objectAdd,number) {
+function load (name, scale, z, objectAdd,number,x) {
 	if (anim) anim.dispose();
 	anim = new SpineAnimation(name, 'assets/Spine/', scale);
 	anim.rotation.x = -Math.PI/2;
@@ -203,6 +203,7 @@ function load (name, scale, z, objectAdd,number) {
 	//scene.add(anim);
 	anim.position.y =50;
 	anim.position.z = z;
+    anim.position.x = x;
 	objectAdd.add(anim);
 }
 
@@ -211,6 +212,7 @@ function loadSpine(objectAdd,markId){
 	var number = 1;
 	var scale
 	var z
+    var x;
 	capa3Mesh.visible =false;
 	videoMesh.visible = false;
 console.log("loadSpine")
@@ -218,7 +220,8 @@ console.log("loadSpine")
 		case "ar1":
 		number = 8;
 		scale = 0.08;
-		z = 0;
+		z = -40;
+        x = 0;
 
 		/*videoElement.playsinline = true;
 		videoElement.muted = true;
@@ -230,6 +233,7 @@ console.log("loadSpine")
 		capa2Mesh.material.map = layerTexture2[0];
 		capa1Mesh.material.map = layerTexture1[0];
 		answerResponse.material.map = correctTexture;
+answerResponse.position.x = 0;
 		break;
 		case "ar1B":
 		capa3Mesh.visible = true;
@@ -240,6 +244,8 @@ console.log("loadSpine")
 		number = 4;
 		scale = 0.05;
 		z = -50;
+        x = 20;
+answerResponse.position.x = 20;
 		break;
 	}
     capa2Mesh.visible = true;
