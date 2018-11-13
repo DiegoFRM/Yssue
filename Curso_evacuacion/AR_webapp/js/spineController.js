@@ -221,7 +221,7 @@ console.log("loadSpine")
 		case "ar1":
 		number = 8;
 		scale = 0.06;
-		z = 10;
+		z = 30;
         x = 0;
 
 		/*videoElement.playsinline = true;
@@ -235,7 +235,7 @@ console.log("loadSpine")
 		capa1Mesh.material.map = layerTexture1[0];
 		answerResponse.material.map = correctTexture;
         answerResponse.position.x = 0;
-        answerResponse.position.y = 40;
+        answerResponse.position.y = 20;
 		break;
 		case "ar1B":
 		capa3Mesh.visible = true;
@@ -245,10 +245,10 @@ console.log("loadSpine")
 		answerResponse.material.map = dangerTexture;
 		number = 4;
 		scale = 0.05;
-		z = 20;
-        x = 30;
-        answerResponse.position.x = 30;
-        answerResponse.position.y = 40;
+		z = 30;
+        x = 25;
+        answerResponse.position.x = 25;
+        answerResponse.position.y = 10;
 		break;
 	}
     capa2Mesh.visible = false;
