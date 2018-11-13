@@ -235,7 +235,7 @@ console.log("loadSpine")
 		capa1Mesh.material.map = layerTexture1[0];
 		answerResponse.material.map = correctTexture;
         answerResponse.position.x = 0;
-        answerResponse.position.x = 40;
+        answerResponse.position.y = 40;
 		break;
 		case "ar1B":
 		capa3Mesh.visible = true;
@@ -248,7 +248,7 @@ console.log("loadSpine")
 		z = 10;
         x = 19;
         answerResponse.position.x = 19;
-        answerResponse.position.x = 30;
+        answerResponse.position.y = 30;
 		break;
 	}
     capa2Mesh.visible = false;
