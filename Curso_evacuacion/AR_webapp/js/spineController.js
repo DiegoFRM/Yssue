@@ -202,10 +202,10 @@ console.log("Read animatyion")
 		
 	});
 	//scene.add(anim);
-	anim.position.y = 40;
+	anim.position.y = 60;
 	anim.position.z = z;
     anim.position.x = x;
-	objectAdd.add(anim);
+    objectAdd.add(anim);
 }
 
 
@@ -220,7 +220,7 @@ console.log("loadSpine")
 	switch(markId){
 		case "ar1":
 		number = 8;
-		scale = 0.08;
+		scale = 0.07;
 		z = 0;
         x = 0;
 
@@ -229,7 +229,7 @@ console.log("loadSpine")
 		videoElement.autoplay=true;
 		videoElement.load();
 		videoMesh.visible = true;*/
-		//capa3Mesh.visible = true;
+		capa3Mesh.visible = true;
 		capa3Mesh.material.map = layerTexture3[0];
 		capa2Mesh.material.map = layerTexture2[0];
 		capa1Mesh.material.map = layerTexture1[0];
@@ -237,24 +237,24 @@ console.log("loadSpine")
 answerResponse.position.x = 0;
 		break;
 		case "ar1B":
-		//capa3Mesh.visible = true;
+		capa3Mesh.visible = true;
 		capa3Mesh.material.map = layerTexture3[1];
 		capa2Mesh.material.map = layerTexture2[1];
 		capa1Mesh.material.map = layerTexture1[1];
 		answerResponse.material.map = dangerTexture;
 		number = 4;
 		scale = 0.05;
-		z = 0;
-        x = 0;
+		z = 10;
+        x = 20;
 answerResponse.position.x = 20;
 		break;
 	}
     capa2Mesh.visible = false;
 	//fondo.material.map = new THREE.TextureLoader().load( "assets/background"+markId+".jpg" );
 	if(number == 1 || number == 2 || number == 3 || number == 4 || number == 8 ){
-		load('avatars_front',scale,z,objectAdd,number)
+		load('avatars_front',scale,z,objectAdd,number,x)
 	}
 	else{
-		load('avatars_side',scale,z,objectAdd,number)
+		load('avatars_side',scale,z,objectAdd,number,x)
 	}
 }
