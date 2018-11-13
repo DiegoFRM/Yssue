@@ -228,7 +228,7 @@ console.log("loadSpine")
 		videoElement.autoplay=true;
 		videoElement.load();
 		videoMesh.visible = true;*/
-		capa3Mesh.visible = true;
+		//capa3Mesh.visible = true;
 		capa3Mesh.material.map = layerTexture3[0];
 		capa2Mesh.material.map = layerTexture2[0];
 		capa1Mesh.material.map = layerTexture1[0];
@@ -236,7 +236,7 @@ console.log("loadSpine")
 answerResponse.position.x = 0;
 		break;
 		case "ar1B":
-		capa3Mesh.visible = true;
+		//capa3Mesh.visible = true;
 		capa3Mesh.material.map = layerTexture3[1];
 		capa2Mesh.material.map = layerTexture2[1];
 		capa1Mesh.material.map = layerTexture1[1];
