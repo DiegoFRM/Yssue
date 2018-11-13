@@ -201,7 +201,7 @@ function load (name, scale, z, objectAdd,number) {
 		
 	});
 	//scene.add(anim);
-	anim.position.y =40;
+	anim.position.y =50;
 	anim.position.z = z;
 	objectAdd.add(anim);
 }

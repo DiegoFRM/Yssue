@@ -209,7 +209,7 @@
     layerTexture3.push(texture)
 
    	var material = new THREE.MeshBasicMaterial({map: texture});
-    var geometry = new THREE.PlaneGeometry(200, 200);
+    var geometry = new THREE.PlaneGeometry(300, 206);
     var capa3Mesh = new THREE.Mesh(geometry, material);
     capa3Mesh.rotation.x = -Math.PI/2;
     capa3Mesh.position.y=-100;
@@ -222,7 +222,7 @@
     layerTexture2.push(texture)
 
    	var material = new THREE.MeshBasicMaterial({map: texture, transparent:true});
-    var geometry = new THREE.PlaneGeometry(200, 200);
+    var geometry = new THREE.PlaneGeometry(300, 206);
     var capa2Mesh = new THREE.Mesh(geometry, material);
     //ar1BadMesh.rotation.x = -Math.PI/2;
     capa2Mesh.position.y = 0;
@@ -236,7 +236,7 @@
 	layerTexture1.push(texture);
 
    	var material = new THREE.MeshBasicMaterial({map: texture, transparent:true});
-    var geometry = new THREE.PlaneGeometry(200, 200);
+    var geometry = new THREE.PlaneGeometry(300, 206);
     var capa1Mesh = new THREE.Mesh(geometry, material);
     capa1Mesh.position.y = 0;
     capa1Mesh.position.z=100;
@@ -248,7 +248,7 @@
     var material = new THREE.MeshBasicMaterial({map: correctTexture, transparent:true});
     var geometry = new THREE.PlaneGeometry(50, 50);
     var answerResponse = new THREE.Mesh(geometry, material);
-    answerResponse.y = -50;
+    answerResponse.y = 0;
     answerResponse.position.z = 100;
 
     var texture = new THREE.VideoTexture(videoElement);
