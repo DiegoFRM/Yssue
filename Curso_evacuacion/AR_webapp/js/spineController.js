@@ -215,7 +215,7 @@ function loadSpine(objectAdd,markId){
 	var z
     var x;
 	capa3Mesh.visible =false;
-	videoMesh.visible = false;
+	//videoMesh.visible = false;
 console.log("loadSpine")
 	switch(markId){
 		case "ar1":
