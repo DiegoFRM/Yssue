@@ -198,6 +198,7 @@ function load (name, scale, z, objectAdd,number,x) {
 		//var canvas = renderer.domElement;
 		anim.skeleton.setSkinByName("men");
 		anim.state.setAnimationByName(0, 'animacion'+number, true);
+console.log("Read animatyion")
 		
 	});
 	//scene.add(anim);
