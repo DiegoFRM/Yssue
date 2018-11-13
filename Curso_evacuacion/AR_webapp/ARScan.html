@@ -211,7 +211,7 @@
     layerTexture3.push(texture)
 
    	var material = new THREE.MeshBasicMaterial({map: texture});
-    var geometry = new THREE.PlaneGeometry(240, 132);
+    var geometry = new THREE.PlaneGeometry(260, 132);
     var capa3Mesh = new THREE.Mesh(geometry, material);
     capa3Mesh.rotation.x = -Math.PI/2;
     capa3Mesh.position.y=-30;
@@ -241,7 +241,7 @@
     var geometry = new THREE.PlaneGeometry(192, 132);
     var capa1Mesh = new THREE.Mesh(geometry, material);
     capa1Mesh.position.y = 0;
-    capa1Mesh.position.z=50;
+    capa1Mesh.position.z=30;
     capa3Mesh.add(capa1Mesh)
 
     var correctTexture = new THREE.TextureLoader().load( "assets/correctTexture.png" );
