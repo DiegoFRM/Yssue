@@ -220,7 +220,7 @@ console.log("loadSpine")
 		case "ar1":
 		number = 8;
 		scale = 0.08;
-		z = -40;
+		z = -100;
         x = 0;
 
 		/*videoElement.playsinline = true;
