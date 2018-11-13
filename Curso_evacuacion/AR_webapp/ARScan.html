@@ -51,7 +51,7 @@
   			}
 
   			if(currentMarkers.indexOf(markerId) ==-1){
-  				console.log("findMarker with name ",markerId)
+  				console.log("findMarker with name ",markerId,"v4")
   				currentMarkers.push(markerId)
   			}
   		}
@@ -203,53 +203,57 @@
    	mesh.rotation.x = -Math.PI/2;
     mesh.position.y =0.1;
     arWorldRoot.add(mesh)*/
-    var texture = new THREE.TextureLoader().load( "./assets/ar1_layer3.png" );
+
+
+    var texture = new THREE.TextureLoader().load( "./assets/g1/ar1_layer2.png" );
     layerTexture3.push(texture)
-    texture = new THREE.TextureLoader().load( "./assets/ar1Bad_layer3.png" );
+    texture = new THREE.TextureLoader().load( "./assets/b1/ar1Bad_layer2.png" );
     layerTexture3.push(texture)
 
    	var material = new THREE.MeshBasicMaterial({map: texture});
-    var geometry = new THREE.PlaneGeometry(200, 200);
+    var geometry = new THREE.PlaneGeometry(240, 165);
     var capa3Mesh = new THREE.Mesh(geometry, material);
     capa3Mesh.rotation.x = -Math.PI/2;
-    capa3Mesh.position.y=-100;
+    capa3Mesh.position.y=-60;
     capa3Mesh.position.z = 0;
     arWorldRoot.add(capa3Mesh);
 
-    var texture = new THREE.TextureLoader().load( "./assets/ar1_layer2.png" );
+    var texture = new THREE.TextureLoader().load( "./assets/g1/ar1_layer2.png" );
     layerTexture2.push(texture)
-    texture = new THREE.TextureLoader().load( "./assets/ar1Bad_layer2.png" );
+    texture = new THREE.TextureLoader().load( "./assets/b1/ar1Bad_layer2.png" );
     layerTexture2.push(texture)
 
    	var material = new THREE.MeshBasicMaterial({map: texture, transparent:true});
-    var geometry = new THREE.PlaneGeometry(200, 200);
+    var geometry = new THREE.PlaneGeometry(240, 165);
     var capa2Mesh = new THREE.Mesh(geometry, material);
     //ar1BadMesh.rotation.x = -Math.PI/2;
     capa2Mesh.position.y = 0;
-    capa2Mesh.position.z=20;
+    capa2Mesh.position.z=60;
  	capa3Mesh.add(capa2Mesh)
  	capa3Mesh.visible = false;
 
- 	var texture = new THREE.TextureLoader().load( "./assets/ar1_layer1.png" );
+ 	var texture = new THREE.TextureLoader().load( "./assets/g1/ar1_layer1.png" );
  	layerTexture1.push(texture);
- 	texture = new THREE.TextureLoader().load( "./assets/ar1Bad_layer1.png" );
+ 	texture = new THREE.TextureLoader().load( "./assets/b1/ar1Bad_layer1.png" );
 	layerTexture1.push(texture);
 
    	var material = new THREE.MeshBasicMaterial({map: texture, transparent:true});
-    var geometry = new THREE.PlaneGeometry(200, 200);
+    var geometry = new THREE.PlaneGeometry(240, 165);
     var capa1Mesh = new THREE.Mesh(geometry, material);
-    capa1Mesh.position.y = 0;
-    capa1Mesh.position.z=40;
+    capa1Mesh.position.y = 20;
+    capa1Mesh.position.z=50;
     capa3Mesh.add(capa1Mesh)
 
     var correctTexture = new THREE.TextureLoader().load( "assets/correctTexture.png" );
     var dangerTexture = new THREE.TextureLoader().load( "assets/dangerTexture.png" );
 
     var material = new THREE.MeshBasicMaterial({map: correctTexture, transparent:true});
-    var geometry = new THREE.PlaneGeometry(50, 50);
+    var geometry = new THREE.PlaneGeometry(20, 20);
     var answerResponse = new THREE.Mesh(geometry, material);
-    answerResponse.y = -50;
-    answerResponse.position.z = 100;
+    answerResponse.position.y = 20;
+    answerResponse.position.z = 60;
+	
+	capa3Mesh.add(answerResponse);
 
     var texture = new THREE.VideoTexture(videoElement);
     texture.minFilter = THREE.LinearFilter;

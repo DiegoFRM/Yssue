@@ -189,7 +189,7 @@
 var anim;
 
 
-function load (name, scale, z, objectAdd,number) {
+function load (name, scale, z, objectAdd,number,x) {
 	if (anim) anim.dispose();
 	anim = new SpineAnimation(name, 'assets/Spine/', scale);
 	anim.rotation.x = -Math.PI/2;
@@ -201,8 +201,9 @@ function load (name, scale, z, objectAdd,number) {
 		
 	});
 	//scene.add(anim);
-	anim.position.y =40;
+	anim.position.y = 40;
 	anim.position.z = z;
+    anim.position.x = x;
 	objectAdd.add(anim);
 }
 
@@ -211,6 +212,7 @@ function loadSpine(objectAdd,markId){
 	var number = 1;
 	var scale
 	var z
+    var x;
 	capa3Mesh.visible =false;
 	videoMesh.visible = false;
 console.log("loadSpine")
@@ -218,30 +220,35 @@ console.log("loadSpine")
 		case "ar1":
 		number = 8;
 		scale = 0.08;
-		z = 20;
+		z = 0;
+        x = 0;
 
 		/*videoElement.playsinline = true;
 		videoElement.muted = true;
 		videoElement.autoplay=true;
 		videoElement.load();
 		videoMesh.visible = true;*/
-		capa3Mesh.visible = true;
+		//capa3Mesh.visible = true;
 		capa3Mesh.material.map = layerTexture3[0];
 		capa2Mesh.material.map = layerTexture2[0];
 		capa1Mesh.material.map = layerTexture1[0];
 		answerResponse.material.map = correctTexture;
+answerResponse.position.x = 0;
 		break;
 		case "ar1B":
-		capa3Mesh.visible = true;
+		//capa3Mesh.visible = true;
 		capa3Mesh.material.map = layerTexture3[1];
 		capa2Mesh.material.map = layerTexture2[1];
 		capa1Mesh.material.map = layerTexture1[1];
 		answerResponse.material.map = dangerTexture;
 		number = 4;
 		scale = 0.05;
-		z = 15;
+		z = 0;
+        x = 0;
+answerResponse.position.x = 20;
 		break;
 	}
+    capa2Mesh.visible = false;
 	//fondo.material.map = new THREE.TextureLoader().load( "assets/background"+markId+".jpg" );
 	if(number == 1 || number == 2 || number == 3 || number == 4 || number == 8 ){
 		load('avatars_front',scale,z,objectAdd,number)
