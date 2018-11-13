@@ -204,7 +204,6 @@
     mesh.position.y =0.1;
     arWorldRoot.add(mesh)*/
 
-	console.log("Scale ",arWorldRoot.scale);
 
     var texture = new THREE.TextureLoader().load( "./assets/g1/ar1_layer3.png" );
     layerTexture3.push(texture)
@@ -212,7 +211,7 @@
     layerTexture3.push(texture)
 
    	var material = new THREE.MeshBasicMaterial({map: texture});
-    var geometry = new THREE.PlaneGeometry(300, 206);
+    var geometry = new THREE.PlaneGeometry(240, 165);
     var capa3Mesh = new THREE.Mesh(geometry, material);
     capa3Mesh.rotation.x = -Math.PI/2;
     capa3Mesh.position.y=-100;
@@ -225,7 +224,7 @@
     layerTexture2.push(texture)
 
    	var material = new THREE.MeshBasicMaterial({map: texture, transparent:true});
-    var geometry = new THREE.PlaneGeometry(300, 206);
+    var geometry = new THREE.PlaneGeometry(240, 165);
     var capa2Mesh = new THREE.Mesh(geometry, material);
     //ar1BadMesh.rotation.x = -Math.PI/2;
     capa2Mesh.position.y = 0;
@@ -239,9 +238,9 @@
 	layerTexture1.push(texture);
 
    	var material = new THREE.MeshBasicMaterial({map: texture, transparent:true});
-    var geometry = new THREE.PlaneGeometry(300, 206);
+    var geometry = new THREE.PlaneGeometry(240, 165);
     var capa1Mesh = new THREE.Mesh(geometry, material);
-    capa1Mesh.position.y = 40;
+    capa1Mesh.position.y = 20;
     capa1Mesh.position.z=100;
     capa3Mesh.add(capa1Mesh)
 
@@ -253,6 +252,8 @@
     var answerResponse = new THREE.Mesh(geometry, material);
     answerResponse.y = 0;
     answerResponse.position.z = 100;
+	
+	capa3Mesh.add(answerResponse);
 
     var texture = new THREE.VideoTexture(videoElement);
     texture.minFilter = THREE.LinearFilter;

@@ -239,7 +239,7 @@ console.log("loadSpine")
 		answerResponse.material.map = dangerTexture;
 		number = 4;
 		scale = 0.05;
-		z = 0;
+		z = -50;
 		break;
 	}
     capa2Mesh.visible = true;
