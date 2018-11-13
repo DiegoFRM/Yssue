@@ -245,8 +245,8 @@ answerResponse.position.x = 0;
 		number = 4;
 		scale = 0.05;
 		z = 10;
-        x = 20;
-answerResponse.position.x = 20;
+        x = 19;
+answerResponse.position.x = 19;
 		break;
 	}
     capa2Mesh.visible = false;
