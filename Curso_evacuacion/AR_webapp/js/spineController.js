@@ -200,11 +200,11 @@ function load (name, scale, z, objectAdd,number,x) {
 		anim.state.setAnimationByName(0, 'animacion'+number, true);
 		
 	});
-	scene.add(anim);
-	anim.position.y = 0;
+	//scene.add(anim);
+	anim.position.y = 40;
 	anim.position.z = z;
     anim.position.x = x;
-	//objectAdd.add(anim);
+	objectAdd.add(anim);
 }
 
 
