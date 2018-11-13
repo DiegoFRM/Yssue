@@ -203,9 +203,9 @@
    	mesh.rotation.x = -Math.PI/2;
     mesh.position.y =0.1;
     arWorldRoot.add(mesh)*/
-    var texture = new THREE.TextureLoader().load( "assets/ar1_layer3.png" );
+    var texture = new THREE.TextureLoader().load( "./assets/ar1_layer3.png" );
     layerTexture3.push(texture)
-    texture = new THREE.TextureLoader().load( "assets/ar1Bad_layer3.png" );
+    texture = new THREE.TextureLoader().load( "./assets/ar1Bad_layer3.png" );
     layerTexture3.push(texture)
 
    	var material = new THREE.MeshBasicMaterial({map: texture});
@@ -216,9 +216,9 @@
     capa3Mesh.position.z = -10;
     arWorldRoot.add(capa3Mesh);
 
-    var texture = new THREE.TextureLoader().load( "assets/ar1_layer2.png" );
+    var texture = new THREE.TextureLoader().load( "./assets/ar1_layer2.png" );
     layerTexture2.push(texture)
-    texture = new THREE.TextureLoader().load( "assets/ar1Bad_layer2.png" );
+    texture = new THREE.TextureLoader().load( "./assets/ar1Bad_layer2.png" );
     layerTexture2.push(texture)
 
    	var material = new THREE.MeshBasicMaterial({map: texture, transparent:true});
@@ -230,9 +230,9 @@
  	capa3Mesh.add(capa2Mesh)
  	capa3Mesh.visible = false;
 
- 	var texture = new THREE.TextureLoader().load( "assets/ar1_layer1.png" );
+ 	var texture = new THREE.TextureLoader().load( "./assets/ar1_layer1.png" );
  	layerTexture1.push(texture);
- 	texture = new THREE.TextureLoader().load( "assets/ar1Bad_layer1.png" );
+ 	texture = new THREE.TextureLoader().load( "./assets/ar1Bad_layer1.png" );
 	layerTexture1.push(texture);
 
    	var material = new THREE.MeshBasicMaterial({map: texture, transparent:true});
