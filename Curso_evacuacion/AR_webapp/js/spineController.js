@@ -201,7 +201,7 @@ function load (name, scale, z, objectAdd,number,x) {
 		
 	});
 	scene.add(anim);
-	anim.position.y = 40;
+	anim.position.y = 0;
 	anim.position.z = z;
     anim.position.x = x;
 	//objectAdd.add(anim);
@@ -220,7 +220,7 @@ console.log("loadSpine")
 		case "ar1":
 		number = 8;
 		scale = 0.08;
-		z = 20;
+		z = 0;
         x = 0;
 
 		/*videoElement.playsinline = true;
@@ -243,8 +243,8 @@ answerResponse.position.x = 0;
 		answerResponse.material.map = dangerTexture;
 		number = 4;
 		scale = 0.05;
-		z = 15;
-        x = 20;
+		z = 0;
+        x = 0;
 answerResponse.position.x = 20;
 		break;
 	}
