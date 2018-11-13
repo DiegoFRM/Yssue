@@ -220,8 +220,8 @@ console.log("loadSpine")
 	switch(markId){
 		case "ar1":
 		number = 8;
-		scale = 0.07;
-		z = 0;
+		scale = 0.06;
+		z = 10;
         x = 0;
 
 		/*videoElement.playsinline = true;
@@ -234,7 +234,8 @@ console.log("loadSpine")
 		capa2Mesh.material.map = layerTexture2[0];
 		capa1Mesh.material.map = layerTexture1[0];
 		answerResponse.material.map = correctTexture;
-answerResponse.position.x = 0;
+        answerResponse.position.x = 0;
+        answerResponse.position.x = 40;
 		break;
 		case "ar1B":
 		capa3Mesh.visible = true;
@@ -246,7 +247,8 @@ answerResponse.position.x = 0;
 		scale = 0.05;
 		z = 10;
         x = 19;
-answerResponse.position.x = 19;
+        answerResponse.position.x = 19;
+        answerResponse.position.x = 30;
 		break;
 	}
     capa2Mesh.visible = false;
