@@ -220,7 +220,7 @@ console.log("loadSpine")
 		case "ar1":
 		number = 8;
 		scale = 0.08;
-		z = -100;
+		z = 0;
         x = 0;
 
 		/*videoElement.playsinline = true;
@@ -243,7 +243,7 @@ answerResponse.position.x = 0;
 		answerResponse.material.map = dangerTexture;
 		number = 4;
 		scale = 0.05;
-		z = -50;
+		z = 0;
         x = 20;
 answerResponse.position.x = 20;
 		break;
