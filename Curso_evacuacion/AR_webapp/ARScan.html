@@ -211,10 +211,10 @@
     layerTexture3.push(texture)
 
    	var material = new THREE.MeshBasicMaterial({map: texture});
-    var geometry = new THREE.PlaneGeometry(240, 165);
+    var geometry = new THREE.PlaneGeometry(300, 165);
     var capa3Mesh = new THREE.Mesh(geometry, material);
     capa3Mesh.rotation.x = -Math.PI/2;
-    capa3Mesh.position.y=-60;
+    capa3Mesh.position.y=-30;
     capa3Mesh.position.z = 0;
     arWorldRoot.add(capa3Mesh);
 
@@ -224,11 +224,11 @@
     layerTexture2.push(texture)
 
    	var material = new THREE.MeshBasicMaterial({map: texture, transparent:true});
-    var geometry = new THREE.PlaneGeometry(240, 165);
+    var geometry = new THREE.PlaneGeometry(260, 165);
     var capa2Mesh = new THREE.Mesh(geometry, material);
     //ar1BadMesh.rotation.x = -Math.PI/2;
     capa2Mesh.position.y = 0;
-    capa2Mesh.position.z=60;
+    capa2Mesh.position.z=30;
  	capa3Mesh.add(capa2Mesh)
  	capa3Mesh.visible = false;
 
@@ -251,7 +251,7 @@
     var geometry = new THREE.PlaneGeometry(10, 10);
     var answerResponse = new THREE.Mesh(geometry, material);
     answerResponse.position.y = 30;
-    answerResponse.position.z = 120;
+    answerResponse.position.z = 60;
 	
 	capa3Mesh.add(answerResponse);
 

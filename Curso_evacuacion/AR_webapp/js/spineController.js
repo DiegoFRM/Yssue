@@ -202,7 +202,7 @@ console.log("Read animatyion")
 		
 	});
 	//scene.add(anim);
-	anim.position.y = 60;
+	anim.position.y = 30;
 	anim.position.z = z;
     anim.position.x = x;
     objectAdd.add(anim);
