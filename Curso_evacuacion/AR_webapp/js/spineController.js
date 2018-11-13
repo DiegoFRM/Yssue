@@ -248,7 +248,7 @@ answerResponse.position.x = 0;
 answerResponse.position.x = 20;
 		break;
 	}
-    capa2Mesh.visible = true;
+    capa2Mesh.visible = false;
 	//fondo.material.map = new THREE.TextureLoader().load( "assets/background"+markId+".jpg" );
 	if(number == 1 || number == 2 || number == 3 || number == 4 || number == 8 ){
 		load('avatars_front',scale,z,objectAdd,number)
