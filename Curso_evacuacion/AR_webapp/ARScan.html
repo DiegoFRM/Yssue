@@ -203,6 +203,9 @@
    	mesh.rotation.x = -Math.PI/2;
     mesh.position.y =0.1;
     arWorldRoot.add(mesh)*/
+
+	console.log("Scale ",arWorldRoot.scale);
+
     var texture = new THREE.TextureLoader().load( "./assets/g1/ar1_layer3.png" );
     layerTexture3.push(texture)
     texture = new THREE.TextureLoader().load( "./assets/b1/ar1Bad_layer3.png" );
@@ -238,7 +241,7 @@
    	var material = new THREE.MeshBasicMaterial({map: texture, transparent:true});
     var geometry = new THREE.PlaneGeometry(300, 206);
     var capa1Mesh = new THREE.Mesh(geometry, material);
-    capa1Mesh.position.y = 0;
+    capa1Mesh.position.y = 40;
     capa1Mesh.position.z=100;
     capa3Mesh.add(capa1Mesh)
 

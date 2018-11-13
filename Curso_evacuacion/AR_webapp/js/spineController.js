@@ -218,7 +218,7 @@ console.log("loadSpine")
 		case "ar1":
 		number = 8;
 		scale = 0.08;
-		z = 20;
+		z = 0;
 
 		/*videoElement.playsinline = true;
 		videoElement.muted = true;
@@ -239,9 +239,10 @@ console.log("loadSpine")
 		answerResponse.material.map = dangerTexture;
 		number = 4;
 		scale = 0.05;
-		z = 15;
+		z = 0;
 		break;
 	}
+    capa2Mesh.visible = true;
 	//fondo.material.map = new THREE.TextureLoader().load( "assets/background"+markId+".jpg" );
 	if(number == 1 || number == 2 || number == 3 || number == 4 || number == 8 ){
 		load('avatars_front',scale,z,objectAdd,number)
