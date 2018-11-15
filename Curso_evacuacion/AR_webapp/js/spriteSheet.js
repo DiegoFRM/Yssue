@@ -4,7 +4,7 @@ function CreateSpriteSheets(textureObject,animations, frameWidth, frameHeigth, t
 	
 	textureObject.animations = [];
 	for(var i = 0; i < animations.length; i++){
-		textureObject.animations[animations[i].anim]={'frames':animations[i].frames,'speed':animations[i].speed,'onComplete':animations[i].onComplete};
+		textureObject.animations[animations[i].anim]={'frames':animations[i].frames,'speed':animations[i].speed,'onComplete':animations[i].onComplete,'loop':animations[i].loop};
 	}
 	textureObject.framesWidth = frameWidth;
 	textureObject.framesHeight = frameHeigth;
@@ -20,13 +20,16 @@ function CreateSpriteSheets(textureObject,animations, frameWidth, frameHeigth, t
 	textureObject.anisotropy = 0;
 	textureObject.magFilter = THREE.NearestFilter;
 	textureObject.minFilter = THREE.NearestFilter;
-	
+	textureObject.pause = true;
 	
 	
 }
 
+
 function updateAnims(delta){
-	
+	if(this.pause){
+		return;
+	}
 	this.currentTime+=delta;
 	//console.log("Update textures "+rayTexture.currentTime+"  "+rayTexture.animations[rayTexture.currentAnim].speed);
 	//console.log(rayTexture.currentAnim);
@@ -40,7 +43,14 @@ function updateAnims(delta){
 			//EndofAnimation
 			if(this.animations[this.currentAnim].onComplete==null){
 				//loop
-				this.idAnim = 0;
+				if(this.animations[this.currentAnim].loop){
+					this.idAnim = 0;
+				
+				}
+				else{
+					this.idAnim --;
+					this.pause = true;
+				}
 			}
 			else{
 				this.animations[this.currentAnim].onComplete(this);
@@ -59,7 +69,9 @@ function updateAnims(delta){
 
 function setAnim(texture,anim){
 	texture.currentAnim = anim;
-	rayTexture.idAnim = 0;
+	texture.idAnim = 0;
+	texture.pause = false;
+	texture.currentTime = 0;
 	setOffset(texture);
 	
 }

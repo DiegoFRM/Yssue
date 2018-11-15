@@ -189,40 +189,44 @@
 var anim;
 
 
-function load (name, scale, z, objectAdd,number,x) {
+function load (name, scale, z, objectAdd,number,x,animation) {
 	if (anim) anim.dispose();
 	anim = new SpineAnimation(name, 'assets/Spine/', scale);
-	anim.rotation.x = -Math.PI/2;
+	//anim.rotation.x = -Math.PI/2;
 	//anim.position.y=0.1;
 	anim.addEventListener(SpineAnimation.SKELETON_DATA_LOADED, function () {
 		//var canvas = renderer.domElement;
-		anim.skeleton.setSkinByName("men");
-		anim.state.setAnimationByName(0, 'animacion'+number, true);
-console.log("Read animatyion")
+		anim.skeleton.setSkinByName("answer"+number);
+		anim.state.setAnimationByName(0, animation, false);
 		
 	});
-	//scene.add(anim);
-	anim.position.y = 30;
+	scene.add(anim);
+	/*anim.position.y = -30;
 	anim.position.z = z;
-    anim.position.x = x;
-    objectAdd.add(anim);
+    anim.position.x = x;*/
+
+    anim.position.y = -10;
+	anim.position.z = -10;
+    anim.position.x = -10;
+    //objectAdd.add(anim);
 }
 
 
 function loadSpine(objectAdd,markId){
 	var number = 1;
-	var scale
-	var z
-    var x;
-	capa3Mesh.visible =false;
+	var scale = 0.2;
+	var z= 20;
+    var x = -50;
+    var animation = "";
+	//capa3Mesh.visible =false;
 	//videoMesh.visible = false;
 console.log("loadSpine")
 	switch(markId){
 		case "ar1":
-		number = 8;
+		/*number = 8;
 		scale = 0.06;
 		z = 10;
-        x = 0;
+        x = 0;*/
 
 		/*videoElement.playsinline = true;
 		videoElement.muted = true;
@@ -231,16 +235,18 @@ console.log("loadSpine")
 		videoMesh.visible = true;*/
 		capa3Mesh.visible = true;
 		capa3Mesh.material.map = layerTexture3[0];
-		capa2Mesh.material.map = layerTexture2[0];
+		animation = "correct";
+		/*capa2Mesh.material.map = layerTexture2[0];
 		capa1Mesh.material.map = layerTexture1[0];
 		answerResponse.material.map = correctTexture;
         answerResponse.position.x = 0;
-        answerResponse.position.y = 30;
+        answerResponse.position.y = 30;*/
 		break;
 		case "ar1B":
 		capa3Mesh.visible = true;
 		capa3Mesh.material.map = layerTexture3[1];
-		capa2Mesh.material.map = layerTexture2[1];
+		animation = "wrong";
+		/*capa2Mesh.material.map = layerTexture2[1];
 		capa1Mesh.material.map = layerTexture1[1];
 		answerResponse.material.map = dangerTexture;
 		number = 4;
@@ -248,15 +254,16 @@ console.log("loadSpine")
 		z = 30;
         x = 25;
         answerResponse.position.x = 25;
-        answerResponse.position.y = 10;
+        answerResponse.position.y = 10;*/
 		break;
 	}
-    capa2Mesh.visible = false;
+    //capa2Mesh.visible = false;
 	//fondo.material.map = new THREE.TextureLoader().load( "assets/background"+markId+".jpg" );
-	if(number == 1 || number == 2 || number == 3 || number == 4 || number == 8 ){
+	/*if(number == 1 || number == 2 || number == 3 || number == 4 || number == 8 ){
 		load('avatars_front',scale,z,objectAdd,number,x)
 	}
 	else{
 		load('avatars_side',scale,z,objectAdd,number,x)
-	}
+	}*/
+	load('banners',scale,z,objectAdd,number,x,animation)
 }

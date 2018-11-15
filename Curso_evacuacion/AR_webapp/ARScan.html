@@ -31,7 +31,7 @@
   		var layerTexture1 = []
   		var layerTexture2 = []
   		var layerTexture3 = []
-
+  		var textureAnimations = []
   		var videoElement = document.getElementById("videoElement");
 
   		videoElement.playsinline = true;
@@ -45,9 +45,23 @@
   		function FindMarker(markerId){
   			
   			if(currentAnim != markerId){
-  				videoElement.pause();
+  				//videoElement.pause();
   				currentAnim = markerId;
-  				loadSpine(arWorldRoot,currentAnim)
+  				//loadSpine(arWorldRoot,currentAnim)
+  				switch(markerId){
+  					case "ar1":
+  						meshAnim.material.map = textureAnimations[0];
+  						setAnim(textureAnimations[0],"loop");
+  						capa3Mesh.material.map = layerTexture3[0];
+  					break;
+  					case "ar1B":
+  						meshAnim.material.map = textureAnimations[1];
+  						setAnim(textureAnimations[1],"loop");
+  						capa3Mesh.material.map = layerTexture3[1];
+
+  					break;
+  				}
+
   			}
 
   			if(currentMarkers.indexOf(markerId) ==-1){
@@ -62,7 +76,7 @@
 
 		// init renderer
 		 var renderer = new THREE.WebGLRenderer({
-		 // antialias : true,
+		  antialias : true,
 		 alpha: true
 		 });
 		 renderer.setClearColor(new THREE.Color('lightgrey'), 0)
@@ -193,32 +207,35 @@
 
 
 	var arWorldRoot = smoothedRoot
-	/*var texture = new THREE.TextureLoader().load( "assets/testSpriteSheet.png" );
-	CreateSpriteSheets(texture,[{anim:"loop",frames:[21,22,23,24,25,26,27,14,15,16,17,18,19,20,7,8,9,10,11,12,13,0,1,2,3,4,5],speed:0.05,onComplete:null}],74.3,87,520,347);
-
+	var textureAnim1Good = new THREE.TextureLoader().load( "assets/ans1/QUESTION1_527x192_20f_30fps.png" );
+	CreateSpriteSheets(textureAnim1Good,[{anim:"loop",frames:[18,19,20,15,16,17,12,13,14,9,10,11,6,7,8,3,4,5,0,1],speed:0.05,onComplete:null,loop:false}],527,192,1581,1344);
+	textureAnimations.push(textureAnim1Good)
+	var textureAnim1Bad = new THREE.TextureLoader().load( "assets/testSpriteSheet.png" );
+	CreateSpriteSheets(textureAnim1Bad,[{anim:"loop",frames:[21,22,23,24,25,26,27,14,15,16,17,18,19,20,7,8,9,10,11,12,13,0,1,2,3,4,5],speed:0.05,onComplete:null,loop:false}],74.3,87,520,347);
+	textureAnimations.push(textureAnim1Bad)
 	//CreateSpriteSheets(texture,[{anim:"loop",frames:[15],speed:1,onComplete:null}],74.2,87,520,347);
-	var material = new THREE.MeshBasicMaterial({map: texture});
-    var geometry = new THREE.PlaneGeometry(2, 2);
-    var mesh = new THREE.Mesh(geometry, material);
-   	mesh.rotation.x = -Math.PI/2;
-    mesh.position.y =0.1;
-    arWorldRoot.add(mesh)*/
+	var material = new THREE.MeshBasicMaterial({map: textureAnim1Good, transparent:true});
+    var geometry = new THREE.PlaneGeometry(100, 100);
+    var meshAnim = new THREE.Mesh(geometry, material);
+   	meshAnim.rotation.x = -Math.PI/2;
+    meshAnim.position.y =-30;
+    arWorldRoot.add(meshAnim)
 
 
-    var texture = new THREE.TextureLoader().load( "./assets/g1/ar1_layer2.png" );
+    var texture = new THREE.TextureLoader().load( "./assets/ans1/ans1_good.jpg" );
     layerTexture3.push(texture)
-    texture = new THREE.TextureLoader().load( "./assets/b1/ar1Bad_layer2.png" );
+    texture = new THREE.TextureLoader().load( "./assets/ans1/ans1_wrong.jpg" );
     layerTexture3.push(texture)
 
    	var material = new THREE.MeshBasicMaterial({map: texture});
-    var geometry = new THREE.PlaneGeometry(260, 132);
+    var geometry = new THREE.PlaneGeometry(416, 211);
     var capa3Mesh = new THREE.Mesh(geometry, material);
     capa3Mesh.rotation.x = -Math.PI/2;
-    capa3Mesh.position.y=-30;
+    capa3Mesh.position.y=-150;
     capa3Mesh.position.z = 0;
     arWorldRoot.add(capa3Mesh);
 
-    var texture = new THREE.TextureLoader().load( "./assets/g1/ar1_layer2.png" );
+    /*var texture = new THREE.TextureLoader().load( "./assets/g1/ar1_layer2.png" );
     layerTexture2.push(texture)
     texture = new THREE.TextureLoader().load( "./assets/b1/ar1Bad_layer2.png" );
     layerTexture2.push(texture)
@@ -253,7 +270,7 @@
     answerResponse.position.y = 30;
     answerResponse.position.z = 60;
 	
-	capa3Mesh.add(answerResponse);
+	capa3Mesh.add(answerResponse);*/
 
     /*var texture = new THREE.VideoTexture(videoElement);
     texture.minFilter = THREE.LinearFilter;
@@ -271,12 +288,20 @@
     //loadSpine(arWorldRoot)
 	onRenderFcts.push(function(delta){
 		
-	 if(anim!=null){
+	 /*if(anim!=null){
 	 	//anim.rotation.z += 0.1
-		 anim.update(delta)
-	}
-	 //texture.update(delta)
-
+		 anim.update(delta)*/
+		/*if(anim!=null){
+			if(arWorldRoot.visible){
+				anim.visible = true;
+			}
+		}*/
+	//}
+	 meshAnim.material.map.update(delta)
+	 if(!arWorldRoot.visible){
+	 	//console.log("no marker");
+	 	currentAnim = "";
+	 }
 	 })
 
 	//////////////////////////////////////////////////////////////////////////////////
