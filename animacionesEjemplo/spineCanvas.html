@@ -1,0 +1,49 @@
+<html>
+<script src="./spine-widget.js"></script>
+<script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+<body>
+<center>
+<!-- You can programmatically initialize a widget -->
+<div id="spine-widget" style="margin-bottom: 20px; width: 640px; height: 640px;"></div>
+</center>
+</body>
+<script>
+function supportsWebGL() {
+	try {
+		var canvas = document.createElement("canvas");
+		var ctx = canvas.getContext("webgl") || canvas.getContext("experimental-webgl");
+		return ctx != null;
+	} catch(e) {
+		return false;
+	}
+}
+if (!supportsWebGL()) {
+	alert('WebGL is unavailable.');
+}
+
+/*window.onload = function(){
+	spineWidget.setAnimation("animacion2");
+}*/
+
+spineWidget = new spine.SpineWidget("spine-widget", {
+	loop:false,
+	json: "data/avatars_front.json",
+	atlas: "data/avatars_front.atlas",
+	animation: "animacion2",
+	skin:"men",
+	backgroundColor: "#00000000",
+	debug: false,
+	/*success: function (widget) {
+		var animIndex = 0;
+
+		widget.canvas.onload = function () {
+			//animIndex++;
+			var animations = widget.skeleton.data.animations;
+			if (animIndex >= animations.length) animIndex = 0;
+			widget.setAnimation("animacion2");
+		}
+	}*/
+});
+</script>
+</body>
+</html>
