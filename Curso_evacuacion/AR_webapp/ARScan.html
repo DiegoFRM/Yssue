@@ -60,6 +60,13 @@
   						capa3Mesh.material.map = layerTexture3[1];
 
   					break;
+
+					case "ar1B2":
+  						meshAnim.material.map = textureAnimations[2];
+  						setAnim(textureAnimations[2],"loop");
+  						capa3Mesh.material.map = layerTexture3[2];
+
+  					break;
   				}
 
   			}
@@ -188,6 +195,14 @@
 		 patternUrl:'data/data/pattern_1B.patt',
 		 nameId:'ar1B'
 		 // patternUrl : '../../data/data/patt.kanji'
+
+		 var artoolkitMarker3 = new THREEx.ArMarkerControls(arToolkitContext, markerRoot, {
+		 //type : 'barcode',
+		 //value:5,
+		 type:'pattern',
+		 patternUrl:'data/data/pattern_1B2.patt',
+		 nameId:'ar1B2'
+		 // patternUrl : '../../data/data/patt.kanji'
 		 })
 
 		 // build a smoothedControls
@@ -207,12 +222,15 @@
 
 
 	var arWorldRoot = smoothedRoot
-	var textureAnim1Good = new THREE.TextureLoader().load( "assets/ans1/QUESTION1_527x192_20f_30fps.png" );
-	CreateSpriteSheets(textureAnim1Good,[{anim:"loop",frames:[18,19,20,15,16,17,12,13,14,9,10,11,6,7,8,3,4,5,0,1],speed:0.08,onComplete:null,loop:false}],527,192,1581,1344);
+	var textureAnim1Good = new THREE.TextureLoader().load( "assets/ans1/CORRECT1_527f198_31f_30fps.png" );
+	CreateSpriteSheets(textureAnim1Good,[{anim:"loop",frames:[28,29,30,31,24,25,26,27,20,21,22,23,16,17,18,19,12,13,14,15,8,9,10,11,4,5,6,7,0,1,2],speed:0.08,onComplete:null,loop:false}],527,198,2108,1584);
 	textureAnimations.push(textureAnim1Good)
-	var textureAnim1Bad = new THREE.TextureLoader().load( "assets/testSpriteSheet.png" );
-	CreateSpriteSheets(textureAnim1Bad,[{anim:"loop",frames:[21,22,23,24,25,26,27,14,15,16,17,18,19,20,7,8,9,10,11,12,13,0,1,2,3,4,5],speed:0.05,onComplete:null,loop:false}],74.3,87,520,347);
+	var textureAnim1Bad = new THREE.TextureLoader().load( "assets/WRONG1_527x193_33f_30fps.png" );
+	CreateSpriteSheets(textureAnim1Bad,[{anim:"loop",frames:[32,33,34,35,28,29,30,31,24,25,26,27,20,21,22,23,16,17,18,19,12,13,14,15,8,9,10,11,4,5,6,7,0],speed:0.08,onComplete:null,loop:false}],527,193,2108,1737);
 	textureAnimations.push(textureAnim1Bad)
+	var textureAnim1Bad2 = new THREE.TextureLoader().load( "assets/WRONG2_527x193_33f_30fps.png" );
+	CreateSpriteSheets(textureAnim1Bad2,[{anim:"loop",frames:[32,33,34,35,28,29,30,31,24,25,26,27,20,21,22,23,16,17,18,19,12,13,14,15,8,9,10,11,4,5,6,7,0],speed:0.08,onComplete:null,loop:false}],527,193,2108,1737);
+	textureAnimations.push(textureAnim1Bad2)
 	//CreateSpriteSheets(texture,[{anim:"loop",frames:[15],speed:1,onComplete:null}],74.2,87,520,347);
 	var material = new THREE.MeshBasicMaterial({map: textureAnim1Good, transparent:true});
     var geometry = new THREE.PlaneGeometry(229, 77);
@@ -227,6 +245,8 @@
     var texture = new THREE.TextureLoader().load( "./assets/ans1/ans1_good.jpg" );
     layerTexture3.push(texture)
     texture = new THREE.TextureLoader().load( "./assets/ans1/ans1_wrong.jpg" );
+    layerTexture3.push(texture)
+	texture = new THREE.TextureLoader().load( "./assets/ans1/ans1_wrong.jpg" );
     layerTexture3.push(texture)
 
    	var material = new THREE.MeshBasicMaterial({map: texture});
