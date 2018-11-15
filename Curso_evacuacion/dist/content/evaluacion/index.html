@@ -14,7 +14,7 @@
                 overflow-x: hidden;
             }
             
-            h1{
+            h1,h2,h3{
                 font-weight: bold;
                 color: #4059A7;
             }
@@ -26,7 +26,7 @@
                 display: flex;
                 justify-content: space-around;
                 width: 100%;
-                margin-left: -10%;
+                margin-left: 0%;
             }
             
             #contentMain{
@@ -43,16 +43,18 @@
             #questionText{
                 font-size: 1.5vw;
                 color: #4059A7;
-                width: 60%;
-                position: absolute;
+                width: 100%;
+                position: relative;
             }
             
+        
             #courtain{
                 position: absolute;
                 width: 100%;
                 height: 100%;
-                background-color: rgba(0,0,0,0.8);
+                background-color: rgba(0,0,0,0.9);
                 display: none;
+                z-index: 3
             }
             
             #codeQR{
@@ -67,17 +69,7 @@
                 height: 80%;
             }
             
-            #imageQuestion{
-                height: 57%;
-                overflow: hidden;
-                border-top:5px solid #EA9036;
-                position: relative;
-            }  
-            
-            #mediaImage img{
-                width: 100%;
-            }
-            
+
             #feedIcon{
                 position: absolute;
                 height: 20%;
@@ -104,7 +96,76 @@
                 align-items: center;
             }
             
+            #imageQuestion{
+                position: relative;
+                height: 57%;
+                width: 100%;
+                border-top:5px solid #EA9036;
+                
+                overflow: hidden;
+
+            }  
+            
+            #mediaImage{
+                position: relative;
+                height: 40%;
+                width: 100%;
+            }
+            
+            .animation{
+                position: absolute;
+                width: 100%; 
+                height: 100%
+            }
+            
+            .imageAnimation{
+                position: absolute;
+            }
+            
+            .spriteQuestion{
+                position: absolute;
+                width: 527px;
+                height: 192px;
+                z-index: 1;
+                top: 100%;
+                left: -10%;
+                transform: scale(0.6);
+                background-image: url("../../img/QUESTION1%20-%20527x192_20f_30fps.png");
+                animation: playX 1s steps(3),
+                           playY 3s steps(6);
+                animation-fill-mode: forwards;
+            }
+            
+            @keyframes playX {
+              from {background-position-x: 0px;}
+              to {background-position-x: -1581px;}
+            }
+            @keyframes playY {
+              from {background-position-y: 0px;}
+              to {background-position-y: -1152px;}
+            }
+            
             @media (orientation : portrait) { 
+                
+            .spriteQuestion{
+                position: absolute;
+                width: 527px;
+                height: 192px;
+                z-index: 1;
+                top: 100%;
+                left: 0px;
+                transform: scale(0.4);    
+            }
+                
+            #navQuestions{
+                margin-left: 0%;
+                
+            }    
+                
+            .imageAnimation{
+                height: auto;
+                width: 100%;
+            }
                 
                 #questionText{
                     font-size: 3vh;
@@ -144,30 +205,36 @@
             <div id="contentSlide" class="">
                 <div class="text1">
                     <h1>Evaluación </h1>
-                    <div id="navQuestions">
-                        <div id="prevQuestion">Anterior</div> 
-                        <div id="countQuestion">1/10</div>
-                        <div id="nextQuestion">Siguiente</div>
-                    </div>
                       
                 </div>
                 </div>
                 <div id="bodyQuestion" class="">
-                <div  class="">
+                <div  class="container" >
+                    <h3>Pregunta 1:</h3>
+                    <div id="questionText">Como seres humanos, que habitamos el planeta tierra, nos hace proclives a enfrentar riesgos que pueden producir daños en la integridad personal, en nuestros bienes o en el entorno. </div>
                     <div id="imageQuestion">
                         <div id="courtain">
                             <div id="feedIcon"><img src="../../img/feedback_Icon-09.svg"></div>
                             <div id="codeQR"><img src="../../img/q1_bad.png"></div>
                         </div>
+                       
                         <div id="mediaImage">
+                            
                             <!--<img src="../../img/q_bg1.png">-->
                             
                         </div>
                         
                     </div>
-                    <div id="questionText">Como seres humanos, que habitamos el planeta tierra, nos hace proclives a enfrentar riesgos que pueden producir daños en la integridad personal, en nuestros bienes o en el entorno. </div>
+                    
+                    <div id="navQuestions">
+                        <div id="prevQuestion">Anterior</div> 
+                        <div id="countQuestion">1/10</div>
+                        <div id="nextQuestion">Siguiente</div>
+                    </div>
+                    
                 </div>
                 <div class="">
+                    <h2>Posibles respuestas</h2>
                     <div id="ans1" class="buttonQuestion">Riesgos propios del ser humano </div> 
                     <div id="ans2" class="buttonQuestion">Riesgos propios del ser humano </div> 
                     <div id="ans3" class="buttonQuestion">Riesgos propios del ser humano </div>    
@@ -176,16 +243,17 @@
         </div>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
-        
+        <script src="../../js/spine-widget.js"></script>
+
         <script>
             var Questions = 
                 [
                     {
                         question:`Las imágenes anteriores ejemplifican:`,
-                        image:'<iframe width="560" height="315" src="https://www.youtube.com/embed/D91LtzCW6E8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
-                        answer1:`Riesgos propios del ser humano `,
-                        answer2:`Fenómenos naturales que se pueden combatir.`,
-                        answer3:`Destrucción de origen natural o humano. `,
+                        image:'<div class="animation"></div>',
+                        answer1:`A) Riesgos propios del ser humano `,
+                        answer2:`B) Fenómenos naturales que se pueden combatir.`,
+                        answer3:`C) Destrucción de origen natural o humano. `,
                         correct:1,
                         perfectFeedback:`Como seres humanos, que habitamos el planeta tierra, nos hace proclives a enfrentar riesgos que pueden producir daños en la integridad personal, en nuestros bienes o en el entorno. `,
                         goodFeedback:`Frente a los fenómenos naturales se pueden implementar medidas preventivas, para aminorar su impacto, no así combatir los fenómenos.`,
@@ -406,6 +474,76 @@
             
             answersButtons();
             
-        </script>
+            
+            function animationQuestionImage(){
+                $(".animation").append(
+                    `
+                    <div class="spriteQuestion"></div>
+                    <img class="imageAnimation imga4" src="../../img/img_1.jpg" />
+                    <img class="imageAnimation imga3" src="../../img/img_2.jpg" />
+                    <img class="imageAnimation imga2" src="../../img/img_3.jpg" />
+                    <img class="imageAnimation imga1" src="../../img/img_4.jpg" />
+
+                    `
+                )
+            }
+            
+            animationQuestionImage();
+            
+    function animateBanner(){
+        TweenMax.fromTo($(".imga1"),1,{alpha:0},{alpha:1,delay:0});
+        TweenMax.fromTo($(".imga2"),1,{alpha:0},{alpha:1,delay:0});
+        TweenMax.fromTo($(".imga3"),1,{alpha:0},{alpha:1,delay:0});
+        TweenMax.fromTo($(".imga4"),1,{alpha:0},{alpha:1,delay:0});
+        
+        TweenMax.fromTo($(".imga1"),7,{y:0},{y:-100,delay:0});
+        TweenMax.fromTo($(".imga2"),7,{y:0},{y:-100,delay:4});
+        TweenMax.fromTo($(".imga3"),7,{y:0},{y:-100,delay:10});
+        TweenMax.fromTo($(".imga4"),7,{y:-100},{y:-350,delay:14});
+        
+        TweenMax.fromTo($(".imga1"),1,{alpha:1},{alpha:0,delay:6});
+        TweenMax.fromTo($(".imga2"),1,{alpha:1},{alpha:0,delay:10});
+        TweenMax.fromTo($(".imga3"),1,{alpha:1},{alpha:0,delay:16});
+        TweenMax.fromTo($(".imga4"),1,{alpha:1},{alpha:0,delay:20,onComplete:animateBanner});
+    }
+            
+            animateBanner();
+/*
+function supportsWebGL() {
+	try {
+		var canvas = document.createElement("canvas");
+		var ctx = canvas.getContext("webgl") || canvas.getContext("2d");
+		return ctx != null;
+	} catch(e) {
+		return false;
+	}
+}
+if (!supportsWebGL()) {
+	alert('WebGL is unavailable.');
+}
+
+
+      var imageObj = new Image();
+      imageObj.onload = function() {
+        context.drawImage(imageObj, 100, 150);
+      };
+      imageObj.src = '../../img/img_1.jpg';
+              
+            
+spineWidget = new spine.SpineWidget("spine-widget", {
+	loop:false,
+	json: "../../spine/banners.json",
+	atlas: "../../spine/banners.atlas",
+	animation: "question",
+	skin:"answer1",
+	backgroundColor: "transparent",
+    x: 250,
+    y:180,
+	debug: false
+
+});
+            */
+</script>        
+        
     </body>
 </HTML>
