@@ -208,19 +208,19 @@
 
 	var arWorldRoot = smoothedRoot
 	var textureAnim1Good = new THREE.TextureLoader().load( "assets/ans1/QUESTION1_527x192_20f_30fps.png" );
-	CreateSpriteSheets(textureAnim1Good,[{anim:"loop",frames:[18,19,20,15,16,17,12,13,14,9,10,11,6,7,8,3,4,5,0,1],speed:0.1,onComplete:null,loop:false}],527,192,1581,1344);
+	CreateSpriteSheets(textureAnim1Good,[{anim:"loop",frames:[18,19,20,15,16,17,12,13,14,9,10,11,6,7,8,3,4,5,0,1],speed:0.08,onComplete:null,loop:false}],527,192,1581,1344);
 	textureAnimations.push(textureAnim1Good)
 	var textureAnim1Bad = new THREE.TextureLoader().load( "assets/testSpriteSheet.png" );
 	CreateSpriteSheets(textureAnim1Bad,[{anim:"loop",frames:[21,22,23,24,25,26,27,14,15,16,17,18,19,20,7,8,9,10,11,12,13,0,1,2,3,4,5],speed:0.05,onComplete:null,loop:false}],74.3,87,520,347);
 	textureAnimations.push(textureAnim1Bad)
 	//CreateSpriteSheets(texture,[{anim:"loop",frames:[15],speed:1,onComplete:null}],74.2,87,520,347);
 	var material = new THREE.MeshBasicMaterial({map: textureAnim1Good, transparent:true});
-    var geometry = new THREE.PlaneGeometry(286, 96);
+    var geometry = new THREE.PlaneGeometry(229, 77);
     var meshAnim = new THREE.Mesh(geometry, material);
    	meshAnim.rotation.x = -Math.PI/2;
     meshAnim.position.y =-30;
 	meshAnim.positionx = -30;
-	meshAnim.position.z = 10;
+	meshAnim.position.z = 15;
     arWorldRoot.add(meshAnim)
 
 
@@ -234,7 +234,7 @@
     var capa3Mesh = new THREE.Mesh(geometry, material);
     capa3Mesh.rotation.x = -Math.PI/2;
     capa3Mesh.position.y=-150;
-    capa3Mesh.position.z = 0;
+    capa3Mesh.position.z = 20;
     arWorldRoot.add(capa3Mesh);
 
     /*var texture = new THREE.TextureLoader().load( "./assets/g1/ar1_layer2.png" );
