@@ -147,13 +147,17 @@
             
             @media (orientation : portrait) { 
                 
+                #contentMain{
+                        margin-top: 20%;
+                }    
+                
             .spriteQuestion{
                 position: absolute;
                 width: 527px;
                 height: 192px;
                 z-index: 1;
-                top: 100%;
-                left: 0px;
+                top: 40%;
+                left: -45%;
                 transform: scale(0.4);    
             }
                 
@@ -164,7 +168,8 @@
                 
             .imageAnimation{
                 height: auto;
-                width: 100%;
+                width: 200%;
+                
             }
                 
                 #questionText{
@@ -491,7 +496,7 @@
             animationQuestionImage();
             
     function animateBanner(){
-        TweenMax.fromTo($(".imga1"),1,{alpha:0},{alpha:1,delay:0});
+        TweenMax.fromTo($(".imga1"),0,{alpha:0},{alpha:1,delay:0});
         TweenMax.fromTo($(".imga2"),1,{alpha:0},{alpha:1,delay:0});
         TweenMax.fromTo($(".imga3"),1,{alpha:0},{alpha:1,delay:0});
         TweenMax.fromTo($(".imga4"),1,{alpha:0},{alpha:1,delay:0});
