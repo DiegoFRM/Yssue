@@ -234,12 +234,12 @@
 	textureAnimations.push(textureAnim1Bad2)
 	//CreateSpriteSheets(texture,[{anim:"loop",frames:[15],speed:1,onComplete:null}],74.2,87,520,347);
 	var material = new THREE.MeshBasicMaterial({map: textureAnim1Good, transparent:true});
-    var geometry = new THREE.PlaneGeometry(229, 77);
+    var geometry = new THREE.PlaneGeometry(180, 40);
     var meshAnim = new THREE.Mesh(geometry, material);
    	meshAnim.rotation.x = -Math.PI/2;
     meshAnim.position.y =-30;
 	meshAnim.positionx = -30;
-	meshAnim.position.z = 15;
+	meshAnim.position.z = 20;
     arWorldRoot.add(meshAnim)
 
 
@@ -255,7 +255,7 @@
     var capa3Mesh = new THREE.Mesh(geometry, material);
     capa3Mesh.rotation.x = -Math.PI/2;
     capa3Mesh.position.y=-150;
-    capa3Mesh.position.z = 20;
+    capa3Mesh.position.z = 25;
     arWorldRoot.add(capa3Mesh);
 
     /*var texture = new THREE.TextureLoader().load( "./assets/g1/ar1_layer2.png" );
