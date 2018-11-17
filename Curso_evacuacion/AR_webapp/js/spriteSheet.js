@@ -27,7 +27,7 @@ function CreateSpriteSheets(textureObject,animations, frameWidth, frameHeigth, t
 
 
 function updateAnims(delta){
-	console.log("updateAnim")
+	//console.log("updateAnim")
 	if(this.pause){
 		return;
 	}
@@ -35,16 +35,16 @@ function updateAnims(delta){
 	//console.log("Update textures "+rayTexture.currentTime+"  "+rayTexture.animations[rayTexture.currentAnim].speed);
 	//console.log(rayTexture.currentAnim);
 	
-	console.log(this.currentTime)
+	//console.log(this.currentTime)
 
 	if(this.animations[this.currentAnim].speed<=this.currentTime){
 		//nextFrame
 		this.currentTime-=this.animations[this.currentAnim].speed;
 		this.idAnim ++;
-		console.log(this.idAnim)
+		//console.log(this.idAnim)
 		if(this.idAnim>=this.animations[this.currentAnim].frames.length){
 			//EndofAnimation
-			console.log(this.animations[this.currentAnim].frames.length)
+			//console.log(this.animations[this.currentAnim].frames.length)
 			if(this.animations[this.currentAnim].onComplete==null){
 				//loop
 				if(this.animations[this.currentAnim].loop){
