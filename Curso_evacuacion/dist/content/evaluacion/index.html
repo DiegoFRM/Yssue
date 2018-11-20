@@ -127,9 +127,9 @@
                 width: 527px;
                 height: 192px;
                 z-index: 1;
-                top: 100%;
-                left: -10%;
-                transform: scale(0.6);
+                top: 50%;
+                left: 0%;
+                transform: scale(0.6); 
                 background-image: url("../../img/QUESTION1%20-%20527x192_20f_30fps.png");
                 animation: playX 1s steps(3),
                            playY 3s steps(6);
@@ -156,8 +156,8 @@
                 width: 527px;
                 height: 192px;
                 z-index: 1;
-                top: 40%;
-                left: -45%;
+                top: 50%;
+                left: -35%;
                 transform: scale(0.4);    
             }
                 
@@ -230,7 +230,7 @@
                         </div>
                         
                     </div>
-                    
+                    <div class="spriteQuestion"></div>
                     <div id="navQuestions">
                         <div id="prevQuestion">Anterior</div> 
                         <div id="countQuestion">1/10</div>
@@ -483,7 +483,6 @@
             function animationQuestionImage(){
                 $(".animation").append(
                     `
-                    <div class="spriteQuestion"></div>
                     <img class="imageAnimation imga4" src="../../img/img_1.jpg" />
                     <img class="imageAnimation imga3" src="../../img/img_2.jpg" />
                     <img class="imageAnimation imga2" src="../../img/img_3.jpg" />
@@ -500,11 +499,11 @@
         TweenMax.fromTo($(".imga2"),1,{alpha:0},{alpha:1,delay:0});
         TweenMax.fromTo($(".imga3"),1,{alpha:0},{alpha:1,delay:0});
         TweenMax.fromTo($(".imga4"),1,{alpha:0},{alpha:1,delay:0});
-        
-        TweenMax.fromTo($(".imga1"),7,{y:0},{y:-100,delay:0});
-        TweenMax.fromTo($(".imga2"),7,{y:0},{y:-100,delay:4});
-        TweenMax.fromTo($(".imga3"),7,{y:0},{y:-100,delay:10});
-        TweenMax.fromTo($(".imga4"),7,{y:-100},{y:-350,delay:14});
+//        
+//        TweenMax.fromTo($(".imga1"),7,{y:0},{y:-100,delay:0});
+//        TweenMax.fromTo($(".imga2"),7,{y:0},{y:-100,delay:4});
+//        TweenMax.fromTo($(".imga3"),7,{y:0},{y:-100,delay:10});
+//        TweenMax.fromTo($(".imga4"),7,{y:-100},{y:-350,delay:14});
         
         TweenMax.fromTo($(".imga1"),1,{alpha:1},{alpha:0,delay:6});
         TweenMax.fromTo($(".imga2"),1,{alpha:1},{alpha:0,delay:10});
