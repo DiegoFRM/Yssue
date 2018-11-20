@@ -12,7 +12,7 @@ function CreateSpriteSheets(textureObject,animations, frameWidth, frameHeigth, t
 	textureObject.Height = textureHeigth;
 	textureObject.currentTime = 0;
 	textureObject.currentAnim = 'loop';
-	textureObject.idAnim = 0;
+	textureObject.idAnim = -1;
 	textureObject.repeat.set(1/(textureObject.Width/textureObject.framesWidth),1/(textureObject.Height/textureObject.framesHeight));
 	textureObject.needsUpdate = true;
 	//rayTexture.offset.set(0,0.8);
@@ -27,6 +27,7 @@ function CreateSpriteSheets(textureObject,animations, frameWidth, frameHeigth, t
 
 
 function updateAnims(delta){
+	//console.log("updateAnim")
 	if(this.pause){
 		return;
 	}
@@ -34,13 +35,16 @@ function updateAnims(delta){
 	//console.log("Update textures "+rayTexture.currentTime+"  "+rayTexture.animations[rayTexture.currentAnim].speed);
 	//console.log(rayTexture.currentAnim);
 	
-	
+	//console.log(this.currentTime)
+
 	if(this.animations[this.currentAnim].speed<=this.currentTime){
 		//nextFrame
 		this.currentTime-=this.animations[this.currentAnim].speed;
 		this.idAnim ++;
+		//console.log(this.idAnim)
 		if(this.idAnim>=this.animations[this.currentAnim].frames.length){
 			//EndofAnimation
+			//console.log(this.animations[this.currentAnim].frames.length)
 			if(this.animations[this.currentAnim].onComplete==null){
 				//loop
 				if(this.animations[this.currentAnim].loop){
@@ -68,6 +72,8 @@ function updateAnims(delta){
 
 
 function setAnim(texture,anim){
+	console.log("setAnim",texture)
+
 	texture.currentAnim = anim;
 	texture.idAnim = 0;
 	texture.pause = false;
