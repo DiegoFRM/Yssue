@@ -1,0 +1,16 @@
+{
+  "name": "step-counter",
+  "version": "0.1.0",
+  "description": "A simple lil step counter.",
+  "main": "index.js",
+  "scripts": {
+    "build": "babel src -d lib"
+  },
+  "author": "Aaron Ervin <profitlaser@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "babel": "^6.23.0",
+    "babel-cli": "^6.23.0",
+    "babel-preset-env": "^1.2.0"
+  }
+}
