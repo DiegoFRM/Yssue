@@ -177,7 +177,7 @@ AFRAME.registerComponent('test', {
 	<a-marker  type='pattern' preset='custom' url='data/data/pattern_2.patt' >
 
       <a-box position='0 0.5 0' material='opacity: 0.9;'></a-box>
-      <a-plane id="planeAns2Good" src="#video2Correct" height="1" width="1" position="0 1.05 0" rotation="-90 0 0"></a-plane>
+      <a-video src="#video2Correct" width="1" height="1" position="0 1.05 0" rotation="-90 0 0"></a-video>
     </a-marker>
 
 	<a-marker  type='pattern' preset='custom' url='data/data/pattern_2B.patt' test="#planeAns2Bad">
@@ -192,8 +192,8 @@ AFRAME.registerComponent('test', {
     </a-marker>
 
 	<a-marker  type='pattern' preset='custom' url='data/data/pattern_3B.patt' >
-      <a-box position='0 0.5 0' material='opacity: 0.9;'></a-box>
-      <a-plane id="planeAns3Bad" src="#video3Bad" height="1" width="1" position="0 1.05 0" rotation="-90 0 0"></a-plane>
+		<a-box position='0 0.5 0' material='opacity: 0.9;'></a-box>
+      <a-video src="#video3Bad" width="1" height="1" position="0 1.05 0" rotation="-90 0 0"></a-video>
     </a-marker>
 
       
