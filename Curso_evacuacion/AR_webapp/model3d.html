@@ -22,6 +22,12 @@
     
     </style>
   <script>
+	window.addEventListener("touchstart",function(){
+  			console.log("touch window")
+  			document.getElementById("video2Correct").play();
+			document.getElementById("video3Bad").play();
+  	},false)
+
     var velocityValue = 0.005;
 AFRAME.registerComponent('test', {
   schema: {default: ''},
@@ -58,7 +64,7 @@ AFRAME.registerComponent('test', {
 		  CreateSpriteSheets(this.textureMessage,[{anim:"loop",frames:[32,33,34,35,28,29,30,31,24,25,26,27,20,21,22,23,16,17,18,19,12,13,14,15,8,9,10,11,4,5,6,7,0],speed:0.08,onComplete:null,loop:false}],527,193,2108,1737);
 		}
 		else if(this.data == "#planeAns3Good"){
-		  CreateSpriteSheets(this.textureMessage,[{anim:"loop",frames:[28,29,30,31,24,25,26,27,20,21,22,23,16,17,18,19,12,13,14,15,8,9,10,11,4,5,6,7,0,1,2],speed:0.08,onComplete:null,loop:false}],527,198,2108,1584);
+		  CreateSpriteSheets(this.textureMessage,[{anim:"loop",frames:[30,31,32,27,28,29,24,25,26,21,22,23,18,19,20,15,16,17,12,13,14,9,10,11,6,7,8,3,4,5,0],speed:0.08,onComplete:null,loop:false}],527,198,1581,2178);
 		}
 	}
   },
@@ -141,11 +147,11 @@ AFRAME.registerComponent('test', {
     </a-assets>
 
 	<a-assets>
-		<video id="video2Correct" autoplay loop="true" src="assets/ans2/2da_correcta.mp4"></video>
+		<video id="video2Correct" autoplay loop="true" src="assets/ans2/correcta.mp4"></video>
 	</a-assets>
 
 	<a-assets>
-        <img id="texture2Bad" src="assets/ans2/2da_incorrecta.jpg">
+        <img id="texture2Bad" src="assets/ans2/incorrecta.jpg">
     </a-assets>
 
 	<a-assets>
@@ -161,15 +167,15 @@ AFRAME.registerComponent('test', {
     </a-assets>
 
 	<a-assets>
-		<img id="texture3God1" src="assets/ans3/3ra_correcta_1.jpg">	
+		<img id="texture3God1" src="assets/ans3/correcta_1.jpg">	
 	</a-assets>
 
 	<a-assets>
-		<img id="texture3God2" src="assets/ans3/3ra_correcta_2.jpg">	
+		<img id="texture3God2" src="assets/ans3/correcta_2.jpg">	
 	</a-assets>
 
 	<a-assets>
-        <video id="video3Bad" autoplay loop="true" src="assets/ans3/3ra_incorrecta.mp4"></video>
+        <video id="video3Bad" autoplay loop="true" src="assets/ans3/incorrecta.mp4"></video>
     </a-assets>
 
 	 <a-assets>
