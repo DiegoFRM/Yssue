@@ -122,11 +122,39 @@ AFRAME.registerComponent('test', {
 		  }
 	  }
     }
-
 }
         
 });
-      
+  initImageChange();
+  var changeImageList = [];
+  function initImageChange(){
+	
+	var imC = document.getElementById("texture3Good");
+	imC.max = 2;
+	imC.current = 1;
+	imC.name = "assets/ans3/correcta_";
+	imC.extentesion = ".jpg";
+	changeImageList.push(imC);
+
+	setTimeout(changeImage,2000);
+  }
+
+
+  function changeImage(){
+	console.log("enter change ", changeImageList.length);
+	for(var i = 0; i < changeImageList.length; i++){
+		var c = changeImageList[i];
+		c.current++;
+		if(c.current>c.max){
+			c.current = 1;
+		}
+		c.src = c.name+""+c.current+""+c.extentesion;
+	}
+	setTimeout(changeImage,2000);
+  }
+
+
+
   		
       
   </script>
@@ -183,12 +211,12 @@ AFRAME.registerComponent('test', {
     </a-assets>
 
 	<a-assets>
-		<img id="texture3God1" src="assets/ans3/correcta_1.jpg">	
+		<img id="texture3Good" src="assets/ans3/correcta_1.jpg">	
 	</a-assets>
 
-	<a-assets>
+<!--<a-assets>
 		<img id="texture3God2" src="assets/ans3/correcta_2.jpg">	
-	</a-assets>
+	</a-assets>-->
 
 	<a-assets>
         <video id="video3Bad" autoplay loop="true" src="assets/ans3/incorrecta.mp4"></video>
@@ -254,7 +282,7 @@ AFRAME.registerComponent('test', {
 
 	<a-marker  type='pattern' preset='custom' url='data/data/pattern_3.patt' test="#planeAns3Good">
       <a-box position='0 0.5 0' material='opacity: 0.9;'></a-box>
-      <a-plane id="planeAns3Good" src="#texture3God1" height="1" width="1" position="0 1.05 0" rotation="-90 0 0"></a-plane>
+      <a-plane id="planeAns3Good" src="#texture3Good" height="1" width="1" position="0 1.05 0" rotation="-90 0 0"></a-plane>
 	  <a-plane id="planeAns3GoodMessage"src="#texture3GoodMessage" height="0.45" width="0.75" position="0 1.1 0.4" rotation="-90 0 0" material="transparent:true;">
     
     </a-marker>
