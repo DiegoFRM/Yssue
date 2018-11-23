@@ -34,20 +34,24 @@ AFRAME.registerComponent('test', {
     this.textureWidth = this.plane.object3D.children[0].material.map.image.width;
     this.textureHeight = this.plane.object3D.children[0].material.map.image.height;
     //console.log(this.plane)
+	
     this.plane.object3D.children[0].material.needsUpdate=true;
-    this.planeMessage.object3D.children[0].material.needsUpdate = true;
-    this.messageMaterial = this.planeMessage.object3D.children[0].material;
+    
+	if(this.planeMessage!=null){
+		this.planeMessage.object3D.children[0].material.needsUpdate = true;
+		this.messageMaterial = this.planeMessage.object3D.children[0].material;
 
-    this.textureMessage = this.planeMessage.object3D.children[0].material.map;
-    if(this.data == "#planeAns1Good"){
-      CreateSpriteSheets(this.textureMessage,[{anim:"loop",frames:[28,29,30,31,24,25,26,27,20,21,22,23,16,17,18,19,12,13,14,15,8,9,10,11,4,5,6,7,0,1,2],speed:0.08,onComplete:null,loop:false}],527,198,2108,1584);
-    }
-    else if(this.data == "#planeAns1Bad1"){
-      CreateSpriteSheets(this.textureMessage,[{anim:"loop",frames:[32,33,34,35,28,29,30,31,24,25,26,27,20,21,22,23,16,17,18,19,12,13,14,15,8,9,10,11,4,5,6,7,0],speed:0.08,onComplete:null,loop:false}],527,193,2108,1737);
-    }
-    else if(this.data == "#planeAns1Bad2"){
-      CreateSpriteSheets(this.textureMessage,[{anim:"loop",frames:[32,33,34,35,28,29,30,31,24,25,26,27,20,21,22,23,16,17,18,19,12,13,14,15,8,9,10,11,4,5,6,7,0],speed:0.08,onComplete:null,loop:false}],527,193,2108,1737);
-    }
+		this.textureMessage = this.planeMessage.object3D.children[0].material.map;
+		if(this.data == "#planeAns1Good"){
+		  CreateSpriteSheets(this.textureMessage,[{anim:"loop",frames:[28,29,30,31,24,25,26,27,20,21,22,23,16,17,18,19,12,13,14,15,8,9,10,11,4,5,6,7,0,1,2],speed:0.08,onComplete:null,loop:false}],527,198,2108,1584);
+		}
+		else if(this.data == "#planeAns1Bad1"){
+		  CreateSpriteSheets(this.textureMessage,[{anim:"loop",frames:[32,33,34,35,28,29,30,31,24,25,26,27,20,21,22,23,16,17,18,19,12,13,14,15,8,9,10,11,4,5,6,7,0],speed:0.08,onComplete:null,loop:false}],527,193,2108,1737);
+		}
+		else if(this.data == "#planeAns1Bad2"){
+		  CreateSpriteSheets(this.textureMessage,[{anim:"loop",frames:[32,33,34,35,28,29,30,31,24,25,26,27,20,21,22,23,16,17,18,19,12,13,14,15,8,9,10,11,4,5,6,7,0],speed:0.08,onComplete:null,loop:false}],527,193,2108,1737);
+		}
+	}
   },
   tick:function(time,deltaTime){
     
@@ -71,8 +75,10 @@ AFRAME.registerComponent('test', {
       }
       
       //console.log(deltaTime);
-      this.textureMessage.update(deltaTime/1000);
-      this.messageMaterial.needsUpdate = true;
+	  if(this.planeMessage!=null){
+		  this.textureMessage.update(deltaTime/1000);
+		  this.messageMaterial.needsUpdate = true;
+		}
     }
     else{
       this.direction = -1;
@@ -176,8 +182,7 @@ AFRAME.registerComponent('test', {
       <a-plane id="planeAns2Bad" src="#texture2Bad" height="1" width="1" position="0 1.05 0" rotation="-90 0 0"></a-plane>
     </a-marker>
 
-	<a-marker  type='pattern' preset='custom' url='data/data/pattern_2B.patt' test="#planeAns3God">
-
+	<a-marker  type='pattern' preset='custom' url='data/data/pattern_3.patt' test="#planeAns3God">
       <a-box position='0 0.5 0' material='opacity: 0.9;'></a-box>
       <a-plane id="planeAns3God" src="#texture3God1" height="1" width="1" position="0 1.05 0" rotation="-90 0 0"></a-plane>
     </a-marker>
