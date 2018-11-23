@@ -59,7 +59,9 @@ AFRAME.registerComponent('test', {
       //if()
       //this.plane.setAttribute("material","repeat",{x:0.5,y:0.5})
       this.plane.object3D.children[0].material.needsUpdate = true;
-      this.messageMaterial.needsUpdate = true;
+	  if(this.planeMessage!=null){
+		this.messageMaterial.needsUpdate = true;
+	  }
       this.plane.object3D.children[0].material.map.repeat.set(this.currentValue,this.currentValue);
       var offsetX = (((this.textureWidth/this.currentValue)-this.textureWidth)/2)/this.textureWidth;
       var offsetY = (((this.textureHeight/this.currentValue)-this.textureHeight)/2)/this.textureHeight;
