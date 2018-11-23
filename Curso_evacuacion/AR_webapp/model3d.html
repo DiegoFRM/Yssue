@@ -121,6 +121,26 @@ AFRAME.registerComponent('test', {
         <img id="texture1Bad2Message" src="assets/ans1/WRONG2_527x193_33f_30fps.png">
     </a-assets>
 
+	<a-assets>
+		<video id="video2Correct" autoplay loop="true" src="assets/ans2/2da_correcta.mp4"></video>
+	</a-assets>
+
+	<a-assets>
+        <img id="texture2Bad" src="assets/ans2/2da_incorrecta.jpg">
+    </a-assets>
+
+	<a-assets>
+		<img id="texture3God1" src="assets/ans3/3ra_correcta_1.jpg">	
+	</a-assets>
+
+	<a-assets>
+		<img id="texture3God2" src="assets/ans3/3ra_correcta_2.jpg">	
+	</a-assets>
+
+	<a-assets>
+        <video id="video3Bad" autoplay loop="true" src="assets/ans3/3ra_incorrecta.mp4"></video>
+    </a-assets>
+
     <a-marker  type='pattern' preset='custom' url='data/data/pattern_1.patt' test="#planeAns1Good">
 
       <a-box position='0 0.5 0' material='opacity: 0.9;'></a-box>
@@ -142,6 +162,29 @@ AFRAME.registerComponent('test', {
       <a-box position='0 0.5 0' material='opacity: 0.9;'></a-box>
       <a-plane id="planeAns1Bad2" src="#texture1Bad2" height="1" width="1" position="0 1.05 0" rotation="-90 0 0"></a-plane>
       <a-plane id="planeAns1Bad2Message"src="#texture1Bad2Message" height="0.45" width="0.75" position="0 1.1 0.4" rotation="-90 0 0" material="transparent:true;">
+    </a-marker>
+
+	<a-marker  type='pattern' preset='custom' url='data/data/pattern_2.patt' >
+
+      <a-box position='0 0.5 0' material='opacity: 0.9;'></a-box>
+      <a-plane id="planeAns2Good" src="#video2Correct" height="1" width="1" position="0 1.05 0" rotation="-90 0 0"></a-plane>
+    </a-marker>
+
+	<a-marker  type='pattern' preset='custom' url='data/data/pattern_2B.patt' test="#planeAns2Bad">
+
+      <a-box position='0 0.5 0' material='opacity: 0.9;'></a-box>
+      <a-plane id="planeAns2Bad" src="#texture2Bad" height="1" width="1" position="0 1.05 0" rotation="-90 0 0"></a-plane>
+    </a-marker>
+
+	<a-marker  type='pattern' preset='custom' url='data/data/pattern_2B.patt' test="#planeAns3God">
+
+      <a-box position='0 0.5 0' material='opacity: 0.9;'></a-box>
+      <a-plane id="planeAns3God" src="#texture3God1" height="1" width="1" position="0 1.05 0" rotation="-90 0 0"></a-plane>
+    </a-marker>
+
+	<a-marker  type='pattern' preset='custom' url='data/data/pattern_3B.patt' >
+      <a-box position='0 0.5 0' material='opacity: 0.9;'></a-box>
+      <a-plane id="planeAns3Bad" src="#video3Bad" height="1" width="1" position="0 1.05 0" rotation="-90 0 0"></a-plane>
     </a-marker>
 
       
