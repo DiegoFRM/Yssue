@@ -125,8 +125,12 @@ AFRAME.registerComponent('test', {
 }
         
 });
-  initImageChange();
+  
   var changeImageList = [];
+  window.onload = function(){
+	initImageChange();
+  }
+  
   function initImageChange(){
 	
 	var imC = document.getElementById("texture3Good");
