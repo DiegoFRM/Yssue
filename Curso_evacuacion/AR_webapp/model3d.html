@@ -145,13 +145,15 @@ AFRAME.registerComponent('test', {
 
 
   function changeImage(){
-	console.log("enter change ", changeImageList.length);
+	//console.log("enter change ", changeImageList.length);
 	for(var i = 0; i < changeImageList.length; i++){
 		var c = changeImageList[i];
+
 		c.current++;
 		if(c.current>c.max){
 			c.current = 1;
 		}
+		console.log("enter change ", c.current);
 		c.src = c.name+""+c.current+""+c.extentesion;
 	}
 	setTimeout(changeImage,2000);
