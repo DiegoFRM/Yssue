@@ -51,6 +51,15 @@ AFRAME.registerComponent('test', {
 		else if(this.data == "#planeAns1Bad2"){
 		  CreateSpriteSheets(this.textureMessage,[{anim:"loop",frames:[32,33,34,35,28,29,30,31,24,25,26,27,20,21,22,23,16,17,18,19,12,13,14,15,8,9,10,11,4,5,6,7,0],speed:0.08,onComplete:null,loop:false}],527,193,2108,1737);
 		}
+		else if(this.data == "#planeAns2Bad1"){
+		  CreateSpriteSheets(this.textureMessage,[{anim:"loop",frames:[32,33,34,35,28,29,30,31,24,25,26,27,20,21,22,23,16,17,18,19,12,13,14,15,8,9,10,11,4,5,6,7,0],speed:0.08,onComplete:null,loop:false}],527,193,2108,1737);
+		}
+		else if(this.data == "#planeAns2Bad2"){
+		  CreateSpriteSheets(this.textureMessage,[{anim:"loop",frames:[32,33,34,35,28,29,30,31,24,25,26,27,20,21,22,23,16,17,18,19,12,13,14,15,8,9,10,11,4,5,6,7,0],speed:0.08,onComplete:null,loop:false}],527,193,2108,1737);
+		}
+		else if(this.data == "#planeAns3Good"){
+		  CreateSpriteSheets(this.textureMessage,[{anim:"loop",frames:[32,33,34,35,28,29,30,31,24,25,26,27,20,21,22,23,16,17,18,19,12,13,14,15,8,9,10,11,4,5,6,7,0],speed:0.08,onComplete:null,loop:false}],527,193,2108,1737);
+		}
 	}
   },
   tick:function(time,deltaTime){
@@ -140,6 +149,18 @@ AFRAME.registerComponent('test', {
     </a-assets>
 
 	<a-assets>
+        <img id="texture2GoodMessage" src="assets/ans2/CORRECT2 - 527x198_31f_30fps.png">
+    </a-assets>
+
+	<a-assets>
+        <img id="texture2Bad1Message" src="assets/ans2/WRONG2_1-527x193_33f_30fps.png">
+    </a-assets>
+
+	<a-assets>
+        <img id="texture2Bad2Message" src="assets/ans2/WRONG2_2-527x193_33f_30fps.png">
+    </a-assets>
+
+	<a-assets>
 		<img id="texture3God1" src="assets/ans3/3ra_correcta_1.jpg">	
 	</a-assets>
 
@@ -149,6 +170,18 @@ AFRAME.registerComponent('test', {
 
 	<a-assets>
         <video id="video3Bad" autoplay loop="true" src="assets/ans3/3ra_incorrecta.mp4"></video>
+    </a-assets>
+
+	 <a-assets>
+        <img id="texture3GoodMessage" src="assets/ans3/CORRECT3-527x198_31f_30fps.png">
+    </a-assets>
+
+	<a-assets>
+        <img id="texture3Bad1Message" src="assets/ans3/WRONG3_1-527x193_33f_30fps.png">
+    </a-assets>
+
+	<a-assets>
+        <img id="texture3Bad2Message" src="assets/ans3/WRONG3_2-527x193_33f_30fps.png">
     </a-assets>
 
     <a-marker  type='pattern' preset='custom' url='data/data/pattern_1.patt' test="#planeAns1Good">
@@ -184,14 +217,31 @@ AFRAME.registerComponent('test', {
 
       <a-box position='0 0.5 0' material='opacity: 0.9;'></a-box>
       <a-plane id="planeAns2Bad" src="#texture2Bad" height="1" width="1" position="0 1.05 0" rotation="-90 0 0"></a-plane>
+	  <a-plane id="planeAns2BadMessage"src="#texture2Bad1Message" height="0.45" width="0.75" position="0 1.1 0.4" rotation="-90 0 0" material="transparent:true;">
+    
+    </a-marker>
+
+	<a-marker  type='pattern' preset='custom' url='data/data/pattern_2B2.patt' test="#planeAns2Bad2">
+
+      <a-box position='0 0.5 0' material='opacity: 0.9;'></a-box>
+      <a-plane id="planeAns2Bad2" src="#texture2Bad" height="1" width="1" position="0 1.05 0" rotation="-90 0 0"></a-plane>
+	  <a-plane id="planeAns2Bad2Message"src="#texture2Bad2Message" height="0.45" width="0.75" position="0 1.1 0.4" rotation="-90 0 0" material="transparent:true;">
+    
     </a-marker>
 
 	<a-marker  type='pattern' preset='custom' url='data/data/pattern_3.patt' test="#planeAns3God">
       <a-box position='0 0.5 0' material='opacity: 0.9;'></a-box>
       <a-plane id="planeAns3God" src="#texture3God1" height="1" width="1" position="0 1.05 0" rotation="-90 0 0"></a-plane>
+	  <a-plane id="planeAns3GodMessage"src="#texture3Bad2Message" height="0.45" width="0.75" position="0 1.1 0.4" rotation="-90 0 0" material="transparent:true;">
+    
     </a-marker>
 
 	<a-marker  type='pattern' preset='custom' url='data/data/pattern_3B.patt' >
+		<a-box position='0 0.5 0' material='opacity: 0.9;'></a-box>
+      <a-video src="#video3Bad" width="1" height="1" position="0 1.05 0" rotation="-90 0 0"></a-video>
+    </a-marker>
+
+	<a-marker  type='pattern' preset='custom' url='data/data/pattern_3B2.patt' >
 		<a-box position='0 0.5 0' material='opacity: 0.9;'></a-box>
       <a-video src="#video3Bad" width="1" height="1" position="0 1.05 0" rotation="-90 0 0"></a-video>
     </a-marker>
