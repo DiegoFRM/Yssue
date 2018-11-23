@@ -128,7 +128,7 @@ AFRAME.registerComponent('test', {
   
   var changeImageList = [];
   window.onload = function(){
-	initImageChange();
+	//initImageChange();
   }
   
   function initImageChange(){
@@ -153,7 +153,7 @@ AFRAME.registerComponent('test', {
 		if(c.current>c.max){
 			c.current = 1;
 		}
-		console.log("enter change ", c.current);
+		//console.log("enter changegcgu ", c.current);
 		c.src = c.name+""+c.current+""+c.extentesion;
 	}
 	setTimeout(changeImage,2000);
