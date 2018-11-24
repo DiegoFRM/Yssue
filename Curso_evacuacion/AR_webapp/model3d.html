@@ -24,18 +24,39 @@
   <script>
 	window.addEventListener("touchstart",function(){
   			console.log("touch window")
-  			document.getElementById("video2Correct").play();
-			document.getElementById("video3Bad").play();
+  			//document.getElementById("video2Correct").play();
+			//document.getElementById("video3Bad").play();
   	},false)
 
     var velocityValue = 0.005;
+
+    var t3Good1= new THREE.TextureLoader().load( "assets/ans3/correcta_1.jpg" );
+  var t3Good2= new THREE.TextureLoader().load( "assets/ans3/correcta_2.jpg" );
+
 AFRAME.registerComponent('test', {
   schema: {default: ''},
   init:function(){
-	if(this.data == "#planeAns2Good"||this.data == "#planeAns3Bad1"||this.data == "#planeAns3Bad2"){
+  	this.video = false;
+  	this.transitionMaterial = null;
+	if(this.data != "#planeAns2Good"&&this.data != "#planeAns3Bad1"&&this.data != "#planeAns3Bad2"&&this.data != "#planeAns3Good"&&this.data != "#planeAns4Good"&&this.data != "#planeAns4Bad1"&&this.data != "#planeAns4Bad2"){
 		this.plane = document.querySelector(this.data);
 	}
 	else{
+
+		if(this.data != "#planeAns3Good"){
+			this.video = true;
+			this.startPlay = false;
+		}
+		else{
+			this.currentTexture = 0;
+			this.maxTexture = 1;
+			this.transitionMaterial = document.querySelector(this.data).object3D.children[0].material;
+			this.texturesArray = [];
+			this.texturesArray.push(t3Good1);
+			this.texturesArray.push(t3Good2);
+		}
+
+
 		this.plane = null;	
 	}
     this.planeMessage = document.querySelector(this.data+"Message");
@@ -46,6 +67,9 @@ AFRAME.registerComponent('test', {
 		this.textureWidth = this.plane.object3D.children[0].material.map.image.width;
 		this.textureHeight = this.plane.object3D.children[0].material.map.image.height;
 		this.plane.object3D.children[0].material.needsUpdate=true;
+	}
+	else{
+		//this.load
 	}
     
 	if(this.planeMessage!=null){
@@ -80,6 +104,15 @@ AFRAME.registerComponent('test', {
 		else if(this.data == "#planeAns3Bad2"){
 		  CreateSpriteSheets(this.textureMessage,[{anim:"loop",frames:[32,33,34,35,28,29,30,31,24,25,26,27,20,21,22,23,16,17,18,19,12,13,14,15,8,9,10,11,4,5,6,7,0],speed:0.08,onComplete:null,loop:false}],527,193,2108,1737);
 		}
+		else if(this.data == "#planeAns4Good"){
+		  CreateSpriteSheets(this.textureMessage,[{anim:"loop",frames:[30,31,32,27,28,29,24,25,26,21,22,23,18,19,20,15,16,17,12,13,14,9,10,11,6,7,8,3,4,5,0],speed:0.08,onComplete:null,loop:false}],527,198,1581,2178);
+		}
+		else if(this.data == "#planeAns4Bad1"){
+		  CreateSpriteSheets(this.textureMessage,[{anim:"loop",frames:[32,33,34,35,28,29,30,31,24,25,26,27,20,21,22,23,16,17,18,19,12,13,14,15,8,9,10,11,4,5,6,7,0],speed:0.08,onComplete:null,loop:false}],527,193,2108,1737);
+		}
+		else if(this.data == "#planeAns4Bad2"){
+		  CreateSpriteSheets(this.textureMessage,[{anim:"loop",frames:[32,33,34,35,28,29,30,31,24,25,26,27,20,21,22,23,16,17,18,19,12,13,14,15,8,9,10,11,4,5,6,7,0],speed:0.08,onComplete:null,loop:false}],527,193,2108,1737);
+		}
 	}
   },
   tick:function(time,deltaTime){
@@ -105,7 +138,57 @@ AFRAME.registerComponent('test', {
 		  else if(this.currentValue >1){
 			this.direction = -1;
 		  }
-		}
+	  }
+	  else if(this.video){
+	  	if(!this.startPlay){
+	  		console.log(this.data)
+	  		switch(this.data){
+	  			case "#planeAns2Good":
+	  			videoDom.src = "assets/ans2/correcta.mp4";
+	  			videoDom.loop = true;
+	  			break;
+	  			case "#planeAns3Bad1":
+	  			videoDom.src = "assets/ans3/incorrecta.mp4";
+	  			videoDom.loop = true;
+	  			break;
+	  			case "#planeAns3Bad2":
+	  			videoDom.src = "assets/ans3/incorrecta.mp4";
+	  			videoDom.loop = true;
+	  			break;
+
+	  			case "#planeAns4Good":
+	  			videoDom.src = "assets/ans4/correcta.mp4";
+	  			videoDom.loop = false;
+	  			break;
+	  			case "#planeAns4Bad1":
+	  			videoDom.src = "assets/ans4/incorrecta.mp4";
+	  			videoDom.loop = true;
+	  			break;
+	  			case "#planeAns4Bad2":
+	  			videoDom.src = "assets/ans4/incorrecta.mp4";
+	  			videoDom.loop = true;
+	  			break;
+	  		}
+	  		videoDom.autoplay = true;
+	  		videoDom.play();
+	  		this.startPlay = true;
+	  	}
+	  }
+	  else if(this.transitionMaterial!=null){
+	  		this.currentValue+=velocityValue;
+	  		//console.log(this.currentValue);
+	  		if(this.currentValue >1.25){
+	  			console.log("changeTexture");
+	  			this.currentTexture++;
+	  			if(this.currentTexture>this.maxTexture){
+	  				this.currentTexture=0;
+	  			}
+	  			this.transitionMaterial.map = this.texturesArray[this.currentTexture];
+	  			this.currentValue=1;
+	  		}
+
+	  		this.transitionMaterial.needsUpdate = true;
+	  }
       
       //console.log(deltaTime);
 	  if(this.planeMessage!=null){
@@ -114,12 +197,20 @@ AFRAME.registerComponent('test', {
 		}
     }
     else{
+    	if(this.video){
+    		this.startPlay = false;
+    	}
+    	else if(this.transitionMaterial!=null){
+    		this.currentTexture = 1;
+    	}
+
       this.direction = -1;
       this.currentValue = 1;
-	   if(this.planeMessage!=null){
-		  if(this.textureMessage.idAnim != 0){
+	  if(this.planeMessage!=null){
+
+		if(this.textureMessage.idAnim != 0){
 			setAnim(this.textureMessage,"loop");
-		  }
+		}
 	  }
     }
 }
@@ -127,20 +218,28 @@ AFRAME.registerComponent('test', {
 });
   
   var changeImageList = [];
+  var videoDom;
+
+  
+
   window.onload = function(){
-	//initImageChange();
+	initImageChange();
   }
   
   function initImageChange(){
 	
-	var imC = document.getElementById("texture3Good");
+	videoDom = document.getElementById("video");
+
+	/*var imC = document.getElementById("texture3Good");
 	imC.max = 2;
 	imC.current = 1;
 	imC.name = "assets/ans3/correcta_";
 	imC.extentesion = ".jpg";
+	var planeTemp = document.querySelector("#planeAns3Good")
+	imC.material = planeTemp.object3D.children[0].material;
 	changeImageList.push(imC);
 
-	setTimeout(changeImage,2000);
+	setTimeout(changeImage,2000);*/
   }
 
 
@@ -148,13 +247,14 @@ AFRAME.registerComponent('test', {
 	//console.log("enter change ", changeImageList.length);
 	for(var i = 0; i < changeImageList.length; i++){
 		var c = changeImageList[i];
-
+		//c.material.needsUpdate = true;
 		c.current++;
 		if(c.current>c.max){
 			c.current = 1;
 		}
 		//console.log("enter changegcgu ", c.current);
 		c.src = c.name+""+c.current+""+c.extentesion;
+		c.material.needsUpdate = true;
 	}
 	setTimeout(changeImage,2000);
   }
@@ -171,7 +271,6 @@ AFRAME.registerComponent('test', {
     
   <a-scene embedded arjs="sourceType: webcam;">
 
-    
     <a-assets>
         <img id="texture1God" src="assets/ans1/ans1_good.jpg">
     </a-assets>
@@ -196,9 +295,9 @@ AFRAME.registerComponent('test', {
         <img id="texture1Bad2Message" src="assets/ans1/WRONG2_527x193_33f_30fps.png">
     </a-assets>
 
-	<a-assets>
+	<!--<a-assets>
 		<video id="video2Correct" autoplay loop="true" src="assets/ans2/correcta.mp4"></video>
-	</a-assets>
+	</a-assets>-->
 
 	<a-assets>
         <img id="texture2Bad" src="assets/ans2/incorrecta.jpg">
@@ -224,9 +323,9 @@ AFRAME.registerComponent('test', {
 		<img id="texture3God2" src="assets/ans3/correcta_2.jpg">	
 	</a-assets>-->
 
-	<a-assets>
+	<!--<a-assets>
         <video id="video3Bad" autoplay loop="true" src="assets/ans3/incorrecta.mp4"></video>
-    </a-assets>
+    </a-assets>-->
 
 	 <a-assets>
         <img id="texture3GoodMessage" src="assets/ans3/CORRECT3-527x198_31f_30fps.png">
@@ -238,6 +337,15 @@ AFRAME.registerComponent('test', {
 
 	<a-assets>
         <img id="texture3Bad2Message" src="assets/ans3/WRONG3_2-527x193_33f_30fps.png">
+    </a-assets>
+
+    <a-assets>
+        <video id="video" autoplay loop="false" src="assets/ans4/correcta.mp4"></video>
+        <!--<video id="video4Good" autoplay loop="true" src="assets/ans4/incorrecta.mp4"></video>-->
+        <img id="texture4GoodMessage" src="assets/ans4/CORRECT4-527x198_31f_30fps.png">
+        <img id="texture4Bad1Message" src="assets/ans4/WRONG4_1-527x193_33f_30fps.png">
+        <img id="texture4Bad2Message" src="assets/ans4/WRONG4_2-527x193_33f_30fps.png">
+        
     </a-assets>
 
     <a-marker  type='pattern' preset='custom' url='data/data/pattern_1.patt' test="#planeAns1Good">
@@ -266,7 +374,7 @@ AFRAME.registerComponent('test', {
 	<a-marker  type='pattern' preset='custom' url='data/data/pattern_2.patt' test="#planeAns2Good">
 
       <a-box position='0 0.5 0' material='opacity: 0.9;'></a-box>
-      <a-video src="#video2Correct" width="1" height="1" position="0 1.05 0" rotation="-90 0 0"></a-video>
+      <a-video src="#video" width="1" height="1" position="0 1.05 0" rotation="-90 0 0"></a-video>
 	  <a-plane id="planeAns2GoodMessage"src="#texture2GoodMessage" height="0.45" width="0.75" position="0 1.1 0.4" rotation="-90 0 0" material="transparent:true;">
     </a-marker>
 
@@ -295,17 +403,33 @@ AFRAME.registerComponent('test', {
 
 	<a-marker  type='pattern' preset='custom' url='data/data/pattern_3B.patt' test="#planeAns3Bad1">
 		<a-box position='0 0.5 0' material='opacity: 0.9;'></a-box>
-      <a-video src="#video3Bad" width="1" height="1" position="0 1.05 0" rotation="-90 0 0"></a-video>
+      <a-video src="#video" width="1" height="1" position="0 1.05 0" rotation="-90 0 0"></a-video>
 	  <a-plane id="planeAns3Bad1Message"src="#texture3Bad1Message" height="0.45" width="0.75" position="0 1.1 0.4" rotation="-90 0 0" material="transparent:true;">
     
     </a-marker>
 
 	<a-marker  type='pattern' preset='custom' url='data/data/pattern_3B2.patt' test="#planeAns3Bad2">
 		<a-box position='0 0.5 0' material='opacity: 0.9;'></a-box>
-      <a-video src="#video3Bad" width="1" height="1" position="0 1.05 0" rotation="-90 0 0"></a-video>
+      <a-video src="#video" width="1" height="1" position="0 1.05 0" rotation="-90 0 0"></a-video>
 	  <a-plane id="planeAns3Bad2Message"src="#texture3Bad2Message" height="0.45" width="0.75" position="0 1.1 0.4" rotation="-90 0 0" material="transparent:true;">
-    
+    </a-marker>
 
+    <a-marker  type='pattern' preset='custom' url='data/data/pattern_4.patt' test="#planeAns4Good">
+		<a-box position='0 0.5 0' material='opacity: 0.9;'></a-box>
+      <a-video src="#video" width="1" height="1" position="0 1.05 0" rotation="-90 0 0"></a-video>
+	  <a-plane id="planeAns4GoodMessage"src="#texture4GoodMessage" height="0.45" width="0.75" position="0 1.1 0.4" rotation="-90 0 0" material="transparent:true;">
+    </a-marker>
+
+    <a-marker  type='pattern' preset='custom' url='data/data/pattern_4B.patt' test="#planeAns4Bad1">
+		<a-box position='0 0.5 0' material='opacity: 0.9;'></a-box>
+      <a-video src="#video" width="1" height="1" position="0 1.05 0" rotation="-90 0 0"></a-video>
+	  <a-plane id="planeAns4Bad1Message"src="#texture4Bad1Message" height="0.45" width="0.75" position="0 1.1 0.4" rotation="-90 0 0" material="transparent:true;">
+    </a-marker>
+
+    <a-marker  type='pattern' preset='custom' url='data/data/pattern_4B2.patt' test="#planeAns4Bad2">
+		<a-box position='0 0.5 0' material='opacity: 0.9;'></a-box>
+      <a-video src="#video" width="1" height="1" position="0 1.05 0" rotation="-90 0 0"></a-video>
+	  <a-plane id="planeAns4Bad2Message"src="#texture4Bad2Message" height="0.45" width="0.75" position="0 1.1 0.4" rotation="-90 0 0" material="transparent:true;">
     </a-marker>
 
       
