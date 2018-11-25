@@ -38,7 +38,7 @@ AFRAME.registerComponent('test', {
   init:function(){
   	this.video = false;
   	this.transitionMaterial = null;
-	if(this.data != "#planeAns2Good"&&this.data != "#planeAns3Bad1"&&this.data != "#planeAns3Bad2"&&this.data != "#planeAns3Good"&&this.data != "#planeAns4Good"&&this.data != "#planeAns4Bad1"&&this.data != "#planeAns4Bad2"){
+	if(this.data != "#planeAns2Good"&&this.data != "#planeAns3Bad1"&&this.data != "#planeAns3Bad2"&&this.data != "#planeAns3Good"&&this.data != "#planeAns4Good"&&this.data != "#planeAns4Bad1"&&this.data != "#planeAns4Bad2"||this.data != "#planeAns6Bad1"&&this.data != "#planeAns6Bad2"){
 		this.plane = document.querySelector(this.data);
 	}
 	else{
