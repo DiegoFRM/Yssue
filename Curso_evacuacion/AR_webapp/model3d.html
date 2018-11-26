@@ -57,7 +57,7 @@ AFRAME.registerComponent('test', {
   	this.video = false;
   	//console.log(this.data)
   	this.transitionMaterial = null;
-	if(this.data != "#planeAns2Good"&&this.data != "#planeAns3Bad1"&&this.data != "#planeAns3Bad2"&&this.data != "#planeAns3Good"&&this.data != "#planeAns4Good"&&this.data != "#planeAns4Bad1"&&this.data != "#planeAns4Bad2"&&this.data != "#planeAns6Bad1"&&this.data != "#planeAns6Bad2"&&this.data != "#planeAns9Good"&&this.data != "#planeAns9Bad1"&&this.data != "#planeAns9Bad2"){
+	if(this.data != "#planeAns2Good"&&this.data != "#planeAns3Bad1"&&this.data != "#planeAns3Bad2"&&this.data != "#planeAns3Good"&&this.data != "#planeAns4Good"&&this.data != "#planeAns4Bad1"&&this.data != "#planeAns4Bad2"&&this.data != "#planeAns6Bad1"&&this.data != "#planeAns6Bad2"&&this.data != "#planeAns9Good"&&this.data != "#planeAns9Bad1"&&this.data != "#planeAns9Bad2"&&this.data != "#planeAns10Bad1"&&this.data != "#planeAns10Bad2"&&this.data != "#planeAns7Bad1"&&this.data != "#planeAns7Good"){
 		this.plane = document.querySelector(this.data);
 		//console.log(this.data)
 	}
@@ -157,12 +157,12 @@ AFRAME.registerComponent('test', {
 		else if(this.data == "#planeAns6Bad2"){
 		  CreateSpriteSheets(this.textureMessage,[{anim:"loop",frames:[30,31,32,27,28,29,24,25,26,21,22,23,18,19,20,15,16,17,12,13,14,9,10,11,6,7,8,3,4,5,0,1,2],speed:0.08,onComplete:null,loop:false}],527,193,1581,2123);
 		}
-		/*else if(this.data == "#planeAns7Good"){
+		else if(this.data == "#planeAns7Good"){
 		  CreateSpriteSheets(this.textureMessage,[{anim:"loop",frames:[30,31,32,27,28,29,24,25,26,21,22,23,18,19,20,15,16,17,12,13,14,9,10,11,6,7,8,3,4,5,0],speed:0.08,onComplete:null,loop:false}],527,198,1581,2178);
 		}
 		else if(this.data == "#planeAns7Bad1"){
 		  CreateSpriteSheets(this.textureMessage,[{anim:"loop",frames:[30,31,32,27,28,29,24,25,26,21,22,23,18,19,20,15,16,17,12,13,14,9,10,11,6,7,8,3,4,5,0,1,2],speed:0.08,onComplete:null,loop:false}],527,193,1581,2123);
-		}*/
+		}
 		else if(this.data == "#planeAns7Bad2"){
 		  CreateSpriteSheets(this.textureMessage,[{anim:"loop",frames:[30,31,32,27,28,29,24,25,26,21,22,23,18,19,20,15,16,17,12,13,14,9,10,11,6,7,8,3,4,5,0,1,2],speed:0.08,onComplete:null,loop:false}],527,193,1581,2123);
 		}
@@ -185,7 +185,7 @@ AFRAME.registerComponent('test', {
 		else if(this.data == "#planeAns9Bad2"){
 		  CreateSpriteSheets(this.textureMessage,[{anim:"loop",frames:[30,31,32,27,28,29,24,25,26,21,22,23,18,19,20,15,16,17,12,13,14,9,10,11,6,7,8,3,4,5,0,1,2],speed:0.08,onComplete:null,loop:false}],527,193,1581,2123);
 		}
-		/*else if(this.data == "#planeAns10Good"){
+		else if(this.data == "#planeAns10Good"){
 		  CreateSpriteSheets(this.textureMessage,[{anim:"loop",frames:[30,31,32,27,28,29,24,25,26,21,22,23,18,19,20,15,16,17,12,13,14,9,10,11,6,7,8,3,4,5,0],speed:0.08,onComplete:null,loop:false}],527,198,1581,2178);
 		}
 		else if(this.data == "#planeAns10Bad1"){
@@ -193,7 +193,7 @@ AFRAME.registerComponent('test', {
 		}
 		else if(this.data == "#planeAns10Bad2"){
 		  CreateSpriteSheets(this.textureMessage,[{anim:"loop",frames:[30,31,32,27,28,29,24,25,26,21,22,23,18,19,20,15,16,17,12,13,14,9,10,11,6,7,8,3,4,5,0,1,2],speed:0.08,onComplete:null,loop:false}],527,193,1581,2123);
-		}*/
+		}
 
 
 	}
@@ -276,6 +276,22 @@ AFRAME.registerComponent('test', {
 	  			break
 	  			case "#planeAns9Bad2":
 	  			videoDom.src = "assets/ans9/incorrecta.mp4";
+	  			videoDom.loop = true;
+	  			break
+	  			case "#planeAns10Bad1":
+	  			videoDom.src = "assets/ans10/incorrecta.mp4";
+	  			videoDom.loop = true;
+	  			break
+	  			case "#planeAns10Bad2":
+	  			videoDom.src = "assets/ans10/incorrecta.mp4";
+	  			videoDom.loop = true;
+	  			break
+	  			case "#planeAns7Bad1":
+	  			videoDom.src = "assets/ans7/incorrecta1.mp4";
+	  			videoDom.loop = true;
+	  			break
+	  			case "#planeAns7Good":
+	  			videoDom.src = "assets/ans7/correcta.mp4";
 	  			videoDom.loop = true;
 	  			break
 
@@ -512,6 +528,7 @@ function dissapearInit(){
     </a-assets>
 
     <a-assets>
+    	<img id="texture10Good" src="assets/ans10/correcta.jpg">	
         <img id="texture10GoodMessage" src="assets/ans10/CORRECT10-527f198_31f_30fps.png">
         <img id="texture10Bad1Message" src="assets/ans10/WRONG10_1-527x193_33f_30fps.png">
         <img id="texture10Bad2Message" src="assets/ans10/WRONG10_2-527x193_33f_30fps.png">
@@ -648,17 +665,19 @@ function dissapearInit(){
     </a-marker>
 
 
-    <!--<a-marker  type='pattern' preset='custom' url='data/data/pattern_7.patt' test="#planeAns7Good">
+    <a-marker  type='pattern' preset='custom' url='data/data/pattern_7.patt' test="#planeAns7Good">
 		<a-box position='0 0.5 0' material='opacity: 0.9;'></a-box>
-
+		<a-video src="#video" width="1" height="1" position="0 1.05 0" rotation="-90 0 0"></a-video>
+		<a-plane id="planeAns7GoodBtn" src="#videoButton" height="1.0" width="1.0" position="0 1.075 0" rotation="-90 0 0"></a-plane>
 		<a-plane id="planeAns7GoodMessage"src="#texture7GoodMessage" height="0.45" width="0.75" position="0 1.1 0.4" rotation="-90 0 0" material="transparent:true;">
     </a-marker>
 
     <a-marker  type='pattern' preset='custom' url='data/data/pattern_7B.patt' test="#planeAns7Bad1">
 		<a-box position='0 0.5 0' material='opacity: 0.9;'></a-box>
-
+		<a-video src="#video" width="1" height="1" position="0 1.05 0" rotation="-90 0 0"></a-video>
+		<a-plane id="planeAns7Bad1Btn" src="#videoButton" height="1.0" width="1.0" position="0 1.075 0" rotation="-90 0 0"></a-plane>
 		<a-plane id="planeAns7Bad1Message"src="#texture7Bad1Message" height="0.45" width="0.75" position="0 1.1 0.4" rotation="-90 0 0" material="transparent:true;">
-    </a-marker>-->
+    </a-marker>
 
     <a-marker  type='pattern' preset='custom' url='data/data/pattern_7B2.patt' test="#planeAns7Bad2">
 		<a-box position='0 0.5 0' material='opacity: 0.9;'></a-box>
@@ -706,23 +725,25 @@ function dissapearInit(){
 		<a-plane id="planeAns9Bad2Message"src="#texture9Bad2Message" height="0.45" width="0.75" position="0 1.1 0.4" rotation="-90 0 0" material="transparent:true;">
     </a-marker>
 
-    <!--<a-marker  type='pattern' preset='custom' url='data/data/pattern_10.patt' test="#planeAns10Good">
+    <a-marker  type='pattern' preset='custom' url='data/data/pattern_10.patt' test="#planeAns10Good">
 		<a-box position='0 0.5 0' material='opacity: 0.9;'></a-box>
-
+		<a-plane id="planeAns10Good" src="#texture10Good" height="1" width="1" position="0 1.05 0" rotation="-90 0 0"></a-plane>
 		<a-plane id="planeAns10GoodMessage"src="#texture10GoodMessage" height="0.45" width="0.75" position="0 1.1 0.4" rotation="-90 0 0" material="transparent:true;">
     </a-marker>
 
     <a-marker  type='pattern' preset='custom' url='data/data/pattern_10B.patt' test="#planeAns10Bad1">
 		<a-box position='0 0.5 0' material='opacity: 0.9;'></a-box>
-
+		<a-video src="#video" width="1" height="1" position="0 1.05 0" rotation="-90 0 0"></a-video>
+		<a-plane id="planeAns10Bad1Btn" src="#videoButton" height="1.0" width="1.0" position="0 1.075 0" rotation="-90 0 0"></a-plane>
 		<a-plane id="planeAns10Bad1Message"src="#texture10Bad1Message" height="0.45" width="0.75" position="0 1.1 0.4" rotation="-90 0 0" material="transparent:true;">
     </a-marker>
 
     <a-marker  type='pattern' preset='custom' url='data/data/pattern_10B2.patt' test="#planeAns10Bad2">
 		<a-box position='0 0.5 0' material='opacity: 0.9;'></a-box>
-
+		<a-video src="#video" width="1" height="1" position="0 1.05 0" rotation="-90 0 0"></a-video>
+		<a-plane id="planeAns10Bad2Btn" src="#videoButton" height="1.0" width="1.0" position="0 1.075 0" rotation="-90 0 0"></a-plane>
 		<a-plane id="planeAns10Bad2Message"src="#texture10Bad2Message" height="0.45" width="0.75" position="0 1.1 0.4" rotation="-90 0 0" material="transparent:true;">
-    </a-marker>-->
+    </a-marker>
     
 <a-entity camera></a-entity>   
   </a-scene>
