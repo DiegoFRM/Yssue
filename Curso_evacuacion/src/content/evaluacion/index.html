@@ -1,0 +1,569 @@
+<HTML>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>evaluacion</title>
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
+
+        <style>
+            body{
+                margin:0;
+                padding:0;
+                font-family: 'Roboto Condensed', sans-serif;
+                overflow-x: hidden;
+            }
+            
+            h1,h2,h3{
+                font-weight: bold;
+                color: #4059A7;
+            }
+            
+            .text1{
+            }
+            
+            #navQuestions{
+                display: flex;
+                justify-content: space-around;
+                width: 100%;
+                margin-left: 0%;
+            }
+            
+            #contentMain{
+                padding: 2vw;
+            }
+            
+            
+             #bodyQuestion{
+                display: flex;
+                 justify-content: space-between;
+            }
+            
+            
+            #questionText{
+                font-size: 1.5vw;
+                color: #4059A7;
+                width: 100%;
+                position: relative;
+            }
+            
+        
+            #courtain{
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0,0,0,0.9);
+                display: none;
+                z-index: 3
+            }
+            
+            #codeQR{
+                height: 100%;
+                position: absolute;
+                top: 55%;
+                left:50%;
+                transform: translate(-50%,-50%);
+            }
+            
+            #codeQR img{
+                height: 80%;
+            }
+            
+
+            #feedIcon{
+                position: absolute;
+                height: 20%;
+                right: 2%;
+                top:3%;
+                opacity: 0;
+            }
+            
+            #feedIcon img{
+                height: 100%;
+            }
+            
+            .buttonQuestion{
+                background-color: #EA9036;
+                width: 100%;
+                padding: 2vw;
+                color:#FFF;
+                text-align: center;
+                margin: 1vw;
+                border-radius: 0.5vw;
+                height: 16.8%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-width: 420px;
+            }
+            
+            #imageQuestion{
+                position: relative;
+                height: 60%;
+                width: 100%;
+                border-top:5px solid #EA9036;
+                
+                overflow: hidden;
+
+            }  
+            
+            #mediaImage{
+                position: relative;
+                height: 40%;
+                width: 100%;
+            }
+            
+            .animation{
+                position: absolute;
+                width: 100%; 
+                height: 100%
+            }
+            
+            .imageAnimation{
+                position: absolute;
+            }
+            
+            .spriteQuestion{
+                position: absolute;
+                width: 527px;
+                height: 192px;
+                z-index: 1;
+                top: 50%;
+                left: 0%;
+                transform: scale(0.6); 
+                background-image: url("../../img/QUESTION1%20-%20527x192_20f_30fps.png");
+                animation: playX 1s steps(3),
+                           playY 3s steps(6);
+                animation-fill-mode: forwards;
+            }
+            
+            @keyframes playX {
+              from {background-position-x: 0px;}
+              to {background-position-x: -1581px;}
+            }
+            @keyframes playY {
+              from {background-position-y: 0px;}
+              to {background-position-y: -1152px;}
+            }
+            
+            video{
+                width: 100%;
+            }
+            
+            @media (orientation : portrait) { 
+                
+                #contentMain{
+                        margin-top: 20%;
+                }    
+                
+            .spriteQuestion{
+                position: absolute;
+                width: 527px;
+                height: 192px;
+                z-index: 1;
+                top: 50%;
+                left: -35%;
+                transform: scale(0.4);    
+            }
+                
+            #navQuestions{
+                margin-left: 0%;
+                
+            }    
+                
+            .imageAnimation{
+                height: auto;
+                width: 200%;
+                
+            }
+                
+                #questionText{
+                    font-size: 3vh;
+                    color: #4059A7;
+                    width: 100%;
+                    position: relative;
+                }
+
+                #imageQuestion{
+                    height: auto;
+                    overflow: hidden;
+                    border-top:5px solid #EA9036;
+                }  
+                
+                #bodyQuestion{
+                    display: block;
+                }
+                
+                
+                .buttonQuestion{
+                    background-color: #EA9036;
+                    width: 100%;
+                    padding: 2vw;
+                    color:#FFF;
+                    text-align: center;
+                    margin: 1vw;
+                    border-radius: 0.5vw;
+                }
+  
+            }
+            
+        </style>
+    </head>
+    <body >
+                
+        <div id="contentMain" class="container">
+            <div id="contentSlide" class="">
+                <div class="text1">
+                    <h1>Evaluación </h1>
+                      
+                </div>
+                </div>
+                <div id="bodyQuestion" class="">
+                <div  class="container" >
+                    <h3>Pregunta 1:</h3>
+                    <div id="questionText">Como seres humanos, que habitamos el planeta tierra, nos hace proclives a enfrentar riesgos que pueden producir daños en la integridad personal, en nuestros bienes o en el entorno. </div>
+                    <div id="imageQuestion">
+                        <div id="courtain">
+                            <div id="feedIcon"><img src="../../img/feedback_Icon-09.svg"></div>
+                            <div id="codeQR"><img src="../../img/q1_bad.png"></div>
+                        </div>
+                       
+                        <div id="mediaImage">
+                            
+                            <!--<img src="../../img/q_bg1.png">-->
+                            
+                        </div>
+                        
+                    </div>
+<!--                    <div class="spriteQuestion"></div>-->
+                    <div id="navQuestions">
+                        <div id="prevQuestion">Anterior</div> 
+                        <div id="countQuestion">1/10</div>
+                        <div id="nextQuestion">Siguiente</div>
+                    </div>
+                    
+                </div>
+                <div class="">
+                    <h2>Posibles respuestas</h2>
+                    <div id="ans1" class="buttonQuestion">Riesgos propios del ser humano </div> 
+                    <div id="ans2" class="buttonQuestion">Riesgos propios del ser humano </div> 
+                    <div id="ans3" class="buttonQuestion">Riesgos propios del ser humano </div>    
+                </div>
+                </div>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+        <script src="../../js/spine-widget.js"></script>
+
+        <script>
+            var Questions = 
+                [
+                    {
+                        question:`Las imágenes anteriores ejemplifican:`,
+                        image:'<div class="animation"></div>',
+                        answer1:`A) Riesgos propios del ser humano `,
+                        answer2:`B) Fenómenos naturales que se pueden combatir.`,
+                        answer3:`C) Destrucción de origen natural o humano. `,
+                        correct:1,
+                        perfectFeedback:`Como seres humanos, que habitamos el planeta tierra, nos hace proclives a enfrentar riesgos que pueden producir daños en la integridad personal, en nuestros bienes o en el entorno. `,
+                        goodFeedback:`Frente a los fenómenos naturales se pueden implementar medidas preventivas, para aminorar su impacto, no así combatir los fenómenos.`,
+                        badFeedback:`No todos los fenómenos naturales y humanos equivalen a destrucción. `,
+                        goodQR:"https://diegofrm.github.io/Yssue/Curso_evacuacion/AR_webapp/ImagesQr/q1G.png",
+                        babQR:"https://diegofrm.github.io/Yssue/Curso_evacuacion/AR_webapp/ImagesQr/q1B.png"
+                    },
+                    {
+                        question:`Si los fenómenos naturales y humanos son parte de nuestra condición humana, ¿cuál es nuestra responsabilidad?`,
+                        image:'<video controls src="../../img/2da_pregunta.mp4" ></video>',
+                        answer1:`Resguardar su integridad para enfrentar de la mejor manera el impacto de posibles daños.`,
+                        answer2:`Esperar instrucciones de sus superiores `,
+                        answer3:`Tomar sus pertenencias de valor.`,
+                        correct:1,
+                        perfectFeedback:`Frente a la conciencia de la exposición a cualquier riesgo la persona es responsable de salvaguardar su integridad.`,
+                        goodFeedback:`En caso de emergencia la máxima autoridad es el Comité Interno de Protección Civil.`,
+                        badFeedback:`En un caso de riesgo el valor más importante es el de la vida.`,
+                        goodQR:"https://diegofrm.github.io/Yssue/Curso_evacuacion/AR_webapp/ImagesQr/q2G.png",
+                        babQR:"https://diegofrm.github.io/Yssue/Curso_evacuacion/AR_webapp/ImagesQr/q2B.png"
+                    },
+                    {
+                        question:`Antes de poner en marcha una ruta de evacuación ¿qué elementos se deben contemplar?`,
+                        image:'<video controls src="../../img/3ra_pregunta.mp4" ></video>',
+                        answer1:`Debe estar previamente acondicionada, practicada y supervisada.`,
+                        answer2:`Debe estar por escrito, autorizada y supervisada por las autoridades correspondientes.`,
+                        answer3:`Debe estar previamente aceptada por la comunidad y llevarse a cabo por áreas.`,
+                        correct:1,
+                        perfectFeedback:`La responsabilidad del Comité Interno de Protección Civil, obliga a tener una ruta de evacuación previamente planeada, que sea viable, y haberse practicado con supervisión de expertos antes de validar una ruta de evacuación.`,
+                        goodFeedback:`Si bien el Comité Interno de Protección Civil, debe cumplir con ciertos lineamientos por escrito frente a las autoridades, el valor más importante se encuentra en que los participantes logren llevar a cabo con éxito la evacuación.`,
+                        badFeedback:`Los participantes del Comité Interno de Protección Civil, son personas capacitadas en la materia y son responsables de las decisiones de Protección Civil, son avalados por la autoridad y notifican a los colaboradores.`,
+                        goodQR:"https://diegofrm.github.io/Yssue/Curso_evacuacion/AR_webapp/ImagesQr/q3G.png",
+                        babQR:"https://diegofrm.github.io/Yssue/Curso_evacuacion/AR_webapp/ImagesQr/q3B.png"
+                    },
+                    {
+                        question:`Lograr una evacuación exitosa implica que todos participen; a esta acción se le llama:`,
+                        image:'<video controls src="../../img/4ta_pregunta.mp4" ></video>',
+                        answer1:`Integridad.`,
+                        answer2:`Solidaridad `,
+                        answer3:`Empatía.`,
+                        correct:1,
+                        perfectFeedback:`Las acciones de Protección Civil están encaminadas a salvaguardar a todos los participantes.`,
+                        goodFeedback:`Si bien todos podemos ayudar en muchas ocasiones no estamos en posición de ayudar a otros.`,
+                        badFeedback:`Las acciones de protección civil no están dictadas por afectos personales, si no por la participación de toda la comunidad afectada.`,
+                        goodQR:"https://diegofrm.github.io/Yssue/Curso_evacuacion/AR_webapp/ImagesQr/q4G.png",
+                        babQR:"https://diegofrm.github.io/Yssue/Curso_evacuacion/AR_webapp/ImagesQr/q4B.png"
+                    },
+                    {
+                        question:`Es el conjunto de personas encargadas de organizar, capacitar y verificar que se lleven a cabo las acciones necesarias para prevenir, detectar y mitigar riesgos.`,
+                        image:'<video controls src="../../img/6ta_pregunta.mp4" ></video>',
+                        answer1:`Comité interno de protección civil `,
+                        answer2:`Coordinación interna de brigadas.`,
+                        answer3:`Grupo de brigadistas.`,
+                        correct:1,
+                        perfectFeedback:`Son los que vigilan que las acciones de protección civil se lleven a cabo. Son los tomadores de decisiones en situaciones de emergencia.`,
+                        goodFeedback:`Aunque puede haber un coordinador de brigadas, este no considera al grupo de personas.`,
+                        badFeedback:`Los brigadistas son parte del Comité Interno de Protección Civil.`,
+                        goodQR:"https://diegofrm.github.io/Yssue/Curso_evacuacion/AR_webapp/ImagesQr/q5G.png",
+                        babQR:"https://diegofrm.github.io/Yssue/Curso_evacuacion/AR_webapp/ImagesQr/q5B.png"
+                    },
+                    {
+                        question:`Elige las 4 brigadas obligatorias de acuerdo con la Ley de Protección Civil:`,
+                        image:'<video controls src="../../img/6ta_pregunta.mp4" ></video>',
+                        answer1:`Evacuación, primeros auxilios, incendios, y comunicación.`,
+                        answer2:`no tiene `,
+                        answer3:`no tiene`,
+                        correct:1,
+                        perfectFeedback:`Las demás brigadas se pueden integrar de acuerdo con las necesidades de la empresa y podrán ser multifuncionales.`,
+                        goodFeedback:`no tiene`,
+                        badFeedback:`no tiene`,
+                        goodQR:"https://diegofrm.github.io/Yssue/Curso_evacuacion/AR_webapp/ImagesQr/q6G.png",
+                        babQR:"https://diegofrm.github.io/Yssue/Curso_evacuacion/AR_webapp/ImagesQr/q6B.png"
+                    },
+                    {
+                        question:`La evacuación que se mostró es un ejemplo de:`,
+                        image:'<video controls src="../../img/7ma_pregunta.mp4" ></video>',
+                        answer1:`Evacuación por etapas.`,
+                        answer2:`Evacuación parcial.`,
+                        answer3:`Evacuación gradual.`,
+                        correct:1,
+                        perfectFeedback:`Es una evacuación en la que se desaloja el área más cercana al fenómeno y posteriormente a las áreas más cercanas al mismo.`,
+                        goodFeedback:`Esta evacuación solo evacúa un área.`,
+                        badFeedback:`No hay una evacuación con ese nombre.`,
+                        goodQR:"https://diegofrm.github.io/Yssue/Curso_evacuacion/AR_webapp/ImagesQr/q7G.png",
+                        babQR:"https://diegofrm.github.io/Yssue/Curso_evacuacion/AR_webapp/ImagesQr/q7B.png"
+                    },
+                    {
+                        question:`Esta evacuación es un ejemplo de:`,
+                        image:'<video controls src="../../img/8va_pregunta.mp4" ></video>',
+                        answer1:`Evacuación crítica.`,
+                        answer2:`Evacuación general.`,
+                        answer3:`Evacuación total.`,
+                        correct:1,
+                        perfectFeedback:`Se presenta cuando el fenómeno ha salido de control o los daños son tan severos que debe evacuarse todas las áreas y a todas las personas.`,
+                        goodFeedback:`Esta evacuación se evacúa a toda la población, pero los brigadistas se mantienen realizando labores.`,
+                        badFeedback:`Se evacúan todas las áreas, y los brigadistas se mantienen realizando labores.`,
+                        goodQR:"https://diegofrm.github.io/Yssue/Curso_evacuacion/AR_webapp/ImagesQr/q8G.png",
+                        babQR:"https://diegofrm.github.io/Yssue/Curso_evacuacion/AR_webapp/ImagesQr/q8B.png"
+                    },
+                    {
+                        question:`La indicación para evacuar un lugar depende del fenómeno que se enfrente y:`,
+                        image:'<image src="../../img/9na_pregunta.jpg/>',
+                        answer1:`Del grado en que se afecta el desarrollo de las actividades normales`,
+                        answer2:`De la percepción que se tenga del grado de peligro. `,
+                        answer3:`De las instrucciones del personal de seguridad. `,
+                        correct:1,
+                        perfectFeedback:`Cualquier elemento que perturbe las actividades normales debe ser considerado como una condición para evacuar.`,
+                        goodFeedback:`La perturbación de las actividades no depende de la percepción individual.`,
+                        badFeedback:`Si bien el personal de seguridad puede tener un grado de decisión en una situación de alarma, todos somos responsables de salvaguardar nuestra integridad.`,
+                        goodQR:"https://diegofrm.github.io/Yssue/Curso_evacuacion/AR_webapp/ImagesQr/q9G.png",
+                        babQR:"https://diegofrm.github.io/Yssue/Curso_evacuacion/AR_webapp/ImagesQr/q9B.png"
+                    },
+                    {
+                        question:`Cuando cualquiera de los sentidos (visual, auditivo, olfativo) se ve afectado al grado de impedir realizar tus actividades de forma normal es:`,
+                        image:'<video controls src="../../img/10ma_pregunta.mp4" ></video>',
+                        answer1:`La condición para evacuar.`,
+                        answer2:`La condición para dar aviso a las autoridades. `,
+                        answer3:`La condición para accionar la alarma del lugar. `,
+                        correct:1,
+                        perfectFeedback:`Nuestros sentidos están preparados para recibir información del exterior y avisarnos de cualquier anomalía, por ello es importante tener en cuenta cualquier cosa que nos perturbe y actuar para salvaguardar nuestra vida.`,
+                        goodFeedback:`Si bien frente a una situación de amenaza es importante dar aviso a las autoridades, el primer paso de alerta es una acción individual.`,
+                        badFeedback:`Podrías generar una falsa alarma y generar otro tipo de accidentes.`,
+                        goodQR:"https://diegofrm.github.io/Yssue/Curso_evacuacion/AR_webapp/ImagesQr/q10G.png",
+                        babQR:"https://diegofrm.github.io/Yssue/Curso_evacuacion/AR_webapp/ImagesQr/q10B.png"
+                    }
+                ]
+            
+            var countQuestion  = 0;
+            var totalQuestions = 10;
+            var _nextQuestion = $("#nextQuestion");
+            var _prevQuestion = $("#prevQuestion");
+            var _questionText = $("#questionText");
+            var _imageQuestion = $("#imageQuestion").find("#mediaImage");
+            var _countQuestion = $("#countQuestion");
+            var _courtain = $("#courtain");
+            var _codeQR = $("#codeQR").find("img");
+            var _ans1 = $("#ans1");
+            var _ans2 = $("#ans2");
+            var _ans3 = $("#ans3");
+            _questionText.html(Questions[countQuestion].question);
+            _imageQuestion.html(Questions[countQuestion].image);
+            _ans1.html(Questions[countQuestion].answer1);
+            _ans2.html(Questions[countQuestion].answer2);
+            _ans3.html(Questions[countQuestion].answer3);
+        
+            function loadQuestion(num){
+                
+                var tween1 = TweenMax.fromTo(_questionText,1,{alpha:1},{alpha:0});
+                var tween2 = TweenMax.fromTo(_imageQuestion,1,{alpha:1},{alpha:0});
+                var tween3 = TweenMax.fromTo(_ans1,0.5,{alpha:1,x:0},{alpha:0,x:100,delay:0})
+                var tween4 = TweenMax.fromTo(_ans2,0.5,{alpha:1,x:0},{alpha:0,x:100,delay:0.3})
+                var tween5 = TweenMax.fromTo(_ans3,0.5,{alpha:1,x:0},{alpha:0,x:100,delay:0.5,onComplete:changeQuestion})
+                TweenMax.to($("#feedIcon"),0.5,{alpha:0,scale:0,ease:Back.easeIn});   
+                TweenMax.fromTo(_courtain,1,{alpha:1},{alpha:0});
+                function changeQuestion(){
+                    _courtain.css("display","none");
+                    _ans1.css("background-color","#EA9036");
+                    _ans2.css("background-color","#EA9036");
+                    _ans3.css("background-color","#EA9036");
+                    _questionText.html(Questions[num].question);
+                    _imageQuestion.html(Questions[num].image);
+                    _ans1.html(Questions[num].answer1);
+                    _ans2.html(Questions[num].answer2);
+                    _ans3.html(Questions[num].answer3);
+                    tween1.reverse();
+                    tween2.reverse();
+                    tween3.reverse();
+                    tween4.reverse();
+                    tween5.reverse();
+                }
+                
+                
+            }
+            
+
+            
+            _nextQuestion.click(function(){
+                if(countQuestion != totalQuestions-1){
+                    countQuestion++;
+                    loadQuestion(countQuestion);
+                    _countQuestion.text([countQuestion+1] + "/" + totalQuestions);  
+                    $("h3").text("Pregunta " + [countQuestion+1]);  
+                    this.css("opacity",0);
+                }
+            });
+            
+            _prevQuestion.click(function(){
+                if(countQuestion != 0){
+                    countQuestion--;
+                    loadQuestion(countQuestion);
+                    _countQuestion.text([countQuestion+1] + "/" + totalQuestions);  
+                    $("h3").text("Pregunta " + [countQuestion+1]);  
+                    this.css("opacity",0);
+                }
+            });
+        
+            function answersButtons(){
+                for(var i = 1;i<=3;i++){
+                    $("#ans" + i).attr("index",i);    
+                    $("#ans" + i).click(function(){
+                        var index = $(this).attr("index"); 
+                        _courtain.css("display","block");
+                        TweenMax.fromTo(_courtain,1,{alpha:0},{alpha:1});
+                            if(index == Questions[countQuestion].correct){
+                                $("#feedIcon").find("img").attr("src","../../img/feedback_Icon-10.svg");
+                                $(this).css("background-color","#41A548");
+                               _codeQR.attr("src",Questions[countQuestion].goodQR); _questionText.html(Questions[countQuestion].perfectFeedback);
+                            }else{
+                                _codeQR.attr("src",Questions[countQuestion].babQR); $("#feedIcon").find("img").attr("src","../../img/feedback_Icon-09.svg");
+                                $(this).css("background-color","#E81A38");   
+                                _questionText.html(Questions[countQuestion].badFeedback);
+                            }
+                        switch(index){
+                            case "1":
+                                $("#feedIcon").css("top","6%");
+                            break;
+                            case "2":
+                                $("#feedIcon").css("top","40%");
+
+                            break;
+                            case "3":
+                                $("#feedIcon").css("top","75%");
+                            break;
+                        }
+                        TweenMax.fromTo($("#feedIcon"),0.5,{alpha:0,scale:0},{alpha:1,scale:1,ease:Back.easeOut});
+                        
+                    }) ;
+                }
+            }
+            
+            answersButtons();
+            
+            
+            function animationQuestionImage(){
+                $(".animation").append(
+                    `
+                    <img class="imageAnimation imga4" src="../../img/img_1.jpg" />
+                    <img class="imageAnimation imga3" src="../../img/img_2.jpg" />
+                    <img class="imageAnimation imga2" src="../../img/img_3.jpg" />
+                    <img class="imageAnimation imga1" src="../../img/img_4.jpg" />
+
+                    `
+                )
+            }
+            
+            animationQuestionImage();
+            
+    function animateBanner(){
+        TweenMax.fromTo($(".imga1"),0,{alpha:0},{alpha:1,delay:0});
+        TweenMax.fromTo($(".imga2"),1,{alpha:0},{alpha:1,delay:0});
+        TweenMax.fromTo($(".imga3"),1,{alpha:0},{alpha:1,delay:0});
+        TweenMax.fromTo($(".imga4"),1,{alpha:0},{alpha:1,delay:0});
+        
+        TweenMax.fromTo($(".imga1"),7,{y:0},{y:-100,delay:0});
+        TweenMax.fromTo($(".imga2"),7,{y:0},{y:-100,delay:4});
+        TweenMax.fromTo($(".imga3"),7,{y:0},{y:-100,delay:10});
+        TweenMax.fromTo($(".imga4"),7,{y:-100},{y:-350,delay:14});
+        
+        TweenMax.fromTo($(".imga1"),1,{alpha:1},{alpha:0,delay:6});
+        TweenMax.fromTo($(".imga2"),1,{alpha:1},{alpha:0,delay:10});
+        TweenMax.fromTo($(".imga3"),1,{alpha:1},{alpha:0,delay:16});
+        TweenMax.fromTo($(".imga4"),1,{alpha:1},{alpha:0,delay:20,onComplete:animateBanner});
+    }
+            
+            animateBanner();
+/*
+function supportsWebGL() {
+	try {
+		var canvas = document.createElement("canvas");
+		var ctx = canvas.getContext("webgl") || canvas.getContext("2d");
+		return ctx != null;
+	} catch(e) {
+		return false;
+	}
+}
+if (!supportsWebGL()) {
+	alert('WebGL is unavailable.');
+}
+
+
+      var imageObj = new Image();
+      imageObj.onload = function() {
+        context.drawImage(imageObj, 100, 150);
+      };
+      imageObj.src = '../../img/img_1.jpg';
+              
+            
+spineWidget = new spine.SpineWidget("spine-widget", {
+	loop:false,
+	json: "../../spine/banners.json",
+	atlas: "../../spine/banners.atlas",
+	animation: "question",
+	skin:"answer1",
+	backgroundColor: "transparent",
+    x: 250,
+    y:180,
+	debug: false
+
+});
+            */
+</script>        
+        
+    </body>
+</HTML>
