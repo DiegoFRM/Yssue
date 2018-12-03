@@ -38,12 +38,20 @@
   	},false)
 
     var velocityValue = 0.005;
-
-    var t3Good1= new THREE.TextureLoader().load( "assets/ans3/correcta_1.jpg" );
+   /*var t1Good= new THREE.TextureLoader().load( "assets/ans1/ans1_good.jpg" );
+  var t1Bad= new THREE.TextureLoader().load( "assets/ans1/ans1_wrong.jpg" );
+  var t2Bad= new THREE.TextureLoader().load( "assets/ans2/incorrecta.jpg" );*/
+   var t3Good1= new THREE.TextureLoader().load( "assets/ans3/correcta_1.jpg" );
   var t3Good2= new THREE.TextureLoader().load( "assets/ans3/correcta_2.jpg" );
-  /*var t6Good= new THREE.TextureLoader().load( "assets/ans6/correcta.jpg" );
+ /* var t5Good= new THREE.TextureLoader().load( "assets/ans5/correcta.jpg" );
+  var t5Bad= new THREE.TextureLoader().load( "assets/ans5/incorrecta.jpg" );
+  var t6Good= new THREE.TextureLoader().load( "assets/ans6/correcta.jpg" );
+  var t7Bad= new THREE.TextureLoader().load( "assets/ans7/incorrecta_2.jpg" );
   var t8Good= new THREE.TextureLoader().load( "assets/ans8/correcta.jpg" );
-  var t8Bad= new THREE.TextureLoader().load( "assets/ans8/incorrecta.jpg" );*/
+  var t8Bad= new THREE.TextureLoader().load( "assets/ans8/incorrecta.jpg" );
+  var t10Good= new THREE.TextureLoader().load( "assets/ans10/correcta.jpg" );*/
+
+
   var loadingDiv;
   var inVideo = false;
   var isPlaying = false;
@@ -60,13 +68,15 @@ AFRAME.registerComponent('test', {
 	if(this.data != "#planeAns2Good"&&this.data != "#planeAns3Bad1"&&this.data != "#planeAns3Bad2"&&this.data != "#planeAns3Good"&&this.data != "#planeAns4Good"&&this.data != "#planeAns4Bad1"&&this.data != "#planeAns4Bad2"&&this.data != "#planeAns6Bad1"&&this.data != "#planeAns6Bad2"&&this.data != "#planeAns9Good"&&this.data != "#planeAns9Bad1"&&this.data != "#planeAns9Bad2"&&this.data != "#planeAns10Bad1"&&this.data != "#planeAns10Bad2"&&this.data != "#planeAns7Bad1"&&this.data != "#planeAns7Good"){
 		this.plane = document.querySelector(this.data);
 		//console.log(this.data)
+
+
 	}
 	else{
 		//console.log(this.data)
 		if(this.data != "#planeAns3Good"){
 			this.video = true;
 			this.startPlay = false;
-			console.log(this.data)
+			//console.log(this.data)
 			this.button = document.querySelector(this.data+"Btn").object3D;
 			
 		}
@@ -90,8 +100,63 @@ AFRAME.registerComponent('test', {
     this.currentTime = 0;
     this.currentValue = 1;
 	if(this.plane!=null){
-		this.textureWidth = this.plane.object3D.children[0].material.map.image.width;
-		this.textureHeight = this.plane.object3D.children[0].material.map.image.height;
+		/*this.plane.object3D.children[0].material.needsUpdate = true;
+		var currentTextureMap;
+		switch(this.data){
+			
+			case "#planeAns1Good":
+			currentTextureMap = t1Good;
+			break;
+			case "#planeAns1Bad1":
+			currentTextureMap = t1Bad;
+			break;
+			case "#planeAns1Bad2":
+			currentTextureMap = t1Bad;
+			break;
+			case "#planeAns2Bad1":
+			currentTextureMap = t2Bad;
+			break;
+			case "#planeAns2Bad2":
+			currentTextureMap = t2Bad;
+			break;
+			case "#planeAns5Good":
+			currentTextureMap = t5Good;
+			break;
+			case "#planeAns5Bad1":
+			currentTextureMap = t5Bad;
+			break;
+			case "#planeAns5Bad2":
+			currentTextureMap = t5Bad;
+			break;
+			case "#planeAns6Good":
+			currentTextureMap = t6Good;
+			break;
+			case "#planeAns7Bad2":
+			currentTextureMap = t7Bad;
+			break;
+			case "#planeAns8Good":
+			currentTextureMap = t8Good;
+			break;
+			case "#planeAns8Bad1":
+			currentTextureMap = t8Bad;
+			break;
+			case "#planeAns8Bad2":
+			currentTextureMap = t8Bad;
+			break;
+			case "#planeAns10Good":
+			currentTextureMap = t10Good;
+			break;
+
+
+		}
+		//this.plane.object3D.children[0].material.map = t6Good;
+		this.plane.object3D.children[0].material.map = currentTextureMap;
+		console.log(currentTextureMap);*/
+		//this.textureWidth = currentTextureMap.image.width;
+		//this.textureHeight = currentTextureMap.image.height;
+		this.textureWidth = 1000;
+		this.textureHeight = 600;
+		//console.log(currentTextureMap);
 		this.plane.object3D.children[0].material.needsUpdate=true;
 	}
 	else{
@@ -338,6 +403,19 @@ AFRAME.registerComponent('test', {
     	else if(this.transitionMaterial!=null){
     		this.currentTexture = 1;
     	}
+    	if(this.plane != null){
+    		//console.log(this.data)
+    		if(this.plane.object3D.children[0].material.map.image==null){
+    			//console.log(this.data)
+    		}
+    		else if(this.textureWidth != this.plane.object3D.children[0].material.map.image.width){
+
+    			this.textureWidth = this.plane.object3D.children[0].material.map.image.width;
+    			this.textureHeight = this.plane.object3D.children[0].material.map.image.height;
+    			console.log(this.textureWidth,this.textureHeight)
+    		}
+
+    	}
 
       this.direction = -1;
       this.currentValue = 1;
@@ -489,6 +567,8 @@ function dissapearInit(){
     </a-assets>
 
     <a-assets>
+    	<img id="texture5Good" src="assets/ans5/correcta.jpg">	
+    	<img id="texture5Bad" src="assets/ans5/incorrecta.jpg">
         <img id="texture5GoodMessage" src="assets/ans5/CORRECT5-527x198_31f_30fps.png">
         <img id="texture5Bad1Message" src="assets/ans5/WRONG5_1-527x193_33f_30fps.png">
         <img id="texture5Bad2Message" src="assets/ans5/WRONG5_2-527x193_33f_30fps.png">
@@ -496,7 +576,10 @@ function dissapearInit(){
     </a-assets>
 
     <a-assets>
-    	<img id="texture6Good" src="assets/ans6/correcta.jpg">	
+
+    	<img id="texture6Good" src="assets/ans6/correcta.jpg">
+
+
         <img id="texture6GoodMessage" src="assets/ans6/CORRECT6-527f198_31f_30fps.png">
         <img id="texture6Bad1Message" src="assets/ans6/WRONG6_1-527x193_33f_30fps.png">
         <img id="texture6Bad2Message" src="assets/ans6/WRONG6_2-527x193_33f_30fps.png">
@@ -618,6 +701,7 @@ function dissapearInit(){
 	  <a-plane id="planeAns4Bad1Message"src="#texture4Bad1Message" height="0.45" width="0.75" position="0 1.1 0.4" rotation="-90 0 0" material="transparent:true;">
     </a-marker>
 
+
     <a-marker  type='pattern' preset='custom' url='data/data/pattern_4B2.patt' test="#planeAns4Bad2">
 		<a-box position='0 0.5 0' material='opacity: 0.9;'></a-box>
       <a-video src="#video" width="1" height="1" position="0 1.05 0" rotation="-90 0 0"></a-video>
@@ -625,23 +709,23 @@ function dissapearInit(){
 	  <a-plane id="planeAns4Bad2Message"src="#texture4Bad2Message" height="0.45" width="0.75" position="0 1.1 0.4" rotation="-90 0 0" material="transparent:true;">
     </a-marker>
 
-    <!--<a-marker  type='pattern' preset='custom' url='data/data/pattern_5.patt' test="#planeAns5Good">
+    <a-marker  type='pattern' preset='custom' url='data/data/pattern_5.patt' test="#planeAns5Good">
 		<a-box position='0 0.5 0' material='opacity: 0.9;'></a-box>
-
+		 <a-plane id="planeAns5Good" src="#texture5Good" height="1" width="1" position="0 1.05 0" rotation="-90 0 0"></a-plane>
 		<a-plane id="planeAns5GoodMessage"src="#texture5GoodMessage" height="0.45" width="0.75" position="0 1.1 0.4" rotation="-90 0 0" material="transparent:true;">
     </a-marker>
 
     <a-marker  type='pattern' preset='custom' url='data/data/pattern_5B.patt' test="#planeAns5Bad1">
 		<a-box position='0 0.5 0' material='opacity: 0.9;'></a-box>
-
+		 <a-plane id="planeAns5Bad1" src="#texture5Bad" height="1" width="1" position="0 1.05 0" rotation="-90 0 0"></a-plane>
 		<a-plane id="planeAns5Bad1Message"src="#texture5Bad1Message" height="0.45" width="0.75" position="0 1.1 0.4" rotation="-90 0 0" material="transparent:true;">
     </a-marker>
 
     <a-marker  type='pattern' preset='custom' url='data/data/pattern_5B2.patt' test="#planeAns5Bad2">
 		<a-box position='0 0.5 0' material='opacity: 0.9;'></a-box>
-
+		 <a-plane id="planeAns5Bad2" src="#texture5Bad" height="1" width="1" position="0 1.05 0" rotation="-90 0 0"></a-plane>
 		<a-plane id="planeAns5Bad2Message"src="#texture5Bad2Message" height="0.45" width="0.75" position="0 1.1 0.4" rotation="-90 0 0" material="transparent:true;">
-    </a-marker>-->
+    </a-marker>
 
 
     <a-marker  type='pattern' preset='custom' url='data/data/pattern_6.patt' test="#planeAns6Good">
