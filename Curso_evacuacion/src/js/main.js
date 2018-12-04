@@ -66,6 +66,10 @@ var listSlides = [
     {slide:"slide1",name:"Bienvenido"},
     {slide:"slide2",name:"Objetivo"},
     {slide:"slide3",name:"Componentes del curso"},
+    {slide:"slide4",name:"Comenzaremos con el Módulo I"},
+    {slide:"slide5",name:"Recomendaciones de navegación"},
+    {slide:"slide6",name:"¡Muy bien!"},
+    {slide:"slide7",name:"Breve reflexión sobre el riesgo"},
     {slide:"evaluacion",name:"Evaluación"},
 ]
 for(var i = 1;i<=listSlides.length;i++){
@@ -113,6 +117,13 @@ function cortinillaTween(movie){
 }
 
 cortinillaTween(0);
+function activeButton(num){
+        var movie = $("#buttonTheme" + num).attr("index");
+        TweenMax.to($(".buttonModule"),0.5,{scale:1,alpha:0.3});
+        TweenMax.to($("#buttonTheme" + num),0.3,{scale:2,alpha:1});
+        $(".buttonModule").attr("active",0); 
+        $("#buttonTheme" + num).attr("active",1); 
+}
 
 $("#buttonTheme1").attr("active",1); 
 $("#buttonTheme1").css("opacity",1); 
