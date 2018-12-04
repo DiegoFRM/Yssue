@@ -65,7 +65,7 @@ AFRAME.registerComponent('test', {
   	this.video = false;
   	//console.log(this.data)
   	this.transitionMaterial = null;
-	if(this.data != "#planeAns2Good"&&this.data != "#planeAns3Bad1"&&this.data != "#planeAns3Bad2"&&this.data != "#planeAns3Good"&&this.data != "#planeAns4Good"&&this.data != "#planeAns4Bad1"&&this.data != "#planeAns4Bad2"&&this.data != "#planeAns6Bad1"&&this.data != "#planeAns6Bad2"&&this.data != "#planeAns9Good"&&this.data != "#planeAns9Bad1"&&this.data != "#planeAns9Bad2"&&this.data != "#planeAns10Bad1"&&this.data != "#planeAns10Bad2"&&this.data != "#planeAns7Bad1"&&this.data != "#planeAns7Good"){
+	if(this.data != "#planeAns1Good"&&this.data != "#planeAns1Bad1"&&this.data != "#planeAns1Bad2"&&this.data != "#planeAns2Good"&&this.data != "#planeAns3Bad1"&&this.data != "#planeAns3Bad2"&&this.data != "#planeAns3Good"&&this.data != "#planeAns4Good"&&this.data != "#planeAns4Bad1"&&this.data != "#planeAns4Bad2"&&this.data != "#planeAns6Bad1"&&this.data != "#planeAns6Bad2"&&this.data != "#planeAns9Good"&&this.data != "#planeAns9Bad1"&&this.data != "#planeAns9Bad2"&&this.data != "#planeAns10Bad1"&&this.data != "#planeAns10Bad2"&&this.data != "#planeAns7Bad1"&&this.data != "#planeAns7Good"){
 		this.plane = document.querySelector(this.data);
 		//console.log(this.data)
 
@@ -298,6 +298,18 @@ AFRAME.registerComponent('test', {
 	  		//console.log(this.data)
 	  		videoDom.pause();
 	  		switch(this.data){
+	  			case "#planeAns1Good":
+	  			videoDom.src = "assets/ans1/correcta.mp4";
+	  			videoDom.loop = true;
+	  			break;
+	  			case "#planeAns1Bad1":
+	  			videoDom.src = "assets/ans1/incorrecta.mp4";
+	  			videoDom.loop = true;
+	  			break;
+	  			case "#planeAns1Bad2":
+	  			videoDom.src = "assets/ans1/incorrecta.mp4";
+	  			videoDom.loop = true;
+	  			break;
 	  			case "#planeAns2Good":
 	  			videoDom.src = "assets/ans2/correcta.mp4";
 	  			videoDom.loop = true;
@@ -621,8 +633,10 @@ function dissapearInit(){
     <a-marker  type='pattern' preset='custom' url='data/data/pattern_1.patt' test="#planeAns1Good">
 
       <a-box position='0 0.5 0' material='opacity: 0.9;'></a-box>
-      <a-plane id="planeAns1Good"src="#texture1God" height="1" width="1" position="0 1.05 0" rotation="-90 0 0">
-      </a-plane>
+      <!--<a-plane id="planeAns1Good"src="#texture1God" height="1" width="1" position="0 1.05 0" rotation="-90 0 0">
+      </a-plane>-->
+      <a-video src="#video" width="1" height="1" position="0 1.05 0" rotation="-90 0 0"></a-video>
+      <a-plane id="planeAns1GoodBtn" src="#videoButton" height="1.0" width="1.0" position="0 1.075 0" rotation="-90 0 0"></a-plane>
       <a-plane id="planeAns1GoodMessage"src="#texture1GoodMessage" height="0.45" width="0.75" position="0 1.1 0.4" rotation="-90 0 0" material="transparent:true;">
       </a-plane>
     </a-marker>
@@ -630,14 +644,18 @@ function dissapearInit(){
     <a-marker  type='pattern' preset='custom' url='data/data/pattern_1B.patt' test="#planeAns1Bad1">
 
       <a-box position='0 0.5 0' material='opacity: 0.9;'></a-box>
-      <a-plane id="planeAns1Bad1" src="#texture1Bad1" height="1" width="1" position="0 1.05 0" rotation="-90 0 0"></a-plane>
+      <!--<a-plane id="planeAns1Bad1" src="#texture1Bad1" height="1" width="1" position="0 1.05 0" rotation="-90 0 0"></a-plane>-->
+      <a-video src="#video" width="1" height="1" position="0 1.05 0" rotation="-90 0 0"></a-video>
+      <a-plane id="planeAns1Bad1Btn" src="#videoButton" height="1.0" width="1.0" position="0 1.075 0" rotation="-90 0 0"></a-plane>
       <a-plane id="planeAns1Bad1Message"src="#texture1Bad1Message" height="0.45" width="0.75" position="0 1.1 0.4" rotation="-90 0 0" material="transparent:true;">
     </a-marker>
 
     <a-marker  type='pattern' preset='custom' url='data/data/pattern_1B2.patt' test="#planeAns1Bad2">
 
       <a-box position='0 0.5 0' material='opacity: 0.9;'></a-box>
-      <a-plane id="planeAns1Bad2" src="#texture1Bad2" height="1" width="1" position="0 1.05 0" rotation="-90 0 0"></a-plane>
+      <!--<a-plane id="planeAns1Bad2" src="#texture1Bad2" height="1" width="1" position="0 1.05 0" rotation="-90 0 0"></a-plane>-->
+       <a-video src="#video" width="1" height="1" position="0 1.05 0" rotation="-90 0 0"></a-video>
+      <a-plane id="planeAns1Bad2Btn" src="#videoButton" height="1.0" width="1.0" position="0 1.075 0" rotation="-90 0 0"></a-plane>
       <a-plane id="planeAns1Bad2Message"src="#texture1Bad2Message" height="0.45" width="0.75" position="0 1.1 0.4" rotation="-90 0 0" material="transparent:true;">
     </a-marker>
 
