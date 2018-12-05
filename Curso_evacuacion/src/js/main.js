@@ -64,14 +64,69 @@ var countSlide = 0;
 var activeButton;
 var listSlides = [
     {slide:"slide1",name:"Bienvenido"},
+    {slide:"slide9",name:"Tema 2: Definición de evacuación"},
+    {slide:"evaluacion",name:"Evaluación"}
+]
+
+
+
+var module1 = [
+    {slide:"slide1",name:"Bienvenido"},
     {slide:"slide2",name:"Objetivo"},
     {slide:"slide3",name:"Componentes del curso"},
     {slide:"slide4",name:"Comenzaremos con el Módulo I"},
     {slide:"slide5",name:"Recomendaciones de navegación"},
     {slide:"slide6",name:"¡Muy bien!"},
     {slide:"slide7",name:"Breve reflexión sobre el riesgo"},
-    {slide:"evaluacion",name:"Evaluación"},
+    {slide:"slide8",name:"¿Qué hacer?"},
 ]
+
+var module2 = [
+    {slide:"slide9",name:"Tema 2: Definición de evacuación"}
+]
+
+function loadModule(moduloChoice){
+    $("#subNavButtons").html("");
+   for(var i = 1;i<=moduloChoice.length;i++){
+    $("#subNavButtons").append(
+    `<div id="subButtonTheme`+i+`" class="SubButtonModule"><p>`+i+`</p></div>`)
+    $("#subButtonTheme" + i).attr("index",i-1); 
+    $("#subButtonTheme" + i).attr("active",0);  
+    
+    $("#subButtonTheme" + i).mouseover(function(){
+        if($(this).attr("active") == 0){
+            $(this).css("opacity",1); 
+            TweenMax.to(this,0.5,{scale:2});  
+        }
+
+    })
+            
+    $("#subButtonTheme" + i).mouseout(function(){
+        if($(this).attr("active") == 0){
+            $(this).css("opacity",0.5); 
+            TweenMax.to(this,0.5,{scale:1});
+        }
+    });
+            
+    $("#subButtonTheme" + i).click(function(){
+        var movie = $(this).attr("index");
+        TweenMax.to($(".SubButtonModule"),0.5,{scale:1,alpha:0.3});
+        TweenMax.to($(this),0.3,{scale:2,alpha:1});
+        $(".SubButtonModule").attr("active",0); 
+        $(this).attr("active",1); 
+        cortinillaTweenModule(moduloChoice,movie)   
+    })
+            
+   } 
+    
+$("#subButtonTheme1").attr("active",1); 
+$("#subButtonTheme1").css("opacity",1); 
+TweenMax.to($("#subButtonTheme1"),0.5,{scale:2});    
+    
+}
+
+
+
 for(var i = 1;i<=listSlides.length;i++){
     $("#navButtons").append(
     `<div id="buttonTheme`+i+`" class="buttonModule"><p>`+i+`</p></div>`)
@@ -98,36 +153,65 @@ for(var i = 1;i<=listSlides.length;i++){
         TweenMax.to($(this),0.3,{scale:2,alpha:1});
         $(".buttonModule").attr("active",0); 
         $(this).attr("active",1); 
-        cortinillaTween(movie)    
+        cortinillaTween(movie)  
+        
+        switch(movie){
+            case "0":
+                loadModule(module1);
+                $("#barAdvance").css("width","20%");
+                break;
+            case "1":
+                loadModule(module2);
+                $("#barAdvance").css("width","50%");
+                break;
+        }
     })
             
 }
 
 function cortinillaTween(movie){
     $("#cortinilla").css("display","block");
+    $("#cortinilla").css("background-color","#EA9036");
     $("h1").text(listSlides[movie].name);
     TweenMax.fromTo($("#cortinilla"),0.5,{left:"0%",width:"0%"},{width:"100%"});
     TweenMax.fromTo($("#cortinilla").find("h1"),0.5,{alpha:0,scaleY:0},{scaleY:1,alpha:1,delay:1});
     TweenMax.to($("#cortinilla").find("h1"),0.5,{alpha:0,scaleY:0,delay:3,onComplete:loadMovie});
     TweenMax.to($("#cortinilla"),0.5,{left:"100%",delay:4}); 
-
+    TweenMax.to($(".SubButtonModule"),0.5,{scale:1,alpha:0.3});
     function loadMovie(){
         $("#loadMovies").attr("src","content/"+ listSlides[movie].slide +"/index.html"); 
     }
 }
 
-cortinillaTween(0);
-function activeButton(num){
-        var movie = $("#buttonTheme" + num).attr("index");
-        TweenMax.to($(".buttonModule"),0.5,{scale:1,alpha:0.3});
-        TweenMax.to($("#buttonTheme" + num),0.3,{scale:2,alpha:1});
-        $(".buttonModule").attr("active",0); 
-        $("#buttonTheme" + num).attr("active",1); 
+function cortinillaTweenModule(modulo,movie){
+    $("#cortinilla").css("display","block");
+    $("#cortinilla").css("background-color","#4059A7");
+    $("h1").text(modulo[movie].name);
+    TweenMax.fromTo($("#cortinilla"),0.5,{left:"0%",width:"0%"},{width:"100%"});
+    TweenMax.fromTo($("#cortinilla").find("h1"),0.5,{alpha:0,scaleY:0},{scaleY:1,alpha:1,delay:1});
+    TweenMax.to($("#cortinilla").find("h1"),0.5,{alpha:0,scaleY:0,delay:3,onComplete:loadMovie});
+    TweenMax.to($("#cortinilla"),0.5,{left:"100%",delay:4}); 
+    
+    function loadMovie(){
+        $("#loadMovies").attr("src","content/"+ modulo[movie].slide +"/index.html"); 
+    }
 }
 
+cortinillaTween(0);
+function activeButton(num){
+        var movie = $("#subButtonTheme" + num).attr("index");
+        TweenMax.to($(".SubButtonModule"),0.5,{scale:1,alpha:0.3});
+        TweenMax.to($("#subButtonTheme" + num),0.3,{scale:2,alpha:1});
+        $(".SubButtonModule").attr("active",0); 
+        $("#subButtonTheme" + num).attr("active",1); 
+}
+
+
 $("#buttonTheme1").attr("active",1); 
-$("#buttonTheme1").css("opacity",1); 
+$("#buttonTheme1").css("opacity",1);
+$("#barAdvance").css("width","20%");
 TweenMax.to($("#buttonTheme1"),0.5,{scale:2});
+loadModule(module1);
 
 
 

@@ -45,11 +45,17 @@
  
 
             .bodytext{                
-                font-size: 2vw;
+                font-size: 1.2em;
                 color: #4059A7;
                 font-weight:normal;
-                margin: 2vw;
+                margin-left: -3%;
+                
+                padding: 1vw;
+                border-radius: 1vw;
+                
             }
+            
+            
             
             h1{
                 font-size: 4vw;
@@ -65,9 +71,10 @@
             
             .frida{
                 position: relative;
-                width: 50%;
-                left: 50%;
-                transform: translate(-50%,0%);
+                width: 80%;
+                left: -30%;
+                margin-top: 10%;
+                transform: translate(50%,-40%);
             }
             
             ul{
@@ -78,8 +85,9 @@
             }
             
             #videoSlide{
-                width: 80%;
-                margin-left: 10%;
+                width: 60%;
+                margin-left: 20%;
+                border-radius: 2vw;
             }
             
             @media (orientation : portrait) { 
@@ -121,19 +129,78 @@
                     <video id="videoSlide" controls src="../../img/slide7.mp4"></video>
                   
                 </div>
-                <div class="col-xs-12 col-sm-12">
-                    <p class="bodytext">
-                       </p>
+                <div class="col-xs-12 col-sm-12 row">
+                    <div class="col-xs-6 col-sm-3">
+                        <img class="frida img-fluid" src="../../img/frida.svg">
+                    </div>
+                    <div class="col-xs-6 col-sm-7 bodytext">
+                         Da Click en Frida para reproducir el video.
+                       </div>
                 </div>
 
             </div>
         </div>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js">
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TimelineMax.min.js"></script>
         <script>
             
+            var texts = [
+                `Como seres humanos que habitamos la tierra,
+                    hemos enfrentado el impacto de fenómenos
+                    naturales y humanos que han dejado a su paso
+                    importantes pérdidas materiales y humanas.`,
+                    `Por lo tanto, <b>el riesgo</b> es la probabilidad de que
+                    ocurra un <b>fenómeno perturbador</b> que produzca
+                    daños en la <b>integridad, bienes o entorno de la
+                    población.</b>`,
+                `<b>¡Todos somos vulnerables ante los
+                    riesgos!</b><br>
+                    <b>Por ello, conocer las medidas
+                    de protección civil es nuestra
+                    responsabilidad, ya que nos ayuda a
+                    disminuir daños y pérdidas.</b>`
+            ]
+            var playvideo = false;
+            
+            var tl = new TimelineMax({repeat:0})
+            .from($(".bodytext"), 1, {alpha:1,delay:9.5,onComplete:text1})
+            .from($(".bodytext"), 1, {alpha:1,delay:10.5,onComplete:text2})
+            .pause();
+            
+            function text1(){
+                console.log("complete1");
+                $(".bodytext").html(texts[1]);
+            }
+            
+            function text2(){
+                console.log("complete2");
+                $(".bodytext").html(texts[2]);
+            }
+            
+            $(".frida").click(function(){
+                
+                $(".bodytext").html(texts[0]);
+                
+                var video = document.getElementById("videoSlide");
+                if(!playvideo){
+                video.play();
+                tl.play();    
+                    playvideo = true;
+                }else{
+                   video.pause(); 
+                    tl.pause();
+                    playvideo = false;
+                }
+
+            });
+            
+            
+            
+            TweenMax.fromTo($(".frida"),0.5,{scale:0},{scale:1,delay:1.3});
+            
             TweenMax.fromTo($(".text1").find("h1"),0.5,{x:200,alpha:0},{x:0,alpha:1,delay:1.3});
-            TweenMax.fromTo($(".text1").find("h2"),0.5,{x:200,alpha:0},{x:0,alpha:1,delay:1.5});
         
         </script>
     </body>

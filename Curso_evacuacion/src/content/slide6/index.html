@@ -129,20 +129,24 @@
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
         <script>
+            var audio1 = new Audio();
+        audio1.src = "../../sounds/slide6.wav"
+        audio1.play();
+            
             var countAni = 1;
         
             function animation (number){
                 countAni++
                 TweenMax.fromTo($(".an" + number),0.2,{alpha:0,scaleY:10},{alpha:1,scaleY:1})
-                TweenMax.fromTo($(".an" + number),3.5,{scale:1},{scale:0.7,delay:0.2});
-                TweenMax.fromTo($(".an" + number),0.1,{scale:1},{scaleY:0,delay:3.7,onComplete:nextAnimation});
+                TweenMax.fromTo($(".an" + number),1.5,{scale:1},{scale:0.7,delay:0.2});
+                TweenMax.fromTo($(".an" + number),0.1,{scale:1},{scaleY:0,delay:1.3,onComplete:nextAnimation});
                 function nextAnimation(){
                     if(countAni <= 7){
                        
                         animation(countAni); 
                     }else{
-                        parent.cortinillaTween(6);
-                        parent.activeButton(6)
+                        parent.cortinillaTweenModule(parent.module1,6);
+                        parent.activeButton(7)
                     }
                     
                 }
