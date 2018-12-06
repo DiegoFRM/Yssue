@@ -116,14 +116,14 @@
                     <p class="bodytext">
                        Los temas a revisar son:</p>
                         <ul>
-                    <li>Breve reflexión sobre el riesgo</li>
-                    <li>Definición de evacuación</li>
-                    <li>Responsabilidad individual ante una
-                    evacuación (3 razones: integridad, orden,
+                    <li class="point1">Breve reflexión sobre el riesgo</li>
+                    <li class="point2">Definición de evacuación</li>
+                    <li class="point3">Responsabilidad individual ante una
+                    evacuación<br> (3 razones: integridad, orden,
                     seguridad)</li>
-                    <li>Comité Interno y Brigadas</li>
-                    <li>Tipos de evacuación</li>
-                    <li>¿Cuándo evacuar?</li>
+                    <li class="point4">Comité Interno y Brigadas</li>
+                    <li class="point5">Tipos de evacuación</li>
+                    <li class="point6">¿Cuándo evacuar?</li>
                     </ul>
 
                    
@@ -136,12 +136,20 @@
         <script>
             var audio1 = new Audio();
         audio1.src = "../../sounds/slide4.wav"
+            //audio1.controls = true;
+            //document.body.appendChild(audio1).style.marginLeft="80%";
         audio1.play();
             
             TweenMax.fromTo($(".avatar"),0.9,{alpha:0},{alpha:1,ease:Back.easeOut,delay:1});
             
             TweenMax.fromTo($(".text1").find("h1"),0.5,{x:200,alpha:0},{x:0,alpha:1,delay:1.3});
-            TweenMax.fromTo($(".text1").find("h2"),0.5,{x:200,alpha:0},{x:0,alpha:1,delay:1.5});
+            TweenMax.fromTo($(".bodytext"),0.5,{x:200,alpha:0},{x:0,alpha:1,delay:3});
+            TweenMax.fromTo($(".point1"),0.5,{x:200,alpha:0},{x:0,alpha:1,delay:6});
+            TweenMax.fromTo($(".point2"),0.5,{x:200,alpha:0},{x:0,alpha:1,delay:8});
+            TweenMax.fromTo($(".point3"),0.5,{x:200,alpha:0},{x:0,alpha:1,delay:10});
+            TweenMax.fromTo($(".point4"),0.5,{x:200,alpha:0},{x:0,alpha:1,delay:19});
+            TweenMax.fromTo($(".point5"),0.5,{x:200,alpha:0},{x:0,alpha:1,delay:21});
+            TweenMax.fromTo($(".point6"),0.5,{x:200,alpha:0},{x:0,alpha:1,delay:23});
         
         </script>
     </body>

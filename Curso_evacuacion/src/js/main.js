@@ -64,16 +64,20 @@ var countSlide = 0;
 var activeButton;
 var listSlides = [
     {slide:"slide1",name:"Bienvenido"},
+    {slide:"slide4",name:"Comenzaremos con el Módulo I"},
     {slide:"slide9",name:"Tema 2: Definición de evacuación"},
     {slide:"evaluacion",name:"Evaluación"}
 ]
 
 
 
-var module1 = [
+var module0 = [
     {slide:"slide1",name:"Bienvenido"},
     {slide:"slide2",name:"Objetivo"},
-    {slide:"slide3",name:"Componentes del curso"},
+    {slide:"slide3",name:"Componentes del curso"}
+]
+
+var module1 = [
     {slide:"slide4",name:"Comenzaremos con el Módulo I"},
     {slide:"slide5",name:"Recomendaciones de navegación"},
     {slide:"slide6",name:"¡Muy bien!"},
@@ -89,7 +93,7 @@ function loadModule(moduloChoice){
     $("#subNavButtons").html("");
    for(var i = 1;i<=moduloChoice.length;i++){
     $("#subNavButtons").append(
-    `<div id="subButtonTheme`+i+`" class="SubButtonModule"><p>`+i+`</p></div>`)
+    `<div id="subButtonTheme`+i+`" class="SubButtonModule"><p></p></div>`)
     $("#subButtonTheme" + i).attr("index",i-1); 
     $("#subButtonTheme" + i).attr("active",0);  
     
@@ -129,7 +133,7 @@ TweenMax.to($("#subButtonTheme1"),0.5,{scale:2});
 
 for(var i = 1;i<=listSlides.length;i++){
     $("#navButtons").append(
-    `<div id="buttonTheme`+i+`" class="buttonModule"><p>`+i+`</p></div>`)
+    `<div id="buttonTheme`+i+`" class="buttonModule"><p>`+[i-1]+`</p></div>`)
     $("#buttonTheme" + i).attr("index",i-1); 
     $("#buttonTheme" + i).attr("active",0);        
     $("#buttonTheme" + i).mouseover(function(){
@@ -157,12 +161,16 @@ for(var i = 1;i<=listSlides.length;i++){
         
         switch(movie){
             case "0":
+                loadModule(module0);
+                $("#barAdvance").css("width","5%");
+                break;
+            case "1":
                 loadModule(module1);
                 $("#barAdvance").css("width","20%");
                 break;
-            case "1":
+            case "2":
                 loadModule(module2);
-                $("#barAdvance").css("width","50%");
+                $("#barAdvance").css("width","35%");
                 break;
         }
     })
@@ -209,9 +217,9 @@ function activeButton(num){
 
 $("#buttonTheme1").attr("active",1); 
 $("#buttonTheme1").css("opacity",1);
-$("#barAdvance").css("width","20%");
+$("#barAdvance").css("width","5%");
 TweenMax.to($("#buttonTheme1"),0.5,{scale:2});
-loadModule(module1);
+loadModule(module0);
 
 
 
