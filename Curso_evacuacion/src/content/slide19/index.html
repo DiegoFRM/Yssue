@@ -154,18 +154,22 @@ ante cualquier emergencia.</h2>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
         <script>
              var audio1 = new Audio();
-        audio1.src = "../../sounds/slide18.wav"
+        audio1.src = "../../sounds/slide19.wav"
+        audio1.load();
         audio1.addEventListener('load', function () {
             audio1.play();
         });
+        audio1.onloadeddata = function(){
+            audio1.play();
+        }
             audio1.play();
             
-            TweenMax.fromTo($(".avatar"),0.9,{scale:0,alpha:0},{scale:1,alpha:1,ease:Back.easeOut,delay:1});
-            TweenMax.fromTo($(".text1"),0.5,{x:200,alpha:0},{x:0,alpha:1,delay:1.5});
-            TweenMax.fromTo($("#text_1"),0.5,{x:200,alpha:0},{x:0,alpha:1,delay:1.5});
-            TweenMax.fromTo($("#text_2"),0.5,{x:200,alpha:0},{x:0,alpha:1,delay:1.7});
-            TweenMax.fromTo($("#text_3"),0.5,{x:200,alpha:0},{x:0,alpha:1,delay:1.8});
-            TweenMax.fromTo($("#text_4"),0.5,{x:200,alpha:0},{x:0,alpha:1,delay:1.9});
+            TweenMax.fromTo($(".avatar"),0.9,{scale:0,alpha:0},{scale:1,alpha:1,ease:Back.easeOut,delay:0.5});
+            TweenMax.fromTo($(".text1"),0.5,{x:200,alpha:0},{x:0,alpha:1,delay:0.5});
+            TweenMax.fromTo($("#text_1"),0.5,{x:200,alpha:0},{x:0,alpha:1,delay:10.5});
+            TweenMax.fromTo($("#text_2"),0.5,{x:200,alpha:0},{x:0,alpha:1,delay:14});
+            TweenMax.fromTo($("#text_3"),0.5,{x:200,alpha:0},{x:0,alpha:1,delay:16});
+            TweenMax.fromTo($("#text_4"),0.5,{x:200,alpha:0},{x:0,alpha:1,delay:18});
         </script>
     </body>
 </HTML>
