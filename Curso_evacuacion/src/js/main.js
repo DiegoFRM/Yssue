@@ -63,7 +63,7 @@ var themes = 3;
 var countSlide = 0;
 var activeButton;
 var listSlides = [
-    {slide:"slide1",name:"Bienvenido"},
+    {slide:"slide12",name:"Evacuación"},
     {slide:"slide4",name:"Comenzaremos con el Módulo I"},
     {slide:"slide9",name:"Tema 2: Definición de evacuación"},
     {slide:"evaluacion",name:"Evaluación"}
