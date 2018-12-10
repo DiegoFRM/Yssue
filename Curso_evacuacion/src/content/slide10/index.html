@@ -66,9 +66,17 @@
             }
             .videoObject{
             	
-            	margin-left: auto;
-			    margin-right: auto;
-			    display: block
+            	//margin-left: auto;
+                //margin-right: auto;
+                display: block;
+                padding-left: 5%;
+                padding-right: 5%;
+            }
+            .videoDiv{
+
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
             }
             
             @media (orientation : portrait) { 
@@ -105,11 +113,11 @@
                 <div class="text1  col-sm-8 col-xs-12 col-md-7 ">
                     <h1>Evacuación: </h1>
                 </div>
-                <div class="col-sm-12 col-xs-12 col-md-7">
-            	<video width="100%" class="videoObject" controls>
-				  <source src="../../img/animacion_pinza.mp4" type="video/mp4">
-				  Your browser does not support HTML5 video.
-				</video>
+               <div class="videoDiv">
+                <video width="90%" class="videoObject" controls onended="endVideo()">
+                  <source src="../../img/animacion_pinza.mp4" type="video/mp4">
+                  Your browser does not support HTML5 video.
+                </video>
             </div>
             </div>
             

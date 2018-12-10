@@ -92,12 +92,21 @@
                 transform: translate(0%,-50%);
                 //margin-left: -50px;
                 //margin-right: -50px;
-                display: block;
                 width: 60%;
                 height: 80%;
                 display: none;
                 opacity:0;
                 transform: scale(0);
+            }
+
+            #shadow{
+                background-color: black;
+                top: 0%;
+                left: 0%;
+                position: absolute;
+                display: none;
+                opacity:0;
+
             }
             .text2{
                 padding: 30px;
@@ -159,13 +168,17 @@
 				</video>
             </div>
             </div>
+
+            <div id="shadow">
+            </div>
             
             <div id="questionDiv" class="question">
                 
                 <div class="text2  col-sm-12 col-xs-12 col-md-12 ">
                     <h1>Pregunta: </h1>
+                    <br>
                     <p>¿Cómo debe ser el procedimiento de traslado de evacuación? ¿Lo recuerdas?</p>
-                    <form action="">
+                    <form action="answerQuestion">
                       <input type="radio" name="answer" value="a"> <span> a) Conocido, validado y fácil</span><br><br>
                       <input type="radio" name="answer" value="b"> <span> b) Claro, seguro y practicado</span><br><br>
                       <input type="radio" name="answer" value="c"> <span> c) Preestablecido, practicado y supervisado</span>
@@ -188,6 +201,12 @@
         function endVideo(){
             document.getElementById("questionDiv").style.display = "block";
             TweenMax.fromTo($(".question"),0.9,{scale:0,alpha:0},{scale:1,alpha:1,ease:Back.easeOut});
+            document.getElementById("shadow").style.display = "block";
+            TweenMax.fromTo($("#shadow"),0.9,{alpha:0},{alpha:1});
+        }
+
+        function answerQuestion(){
+
         }
 
         </script>
