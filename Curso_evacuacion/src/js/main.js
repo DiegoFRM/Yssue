@@ -86,7 +86,9 @@ var module1 = [
 ]
 
 var module2 = [
-    {slide:"slide9",name:"Tema 2: Definición de evacuación"}
+    {slide:"slide9",name:"Tema 2: Definición de evacuación"},
+    {slide:"slide10",name:"Evacuación"},
+    {slide:"slide11",name:"Evacuación"}
 ]
 
 function loadModule(moduloChoice){
