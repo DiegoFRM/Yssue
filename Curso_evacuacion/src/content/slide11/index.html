@@ -22,49 +22,38 @@
                 background-size: cover;
                 opacity: 0.1;
                 top: 0%;
+                left: 0%;
             }
             
             #contentMain{
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
             }
             
             #contentSlide{
-                top: 50%;
-                position: absolute;
-                transform: translate(0%,-50%);
+                position: relative;
                 width: 100%;
-               /* width: 100%;
-                height: 100%;
-                */
+                margin: 0;
+                padding: 0;
             }
             
  
-            .text1 p {
-                font-size: 1.5vw;
-                color: #4059A7;
-                font-weight:normal;
-                padding-bottom: 50px;
-            }
-
-            .text2 p{
+            .text1{
                 font-size: 2vw;
                 color: #4059A7;
                 font-weight:normal;
-                padding-bottom: 50px;
+                padding: 2vw;
+                text-align: center;
             }
-
-           span{
-                font-size: 3vh;
-                color: #4059A7;
-                font-weight:normal;
-                padding-bottom: 50px;
-            }  
             
             h1{
                 font-size: 4vw;
                 font-weight: bold;
                 color: #4059A7;
                 font-weight: bold;
-                padding-bottom: 50px;
             }
             
            
@@ -79,12 +68,15 @@
                 height: 40%;
             }
             .videoObject{
-            	
-            	//margin-left: auto;
-			    //margin-right: auto;
-			    display: block;
-			    padding-left: 5%;
-			    padding-right: 5%;
+                position: relative;
+            	width: 60%;
+                left: 50%;
+                transform: translate(-50%,0%);
+            }
+ 
+            
+            @media (orientation : portrait) { 
+          
             }
 
             .question{
@@ -117,64 +109,21 @@
                 padding: 30px;
             }
 
-            .videoDiv{
-
-            	display: block;
-            	margin-left: auto;
-            	margin-right: auto;
-            }
-            
-            @media (orientation : portrait) { 
-           #contentSlide{
-                top: 15%;
-                position: absolute;
-                transform: translate(0%,0%);
-            }
-            
-            h1{
-                font-size: 5vh;
-                color: #4059A7;
-                font-weight: bold;
-                text-align: center;
-                padding-bottom: 50px;
-            }
-            
-            .text1 p{
-                font-size: 1.5vh;
-                color: #4059A7;
-                font-weight:normal;
-                padding-bottom: 50px;
-            }  
-
-             .text2 p{
-                font-size: 2vh;
-                color: #4059A7;
-                font-weight:normal;
-                padding-bottom: 50px;
-            }    
-
-            a{
-                font-size: 3vh;
-                color: #4059A7;
-                font-weight:normal;
-                padding-bottom: 50px;
-            }  
-                
-            }
+           
             
         </style>
     </head>
     <body >
         <div id="bgImage"></div>
-        <div id="contentMain" class="container">
-            <div id="contentSlide" class="row ">
+        <div id="contentMain" class="">
+            <div id="contentSlide" class="">
                 
-                <div class="text1  col-sm-8 col-xs-12 col-md-7 ">
+                <div class="text1">
                     <h1>Evacuación... </h1>
                    
                 </div>
                 <div class="videoDiv">
-            	<video width="90%" class="videoObject" controls onended="endVideo()">
+            	<video class="videoObject" controls onended="endVideo()">
 				  <source src="../../img/animacion_pinza.mp4" type="video/mp4">
 				  Your browser does not support HTML5 video.
 				</video>
