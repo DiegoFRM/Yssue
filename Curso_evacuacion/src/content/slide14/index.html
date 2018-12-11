@@ -2,11 +2,11 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>slide1</title>
+        <title>slide19</title>
         <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
 
-        <style>
+         <style>
             body{
                 margin:0;
                 padding:0;
@@ -44,12 +44,12 @@
                 opacity: 0;
             }
             
-            h1{
-                font-size: 8vw;
+            h2{
+                font-size: 2vw;
                 color: #4059A7;
                 width: 100%;
-                font-weight: bold;
-                margin-top: 5%;
+                font-weight: normal;
+                margin-top: 10%;
             }
             
            
@@ -58,7 +58,21 @@
                 width: 100%;
             }
             
+            .imagePc{
+                position: relative;
+                width: 100%;
+                left: 50%;
+                transform: translate(-50%,0%);
+            }
+
             .frida{
+                position: relative;
+                width: 100%;
+                left: 50%;
+                transform: translate(-50%,0%);
+            }
+
+            .hierarchy{
                 position: relative;
                 width: 100%;
                 left: 50%;
@@ -72,8 +86,8 @@
                 transform: translate(0%,0%);
             }
             
-            h1{
-                font-size: 5vh;
+            h2{
+                font-size: 3vh;
                 color: #4059A7;
                 font-weight: bold;
                 text-align: center;
@@ -91,49 +105,71 @@
         </style>
     </head>
     <body >
-       
         <div id="bgImage"></div>
         <div id="contentMain">
             <div id="contentSlide" class="row ">
                 <div class="avatar col-sm-3 col-xs-12" >
-                    <img class="frida" src="../../img/frida.svg">
+                    <img class="imagePc" src="../../img/logo_proteccioncivil-07.svg">
                 </div>
                 <div class="text1  col-sm-9 col-xs-12 ">
-                        <h1>¿Qué hacer?</h1>
+                        <h2>Para efectos de <b>Protección civil</b>, dentro de
+las empresas o instituciones encontramos dos tipos
+de jerarquías o líneas de liderazgo responsables
+ante cualquier emergencia.</h2>
                 </div>
                 <div class="col-xs-12 col-sm-12">
                     <p id="text_1" class="bodytext">
-                        Implementar <b>medidas</b> para <b>prevenir</b> y
-                        enfrentar de la mejor manera las
-                        <b>consecuencias de los riesgos.</b>
-                    </p>
-                    <p  id="text_2" class="bodytext">
-                        Una de nuestras <b>responsabilidades</b> es
-                        <b>aprender a resguardar nuestra integridad y la
-                        de otros.</b> En este curso conocerás cómo y
-                        cuándo realizar una evacuación.
+                        <b>A)</b> Jerarquía general de las instituciones:
                     </p>
                 </div>
 
+                <div class="col-xs-4 col-sm-4">
+                <p  id="text_2" class="bodytext">
+                    <b>1.</b> Directivos
+                    
+                    <img class="hierarchy" src="../../img/logo_proteccioncivil-07.svg">
+                    
+                </p>
+                </div>
+                <div class="col-xs-4 col-sm-4">
+                <p  id="text_3" class="bodytext">
+                    <b>2.</b> Mandos medios
+                    <img class="hierarchy" src="../../img/logo_proteccioncivil-07.svg">
+
+                </p>
+                </div>
+                <div class="col-xs-4 col-sm-4">
+                <p id="text_4" class="bodytext">
+                    <b>3.</b> Personal operativo
+                    <img  class="hierarchy" src="../../img/logo_proteccioncivil-07.svg">
+                </p>
+                </div>
+                
+
             </div>
+
         </div>
-         <audio id="sound">
-            <source src="../../sounds/slide8.wav">
-        </audio>
+
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
         <script>
-            var sound1 = document.getElementById("sound");
+             var audio1 = new Audio();
+        audio1.src = "../../sounds/slide19.wav"
+        audio1.load();
+        audio1.addEventListener('load', function () {
+            audio1.play();
+        });
+        audio1.onloadeddata = function(){
+            audio1.play();
+        }
+            audio1.play();
             
-            function soundPlay(){sound1.play();};
-            TweenMax.fromTo($(".avatar"),0.9,{alpha:0,scale:0},{alpha:1,scale:1,ease:Back.easeOut,delay:1,onComplete:soundPlay});
-            
-            TweenMax.fromTo($(".text1").find("h1"),0.5,{x:200,alpha:0},{x:0,alpha:1,delay:1.5});
-            
-            TweenMax.fromTo($("#text_1"),0.5,{y:-50,alpha:0},{y:0,alpha:1,delay:3});
-            
-            TweenMax.fromTo($("#text_2"),0.5,{y:-50,alpha:0},{y:0,alpha:1,delay:10});
-        
+            TweenMax.fromTo($(".avatar"),0.9,{scale:0,alpha:0},{scale:1,alpha:1,ease:Back.easeOut,delay:0.5});
+            TweenMax.fromTo($(".text1"),0.5,{x:200,alpha:0},{x:0,alpha:1,delay:0.5});
+            TweenMax.fromTo($("#text_1"),0.5,{x:200,alpha:0},{x:0,alpha:1,delay:10.5});
+            TweenMax.fromTo($("#text_2"),0.5,{x:200,alpha:0},{x:0,alpha:1,delay:14});
+            TweenMax.fromTo($("#text_3"),0.5,{x:200,alpha:0},{x:0,alpha:1,delay:16});
+            TweenMax.fromTo($("#text_4"),0.5,{x:200,alpha:0},{x:0,alpha:1,delay:18});
         </script>
     </body>
 </HTML>

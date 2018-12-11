@@ -63,9 +63,11 @@ var themes = 3;
 var countSlide = 0;
 var activeButton;
 var listSlides = [
-    {slide:"slide11",name:"Evacuación"},
+    {slide:"slide1",name:"Bienvenido"},
     {slide:"slide4",name:"Comenzaremos con el Módulo I"},
     {slide:"slide9",name:"Tema 2: Definición de evacuación"},
+    {slide:"slide13",name:"Tema 3"},
+    {slide:"slide17",name:"Tema 4"},
     {slide:"evaluacion",name:"Evaluación"}
 ]
 
@@ -89,7 +91,18 @@ var module2 = [
     {slide:"slide9",name:"Tema 2: Definición de evacuación"},
     {slide:"slide10",name:"Evacuación"},
     {slide:"slide11",name:"Evacuación"},
-    {slide:"slide12",name:"Evacuación"}
+    {slide:"slide12",name:"Evacuación"},
+    
+]
+var module3 = [
+    {slide:"slide13",name:"Tema 3"},
+    {slide:"slide14",name:"Evacuación"},
+    {slide:"slide15",name:"Evacuación"},
+    {slide:"slide16",name:"Evacuación"}
+]
+
+var module4 = [
+    {slide:"slide17",name:"Tema 4"}
 ]
 
 function loadModule(moduloChoice){
@@ -173,6 +186,16 @@ for(var i = 1;i<=listSlides.length;i++){
                 break;
             case "2":
                 loadModule(module2);
+                $("#barAdvance").css("width","35%");
+                break;
+        
+            case "3":
+                loadModule(module3);
+                $("#barAdvance").css("width","35%");
+                break;
+        
+            case "4":
+                loadModule(module4);
                 $("#barAdvance").css("width","35%");
                 break;
         }
