@@ -11,33 +11,33 @@
                 margin:0;
                 padding:0;
                 font-family: 'Roboto Condensed', sans-serif;
-                overflow-x: hidden;
+                overflow: hidden;
             }
             
             #bgImage{
                position: absolute;
                 width: 100%;
                 height: 100%;
-                background:url("../../img/bg1.jpg");
+                background-color: #000;
                 background-size: cover;
-                opacity: 0.1;
                 top: 0%;
                 left: 0%;
             }
             
             #contentMain{
                 position: absolute;
-                left: 0;
-                top: 0;
                 width: 100%;
                 height: 100%;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
             }
             
             #contentSlide{
-                position: relative;
+                position: absolute;
                 width: 100%;
-                margin: 0;
-                padding: 0;
             }
             
  
@@ -64,14 +64,15 @@
             .avatar img{
             }
             .img-fluid{
-
                 height: 40%;
             }
             .videoObject{
                 position: relative;
-            	width: 60%;
+            	width: 100%;
                 left: 50%;
+                top:0%;
                 transform: translate(-50%,0%);
+                
             }
  
             
@@ -85,8 +86,6 @@
                 left: 20%;
                 position: absolute;
                 transform: translate(0%,-50%);
-                //margin-left: auto;
-                //margin-right: auto;
                 width: 60%;
                 height: 80%;
                 display: none;
@@ -110,7 +109,7 @@
             }
 
            
-            
+                
         </style>
     </head>
     <body >
@@ -118,10 +117,12 @@
         <div id="contentMain" class="">
             <div id="contentSlide" class="">
                 
+<!--
                 <div class="text1">
                     <h1>Evacuación... </h1>
                    
                 </div>
+-->
                 <div class="videoDiv">
             	<video class="videoObject" controls onended="endVideo()">
 				  <source src="../../img/animacion_pinza.mp4" type="video/mp4">
