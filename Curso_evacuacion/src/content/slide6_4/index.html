@@ -1,0 +1,291 @@
+<HTML>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>slide19</title>
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
+
+         <style>
+            body{
+                margin:0;
+                padding:0;
+                font-family: 'Roboto Condensed', sans-serif;
+                overflow-x: hidden;
+                overflow-y: hidden;;
+            }
+            
+            #bgImage{
+               position: absolute;
+                width: 100%;
+                height: 100%;
+                background:url("../../img/bg1.jpg");
+                background-size: cover;
+                opacity: 0.1;
+                top: 0%;
+            }
+            
+            #contentMain{
+                position: relative;
+                width: 80%;
+                top: 0%;
+                left: 10%;
+                padding: 2vw;
+            }
+            #contentSlide{
+            	width: 100%;
+            }
+
+            
+            .text1{
+            }
+ 
+
+            .bodytext{                
+                font-size: 2vw;
+                color: #4059A7;
+                margin: 2vw;
+                opacity: 0;
+            }
+            
+            h1{
+                font-size: 3vw;
+                color: #4059A7;
+                width: 100%;
+                font-weight: bold;
+                margin-top: 10%;
+                text-align: center;
+            }
+            h2{
+                font-size: 2vw;
+                color: #4059A7;
+                width: 100%;
+                font-weight: normal;
+                //margin-top: 10%;
+                text-align: center;
+                //top:-100%;
+                //position: relative;
+            }
+            
+           
+            .avatar{
+                text-align: center;
+                width: 100%;
+            }
+            
+            .imagePc{
+                position: relative;
+                width: 100%;
+                left: 50%;
+                transform: translate(-50%,0%);
+            }
+
+            .frida{
+                position: relative;
+                width: 100%;
+                left: 50%;
+                transform: translate(-50%,0%);
+            }
+
+            p{
+                font-size: 2vh;
+                color: #4059A7;
+                font-weight: normal;
+                text-align: center;
+            }
+            
+            #buttondiv{
+            	position: absolute;
+            	top: 90%;
+            	right: 100px;
+            	//opacity: 0;
+
+            }
+            .poem{
+
+            	position: absolute;
+            	top:100%;
+            }
+
+            @media (orientation : portrait) { 
+           #contentSlide{
+                top: 15%;
+                position: absolute;
+                transform: translate(0%,0%);
+            }
+            
+            
+            
+        </style>
+    </head>
+    <body >
+        <div id="bgImage"></div>
+        <div id="buttondiv">
+        	<button type="button" id="saltar" class="btn btn-success" onclick="clickSaltar()">Saltar</button>
+        </div>
+        <div id="contentMain">
+            <div id="contentSlide" >
+            <div class="poem col-sm-12 col-xs-12 col-md-12">
+            	<h1>El puño en alto</h1><br>
+            	<h2>Juan Villoro</h2><br>
+                <p>
+                	Eres del lugar donde recoges<br>
+					la basura. <br>
+					Donde dos rayos caen<br>
+					en el mismo sitio. <br>
+					Porque viste el primero,<br>
+					esperas el segundo. <br>
+					Y aquí sigues. <br>
+					Donde la tierra se abre<br>
+					y la gente se junta. <br><br>
+					 
+					Otra vez llegaste tarde:<br>
+					estás vivo por impuntual,<br>
+					por no asistir a la cita que<br>
+					a las 13:14 te había<br>
+					dado la muerte,<br>
+					treinta y dos años después<br>
+					de la otra cita, a la que<br>
+					tampoco llegaste<br>
+					a tiempo. <br>
+					Eres la víctima omitida.<br> 
+					El edificio se cimbró y no<br>
+					viste pasar la vida ante<br>
+					tus ojos, como sucede<br>
+					en las películas. <br>
+					Te dolió una parte del cuerpo<br>
+					que no sabías que existía:<br>
+					La piel de la memoria,<br>
+					que no traía escenas<br>
+					de tu vida, sino del<br>
+					animal que oye crujir<br>
+					a la materia. <br>
+					También el agua recordó<br>
+					lo que fue cuando<br>
+					era dueña de este sitio. <br>
+					Tembló en los ríos. <br>
+					Tembló en las casas<br>
+					que inventamos en los ríos.<br> 
+					Recogiste los libros de otro<br>
+					tiempo, el que fuiste<br>
+					hace mucho ante<br>
+					esas páginas. <br><br>
+					 
+					Llovió sobre mojado<br>
+					después de las fiestas<br>
+					de la patria,<br>
+					Más cercanas al jolgorio<br>
+					que a la grandeza. <br>
+					¿Queda cupo para los héroes<br>
+					en septiembre? <br>
+					Tienes miedo. <br>
+					Tienes el valor de tener miedo. <br>
+					No sabes qué hacer,<br>
+					pero haces algo. <br>
+					No fundaste la ciudad<br>
+					ni la defendiste de invasores. <br><br>
+					 
+					Eres, si acaso, un pordiosero<br>
+					de la historia. <br>
+					El que recoge desperdicios<br>
+					después de la tragedia. <br>
+					El que acomoda ladrillos,<br>
+					junta piedras,<br>
+					encuentra un peine,<br>
+					dos zapatos que no hacen juego,<br>
+					una cartera con fotografías. <br>
+					El que ordena partes sueltas,<br>
+					trozos de trozos,<br>
+					restos, sólo restos. <br>
+					Lo que cabe en las manos. <br><br>
+					 
+					El que no tiene guantes. <br><br>
+					El que reparte agua. <br>
+					El que regala sus medicinas<br>
+					porque ya se curó de espanto. <br>
+					El que vio la luna y soñó<br>
+					cosas raras, pero no<br>
+					supo interpretarlas. <br>
+					El que oyó maullar a su gato<br>
+					media hora antes y sólo<br>
+					lo entendió con la primera<br>
+					sacudida, cuando el agua<br>
+					salía del excusado. <br>
+					El que rezó en una lengua<br>
+					extraña porque olvidó<br>
+					cómo se reza. <br>
+					El que recordó quién estaba<br>
+					en qué lugar. <br>
+					El que fue por sus hijos<br>
+					a la escuela. <br>
+					El que pensó en los que<br>
+					tenían hijos en la escuela. <br>
+					El que se quedó sin pila. <br>
+					El que salió a la calle a ofrecer<br>
+					su celular. <br>
+					El que entró a robar a un<br>
+					comercio abandonado<br>
+					y se arrepintió en<br>
+					un centro de acopio. <br>
+					El que supo que salía sobrando. <br>
+					El que estuvo despierto para<br>
+					que los demás durmieran. <br><br>
+					 
+					El que es de aquí. <br>
+					El que acaba de llegar<br>
+					y ya es de aquí. <br>
+					El que dice “ciudad” por decir<br>
+					tú y yo y Pedro y Marta<br>
+					y Francisco y Guadalupe. <br>
+					El que lleva dos días sin luz<br>
+					ni agua. <br>
+					El que todavía respira. <br>
+					El que levantó un puño<br>
+					para pedir silencio. <br>
+					Los que le hicieron caso. <br>
+					Los que levantaron el puño. <br>
+					Los que levantaron el puño<br>
+					para escuchar<br>
+					si alguien vivía. <br>
+					Los que levantaron el puño para<br>
+					escuchar si alguien<br>
+					vivía y oyeron<br>
+					un murmullo. <br>
+					Los que no dejan de escuchar.<br>
+					Poema publicado en el Periódico Reforma, México (Septiembre, 2017).
+
+                </p>
+                
+            </div>
+           
+        </div>
+
+        
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+        <script>
+           /*  var audio1 = new Audio();
+        audio1.src = "../../sounds/slide19.wav"
+        audio1.load();
+        audio1.addEventListener('load', function () {
+            audio1.play();
+        });
+        audio1.onloadeddata = function(){
+            audio1.play();
+        }*/
+            //audio1.play();
+
+            TweenMax.fromTo($(".poem"),70,{y:window.innerHeight},{y:-3000,ease:Linear.easeNone});
+            
+            TweenMax.fromTo($("#saltar"),0.5,{x:250,alpha:0},{x:0,alpha:1,delay:10});
+            
+            function clickSaltar(){
+
+
+            }
+            
+
+        </script>
+    </body>
+</HTML>
