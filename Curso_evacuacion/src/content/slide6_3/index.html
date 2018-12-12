@@ -1,0 +1,337 @@
+<HTML>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>slide19</title>
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
+
+         <style>
+            body{
+                margin:0;
+                padding:0;
+                font-family: 'Roboto Condensed', sans-serif;
+                overflow-x: hidden;
+            }
+            
+            #bgImage{
+               position: absolute;
+                width: 100%;
+                height: 100%;
+                background:url("../../img/bg1.jpg");
+                background-size: cover;
+                opacity: 0.1;
+                top: 0%;
+            }
+            
+            #contentMain{
+                position: relative;
+                width: 80%;
+                top: 0%;
+                left: 10%;
+                padding: 2vw;
+            }
+
+            
+            .text1{
+            }
+ 
+
+            .bodytext{                
+                font-size: 2vw;
+                color: #4059A7;
+                margin: 2vw;
+                opacity: 0;
+            }
+            
+            h1{
+                font-size: 3vw;
+                color: #4059A7;
+                width: 100%;
+                font-weight: bold;
+                margin-top: 10%;
+            }
+            h2{
+                font-size: 2vw;
+                color: #4059A7;
+                width: 100%;
+                font-weight: normal;
+                //margin-top: 10%;
+                text-align: center;
+                //top:-100%;
+                //position: relative;
+            }
+            
+           
+            .avatar{
+                text-align: center;
+                width: 100%;
+            }
+            
+            .imagePc{
+                position: relative;
+                width: 100%;
+                left: 50%;
+                transform: translate(-50%,0%);
+            }
+
+            .frida{
+                position: relative;
+                width: 100%;
+                left: 50%;
+                transform: translate(-50%,0%);
+            }
+
+            .hierarchy{
+                position: relative;
+                width: 100%;
+                left: 50%;
+                transform: translate(-50%,0%);
+            }
+            #mamboFull{
+                width: 60%;    
+                height: 60%;
+                margin-left: auto;
+                margin-right: auto;
+                display: block;
+            }
+            tr{
+                padding: 10px;
+            }
+            td{
+                padding: 10px;
+            }
+            p{
+                font-size: 2vh;
+                color: #4059A7;
+                font-weight: normal;
+                text-align: center;
+            }
+
+            #slider-wrapper {
+position: relative;
+width: 90%;
+max-width: 100%;
+margin: 0 auto;
+padding: 0 10px;
+font-family: arial, sans-serif;
+font-size: 0;
+-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+box-sizing: border-box;
+}
+/* Contenedor slider */
+#slider { 
+position: relative;
+width: 100%;
+padding-bottom: 50%; /* Aspect ratio */
+overflow: hidden;
+border:10px solid #333;
+border-radius: 5%/10%;
+-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+box-sizing: border-box;
+}
+#slider > a {
+position:absolute;
+top:0;
+left:0;
+width: 100%;
+min-height: 100%;
+}
+/* Ajuste de las imágenes */
+#slider img {
+width: 100%;
+min-height: 100%;
+position: absolute;
+margin:0;
+padding:0; 
+border:0;
+}
+/* Texto que acompaña a cada imagen */
+#slider p {
+position: absolute;
+bottom: 0;
+left: 0;
+display: block;
+overflow: hidden;
+white-space: nowrap;
+text-overflow: ellipsis;
+width: 100%;
+height: 70px;
+margin:0;
+padding: 5px 0;
+border-radius: 0 20px 20px 0;
+color: #000;
+background: #fff;
+font-size: 18px;
+line-height: 18px;
+text-align:center;
+opacity: 0.7;
+line-height: 60px;
+}
+/* Flechas de navegación */
+a.mas, a.menos {
+position: absolute;
+top: 50%;
+left: 0px;
+z-index: 10;
+width: 20px;
+height: 30px;
+text-align: center;
+line-height: 30px;
+font-size: 30px;
+color: white;
+background: #333;
+text-decoration: none;
+transition: .5s margin ease;
+}
+a.mas {
+left: 100%;
+margin-left: 100px;
+}
+#slider-wrapper:hover a.mas {
+margin-left: -40px;
+}
+a.menos {
+left: 0;
+margin-left: -100px;
+}
+#slider-wrapper:hover a.menos {
+margin-left: 10px;
+}
+            .text{
+                padding: 30px; 
+            }
+            .dotImage{
+                width: 30px;
+            }
+            .tableDots{
+                padding: 10px;
+            }
+
+            @media (orientation : portrait) { 
+           #contentSlide{
+                top: 15%;
+                position: absolute;
+                transform: translate(0%,0%);
+            }
+            
+            /* Contenedor general */
+
+            
+            
+        </style>
+    </head>
+    <body >
+        <div id="bgImage"></div>
+        <div id="contentMain">
+            <div id="contentSlide" class="row ">
+                <div class="text col-sm-12 col-xs-12 col-md-12">
+                    <h2>Recuerda que ante un riesgo hay acciones concretas que debes conocer para salvaguardar tu integridad y la de los demás. Por ejemplo:</h2>
+                </div>
+                
+                <div id="slider-wrapper">
+                <div id="slider">
+                    <a id="slide1"><img  src="../../img/9na_pregunta.jpg" /><p>¿Cómo debe ser una evacuación?</p></a>
+                    <a id="slide2"><img  src="../../img/9na_pregunta.jpg"  /><p>¿Cuál es tu responsabilidad ante la evacuación?</p></a>
+                    <a id="slide3"><img src="../../img/9na_pregunta.jpg"  /><p>¿Quién conforma las brigadas de tu organización?</p></a>
+                    <a id="slide4"><img  src="../../img/9na_pregunta.jpg"  /><p>¿Quién es la autoridad que podrá indicarte cómo y cuándo evacuar?</p></a>
+                    <a id="slide5"><img src="../../img/9na_pregunta.jpg"  /><p>¿Cómo saber cuándo evacuar?</p></a>
+                </div>
+                <div class="tableDots col-sm-12 col-xs-12 col-md-12">
+                    <table align="center">
+                        <tr>
+                            <td>
+                                <img class="dotImage" src="../../img/dot.png" onclick="dot(1)">
+                            </td>
+                            <td>
+                                <img class="dotImage" src="../../img/dot.png" onclick="dot(2)">
+                            </td>
+
+<td>
+                                <img class="dotImage"  src="../../img/dot.png" onclick="dot(3)">
+                            </td>
+
+<td>
+                                <img class="dotImage" src="../../img/dot.png" onclick="dot(4)">
+                            </td>
+
+<td>
+                                <img class="dotImage" src="../../img/dot.png" onclick="dot(5)">
+                            </td>
+
+                        </tr>
+                    </table>
+                </div>
+
+            </div>
+            <!--<a href="javascript:void();" class="mas">&rsaquo;</a>
+            <a href="javascript:void();" class="menos">&lsaquo;</a></div>-->
+
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+        <script>
+        /*$(function(){
+
+var interval = setInterval(changeDiv, 6000);
+function changeDiv(){
+$('#slider a:first-child').fadeOut(1000).next('a').fadeIn(1000).end().appendTo('#slider');
+};
+$('.mas').click(function(){
+changeDiv();
+clearInterval(interval);
+interval = setInterval(changeDiv, 6000);
+});
+$('.menos').click(function(){
+$('#slider a:first-child').fadeOut(1000);
+$('#slider a:last-child').fadeIn(1000).prependTo('#slider');
+clearInterval(interval);
+interval = setInterval(changeDiv, 6000);
+});
+});*/
+        var currentDot = 1;
+        /*$('.mas').click(function(){
+            changeDiv();
+            clearInterval(interval);
+            interval = setInterval(changeDiv, 6000);
+        };*/
+        $('#slider a:gt(0)').hide();
+
+        var interval = setInterval(automaticChange, 6000);
+
+        function dot(number){
+            
+            if(currentDot!=number){
+                //console.log("djsab");
+                //$('#slider a:first-child').fadeOut(1000).next('a').fadeIn(1000).end().appendTo('#slider');
+                $("#slide"+currentDot).fadeOut(1000);
+                currentDot = number;
+                $("#slide"+currentDot).fadeIn(1000).end().appendTo("#slider");
+
+                clearInterval(interval);
+                interval = setInterval(automaticChange, 6000);
+                //jQuery("#slide"+currentDot).fadeOut(1000);
+                /*TweenMax.to($("#slide"+currentDot),0.5,{opacity:0,ease:Linear.easeNone});
+                currentDot = number;
+                TweenMax.to($("#slide"+currentDot),0.5,{opacity:1,ease:Linear.easeNone});*/
+            }
+        }
+
+        
+
+        function automaticChange(){
+            var temp = currentDot+1;
+            if(temp > 5 ){
+                temp = 0;
+            }
+            dot(temp);
+        }
+
+
+
+        </script>
+    </body>
+</HTML>
