@@ -113,7 +113,78 @@
              .divImageMambo{
                  position: relative;
              }
-            
+
+             #noSound{
+             	position: absolute;
+             	top:15%;
+             	left: 10%;
+             	transform: scale(0.3);
+             	display: none;
+             }
+			
+
+			 .visionObstacle{
+             	position: absolute;
+             	top:25%;
+             	//left: 0;
+             	width: 40%;
+
+             }  
+
+             .respirarObstacle{
+             	position: absolute;
+             	top:60%;
+             	//left: 0;
+             	width: 40%;
+
+             }  
+             #vision1{
+             	left:0px;
+
+             }  
+             #vision2{
+             	left: 10%;
+             }
+
+             #vision3{
+             	left: 20%;
+             }
+
+             #respirar1{
+             	left:0%;
+             }
+             #respirar2{
+             	left:25%;
+             }
+             #respirar3{
+             	left:50%;
+             }
+
+            @media (orientation : portrait) { 
+
+            	#noSound{
+	             	position: absolute;
+	             	top:15%;
+	             	//left: -5%;
+	             	transform: scale(0.15);
+	             	display: none;
+	             }
+            	.visionObstacle{
+	             	position: absolute;
+	             	top:35%;
+	             	//left: 0;
+	             	width: 40%;
+
+	             }  
+
+	             .respirarObstacle{
+	             	position: absolute;
+	             	top:60%;
+	             	//left: 0;
+	             	width: 40%;
+
+	             } 
+            }
                 
             
         </style>
@@ -125,6 +196,15 @@
             <div class="divImageMambo col-sm-6 col-xs-6 col-md-6">
                 <img id="mamboFull" src = "../../img/mambo_full.svg">
                 
+                <img id="vision1" class="visionObstacle" src = "../../img/polvo1.svg">
+                <img id="vision2" class="visionObstacle" src = "../../img/polvo1.svg">
+                <img id="vision3" class="visionObstacle" src = "../../img/polvo1.svg">
+
+                <img id="respirar1" class="respirarObstacle" src = "../../img/polvo2.svg">
+                <img id="respirar2" class="respirarObstacle" src = "../../img/polvo2.svg">
+                <img id="respirar3" class="respirarObstacle" src = "../../img/polvo2.svg">
+
+                <img id="noSound" src = "../../img/nosound.svg">
                 <h2 id = "textBehind">Sigue trabajando con normalidad</h2>
             </div>
                 
@@ -196,7 +276,7 @@
                             
                         </td>
                         <td colspan="2">
-                            <button type="button" class="btn btn-primary">
+                            <button type="button" class="btn btn-primary" onclick="clickWhat()">
                             ¿Qué hacer?
                             </button>
                         </td>
@@ -212,7 +292,9 @@
         </div>
 
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+        
         <script>
              /*var audio1 = new Audio();
         audio1.src = "../../sounds/slide19.wav"
@@ -221,42 +303,116 @@
             audio1.play();
         });
         audio1.onloadeddata = function(){
-            audio1.play();
+            audio1
+            y();
         }
             audio1.play();
             */
-            
+            var mamboBibrate = TweenMax.fromTo("#mamboFull", 0.2, {rotation:-10}, {rotation:10, ease:Linear.easeNone, repeat:-1}).yoyo(true);
+			mamboBibrate.progress(0.5).pause();
+			$("#vision1").alpha = 0;
+			var vision1Animation = TweenMax.fromTo("#vision1",4,{rotation:0},{rotation:360,ease:Linear.easeNone,repeat:-1});
+			var vision2Animation = TweenMax.fromTo("#vision2",4,{rotation:0},{rotation:-360,ease:Linear.easeNone,repeat:-1});
+			var vision3Animation = TweenMax.fromTo("#vision3",4,{rotation:0},{rotation:360,ease:Linear.easeNone,repeat:-1});
+			
+			vision1Animation.progress(0).pause();
+			vision2Animation.progress(0).pause();
+			vision3Animation.progress(0).pause();
+
+			document.getElementById("vision1").style.display = "none";
+			document.getElementById("vision2").style.display = "none";
+			document.getElementById("vision3").style.display = "none";
+
+
+			var respirarAnimation1 = TweenMax.fromTo("#respirar1",3,{y:0,alpha:1},{y:-300,alpha:0,ease:Linear.easeNone,repeat:-1});
+			var respirarAnimation2 = TweenMax.fromTo("#respirar2",3,{y:0,alpha:1},{y:-300,alpha:0,ease:Linear.easeNone,repeat:-1});
+			var respirarAnimation3 = TweenMax.fromTo("#respirar3",3,{y:0,alpha:1},{y:-300,alpha:0,ease:Linear.easeNone,repeat:-1});
+
+			respirarAnimation1.progress(0.3).pause();
+			respirarAnimation2.progress(0).pause();
+			respirarAnimation3.progress(0.6).pause();
+
+			document.getElementById("respirar1").style.display = "none";
+			document.getElementById("respirar2").style.display = "none";
+			document.getElementById("respirar3").style.display = "none";
+
+            var q1 = true;
+            var q2 = true;
+            var q3 = true;
+            var q4 = true;
 
             function clickS1(){
-                
+                q1 = true;
+                document.getElementById("vision1").style.display = "none";
+				document.getElementById("vision2").style.display = "none";
+				document.getElementById("vision3").style.display = "none";
+				vision1Animation.progress(0).pause();
+				vision2Animation.progress(0).pause();
+				vision3Animation.progress(0).pause();
+
             }
 
              function clickN1(){
-                
+                q1 = false;
+                document.getElementById("vision1").style.display = "block";
+				document.getElementById("vision2").style.display = "block";
+				document.getElementById("vision3").style.display = "block";
+				vision1Animation.play();
+				vision2Animation.play();
+				vision3Animation.play();
             }
 
              function clickS2(){
-                
+                q2 = true;
+                document.getElementById("respirar1").style.display = "none";
+			document.getElementById("respirar2").style.display = "none";
+			document.getElementById("respirar3").style.display = "none";
+			respirarAnimation1.progress(0.25).pause();
+			respirarAnimation2.progress(0).pause();
+			respirarAnimation3.progress(0.5).pause();
             }
 
              function clickN2(){
-                
+                q2 = false;
+                document.getElementById("respirar1").style.display = "block";
+			document.getElementById("respirar2").style.display = "block";
+			document.getElementById("respirar3").style.display = "block";
+			respirarAnimation1.play();
+			respirarAnimation2.play();
+			respirarAnimation3.play();
             }
 
              function clickS3(){
-                
+                q3 = true;
+
+                document.getElementById("noSound").style.display = "none";
             }
 
              function clickN3(){
+                q3 = false;
+                document.getElementById("noSound").style.display = "block";
                 
             }
 
              function clickS4(){
-                
+                q4 = true;
+                mamboBibrate.progress(0.5).pause();
             }
 
              function clickN4(){
-                
+                q4 = false;
+                mamboBibrate.play();
+            }
+
+            function clickWhat(){
+
+            	if(!q1 || !q2 || !q3 || !q4){
+            		document.getElementById("textBehind").innerHTML = "Debes Evacuar";
+            	}
+            	else{
+
+            		document.getElementById("textBehind").innerHTML = "Sigue trabajando con normalidad";
+            	}
             }
 
         </script>
