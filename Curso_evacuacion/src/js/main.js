@@ -68,7 +68,7 @@ var listSlides = [
     {slide:"slide9",name:"Tema 2: Definición de evacuación"},
     {slide:"slide13",name:"Tema 3"},
     {slide:"slide17",name:"Tema 4"},
-    {slide:"evaluacion",name:"Evaluación"}
+    {slide:"slide19",name:"¿Cuándo evacuar?"}
 ]
 
 
@@ -96,13 +96,22 @@ var module2 = [
 ]
 var module3 = [
     {slide:"slide13",name:"Tema 3"},
-    {slide:"slide14",name:"Evacuación"},
+//    {slide:"slide14",name:"Evacuación"},
     {slide:"slide15",name:"Evacuación"},
     {slide:"slide16",name:"Evacuación"}
 ]
 
 var module4 = [
-    {slide:"slide17",name:"Tema 4"}
+    {slide:"slide17",name:"Tema 4 Tipos de evacuación"},
+    {slide:"slide18",name:"Tipos de evacuación"}
+]
+
+var module5 = [
+    {slide:"slide19",name:"¿Cuándo evacuar?"},
+    {slide:"slide20",name:"¿Cuándo evacuar?"},
+    {slide:"slide21",name:"¿Cuándo evacuar?"},
+    {slide:"slide22",name:"¿Cuándo evacuar?"},
+    {slide:"slide23",name:"¿Cuándo evacuar?"}
 ]
 
 function loadModule(moduloChoice){
@@ -191,12 +200,16 @@ for(var i = 1;i<=listSlides.length;i++){
         
             case "3":
                 loadModule(module3);
-                $("#barAdvance").css("width","35%");
+                $("#barAdvance").css("width","65%");
                 break;
         
             case "4":
                 loadModule(module4);
-                $("#barAdvance").css("width","35%");
+                $("#barAdvance").css("width","75%");
+                break;
+            case "5":
+                loadModule(module5);
+                $("#barAdvance").css("width","75%");
                 break;
         }
     })

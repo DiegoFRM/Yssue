@@ -2,261 +2,205 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>slide20</title>
+        <title>slide1</title>
         <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
 
-         <style>
+        <style>
             body{
                 margin:0;
                 padding:0;
                 font-family: 'Roboto Condensed', sans-serif;
-                overflow-x: hidden;
+                overflow: hidden;
             }
             
             #bgImage{
                position: absolute;
                 width: 100%;
                 height: 100%;
-                background:url("../../img/bg1.jpg");
+                background-color: #000;
                 background-size: cover;
-                opacity: 0.1;
                 top: 0%;
+                left: 0%;
             }
             
             #contentMain{
-                position: relative;
-                width: 80%;
-                top: 0%;
-                left: 10%;
-                padding: 2vw;
-            }
-
-            
-            .text1{
-            }
- 
-
-            .bodytext{                
-                font-size: 2vw;
-                color: #4059A7;
-                margin: 2vw;
-                opacity: 0;
-            }
-            
-            h2{
-                font-size: 2vw;
-                color: #4059A7;
+                position: absolute;
                 width: 100%;
-                font-weight: normal;
-                margin-top: 2%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
             }
-
+            
+            #contentSlide{
+                position: absolute;
+                width: 100%;
+            }
+            
+ 
+            .text1{
+                font-size: 2vw;
+                color: #4059A7;
+                font-weight:normal;
+                padding: 2vw;
+                text-align: center;
+            }
+            
             h1{
                 font-size: 4vw;
+                font-weight: bold;
                 color: #4059A7;
-                width: 100%;
-                font-weight: normal;
-                margin-top: 2%;
+                font-weight: bold;
             }
             
            
             .avatar{
                 text-align: center;
-                width: 100%;
             }
             
-            .imagePc{
+            .avatar img{
+            }
+            .img-fluid{
+                height: 40%;
+            }
+            .videoObject{
                 position: relative;
-                width: 100%;
+            	width: 100%;
                 left: 50%;
+                top:0%;
                 transform: translate(-50%,0%);
-            }
-
-            .frida{
-                position: relative;
-                width: 100%;
-                left: 50%;
-                transform: translate(-50%,0%);
-            }
-
-            .hierarchy{
-                position: relative;
-                width: 100%;
-                left: 50%;
-                transform: translate(-50%,0%);
-            }
-
-            
-            
-            @media (orientation : portrait) { 
-           #contentSlide{
-                top: 15%;
-                position: absolute;
-                transform: translate(0%,0%);
-            }
-            
-            h2{
-                font-size: 3vh;
-                color: #4059A7;
-                font-weight: normal;
-                text-align: center;
-            }
-
-            h1{
-                font-size: 4vw;
-                color: #4059A7;
-                width: 100%;
-                font-weight: bold;
-                margin-top: 10%;
-            }
-            
-            .text1 p{
-    
-                font-size: 2vh;
-                color: #4059A7;
-                font-weight:normal;
-            }    
                 
             }
+ 			#avatarVideo{
+            	position: absolute;
+            	top: -10%;
+            	left: -15%;
+            	width: 30%;
+            	height: 30%;
+            }
             
+            @media (orientation : portrait) { 
+          
+            }
+
+            .question{
+                background-color: white;
+                top: 10%;
+                left: 20%;
+                position: absolute;
+                transform: translate(0%,-50%);
+                width: 60%;
+                height: 80%;
+                display: none;
+                opacity:0;
+                transform: scale(0);
+            }
+
+            #shadow{
+                background-color: black;
+                top: 0%;
+                left: 0%;
+                position: absolute;
+                display: none;
+                width: 100%;
+                height: 100%;
+                opacity:0;
+
+            }
+            .text2{
+                padding: 15%;
+            }
+
+            #rewind{
+                position: absolute;
+                width: 100%;
+                height: 20%;
+                background-color: rgba(250,250,250,0.5);
+                text-align: center;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 2vw;
+            }
+            
+            #rewind img{
+                height: 50%;
+                margin: 1vw;
+            }
+                
         </style>
     </head>
     <body >
         <div id="bgImage"></div>
-        <div id="contentMain">
-            <div id="contentSlide" class="row ">
+        <div id="contentMain" class="">
+            <div id="contentSlide" class="">
                 
-                <div class="text1  col-sm-12 col-xs-12 ">
-                    <h1 style="text-align: center;"><b>B) </b>Jerarquía en crisis
-                    </h1>
-                    <h2>
-                    Comité interno de protección civil (CIPC), es el órgano que se encarga de organizar, capacitar y verificar que se lleven a cabo las acciones necesarias para prevenir, detectar y mitigar riesgos, es la máxima autoridad en caso de emergencia.
-                    </h2>
-
-                </div>
-                
-
-            </div>
-
-            <div id="hierarchyA" class="row ">
-                <div class="text2  col-sm-12 col-xs-12 ">
-                <h2>
-                    Está compuesto de las siguientes áreas:
-
-                </h2>
-                </div>
-                 <br><br>
-                <div class="text3  col-sm-12 col-xs-12 ">
-                <h2>
-                    
-                    <b>a. Tomadores de decisiones</b>
-                </h2>
-                </div>
-                
-            </div>
-
-            <div class="row">
-                <div class="col-xs-3 col-sm-3">
-                <p  id="text_2" class="bodytext">
-                    <b>1.</b> Coordinador de brigadas
-                    
-                    <img class="hierarchy" src="../../img/logo_proteccioncivil-07.svg">
-                    
-                </p>
-                </div>
-                <div class="col-xs-3 col-sm-3">
-                <p  id="text_3" class="bodytext">
-                    <b>2.</b> Jefe de edificio
-                    <img class="hierarchy" src="../../img/logo_proteccioncivil-07.svg">
-
-                </p>
-                </div>
-                <div class="col-xs-3 col-sm-3">
-                <p id="text_4" class="bodytext">
-                    <b>3.</b> Jefe de piso (en caso de contar con dos o más pisos)
-                    <img  class="hierarchy" src="../../img/logo_proteccioncivil-07.svg">
-                </p>
-                </div>
-
-                <div class="col-xs-3 col-sm-3">
-                <p id="text_5" class="bodytext">
-                    <b>4.</b> Jefe de brigadas
-                    <img  class="hierarchy" src="../../img/logo_proteccioncivil-07.svg">
-                </p>
-                </div>
-            </div>
-
-            <div id="hierarchyB" class="row ">
-                <div class="text4 col-sm-12 col-xs-12 ">
-                <h2>
+<!--
+                <div class="text1">
+                    <h1>Evacuación... </h1>
                    
-                    <b>b. Brigadistas</b> se integran de acuerdo con las necesidades de la empresa, podrán ser multifuncionales.
-                    
-
-                </h2>
                 </div>
+-->
                 
+                <div class="videoDiv">
+            	<video id="video1" class="videoObject" autoplay onended="endVideo();">
+				  <source src="../../img/pantalla4.mp4" type="video/mp4">
+				  Your browser does not support HTML5 video.
+				</video>
+                    
             </div>
-
-            <div class="row">
-                <div class="col-xs-3 col-sm-3">
-                <p  id="text_6" class="bodytext">
-                    
-                    <img class="hierarchy" src="../../img/logo_proteccioncivil-07.svg">
-                    
-                </p>
-                </div>
-                <div class="col-xs-3 col-sm-3">
-                <p  id="text_7" class="bodytext">
-                    <img class="hierarchy" src="../../img/logo_proteccioncivil-07.svg">
-
-                </p>
-                </div>
-                <div class="col-xs-3 col-sm-3">
-                <p id="text_8" class="bodytext">
-                    <img  class="hierarchy" src="../../img/logo_proteccioncivil-07.svg">
-                </p>
-                </div>
-
-                <div class="col-xs-3 col-sm-3">
-                <p id="text_9" class="bodytext">
-                    <img  class="hierarchy" src="../../img/logo_proteccioncivil-07.svg">
-                </p>
-                </div>
+            </div>
+            <div id="rewind"><img src="../../img/replay_button.png">    Reiniciar</div>
+            <div id="shadow">
             </div>
             
+            <div id="questionDiv" class="question">
+                <img id="avatarVideo" src="../../img/mambo.svg">
+                <div class="text2  col-sm-12 col-xs-12 col-md-12 ">
+                    <h1>Pregunta: </h1>
+                    <br>
+                    <p>¿Cómo debe ser el procedimiento de traslado de evacuación? <br>¿Lo recuerdas?</p>
+                    <form action="answerQuestion">
+                      <input type="radio" name="answer" value="a"> <span> a) Conocido, validado y fácil</span><br><br>
+                      <input type="radio" name="answer" value="b"> <span> b) Claro, seguro y practicado</span><br><br>
+                      <input type="radio" name="answer" value="c"> <span> c) Preestablecido, practicado y supervisado</span>
+                    </form>
+                </div>
+                
 
+            </div>
         </div>
 
+        
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
         <script>
-             var audio1 = new Audio();
-        audio1.src = "../../sounds/slide20.wav"
-        audio1.load();
-        /*audio1.addEventListener('load', function () {
-            audio1.play();
-        });*/
-        audio1.onloadeddata = function(){
-            audio1.play();
+           /* TweenMax.fromTo($(".avatar"),0.9,{scale:3,alpha:0},{scale:1,alpha:1,ease:Back.easeOut,delay:1});
+            TweenMax.fromTo($(".text1").find("h1"),0.5,{x:200,alpha:0},{x:0,alpha:1,delay:1.3});
+            TweenMax.fromTo($(".text1").find("p"),0.5,{x:200,alpha:0},{x:0,alpha:1,delay:1.5});
+        */
+
+        function endVideo(){
+            $("#rewind").show();
+            /*document.getElementById("questionDiv").style.display = "block";
+            TweenMax.fromTo($(".question"),0.9,{scale:0,alpha:0},{scale:1,alpha:1,ease:Back.easeOut});
+            document.getElementById("shadow").style.display = "block";
+            TweenMax.fromTo($("#shadow"),0.9,{alpha:0},{alpha:1});*/
         }
-            //audio1.play();
             
-            TweenMax.fromTo($(".avatar"),0.9,{scale:0,alpha:0},{scale:1,alpha:1,ease:Back.easeOut,delay:0.5});
-            TweenMax.fromTo($(".text1"),0.5,{x:200,alpha:0},{x:0,alpha:1,delay:0.5});
-            TweenMax.fromTo($(".text2"),0.5,{x:200,alpha:0},{x:0,alpha:1,delay:19});
-            TweenMax.fromTo($(".text3"),0.5,{x:200,alpha:0},{x:0,alpha:1,delay:22});
-            TweenMax.fromTo($("#text_2"),0.5,{x:200,alpha:0},{x:0,alpha:1,delay:24.5});
-            TweenMax.fromTo($("#text_3"),0.5,{x:200,alpha:0},{x:0,alpha:1,delay:26.5});
-            TweenMax.fromTo($("#text_4"),0.5,{x:200,alpha:0},{x:0,alpha:1,delay:29});
-            TweenMax.fromTo($("#text_5"),0.5,{x:200,alpha:0},{x:0,alpha:1,delay:33.5});
-            TweenMax.fromTo($(".text4"),0.5,{x:200,alpha:0},{x:0,alpha:1,delay:35.5});
-            TweenMax.fromTo($("#text_6"),0.5,{x:200,alpha:0},{x:0,alpha:1,delay:37});
-            TweenMax.fromTo($("#text_7"),0.5,{x:200,alpha:0},{x:0,alpha:1,delay:38.5});
-            TweenMax.fromTo($("#text_8"),0.5,{x:200,alpha:0},{x:0,alpha:1,delay:40});
-            TweenMax.fromTo($("#text_9"),0.5,{x:200,alpha:0},{x:0,alpha:1,delay:41.5});
-        </script>
+        $("#rewind").click(function(){
+            var video = document.getElementById("video1");
+            video.play();
+            $("#rewind").hide();
+        });
+            $("#rewind").hide();
+        function answerQuestion(){
+
+        }
+
         </script>
     </body>
 </HTML>

@@ -114,7 +114,22 @@
                 padding: 15%;
             }
 
-           
+            #rewind{
+                position: absolute;
+                width: 100%;
+                height: 20%;
+                background-color: rgba(250,250,250,0.5);
+                text-align: center;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 2vw;
+            }
+            
+            #rewind img{
+                height: 50%;
+                margin: 1vw;
+            }
                 
         </style>
     </head>
@@ -129,14 +144,16 @@
                    
                 </div>
 -->
+                
                 <div class="videoDiv">
-            	<video class="videoObject" controls >
-				  <source src="../../img/slide7.mp4" type="video/mp4">
+            	<video id="video1" class="videoObject" autoplay onended="endVideo();">
+				  <source src="../../img/pantalla2-slide2.mp4" type="video/mp4">
 				  Your browser does not support HTML5 video.
 				</video>
+                    
             </div>
             </div>
-
+            <div id="rewind"><img src="../../img/replay_button.png">    Reiniciar</div>
             <div id="shadow">
             </div>
             
@@ -167,12 +184,19 @@
         */
 
         function endVideo(){
-            document.getElementById("questionDiv").style.display = "block";
+            $("#rewind").show();
+            /*document.getElementById("questionDiv").style.display = "block";
             TweenMax.fromTo($(".question"),0.9,{scale:0,alpha:0},{scale:1,alpha:1,ease:Back.easeOut});
             document.getElementById("shadow").style.display = "block";
-            TweenMax.fromTo($("#shadow"),0.9,{alpha:0},{alpha:1});
+            TweenMax.fromTo($("#shadow"),0.9,{alpha:0},{alpha:1});*/
         }
-
+            
+        $("#rewind").click(function(){
+            var video = document.getElementById("video1");
+            video.play();
+            $("#rewind").hide();
+        });
+            $("#rewind").hide();
         function answerQuestion(){
 
         }
