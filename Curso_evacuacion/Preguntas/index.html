@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta content="stuff, to, help, search, engines, not" name="keywords">
+<meta content="What this page is about." name="description">
+<meta content="Display Webcam Stream" name="title">
+<title>Display Webcam Stream</title>
+  <!--<script src="js/instascan.min.js" type="text/javascript" charset="utf-8"></script>-->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+<style>
+/*#container {
+    //margin: 0px auto;
+    width: 100%;
+    height: 100%;
+    //border: 10px #333 solid;
+}
+*/
+body{
+	margin: 0px;
+	padding: 0px;
+}
+
+#video {
+	position: absolute;
+	top:0px;
+	left: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: #666;
+     transform: rotateY(180deg);
+    -webkit-transform:rotateY(180deg); /* Safari and Chrome */
+    -moz-transform:rotateY(180deg); /* Firefox */
+    margin:0px;
+    padding: 0px;
+}
+
+#canvas{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+    height: 100%;
+    //display: none ;
+}
+
+#buttonSnap{
+	position: absolute;
+	bottom:10%;
+	left: 50%;
+	transform: translate(-50%,0%);
+}
+
+</style>
+</head>
+  
+<body>
+	<video id="video"></video>
+<canvas id="canvas"></canvas>
+
+
+<button type="button" id="buttonSnap" class="btn btn-primary col-sm-12 col-xs-12 col-md-12">
+Capturar
+</button>
+
+<script>
+	var canvas = document.getElementById('canvas');
+	var context = canvas.getContext('2d');
+	var video = document.getElementById('video');
+
+	var myImage = new Image();
+	myImage.src = "images/testSpriteSheet.png";
+	myImage.addEventListener("load", loadImage, false);
+	//document.body.appendChild(myImage);
+
+	function loadImage(e) {
+
+	  animate();
+	}
+
+	var shift = 0;
+	var frameWidth = 75;
+	var frameHeight = 85;
+	var totalFrames = 27;
+	var currentFrame = 0;
+	var totalWidth = 520;
+	var shiftY = 0;
+
+	var takeImage = false;
+	 
+	function animate() {
+		//console.log("animate");
+	  context.clearRect(0, 0,canvas.width, canvas.height);
+	  if(takeImage){
+	  	context.drawImage(video, 0, 0, canvas.width, canvas.height);
+	  }
+	 
+	  //draw each frame + place them in the middle
+	  context.drawImage(myImage, shift, shiftY, frameWidth, frameHeight,120, 25, frameWidth, frameHeight);
+	 
+
+	  shift += frameWidth + 1;
+	  if(shift > (totalWidth-frameWidth)){
+	  	shiftY+= frameHeight+1;
+	  }
+	 
+	  /*
+	    Start at the beginning once you've reached the
+	    end of your sprite!
+	  */
+	  if (currentFrame == totalFrames) {
+	    shift = 0;
+	    shiftY = 0;
+	    currentFrame = 0;
+	  }
+	 
+	  currentFrame++;
+	  if(takeImage){
+	  	var dt = canvas.toDataURL('image/png');
+	    //this.href = dt;
+	    //console.log(dt);
+	    //alert();
+	    var link = document.createElement('a');
+		link.href = dt;
+		link.download = 'Download.png';
+		document.body.appendChild(link);
+		link.click();
+		document.body.removeChild(link);
+		takeImage = false;
+	  }
+	 
+	  requestAnimationFrame(animate);
+	}
+
+// Get access to the camera!
+if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+    // Not adding `{ audio: true }` since we only want video now
+    navigator.mediaDevices.getUserMedia({ video: true }).then(function(stream) {
+        //video.src = window.URL.createObjectURL(stream);
+        video.srcObject = stream;
+        video.play();
+
+        canvas.width
+    });
+}
+
+window.onload = function(){
+	//alert(window.innerWidth+ "  h"+window.innerHeight);
+	canvas.width = window.innerWidth;
+	canvas.height = window.innerHeight;
+	//context.drawImage(myImage,0,0);
+}
+
+document.getElementById("buttonSnap").addEventListener("click", function() {
+	takeImage = true;
+	/*context.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+   var dt = canvas.toDataURL('image/png');
+    //this.href = dt;
+    //console.log(dt);
+    //alert();
+    var link = document.createElement('a');
+	link.href = dt;
+	link.download = 'Download.png';
+	document.body.appendChild(link);
+	link.click();
+	document.body.removeChild(link);*/
+});
+
+/*let scanner = new Instascan.Scanner({ video: document.getElementById('preview'), mirror:false });
+      scanner.addListener('scan', function (content) {
+        alert(content)
+      });
+      Instascan.Camera.getCameras().then(function (cameras) {
+        if (cameras.length > 1) {
+          scanner.start(cameras[1]);
+        } else {
+          console.error('No cameras found.');
+        }
+      }).catch(function (e) {
+        console.error(e);
+      });
+*/
+</script>
+</body>
+</html>
