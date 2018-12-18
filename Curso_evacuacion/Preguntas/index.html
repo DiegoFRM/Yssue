@@ -293,12 +293,19 @@
 				color: #ffffff;
 			}
 
+			#retro{
+				width: 100%;
+				text-align: center;
+				font-size: 3vh;
+				color: #ffffff;
+			}
+
 			#bottomTextGood{
 				background-color: #29D113;
 				border-radius:20px;
 				position: absolute;
-				bottom: -50px;
-				height: 100px;
+				bottom: -20px;
+				height: 150px;
 				width: 100%;
 			}
 			#bottomTextGood p{
@@ -371,9 +378,8 @@
 
 		<div id="bottomTextGood">
                     
-                        <p>Respuesta Correcta</p>
-                       
-                </div>
+	        <p id="retro">Respuesta Correcta</p>   
+		</div>
 	</div>
 
 	<div id="wrongAnswer">
@@ -386,7 +392,7 @@
 
                 <div id="bottomText">
                     
-                        <p>Respuesta Incorrecta</p>
+                        <p>¡Inténtalo nuevamente!</p>
                        
                 </div>
 
@@ -484,15 +490,13 @@
                 <div id="circle1" class="circleBase type1" style="left:5%; opacity:1.0;"></div>
                 <div id="circle2" class="circleBase type1"style="left:14%"></div>
                 <div id="circle3" class="circleBase type1"style="left:23%"></div>
-                <div id="circle4"class="circleBase type1"style="left:32%"></div>
-                <div id="circle5"class="circleBase type1"style="left:41%"></div>
-                <div class="circleBase type1"style="left:50%"></div>
-                <div class="circleBase type1"style="left:59%"></div>
-                <div class="circleBase type1"style="left:68%"></div>
-                <div class="circleBase type1"style="left:77%"></div>
-                <div class="circleBase type1"style="left:86%"></div>
-
-                <!--<button type="button" id="buttonInit" class="btn btn-warning col-sm-6 col-xs-6 col-md-6" onclick="clickInit()">Comienza aquí</button>-->
+                <div id="circle4" class="circleBase type1"style="left:32%"></div>
+                <div id="circle5" class="circleBase type1"style="left:41%"></div>
+                <div id="circle6" class="circleBase type1"style="left:50%"></div>
+                <div id="circle7" class="circleBase type1"style="left:59%"></div>
+                <div id="circle8" class="circleBase type1"style="left:68%"></div>
+                <div id="circle9" class="circleBase type1"style="left:77%"></div>
+                <div id="circle10" class="circleBase type1"style="left:86%"></div>
 
 
             </div>
@@ -502,7 +506,7 @@
 <script>
 
 	var questions= [
-	/*{
+		{
 		"question":"Es la probabilidad de que ocurra un fenómeno perturbador que produzca daños en la integridad, bienes o entorno de la población.",
 		"ans":[
 			{
@@ -514,7 +518,9 @@
 			{
 				"text":"Siniestro"
 			}
-		]},*/
+		],
+		"retroalimentacion":"En efecto, todos estamos propensos a enfrentar riesgos y ante ello, es importante saber cómo disminuir su impacto."
+		},
 		{
 		"question":"¿Cuál es nuestra responsabilidad ante los riesgos?",
 		"ans":[
@@ -527,7 +533,10 @@
 			{
 				"text":"Conocer el código de protección civil para evacuación."
 			}
-		]},
+		],
+		"retroalimentacion":"¡En efecto! Para prevenir y enfrentar de la mejor manera las consecuencias de los riesgos se necesita aprender cómo lograrlo."
+		
+		},
 		{
 		"question":"¿Cuáles son las cualidades de una ruta de evacuación apropiada?",
 		"ans":[{
@@ -539,7 +548,10 @@
 		{
 			"text":"La comunidad debe aceptar la ruta y llevarla a cabo por áreas."
 		}
-		]},
+		],
+		"retroalimentacion":"¡Muy bien! Estas tres condiciones, generan mayores oportunidades ante una emergencia."
+
+		},
 		{
 		"question":"¿Cuáles son las razones de responsabilidad individual en una evacuación?",
 		"ans":[{
@@ -551,9 +563,96 @@
 		{
 			"text":"Empatía y deseos personales por ayudar."
 		}
-		]
+		],
+		"retroalimentacion":"¡Así es! Los planes de emergencia tienen por objetivo, llevar a la población lejos de una situación de peligro, sin poner en riesgo su persona."
+		},
+		{
+		"question":"Grupo de personas se encarga de organizar, capacitar y verificar las acciones de prevención y detección para mitigar riesgos:",
+		"ans":[{
+			"text":"Comité interno de protección civil"
+		},
+		{
+			"text":"Coordinación interna de EVACUACIÓN"
+		},
+		{
+			"text":"Seguridad y protección humana"
+		}
+		],
+		"retroalimentacion":"Y tú… ¿Ya conoces al Comité de protección civil?"
+		},
+		{
+		"question":"¿Cuáles son las cuatro brigadas obligatorias según la Ley de Protección Civil?",
+		"ans":[{
+			"text":"Evacuación, primeros auxilios, comunicación e incendios"
+		},
+		{
+			"text":"Coordinador de brigadas y jefe de edificio."
+		},
+		{
+			"text":"Evacuación, primeros auxilios, fugas y prevención total."
+		}
+		],
+		"retroalimentacion":"¡En efecto! Las brigadas esenciales son: Evacuación, primeros auxilios, comunicación e incendios."
+		},
+		{
+		"question":"Tipo de evacuación que se genera primero en un área afectada y posteriormente a las áreas próximas:",
+		"ans":[{
+			"text":"Evacuación por etapas."
+		},
+		{
+			"text":"Evacuación por totalidad."
+		},
+		{
+			"text":"Evacuación por emergencia."
+		}
+		],
+		"retroalimentacion":"¡Excelente! Es la evacuación en la cual se desaloja el área del fenómeno y posteriormente a las áreas más cercanas al mismo."
+		},
+		{
+		"question":"Tipo de evacuación en la que no pueden permanecer ni brigadistas ni población.",
+		"ans":[{
+			"text":"Evacuación crítica."
+		},
+		{
+			"text":"Evacuación permanente."
+		},
+		{
+			"text":"Evacuación por etapas."
+		}
+		],
+		"retroalimentacion":"¡Muy bien! Se presenta cuando el fenómeno ha salido de control o los daños son tan severos que deben evacuarse todas las áreas y a todas las personas en el lugar."
+		},
+		{
+		"question":"Completa la frase: La indicación para evacuar un lugar depende del fenómeno que se enfrente y:",
+		"ans":[{
+			"text":"Del grado en que se afecta el desarrollo de las actividades normales."
+		},
+		{
+			"text":"Del grado en que se deterioran tus movimientos y respuestas."
+		},
+		{
+			"text":"La decisión de evacuar es personal."
+		}
+		],
+		"retroalimentacion":"¡En efecto! Recuerda además que el Coordinador General debe deducir el grado de afectación, para determinar una evacuación viable."
+		},
+		{
+		"question":"Si el olfato, la vista y el oído se ven afectados yno puedes realizar tus actividades normales entonces:",
+		"ans":[{
+			"text":"Debes dar aviso a las autoridades para evaluar las condiciones de evacuación."
+		},
+		{
+			"text":"Debes dar aviso a tus compañeros más cercanos y evaluar las condiciones de evacuación."
+		},
+		{
+			"text":"La decisión de evacuar es personal.Debes salir lo más rápido posible por los lugares que te sean más conocidos."
+		}
+		],
+		"retroalimentacion":"Nuestros sentidos están preparados para recibir información del exterior y avisarnos de cualquier anomalía, por ello es importante tener en cuenta cualquier cosa que nos perturbe y actuar para salvaguardar nuestra vida.."
+		}
 
-		}]
+
+		]
 
 
 	var canvas = document.getElementById('canvas');
@@ -561,16 +660,23 @@
 	var video = document.getElementById('video');
 
 	var myImage = new Image();
-	myImage.src = "images/testSpriteSheet.png";
+	//myImage.src = "images/testSpriteSheet.png";
 	myImage.addEventListener("load", loadImage, false);
 	//document.body.appendChild(myImage);
 
 	function loadImage(e) {
-		console.log("finishLoad");
+		//console.log("finishLoad");
 	  //animate();
 
 	  context.clearRect(0, 0,canvas.width, canvas.height);
 	  context.drawImage(myImage, 0,0,720, 1280,0,0,canvas.width, canvas.height);
+
+	  if(questionId==1 && !takeImage){
+	  	setTimeout(function(){
+	  		animate();
+
+	  	},100);
+	  }
 
 	}
 
@@ -578,7 +684,7 @@
 	var frameWidth = 75;
 	var frameHeight = 85;
 	var totalFrames = 27;
-	var currentFrame = 0;
+	
 	var totalWidth = 520;
 	var shiftY = 0;
 
@@ -586,10 +692,13 @@
 
 	var questionId;
 	var currentCorrect;
+	var currentFrame = 0;
+	var currentImageName;
+	var maxFrames;
 	 
 	function animate() {
 		//console.log("animate");
-	  context.clearRect(0, 0,canvas.width, canvas.height);
+	  /*context.clearRect(0, 0,canvas.width, canvas.height);
 	  if(takeImage){
 	  	context.drawImage(video, 0, 0, canvas.width, canvas.height);
 	  }
@@ -603,10 +712,7 @@
 	  	shiftY+= frameHeight+1;
 	  }
 	 
-	  /*
-	    Start at the beginning once you've reached the
-	    end of your sprite!
-	  */
+	  
 	  if (currentFrame == totalFrames) {
 	    shift = 0;
 	    shiftY = 0;
@@ -628,13 +734,28 @@
 		takeImage = false;
 	  }
 	 
-	  requestAnimationFrame(animate);
+	  requestAnimationFrame(animate);*/
+	  currentFrame++;
+	  if(currentFrame>maxFrames){
+	  	currentFrame=0;
+	  }
+	  	myImage.src = "images/"+currentImageName+""+currentFrame+".png";
+
 	}
 
 // Get access to the camera!
 if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
     // Not adding `{ audio: true }` since we only want video now
     navigator.mediaDevices.getUserMedia({ video: true }).then(function(stream) {
+        //video.src = window.URL.createObjectURL(stream);
+        video.srcObject = stream;
+        video.play();
+
+        canvas.width
+    });
+}
+else if(navigator.getUserMedia){
+	navigator.getUserMedia({ video: true }).then(function(stream) {
         //video.src = window.URL.createObjectURL(stream);
         video.srcObject = stream;
         video.play();
@@ -671,6 +792,8 @@ document.getElementById("buttonSnap").addEventListener("click", function() {
 	link.click();
 	document.body.removeChild(link);
 
+	takeImage = true;
+
 	document.getElementById("buttonSnap").style.display = "none";
 	document.getElementById("buttonContinue").style.display = "block";
 
@@ -702,8 +825,9 @@ function clickInit(){
 
 
 function loadQuestion(){
+	takeImage = false;
+	currentFrame = 0;
 	document.getElementById("QuestionNumberSpace").innerHTML = "Pregunta "+questionId;
-	console.log(questions,questionId);
 	document.getElementById("QuestionSpace").innerHTML = questions[questionId-1].question;
 	var answers = questions[questionId-1].ans;
 	var ids = [0,1,2];
@@ -712,6 +836,7 @@ function loadQuestion(){
 		document.getElementById("answer"+i).innerHTML = answers[ids[random]].text;
 		if(ids[random] == 0){
 			currentCorrect = i;
+			document.getElementById("retro").innerHTML = questions[questionId-1].retroalimentacion;
 		}
 		ids.splice(random,1);
 	}
@@ -724,7 +849,7 @@ function getRandomInt(min, max) {
 }
 
 function clickAns(selectedId){
-	console.log(selectedId)
+	//console.log(selectedId)
 
 	if(selectedId == currentCorrect){
 		document.getElementById("buttonSnap").style.display = "block";
