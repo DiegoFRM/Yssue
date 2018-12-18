@@ -864,7 +864,7 @@
 	}
 
 // Get access to the camera!
-alert("check camera v3");
+alert("check camera v5");
 navigator.getUserMedia = ( navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia || navigator.mediaDevices.getUserMedia);
 
 
@@ -928,21 +928,26 @@ document.getElementById("buttonSnap").addEventListener("click", function() {
 	context.drawImage(video, 0, 0, canvas.width, canvas.height);
 	context.drawImage(myImage, 0,0,720, 1280,0,0,canvas.width, canvas.height);
 
-   	var dt = canvas.toDataURL('image/png');
-    //this.href = dt;
-    //console.log(dt);
-    //alert();
-    var link = document.createElement('a');
-	link.href = dt;
-	link.download = 'Download.png';
-	document.body.appendChild(link);
-	link.click();
-	document.body.removeChild(link);
+	setTimeout(function(){
+		var dt = canvas.toDataURL('image/png');
+	    //this.href = dt;
+	    //console.log(dt);
+	    //alert();
+	    var link = document.createElement('a');
+		link.href = dt;
+		link.target = "_blank";
+		link.download = 'Download.png';
+		document.body.appendChild(link);
+		link.click();
+		document.body.removeChild(link);
 
+		
+		document.getElementById("buttonContinue").style.display = "block";
+	},100)
+   	
 	takeImage = true;
-
 	document.getElementById("buttonSnap").style.display = "none";
-	document.getElementById("buttonContinue").style.display = "block";
+	
 
 
 });
