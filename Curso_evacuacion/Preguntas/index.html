@@ -170,13 +170,13 @@
 				padding-right: 10%;
  			}
             .text2 p{
-                font-size: 5vw;
+                font-size: 4vw;
                 color: #ffffff;
                 font-weight:normal;
             }
             
             h1{
-                font-size: 6vw;
+                font-size: 5vw;
                 color: #ffffff;
                 font-weight: bold;
             }
@@ -312,6 +312,22 @@
 				display: none;
 			}
 
+			.circleBase {
+			    
+			    //behavior: url(PIE.htc); /* remove if you don't care about IE8 */
+			}
+
+			.type1 {
+				border-radius: 50%;
+			    width: 20px;
+			    height: 20px;
+			    position: absolute;
+			    bottom: 50px;
+			    background: orange;
+			    //border: 3px solid red;
+			    opacity: 0.5;
+			}
+
             @media (orientation : portrait) { 
            /*#contentSlide{
                 top: 15%;
@@ -439,7 +455,7 @@
 	<div id ="questionsDiv">
 		<div id="bgImage"></div>
 		<div id="contentMain">
-            <div id="contentSlide2" >
+            <div id="contentSlide2">
                 <div class="textPanel">
                 	 <h1 id="QuestionNumberSpace">Pregunta 1</h1>
                 </div>
@@ -465,6 +481,16 @@
 					
                 </div>
 
+                <div id="circle1" class="circleBase type1" style="left:5%; opacity:1.0;"></div>
+                <div id="circle2" class="circleBase type1"style="left:14%"></div>
+                <div id="circle3" class="circleBase type1"style="left:23%"></div>
+                <div id="circle4"class="circleBase type1"style="left:32%"></div>
+                <div id="circle5"class="circleBase type1"style="left:41%"></div>
+                <div class="circleBase type1"style="left:50%"></div>
+                <div class="circleBase type1"style="left:59%"></div>
+                <div class="circleBase type1"style="left:68%"></div>
+                <div class="circleBase type1"style="left:77%"></div>
+                <div class="circleBase type1"style="left:86%"></div>
 
                 <!--<button type="button" id="buttonInit" class="btn btn-warning col-sm-6 col-xs-6 col-md-6" onclick="clickInit()">Comienza aquí</button>-->
 
@@ -728,7 +754,9 @@ function clickAns(selectedId){
 }
 
 function clickNext(){
+	document.getElementById("circle"+questionId).style.opacity = 0.5;
 	questionId++;
+	document.getElementById("circle"+questionId).style.opacity = 1.0;
 	if(questionId == 3){
 		document.getElementById("videoDiv").style.display = "none";
 		loadQuestion();
