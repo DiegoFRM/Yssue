@@ -788,6 +788,8 @@
 	  	},10);
 	  }
 
+	  //if(takeImage){}
+
 	}
 
 	var shift = 0;
@@ -924,16 +926,18 @@ window.onload = function(){
 
 document.getElementById("buttonSnap").addEventListener("click", function() {
 	//takeImage = true;
-
-	context.clearRect(0, 0,canvas.width, canvas.height);
-	context.drawImage(video, 0, 0, canvas.width, canvas.height);
-	context.drawImage(myImage, 0,0,720, 1280,0,0,canvas.width, canvas.height);
-	
+	video.pause();
 
 	setTimeout(function(){
 
-		
+		context.clearRect(0, 0,canvas.width, canvas.height);
+		context.drawImage(video, 0, 0, canvas.width, canvas.height);
+		context.drawImage(myImage, 0,0,720, 1280,0,0,canvas.width, canvas.height);
 
+		
+	},100)
+
+	setTimeout(function(){
 		var dt = canvas.toDataURL('image/png');
 	    //this.href = dt;
 	    //console.log(dt);
@@ -948,7 +952,7 @@ document.getElementById("buttonSnap").addEventListener("click", function() {
 
 		
 		document.getElementById("buttonContinue").style.display = "block";
-	},500)
+	})
    	
 	takeImage = true;
 	document.getElementById("buttonSnap").style.display = "none";
