@@ -5,11 +5,14 @@
 <meta content="stuff, to, help, search, engines, not" name="keywords">
 <meta content="What this page is about." name="description">
 <meta content="Display Webcam Stream" name="title">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Display Webcam Stream</title>
   <!--<script src="js/instascan.min.js" type="text/javascript" charset="utf-8"></script>-->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
 <style>
 /*#container {
     //margin: 0px auto;
@@ -18,10 +21,7 @@
     //border: 10px #333 solid;
 }
 */
-body{
-	margin: 0px;
-	padding: 0px;
-}
+
 
 #video {
 	position: absolute;
@@ -31,8 +31,8 @@ body{
     height: 100%;
     background-color: #666;
      transform: rotateY(180deg);
-    -webkit-transform:rotateY(180deg); /* Safari and Chrome */
-    -moz-transform:rotateY(180deg); /* Firefox */
+    -webkit-transform:rotateY(180deg); 
+    -moz-transform:rotateY(180deg); 
     margin:0px;
     padding: 0px;
 }
@@ -49,23 +49,487 @@ body{
 #buttonSnap{
 	position: absolute;
 	bottom:10%;
+	width: 80%;
 	left: 50%;
 	transform: translate(-50%,0%);
 }
+
+			body{
+                margin:0;
+                padding:0;
+                font-family: 'Roboto Condensed', sans-serif;
+                overflow-x: hidden;
+                overflow-y: hidden;
+            }
+            
+            #bgImage{
+               position: absolute;
+                width: 100%;
+                height: 100%;
+                //background:url("../../img/bg1.jpg");
+                background-color: #3FB4DC;
+                background-size: cover;
+                //opacity: 0;
+                top: 0%;
+            }
+
+            #bgImageOrange{
+               position: absolute;
+                width: 100%;
+                height: 100%;
+                //background:url("../../img/bg1.jpg");
+                background-color: #E1B900;
+                background-size: cover;
+                //opacity: 0;
+                top: 0%;
+            }
+            
+            #contentMain{
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                //display: flex;
+                //justify-content: center;
+                align-items: center;
+            }
+            
+            #contentSlide{
+                top: 5%;
+                position: absolute;
+                margin: 0px;
+
+                width: 100%;
+                height: 100%;
+                
+            }
+
+            #contentSlide2{
+                top: 10%;
+                position: absolute;
+                margin: 0px;
+
+                width: 100%;
+                height: 100%;
+                
+            }
+            
+            .text1{
+                position: relative;
+                font-size: 2vh;
+                color: #ffffff;
+                font-weight:normal;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                //transform: translate(-20%,0%);
+                text-align: center;
+                margin: 10px;
+                margin-top: -5%;
+                width: 100%;
+                height: 1%;
+
+            }
+
+            .text2{
+                position: relative;
+                //font-size: 2vh;
+                color: #ffffff;
+                font-weight:normal;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                //transform: translate(-20%,0%);
+                text-align: left;
+                margin: 0px;
+                width: 100%;
+                top:-10%;
+
+            }
+
+            .textPanel{
+				position: relative;
+
+                //font-size: 2vh;
+                color: #ffffff;
+                font-weight:normal;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                //transform: translate(-20%,0%);
+                text-align: left;
+                margin: 0px;
+                width: 100%;
+                //top:-10%;
+                //height: 1%;
+            }
+ 			#QuestionSpace{
+
+ 				padding-top: 10px;
+				padding-bottom: 10px;
+				padding-left: 10%;
+				padding-right: 10%;
+ 			}
+            .text2 p{
+                font-size: 5vw;
+                color: #ffffff;
+                font-weight:normal;
+            }
+            
+            h1{
+                font-size: 6vw;
+                color: #ffffff;
+                font-weight: bold;
+            }
+
+            h2{
+            	font-size: 5vw;
+                color: #ffffff;
+                font-weight: normal;
+            }
+            
+           
+            .avatar{
+                text-align: center;
+                width: 100%;
+            }
+            
+            .frida{
+                position: relative;
+                width: 50%;
+                left: 50%;
+                //margin: 20px;
+                transform: translate(-50%,0%);
+            }
+
+            .fridaBig{
+            	position: relative;
+                width: 100%;
+                top:10%;
+                //left: 50%;
+                //margin: 20px;
+                //transform: translate(-50%,0%);
+            }
+
+            #videoDiv{
+            	display: none;
+            }
+            #initDiv{
+            	margin: 0px;
+            	padding: 0px;
+            	width: 100%;
+            	height: 100%;
+            }
+
+            #questionsDiv{
+            	margin: 0px;
+            	padding: 0px;
+            	width: 100%;
+            	height: 100%;
+            	display: none;
+            }
+
+            #finishDiv{
+            	margin: 0px;
+            	padding: 0px;
+            	width: 100%;
+            	height: 100%;
+            	display: none;
+            }
+
+            .buttonClass{
+				position: absolute;
+				bottom:10%;
+				left: 50%;
+				transform: translate(-50%,0%);
+			}
+
+			#buttonInit{
+				width: 50%;
+				position: relative;
+				left: 50%;
+				top:-10%;
+				transform: translate(-50%,0%);
+				
+			}
+
+			.ansBtn{
+				width: 80%;
+				//left: 10%;
+				margin-top: 20px;
+				padding: 10px;
+				//transform: translate(-50%,0%);
+				background-color: #73DF00;
+				text-align: center;
+				position: relative;
+				left:50%;
+				color: #ffffff;
+				transform: translate(-50%,0%);
+
+			}
+
+			.divAnswers{
+				
+			}
+
+			#wrongAnswer{
+				margin: 0px;
+            	padding: 0px;
+            	width: 100%;
+            	height: 100%;
+            	display: none;
+			}
+			#bottomText{
+				background-color: #E16206;
+				border-radius:20px;
+				position: absolute;
+				bottom: 0px;
+				height: 100px;
+				width: 100%;
+			}
+			#bottomText p{
+				width: 100%;
+				text-align: center;
+				font-size: 5vh;
+				color: #ffffff;
+			}
+
+			#bottomTextGood{
+				background-color: #29D113;
+				border-radius:20px;
+				position: absolute;
+				bottom: -50px;
+				height: 100px;
+				width: 100%;
+			}
+			#bottomTextGood p{
+				width: 100%;
+				text-align: center;
+				font-size: 5vh;
+				color: #ffffff;
+			}
+
+			#buttonContinue{
+				display: none;
+			}
+
+            @media (orientation : portrait) { 
+           /*#contentSlide{
+                top: 15%;
+                position: absolute;
+                transform: translate(0%,0%);
+            }
+            
+            h1{
+                font-size: 5vh;
+                color: #4059A7;
+                font-weight: bold;
+                text-align: center;
+            }
+            
+            .text1 p{
+    
+                font-size: 2vh;
+                color: #ffffff;
+                font-weight:normal;
+
+            }    */
+                
+            }
+            
+        </style>
 
 </style>
 </head>
   
 <body>
-	<video id="video"></video>
-<canvas id="canvas"></canvas>
+	<div id="videoDiv">
+		<video id="video"></video>
+		<canvas id="canvas"></canvas>
+		<button type="button" id="buttonSnap" class="btn btn-primary col-sm-12 col-xs-12 col-md-12">
+		Tomar Imagen
+		</button>
+
+		<button type="button" id="buttonContinue" class="btn btn-primary col-sm-12 col-xs-12 col-md-12" onclick="clickNext()">
+		Continuar
+		</button>
+
+		<div id="bottomTextGood">
+                    
+                        <p>Respuesta Correcta</p>
+                       
+                </div>
+	</div>
+
+	<div id="wrongAnswer">
+		<div id="bgImageOrange"></div>
+		<div id="contentMain">
+            <div id="contentSlide" class="row ">
+                <div class="col-sm-12 col-xs-12 col-md-12 " >
+                    <img class="fridaBig" src="images/frida.svg">
+                </div>
+
+                <div id="bottomText">
+                    
+                        <p>Respuesta Incorrecta</p>
+                       
+                </div>
+
+            </div>
+        </div>
+	</div>
+
+	<div id ="initDiv">
+		<div id="bgImage"></div>
+		<div id="contentMain">
+            <div id="contentSlide" class="row ">
+                <div class="col-sm-2 col-xs-12 col-md-12 " >
+                    <img class="frida" src="images/frida.svg">
+                </div>
+
+                <div class="text1">
+                    
+                        <h2>Evaluacion del <br>aprendizaje</h2>
+                       
+                </div>
+                <div class="text1">
+                	 <h1>¡Comencemos!</h1>
+                </div>
+
+                 <div class=" text2">
+                    	<p>1.Asegúrate de tener una<br>
+						conexión de internet estable<br>
+						2. Siempre mantén tu dispositivo<br>
+						de forma vertical.<br>
+						3. Lee con atención.<br>
+						4. Interactúa y ¡diviértete!<br>
+					</p>
+                </div>
+                <button type="button" id="buttonInit" class="btn btn-warning col-sm-6 col-xs-6 col-md-6" onclick="clickInit()">Comienza aquí</button>
 
 
-<button type="button" id="buttonSnap" class="btn btn-primary col-sm-12 col-xs-12 col-md-12">
-Capturar
-</button>
+            </div>
+        </div>
+	</div>
+
+	<div id ="finishDiv">
+		<div id="bgImage"></div>
+		<div id="contentMain">
+            <div id="contentSlide" class="row ">
+                <div class="col-sm-2 col-xs-12 col-md-12 " >
+                    <img class="frida" src="images/frida.svg">
+                </div>
+
+                <div class="text1">
+                    	<h1>¿Bien Hecho!</h1>
+                       
+                       
+                </div>
+                <div class="text1">
+                	  <h2>Has concluido tu <br> evaluación del módulo<br><br> Continua con el siguiente<br>módulo para aprender <br> ¿Qué debes hacer?</h2>
+                </div>
+
+                 
+                <!--<button type="button" id="buttonInit" class="btn btn-warning col-sm-6 col-xs-6 col-md-6" onclick="clickInit()">Comienza aquí</button>-->
+
+
+            </div>
+        </div>
+	</div>
+
+	<div id ="questionsDiv">
+		<div id="bgImage"></div>
+		<div id="contentMain">
+            <div id="contentSlide2" >
+                <div class="textPanel">
+                	 <h1 id="QuestionNumberSpace">Pregunta 1</h1>
+                </div>
+
+                 <div id="QuestionSpace" class=" textPanel">
+                    	
+					
+                </div>
+
+                <div class="divAnswers col-sm-12 col-xs-12 col-md-12">
+                	<div id="answer1" class="ansBtn col-sm-12 col-xs-12 col-md-12" onclick="clickAns(1)">Comienza aquí
+                 	</div>
+                 </div>
+
+                    <div class="divAnswers col-sm-12 col-xs-12 col-md-12">
+                	<div id="answer2" class="ansBtn col-sm-12 col-xs-12 col-md-12" onclick="clickAns(2)">Comienza aquí
+                 	</div>
+                 </div>
+                 	<div class="divAnswers col-sm-12 col-xs-12 col-md-12">
+                	<div id="answer3" class="ansBtn col-sm-12 col-xs-12 col-md-12" onclick="clickAns(3)">Comienza aquí
+                 	</div>
+                 </div>
+					
+                </div>
+
+
+                <!--<button type="button" id="buttonInit" class="btn btn-warning col-sm-6 col-xs-6 col-md-6" onclick="clickInit()">Comienza aquí</button>-->
+
+
+            </div>
+        </div>
+	</div>
 
 <script>
+
+	var questions= [
+	/*{
+		"question":"Es la probabilidad de que ocurra un fenómeno perturbador que produzca daños en la integridad, bienes o entorno de la población.",
+		"ans":[
+			{
+				"text":"Riesgo"
+			},
+			{
+				"text":"Fenómeno natural"
+			},
+			{
+				"text":"Siniestro"
+			}
+		]},*/
+		{
+		"question":"¿Cuál es nuestra responsabilidad ante los riesgos?",
+		"ans":[
+			{
+				"text":"Aprender a resguardar nuestra integridad y la de otros."
+			},
+			{
+				"text":"Aprender los pasos básicos para salvar personas."
+			},
+			{
+				"text":"Conocer el código de protección civil para evacuación."
+			}
+		]},
+		{
+		"question":"¿Cuáles son las cualidades de una ruta de evacuación apropiada?",
+		"ans":[{
+			"text":"Debe estar acondicionada, ensayada y supervisada con anterioridad."
+		},
+		{
+			"text":"Debe estar por escrito que ha sido autorizada y supervisada por las autoridades."
+		},
+		{
+			"text":"La comunidad debe aceptar la ruta y llevarla a cabo por áreas."
+		}
+		]},
+		{
+		"question":"¿Cuáles son las razones de responsabilidad individual en una evacuación?",
+		"ans":[{
+			"text":"Integridad, Orden y Seguridad"
+		},
+		{
+			"text":"Solidaridad y ayudar a los otros."
+		},
+		{
+			"text":"Empatía y deseos personales por ayudar."
+		}
+		]
+
+		}]
+
+
 	var canvas = document.getElementById('canvas');
 	var context = canvas.getContext('2d');
 	var video = document.getElementById('video');
@@ -76,8 +540,12 @@ Capturar
 	//document.body.appendChild(myImage);
 
 	function loadImage(e) {
+		console.log("finishLoad");
+	  //animate();
 
-	  animate();
+	  context.clearRect(0, 0,canvas.width, canvas.height);
+	  context.drawImage(myImage, 0,0,720, 1280,0,0,canvas.width, canvas.height);
+
 	}
 
 	var shift = 0;
@@ -89,6 +557,9 @@ Capturar
 	var shiftY = 0;
 
 	var takeImage = false;
+
+	var questionId;
+	var currentCorrect;
 	 
 	function animate() {
 		//console.log("animate");
@@ -135,7 +606,7 @@ Capturar
 	}
 
 // Get access to the camera!
-if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+/*if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
     // Not adding `{ audio: true }` since we only want video now
     navigator.mediaDevices.getUserMedia({ video: true }).then(function(stream) {
         //video.src = window.URL.createObjectURL(stream);
@@ -144,20 +615,26 @@ if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
 
         canvas.width
     });
-}
+}*/
 
 window.onload = function(){
 	//alert(window.innerWidth+ "  h"+window.innerHeight);
 	canvas.width = window.innerWidth;
 	canvas.height = window.innerHeight;
+
+	questionId = 1;
+	currentCorrect = 0;
+	console.log(questionId);
 	//context.drawImage(myImage,0,0);
 }
 
 document.getElementById("buttonSnap").addEventListener("click", function() {
-	takeImage = true;
-	/*context.drawImage(video, 0, 0, canvas.width, canvas.height);
+	//takeImage = true;
+	context.clearRect(0, 0,canvas.width, canvas.height);
+	context.drawImage(video, 0, 0, canvas.width, canvas.height);
+	context.drawImage(myImage, 0,0,720, 1280,0,0,canvas.width, canvas.height);
 
-   var dt = canvas.toDataURL('image/png');
+   	var dt = canvas.toDataURL('image/png');
     //this.href = dt;
     //console.log(dt);
     //alert();
@@ -166,7 +643,12 @@ document.getElementById("buttonSnap").addEventListener("click", function() {
 	link.download = 'Download.png';
 	document.body.appendChild(link);
 	link.click();
-	document.body.removeChild(link);*/
+	document.body.removeChild(link);
+
+	document.getElementById("buttonSnap").style.display = "none";
+	document.getElementById("buttonContinue").style.display = "block";
+
+
 });
 
 /*let scanner = new Instascan.Scanner({ video: document.getElementById('preview'), mirror:false });
@@ -183,6 +665,84 @@ document.getElementById("buttonSnap").addEventListener("click", function() {
         console.error(e);
       });
 */
+
+
+function clickInit(){
+	document.getElementById("initDiv").style.display = "none";
+	loadQuestion();
+	document.getElementById("questionsDiv").style.display = "block";
+}
+
+
+
+function loadQuestion(){
+	document.getElementById("QuestionNumberSpace").innerHTML = "Pregunta "+questionId;
+	console.log(questions,questionId);
+	document.getElementById("QuestionSpace").innerHTML = questions[questionId-1].question;
+	var answers = questions[questionId-1].ans;
+	var ids = [0,1,2];
+	for(var i = 1; i <= 3; i++){
+		var random = getRandomInt(0,ids.length-1);
+		document.getElementById("answer"+i).innerHTML = answers[ids[random]].text;
+		if(ids[random] == 0){
+			currentCorrect = i;
+		}
+		ids.splice(random,1);
+	}
+}
+
+function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function clickAns(selectedId){
+	console.log(selectedId)
+
+	if(selectedId == currentCorrect){
+		document.getElementById("buttonSnap").style.display = "block";
+		document.getElementById("buttonContinue").style.display = "none";
+		document.getElementById("questionsDiv").style.display = "none";
+		document.getElementById("videoDiv").style.display = "block";
+		/*setTimeout(function(){
+			questionId++;
+			document.getElementById("questionsDiv").style.display = "block";
+			document.getElementById("correctAnswer").style.display = "none";
+		},4000)*/
+		if(questionId == 1){
+			myImage.src = "images/2daPregeunta.png";
+		}
+		else if(questionId == 2){
+			myImage.src = "images/4taPregunta.png";
+		}
+	}
+	else{
+		document.getElementById("questionsDiv").style.display = "none";
+		document.getElementById("wrongAnswer").style.display = "block";
+		setTimeout(function(){
+			document.getElementById("questionsDiv").style.display = "block";
+			document.getElementById("wrongAnswer").style.display = "none";
+		},3000)
+	}
+}
+
+function clickNext(){
+	questionId++;
+	if(questionId == 3){
+		document.getElementById("videoDiv").style.display = "none";
+		loadQuestion();
+		document.getElementById("finishDiv").style.display = "block";
+	}
+	else{
+		document.getElementById("videoDiv").style.display = "none";
+		loadQuestion();
+		document.getElementById("questionsDiv").style.display = "block";
+	}
+}
+
+
+
 </script>
 </body>
 </html>
