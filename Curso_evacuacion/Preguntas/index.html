@@ -864,13 +864,19 @@
 	}
 
 // Get access to the camera!
-alert("check camera v2");
+alert("check camera v3");
 navigator.getUserMedia = ( navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia || navigator.mediaDevices.getUserMedia);
 
 
 //if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
     // Not adding `{ audio: true }` since we only want video now
-    navigator.getUserMedia({ video: true ,audio: false},gotStream,noStream);
+    video.setAttribute('autoplay', '');
+    video.setAttribute('muted', '');
+    video.setAttribute('playsinline', true);
+
+    navigator.getUserMedia({ video: {
+             facingMode: 'user'
+         } ,audio: false},gotStream,noStream);
 
 
 
