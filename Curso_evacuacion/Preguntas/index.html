@@ -864,7 +864,7 @@
 	}
 
 // Get access to the camera!
-alert("check camera v6");
+alert("check camera v7");
 navigator.getUserMedia = ( navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia || navigator.mediaDevices.getUserMedia);
 
 
@@ -946,7 +946,7 @@ document.getElementById("buttonSnap").addEventListener("click", function() {
 
 		
 		document.getElementById("buttonContinue").style.display = "block";
-	},300)
+	},500)
    	
 	takeImage = true;
 	document.getElementById("buttonSnap").style.display = "none";
@@ -980,6 +980,7 @@ function clickInit(){
 
 
 function loadQuestion(){
+	video.play();
 	context.clearRect(0, 0,canvas.width, canvas.height);
 	takeImage = false;
 	currentFrame = 0;
