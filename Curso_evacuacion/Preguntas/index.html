@@ -871,16 +871,23 @@ if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
         video.srcObject = stream;
         video.play();
 
-        canvas.width
+        //canvas.width
     });
 }
-else if(navigator.getUserMedia){
-	navigator.getUserMedia({ video: true }).then(function(stream) {
+else {
+	var constraints = {
+         audio: false,
+         video: {
+             facingMode: 'user'
+         }
+    }
+
+	navigator.mediaDevices.getUserMedia(constraints).then(function success(stream) {
         //video.src = window.URL.createObjectURL(stream);
         video.srcObject = stream;
         video.play();
 
-        canvas.width
+        //canvas.width
     });
 }
 
