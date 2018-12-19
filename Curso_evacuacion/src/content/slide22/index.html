@@ -265,6 +265,13 @@
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
         <script>
+                var audio1 = new Audio();
+        audio1.src = "../../sounds/poema.mp3"
+        audio1.addEventListener('load', function () {
+            audio1.play();
+        });
+            audio1.play();        
+            
            /*  var audio1 = new Audio();
         audio1.src = "../../sounds/slide19.wav"
         audio1.load();
@@ -276,7 +283,7 @@
         }*/
             //audio1.play();
 
-            TweenMax.fromTo($(".poem"),70,{y:window.innerHeight},{y:-5000,ease:Linear.easeNone});
+            TweenMax.fromTo($(".poem"),200,{y:window.innerHeight},{y:-5000,ease:Linear.easeNone});
             
             TweenMax.fromTo($("#saltar"),0.5,{x:250,alpha:0},{x:0,alpha:1,delay:15});
             

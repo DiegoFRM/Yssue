@@ -57,6 +57,7 @@
                 width: 100%;
                 font-weight: normal;
                 text-align: center;
+                margin-top: 8%;
             }
             
            
@@ -106,7 +107,7 @@
                 font-size: 1.4vw;
                 color: #4059A7;
                 font-weight: normal;
-                text-align: center;
+                text-align: left;
             }
             
    
@@ -275,11 +276,13 @@
                         <td>
                             
                         </td>
+<!--
                         <td colspan="2">
                             <button type="button" class="btn btn-primary" onclick="clickWhat()">
                             ¿Qué hacer?
                             </button>
                         </td>
+-->
                         
                     </tr>
                 </table>
@@ -349,6 +352,7 @@
 				vision1Animation.progress(0).pause();
 				vision2Animation.progress(0).pause();
 				vision3Animation.progress(0).pause();
+                clickWhat()
 
             }
 
@@ -360,6 +364,7 @@
 				vision1Animation.play();
 				vision2Animation.play();
 				vision3Animation.play();
+                clickWhat() 
             }
 
              function clickS2(){
@@ -370,6 +375,7 @@
 			respirarAnimation1.progress(0.25).pause();
 			respirarAnimation2.progress(0).pause();
 			respirarAnimation3.progress(0.5).pause();
+                 clickWhat()
             }
 
              function clickN2(){
@@ -380,6 +386,7 @@
 			respirarAnimation1.play();
 			respirarAnimation2.play();
 			respirarAnimation3.play();
+                 clickWhat()
             }
 
              function clickS3(){
@@ -391,30 +398,34 @@
              function clickN3(){
                 q3 = false;
                 document.getElementById("noSound").style.display = "block";
-                
+                clickWhat()
             }
 
              function clickS4(){
                 q4 = true;
                 mamboBibrate.progress(0.5).pause();
+                 clickWhat()
             }
 
              function clickN4(){
                 q4 = false;
                 mamboBibrate.play();
+                 clickWhat()
             }
 
             function clickWhat(){
 
             	if(!q1 || !q2 || !q3 || !q4){
-            		document.getElementById("textBehind").innerHTML = "Debes Evacuar";
+            		document.getElementById("textBehind").innerHTML = "Avisa a la brigada";
+                    $("#textBehind").css("color","red");
             	}
             	else{
 
             		document.getElementById("textBehind").innerHTML = "Sigue trabajando con normalidad";
+                                        $("#textBehind").css("color","green");
             	}
             }
-
+$("#textBehind").css("color","green");
         </script>
     </body>
 </HTML>
