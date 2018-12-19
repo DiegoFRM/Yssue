@@ -30,7 +30,7 @@
 	left: 0px;
     width: 100%;
     height: 100%;
-    background-color: #666;
+    background-color: #3FB4DC;
      transform: rotateY(180deg);
     -webkit-transform:rotateY(180deg); 
     -moz-transform:rotateY(180deg); 
@@ -328,7 +328,7 @@
 				left: 0px;
 				top: 50%;
 				transform: translate(0%,-50%);
-				width: 100px;
+				width: 50px;
 			}
 
 			#arrowRigth{
@@ -336,7 +336,7 @@
 				right: 0px;
 				top: 50%;
 				transform: translate(0%,-50%);
-				width: 100px;
+				width: 50px;
 			}
 
 			#wrongAnswer{
@@ -399,11 +399,14 @@
 			#message{
 				width: 100%;
 				position: absolute;
-				top:5%;
+				top:2%;
+
+				display: none;
 
 			}
 			#messageImage{
 				position: relative;
+				width: 50%;
 				left: 50%;
 				transform: translate(-50%,0%);
 
@@ -471,13 +474,13 @@
 		</button>-->
 
 		<div id="arrows">
-			<img id="arrowLeft" src="images/6taPregunta/arrows_previous.jpg" onclick="clickArrow(-1)">
-			<img id="arrowRigth" src="images/6taPregunta/arrows_next.jpg" onclick="clickArrow(1)">
+			<img id="arrowLeft" src="images/6taPregunta/arrows_previous.png" onclick="clickArrow(-1)">
+			<img id="arrowRigth" src="images/6taPregunta/arrows_next.png" onclick="clickArrow(1)">
 
 		</div>
 
 		<div id="message">
-			<img id="messageImage" src="images/6taPregunta/6taPregunta_banners_1.jpg">
+			<img id="messageImage" src="images/6taPregunta/6taPregunta_banners_1.jpg" >
 		</div>
 
 		<div id="bottomTextGood">       
@@ -934,7 +937,7 @@ window.onload = function(){
 	canvas.width = window.innerWidth;
 	canvas.height = window.innerHeight;
 
-	questionId = 1;
+	questionId = 6;
 	currentCorrect = 0;
 	console.log(questionId);
 
@@ -956,7 +959,7 @@ document.getElementById("buttonSnap").addEventListener("click", function() {
 	},100)
 
 	setTimeout(function(){
-		var dt = canvas.toDataURL('image/png');
+		/*var dt = canvas.toDataURL('image/png');
 	    //this.href = dt;
 	    //console.log(dt);
 	    //alert();
@@ -966,7 +969,7 @@ document.getElementById("buttonSnap").addEventListener("click", function() {
 		link.download = 'Download.png';
 		document.body.appendChild(link);
 		link.click();
-		document.body.removeChild(link);
+		document.body.removeChild(link);*/
 
 		
 		document.getElementById("buttonContinue").style.display = "block";
