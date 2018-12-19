@@ -25,11 +25,15 @@
             }
             
             #contentMain{
-                position: relative;
-                width: 80%;
+                position: absolute;
+                width: 90%;
+                left: 5%;
+                height: 100%;
                 top: 0%;
-                left: 10%;
-                padding: 2vw;
+                left: 0%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
             }
 
             
@@ -38,9 +42,6 @@
                 font-size: 2vh;
                 color: #4059A7;
                 font-weight:normal;
-                display: flex;
-                justify-content: center;
-                align-items: center;
             }
  
 
@@ -71,25 +72,7 @@
             }
             
             @media (orientation : portrait) { 
-           #contentSlide{
-                top: 15%;
-                position: absolute;
-                transform: translate(0%,0%);
-            }
-            
-            h1{
-                font-size: 5vh;
-                color: #4059A7;
-                font-weight: bold;
-                text-align: center;
-            }
-            
-            .text1 p{
-    
-                font-size: 2vh;
-                color: #4059A7;
-                font-weight:normal;
-            }    
+           
                 
             }
             
@@ -99,18 +82,18 @@
         <div id="bgImage"></div>
         <div id="contentMain">
             <div id="contentSlide" class="row ">
-                <div class="text1  col-sm-12 col-xs-12 ">
+                <div class="col-sm-6 col-xs-12 ">
+                    <div id="diana" class="col-xs-12 col-sm-12" style="text-aling:center">
+                    <img class="rounded mx-auto d-block" style="width: 60%" src="../../img/diana.png">
+                    </div>
+                </div>
+                <div class="text1  col-sm-6 col-xs-12 ">
                     <div>
                         <h1>Objetivo</h1>
                     </div>
-                </div>
-                <div class="col-xs-12 col-sm-12">
                     <p class="bodytext">
                         Comprender cómo y cuándo evacuar y/o ser guiados en una evacuación, de un lugar de riesgo a un lugar seguro; priorizando la consciencia colectiva-preventiva.
                     </p>
-                </div>
-                <div id="diana" class="col-xs-12 col-sm-12" style="text-aling:center">
-                    <img class="rounded mx-auto d-block" style="width: 20%" src="../../img/diana.png">
                 </div>
 
             </div>

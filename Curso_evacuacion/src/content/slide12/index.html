@@ -5,7 +5,7 @@
         <title>slide1</title>
         <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
-
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
         <style>
             body{
                 margin:0;
@@ -116,7 +116,10 @@
                 padding-left: 15%;
             }
 
-           
+            .red-bg{
+                
+                
+            }
             
         </style>
     </head>
@@ -132,7 +135,7 @@
                 </div>
 -->
                 <div class="videoDiv">
-            	<video class="videoObject" autoplay onended="endVideo()">
+            	<video class="videoObject" controls autoplay onended="endVideo()">
 				  <source src="../../img/pantalla3-slide4.mp4" type="video/mp4">
 				  Your browser does not support HTML5 video.
 				</video>
@@ -149,10 +152,14 @@
                     <br>
                     <p>¿Cuáles son las 3 razones para una evacuación responsable?</p>
                     <form action="answerQuestion">
-                      <input type="radio" name="answer" value="a"> <span> a) Integridad, claridad, seguridad</span><br><br>
-                      <input type="radio" name="answer" value="b"> <span> b) Integridad, orden y seguridad</span><br><br>
-                      <input type="radio" name="answer" value="c"> <span> c) Integridad, intención y acción</span>
+                      <input type="radio" name="answer" onclick="showmenu(1)" value="a"> <span> a) Integridad, claridad, seguridad</span><br><br>
+                      <input type="radio" name="answer" onclick="showmenu(2)" value="b"> <span> b) Integridad, orden y seguridad</span><br><br>
+                      <input type="radio" name="answer" onclick="showmenu(3)" value="c"> <span> c) Integridad, intención y acción</span>
                     </form>
+                    <div id="menu_Question" style="display:flex;justify-content: space-between;align-items: center;">
+                        <div id="verificar" class="btn btn-success">Verificar</div>
+                        <div id="continuar" class="btn btn-primary">continuar</div>
+                    </div>
                 </div>
 
             </div>
@@ -177,6 +184,32 @@
         function answerQuestion(){
 
         }
+            var respuesta = 0;
+            $("#menu_Question").hide();
+            $("#continuar").hide();
+                        function showmenu(dato){
+                            $("#menu_Question").show();
+                            respuesta = dato
+                        }
+                        
+                        $("#verificar").click(function(){
+                                if(respuesta != 2){
+                                    swal("La respuesta correcta es: Integridad, orden y seguridad", {
+                                    className: "red-bg",
+                                     title: "Incorrecto",   
+                                    });
+                                }else{
+                                    swal("¡Muy bien!", {
+                                    icon: "success",
+                                    className: "red-bg",
+                                     title: "Correcto",   
+                                    });  
+                                }
+                            })
+            
+            
+                        //parent.cortinillaTweenModule(parent.module1,6);
+                        //parent.activeButton(7)
 
         </script>
     </body>

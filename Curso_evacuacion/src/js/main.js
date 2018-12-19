@@ -42,6 +42,13 @@ _barMenu.mouseout(function(){
     $("#menumovil").show();
 }
 
+$("#navButtons").mouseover(function(){
+    TweenMax.to(this,0.3,{alpha:1});
+});
+$("#navButtons").mouseout(function(){
+   TweenMax.to(this,0.5,{alpha:0});
+});
+
 
 var activeMenuMobil = false;
 _MenuMobil.click(function(){
