@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -395,6 +396,18 @@
 				display: none;
 			}
 
+			#message{
+				width: 100%;
+				position: absolute;
+				top:5%;
+
+			}
+			#messageImage{
+				position: relative;
+				left: 50%;
+				transform: translate(-50%,0%);
+
+			}
 
 
 			.circleBase {
@@ -458,8 +471,13 @@
 		</button>-->
 
 		<div id="arrows">
-			<img id="arrowLeft" src="images/arrow.jpg" onclick="clickArrow(-1)">
-			<img id="arrowRigth" src="images/arrow.jpg" onclick="clickArrow(1)">
+			<img id="arrowLeft" src="images/6taPregunta/arrows_previous.jpg" onclick="clickArrow(-1)">
+			<img id="arrowRigth" src="images/6taPregunta/arrows_next.jpg" onclick="clickArrow(1)">
+
+		</div>
+
+		<div id="message">
+			<img id="messageImage" src="images/6taPregunta/6taPregunta_banners_1.jpg">
 		</div>
 
 		<div id="bottomTextGood">       
@@ -1037,11 +1055,15 @@ function clickAns(selectedId){
 		}
 		else if(questionId == 5){
 			myImage.src = "images/5taPregunta.png";
+			document.getElementById("message").style.display = "block";
+			document.getElementById("messageImage").src = "images/5taPregunta_banner.png";
 		}
 		else if(questionId == 6){
-			myImage.src = "images/pregunta6_1.png";
+			myImage.src = "images/6taPregunta/6taPregunta_1.png";
 			document.getElementById("arrows").style.display = "block";
 			document.getElementById("arrowLeft").style.opacity = 0.5;
+			document.getElementById("message").style.display = "block";
+			document.getElementById("messageImage").src = "images/6taPregunta/6taPregunta_banners_1.png";
 		}
 		else if(questionId == 7){
 			myImage.src = "images/3raPregunta/3raPregunta_000.png";
@@ -1084,6 +1106,8 @@ function clickNext(){
 	questionId++;
 	
 	document.getElementById("arrows").style.display = "none";
+	document.getElementById("message").style.display = "none";
+
 	if(questionId == 11){
 		document.getElementById("videoDiv").style.display = "none";
 		loadQuestion();
@@ -1121,7 +1145,9 @@ function clickArrow(direction){
 		document.getElementById("arrowRigth").style.opacity = 1.0;
 	}
 
-	myImage.src = "images/pregunta6_"+currentChaleco+".png";
+	myImage.src = "images/6taPregunta/6taPregunta_"+currentChaleco+".png";
+
+	document.getElementById("messageImage").src = "images/6taPregunta/6taPregunta_banners_"+currentChaleco+".png";
 }
 
 
