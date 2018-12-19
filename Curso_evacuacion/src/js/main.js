@@ -117,8 +117,8 @@ var module5 = [
     {slide:"slide19",name:"¿Cuándo evacuar?"},
     {slide:"slide20",name:"¿Cuándo evacuar?"},
     {slide:"slide21",name:"¿Cuándo evacuar?"},
-    {slide:"slide22",name:"¿Cuándo evacuar?"},
-    {slide:"slide23",name:"¿Cuándo evacuar?"}
+    {slide:"slide22",name:"El puño en alto"},
+    {slide:"slide23",name:"¡Felicidades!"}
 ]
 
 function loadModule(moduloChoice){

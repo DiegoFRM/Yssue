@@ -49,7 +49,7 @@
                 font-size: 1.3em;
                 width: 50%;
                 max-width: 500px;
-                right: 5%;
+                right: 8%;
                 margin-top: 15%;
                 color: #4059A7;
                 text-align: center;
@@ -109,6 +109,9 @@
             
             .btn{
                 margin: 0.5em;
+                box-shadow: 5px 4px 4px #777474e6;
+
+
             }
             
         
@@ -138,12 +141,34 @@
             }
             
             .per{
-                position: absolute;
-                width: 20px;
-                height: 20px;
-                z-index: 2;
-                background-color: aqua;
-                border-radius: 50%;
+position: absolute;
+
+width: 40px;
+
+height: 40px;
+
+z-index: 2;
+
+background-color: #0069d9;
+
+border-radius: 50%;
+
+padding: 5px;
+            }
+            
+            .perIcon{
+
+width: 40px;
+
+height: 40px;
+
+z-index: 2;
+
+background-color: #0069d9;
+
+border-radius: 50%;
+
+padding: 5px;
             }
             
             .per1{
@@ -167,6 +192,21 @@
                 top:110px;
             }
             
+            .iconografia{
+position: absolute;
+
+right: 10%;
+
+top: 90%;
+
+z-index: 123;
+
+display: flex;
+
+justify-content: center;
+
+align-content: center;
+            }
             
         </style>
     </head>
@@ -193,11 +233,11 @@
                     <div class="chaleco1"><img src="../../img/chalecos-naranja.svg">
                     
                 </div>
-                    <div class="per per1">1</div>
-                    <div class="per per2">2</div>
-                    <div class="per per3">3</div>
-                    <div class="per per4">4</div>
-                    <div class="per per5">5</div>
+                    <div class="per per1"><img style="width:100%" src="../../img/persona.png"></div>
+                    <div class="per per2"><img style="width:100%" src="../../img/persona.png"></div>
+                    <div class="per per3"><img style="width:100%" src="../../img/persona.png"></div>
+                    <div class="per per4"><img style="width:100%" src="../../img/persona.png"></div>
+                    <div class="per per5"><img style="width:100%" src="../../img/persona.png"></div>
             </div>
                 <div  class="text2">
                     El fenómeno se ha salido
@@ -206,6 +246,22 @@ severos que debemos evacuar todas las áreas
 y a todo el personal incluido seguridad y
 brigadistas.
                 </div>
+            
+            <div class="iconografia">
+                <div style="display:flex;justify-content:center;align-items:center;margin-right: 1vw;"><div class="perIcon"><img style="width:100%" src="../../img/persona.png"></div> Personas</div>
+                <div style="display:flex;justify-content:center;align-items:center;margin-right: 1vw;"><div class="perIcon"><img style="width:100%" src="../../img/casco.svg"></div> Jefes de brigada</div>
+                <div style="display:flex;justify-content:center;align-items:center;margin-right: 1vw;"><div class="perIcon"><img style="width:100%" src="../../img/chalecos-naranja.svg"></div> Brigadistas</div>
+<!--
+                <div style="display:flex"><div class="casco1"><img  src="../../img/casco.svg"></div> Jefe de brigada</div>
+                <div style="display:flex"><div class="chaleco1"><img src="../../img/chalecos-naranja.svg">
+                    
+                </div> Brigadista </div>
+-->
+                
+                
+                    
+            
+            </div>
 
             </div>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>

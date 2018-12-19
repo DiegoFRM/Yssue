@@ -37,7 +37,8 @@
                 top: 0%;
                 position: relative;
                 width: 100%;
-                /*height: 100%;
+               /* 
+                height: 100%;
                 */
             }
             
@@ -49,7 +50,7 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                transform: translate(-30%,0%);
+                transform: translate(-20%,0%);
             }
  
             .text1 p{
@@ -72,9 +73,9 @@
             
             .frida{
                 position: relative;
-                width: 100%;
-                left: 40%;
-                transform: translate(-20%,0%);
+                width: 40%;
+                left: 50%;
+                transform: translate(0%,0%);
             }
             
             @media (orientation : portrait) { 
@@ -106,12 +107,12 @@
         <div id="bgImage"></div>
         <div id="contentMain" class="">
             <div id="contentSlide" class="row ">
-                <div class="avatar col-sm-6 col-xs-12 row" >
+                <div class="avatar col-sm-6 col-xs-12 col-md-6 row" >
                     <img class="frida col-xs-3" src="../../img/frida.svg">
                 </div>
                 <div class="text1  col-sm-6 col-xs-12 ">
                     <div>
-                        <h2>Tema 5:</h2>
+     <h2>Tema 5:</h2>
                         <h1>¿Cuándo evacuar?</h1>
                     </div>
                     
@@ -123,11 +124,11 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
         <script>
              var audio1 = new Audio();
-        audio1.src = "../../sounds/slide20.wav"
+        audio1.src = "../../sounds/slide22.wav"
         audio1.addEventListener('load', function () {
-            audio1.play();
+            //audio1.play();
         });
-            audio1.play();
+            //audio1.play();
             
            TweenMax.fromTo($(".avatar"),0.5,{x:250,scale:0,alpha:0},{scale:1,alpha:1,ease:Back.easeOut,delay:1});
             
@@ -139,3 +140,5 @@
         </script>
     </body>
 </HTML>
+
+
