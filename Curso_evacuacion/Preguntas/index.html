@@ -14,6 +14,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
+    <script src="js/api_scorm.js" type="text/javascript" charset="utf-8"></script>
 <style>
 /*#container {
     //margin: 0px auto;
@@ -262,6 +263,20 @@
             	display: none;
             }
 
+            #gallery{
+            	margin: 0px;
+            	padding: 0px;
+            	width: 100%;
+            	height: 100%;
+            	display: none;
+            }
+            #containerGallery{
+            	margin: 0px;
+            	padding: 0px;
+            	width: 100%;
+            	height: 100%;
+            }
+
             .buttonClass{
 				position: absolute;
 				bottom:10%;
@@ -323,6 +338,11 @@
 				display: none;
 			}
 
+			#arrowsGallery{
+				display: none;
+			}
+
+
 			#arrowLeft{
 				position: absolute;
 				left: 0px;
@@ -332,6 +352,22 @@
 			}
 
 			#arrowRigth{
+				position: absolute;
+				right: 0px;
+				top: 50%;
+				transform: translate(0%,-50%);
+				width: 50px;
+			}
+
+			#arrowLeftGallery{
+				position: absolute;
+				left: 0px;
+				top: 50%;
+				transform: translate(0%,-50%);
+				width: 50px;
+			}
+
+			#arrowRigthGallery{
 				position: absolute;
 				right: 0px;
 				top: 50%;
@@ -504,6 +540,16 @@
 
             </div>
         </div>
+	</div>
+
+	<div id = "gallery">
+		<div id ="containerGallery">
+		</div>
+		<div id="arrowsGallery">
+			<img id="arrowLeftGallery" src="images/6taPregunta/arrows_previous.png" onclick="clickArrowGallery(-1)">
+			<img id="arrowRigthGallery" src="images/6taPregunta/arrows_next.png" onclick="clickArrowGallery(1)">
+
+		</div>
 	</div>
 
 	<div id ="initDiv">
@@ -833,7 +879,10 @@
 	var maxFrames;
 
 	var currentChaleco = 1;
-	 
+
+	var dataImages = [];
+	var imgObjects = [];
+	var currentGalleryObject = 0;
 	function animate() {
 		//console.log("animate");
 	  /*context.clearRect(0, 0,canvas.width, canvas.height);
@@ -940,7 +989,7 @@ window.onload = function(){
 	canvas.width = window.innerWidth;
 	canvas.height = window.innerHeight;
 
-	questionId = 1;
+	questionId = 8;
 	currentCorrect = 0;
 	console.log(questionId);
 
@@ -960,24 +1009,26 @@ document.getElementById("buttonSnap").addEventListener("click", function() {
 
 		
 	},100)
-	if(!iOS()){
+	
 		setTimeout(function(){
-			/*var dt = canvas.toDataURL('image/png');
+			var dt = canvas.toDataURL('image/png');
 		    //this.href = dt;
 		    //console.log(dt);
 		    //alert();
-		    var link = document.createElement('a');
-			link.href = dt;
-			link.target = "_blank";
-			link.download = 'Download.png';
-			document.body.appendChild(link);
-			link.click();
-			document.body.removeChild(link);*/
-
+		    dataImages.push(dt);
+		   /* if(!iOS()){
+			    var link = document.createElement('a');
+				link.href = dt;
+				link.target = "_blank";
+				link.download = 'Download.png';
+				document.body.appendChild(link);
+				link.click();
+				document.body.removeChild(link);
+			}*/
 			
 			document.getElementById("buttonContinue").style.display = "block";
 		})
-	}
+	
    	
 	takeImage = true;
 	document.getElementById("buttonSnap").style.display = "none";
@@ -1080,12 +1131,12 @@ function clickAns(selectedId){
 		else if(questionId == 8){
 			myImage.src = "images/8va_pregunta/8vaPregunta_000.png";
 			currentImageName = "8va_pregunta/8vaPregunta_";
-			maxFrames = 144;
+			maxFrames = 129;
 		}
 		else if(questionId == 9){
 			myImage.src = "images/9na_Pregunta/9na_Pregunta_000.png";
 			currentImageName = "9na_Pregunta/9na_Pregunta_";
-			maxFrames = 144;
+			maxFrames = 239;
 		}
 		else if(questionId == 10){
 			myImage.src = "images/10maPregunta/10maPregunta_000.png";
@@ -1168,7 +1219,62 @@ function closeApp(){
 	  method: 'share',
 	  href: 'https://diegofrm.github.io/Yssue/Curso_evacuacion/Preguntas/'
 	}, function(response){});*/
+
+	//setComplete();  
+
+	var galleryDiv = document.getElementById("containerGallery")
+	document.getElementById("arrowsGallery").style.display = "block";
+	for(var i = 0; i < dataImages.length; i++){
+		var img = document.createElement("img");
+		img.src = dataImages[i];
+		imgObjects.push(img);
+		galleryDiv.appendChild(img);
+		if(i!=0){
+			img.style.display = "none";
+		}
+	}
+
+	document.getElementById("arrowLeftGallery").style.opacity = 0.5;
+	if(dataImages.length>1){
+		document.getElementById("arrowRigthGallery").style.opacity = 1;
+	}
+	else{
+		document.getElementById("arrowRigthGallery").style.opacity = 0.5;
+	}
+
+	document.getElementById("gallery").style.display = "block"; 
+	document.getElementById("shareDiv").style.display = "none"; 
 }
+
+function clickArrowGallery(direction){
+	imgObjects[currentGalleryObject].style.display = "none";
+	currentGalleryObject+=direction;
+	if(currentGalleryObject < 0){
+		currentGalleryObject = 0;
+	}
+	else if(currentGalleryObject > dataImages.length-1){
+		currentGalleryObject = dataImages.length-1;
+	}
+
+	if(currentGalleryObject ==0){
+		document.getElementById("arrowLeftGallery").style.opacity = 0.5;
+
+	}
+	else{
+		document.getElementById("arrowLeftGallery").style.opacity = 1.0;
+	}
+
+	if(currentGalleryObject == dataImages.length-1){
+		document.getElementById("arrowRigthGallery").style.opacity = 0.5;
+	}
+	else{
+		document.getElementById("arrowRigthGallery").style.opacity = 1.0;
+	}
+	imgObjects[currentGalleryObject].style.display = "block";
+
+}
+
+//initCourse(); 
 
 function iOS() {
 
