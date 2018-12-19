@@ -18,7 +18,6 @@
                position: absolute;
                 width: 100%;
                 height: 100%;
-                background-color: #000;
                 background-size: cover;
                 top: 0%;
                 left: 0%;
@@ -50,10 +49,17 @@
             }
             
             h1{
-                font-size: 4vw;
-                font-weight: bold;
-                color: #4059A7;
-                font-weight: bold;
+font-size: 2.6vw;
+
+font-weight: bold;
+
+color: #4059A7;
+
+font-weight: bold;
+
+margin-top: -10%;
+
+text-align: center;
             }
             
            
@@ -68,7 +74,7 @@
             }
             .videoObject{
                 position: relative;
-            	width: 100%;
+            	width: 90%;
                 left: 50%;
                 top:0%;
                 transform: translate(-50%,0%);
@@ -148,17 +154,18 @@
             <div id="questionDiv" class="question">
                 <img id="avatarVideo" src="../../img/mambo.svg">
                 <div class="text2  col-sm-12 col-xs-12 col-md-12 ">
-                    <h1>Pregunta: </h1>
+                   <h1>¡Comprueba tu aprendizaje!</h1>
                     <br>
+                    <p>¿Cómo debe ser el procedimiento de traslado de evacuación? <br>¿Lo recuerdas?</p>
                     <p>¿Cuáles son las 3 razones para una evacuación responsable?</p>
                     <form action="answerQuestion">
                       <input type="radio" name="answer" onclick="showmenu(1)" value="a"> <span> a) Integridad, claridad, seguridad</span><br><br>
                       <input type="radio" name="answer" onclick="showmenu(2)" value="b"> <span> b) Integridad, orden y seguridad</span><br><br>
                       <input type="radio" name="answer" onclick="showmenu(3)" value="c"> <span> c) Integridad, intención y acción</span>
                     </form>
-                    <div id="menu_Question" style="display:flex;justify-content: space-between;align-items: center;">
+                    <div id="menu_Question" style="display:flex;justify-content: space-between;align-items: center;margin-top: 10%;">
                         <div id="verificar" class="btn btn-success">Verificar</div>
-                        <div id="continuar" class="btn btn-primary">continuar</div>
+                        <div id="continuar" class="btn btn-primary">Continuar</div>
                     </div>
                 </div>
 

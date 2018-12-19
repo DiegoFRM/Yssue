@@ -74,10 +74,8 @@
             }
 
             .hierarchy{
-                position: relative;
-                width: 100%;
-                left: 50%;
-                transform: translate(-50%,0%);
+
+width: 20%;
             }
 
             
@@ -112,6 +110,12 @@
             }    
                 
             }
+             
+             .custom-point{
+                 display: flex;
+                 justify-content: center;
+                 align-content: center;
+             }
             
         </style>
     </head>
@@ -135,34 +139,39 @@
             
 
             <div class="row">
-                <div class="col-xs-2 col-sm-3">
+                <div class="col-xs-2 col-sm-6">
                 <p  id="text_2" class="bodytext">
-                    <b>1.</b> Brigada de evacuación
-                    <br><br><br>
                     <img class="hierarchy" src="../../img/chalecos-naranja.svg">
+                    <b>1.</b> Brigada de evacuación
+
                     
                 </p>
                 </div>
-                <div class="col-xs-2 col-sm-3">
+                <div class="col-xs-2 col-sm-6">
                 <p  id="text_3" class="bodytext">
+                <img class="hierarchy" src="../../img/chalecos-blanco.svg">
                     <b>2.</b> Brigada de primeros auxilios
-                    <br><br><br>
-                    <img class="hierarchy" src="../../img/chalecos-blanco.svg">
+     
 
                 </p>
                 </div>
-                <div class="col-xs-2 col-sm-3">
+                <div class="col-xs-2 col-sm-6">
                 <p id="text_4" class="bodytext">
-                    <b>3.</b> Brigada de prevención y combate de incendios
-                    <img  class="hierarchy" src="../../img/chalecos-rojo.svg">
+                    <span class="custom-point">
+                     <img  class="hierarchy" src="../../img/chalecos-rojo.svg" style="width:30%;">
+                    <span><b>3.</b> Brigada de prevención y combate de incendios</span>
+                    </span>
                 </p>
                 </div>
 
-                <div class="col-xs-2 col-sm-3">
+                <div class="col-xs-2 col-sm-6">
                 <p id="text_5" class="bodytext">
+                    
+                    <img  class="hierarchy" src="../../img/chalecos-verde.svg">    
                     <b>4.</b> Brigada de comunicación
-                    <br><br><br>
-                    <img  class="hierarchy" src="../../img/chalecos-verde.svg">
+                    
+             
+
                 </p>
                 </div>
             </div>
