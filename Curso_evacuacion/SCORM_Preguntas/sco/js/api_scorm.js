@@ -252,6 +252,7 @@ function setScore(element)
    if(lmsConnected)
    {
       var success = lmsCall("SetValue","cmi.core.score.raw", ""+element+"");
+      
 	 				//scorm.set("cmi.score.scaled",""+Number(Number(element)/100)+"");
    if(element<minValue)
    {
