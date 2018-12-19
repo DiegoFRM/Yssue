@@ -1,0 +1,1171 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta content="stuff, to, help, search, engines, not" name="keywords">
+<meta content="What this page is about." name="description">
+<meta content="Display Webcam Stream" name="title">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Display Webcam Stream</title>
+  <!--<script src="js/instascan.min.js" type="text/javascript" charset="utf-8"></script>-->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
+    <script src="js/api_scorm.js" type="text/javascript" charset="utf-8"></script>
+<style>
+/*#container {
+    //margin: 0px auto;
+    width: 100%;
+    height: 100%;
+    //border: 10px #333 solid;
+}
+*/
+
+
+#video {
+	position: absolute;
+	top:0px;
+	left: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: #3FB4DC;
+     transform: rotateY(180deg);
+    -webkit-transform:rotateY(180deg); 
+    -moz-transform:rotateY(180deg); 
+    margin:0px;
+    padding: 0px;
+}
+
+#canvas{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+    height: 100%;
+    //display: none ;
+}
+
+#buttonSnap{
+	position: absolute;
+	bottom:10%;
+	width: 80%;
+	left: 50%;
+	transform: translate(-50%,0%);
+}
+
+			body{
+                margin:0;
+                padding:0;
+                font-family: 'Roboto Condensed', sans-serif;
+                overflow-x: hidden;
+                overflow-y: hidden;
+            }
+            
+            #bgImage{
+               position: absolute;
+                width: 100%;
+                height: 100%;
+                //background:url("../../img/bg1.jpg");
+                background-color: #3FB4DC;
+                background-size: cover;
+                //opacity: 0;
+                top: 0%;
+            }
+
+            #bgImageOrange{
+               position: absolute;
+                width: 100%;
+                height: 100%;
+                //background:url("../../img/bg1.jpg");
+                background-color: #E1B900;
+                background-size: cover;
+                //opacity: 0;
+                top: 0%;
+            }
+            
+            #contentMain{
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                //display: flex;
+                //justify-content: center;
+                align-items: center;
+            }
+            
+            #contentSlide{
+                top: 5%;
+                position: absolute;
+                margin: 0px;
+
+                width: 100%;
+                height: 100%;
+                
+            }
+
+            #contentSlide2{
+                top: 10%;
+                position: absolute;
+                margin: 0px;
+
+                width: 100%;
+                height: 100%;
+                
+            }
+            
+            .text1{
+                position: relative;
+                font-size: 2vh;
+                color: #ffffff;
+                font-weight:normal;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                //transform: translate(-20%,0%);
+                text-align: center;
+                margin: 10px;
+                margin-top: -5%;
+                width: 100%;
+                height: 1%;
+
+            }
+
+            .text2{
+                position: relative;
+                //font-size: 2vh;
+                color: #ffffff;
+                font-weight:normal;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                //transform: translate(-20%,0%);
+                text-align: left;
+                margin: 0px;
+                width: 100%;
+                top:-10%;
+
+            }
+
+            .text3{
+                position: relative;
+                font-size: 5vh;
+                color: yellow;
+                font-weight:normal;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                //transform: translate(-20%,0%);
+                text-align: left;
+                margin: 0px;
+                width: 100%;
+                top:-10%;
+                text-align: center;
+
+            }
+
+            .textPanel{
+				position: relative;
+
+                //font-size: 2vh;
+                color: #ffffff;
+                font-weight:normal;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                //transform: translate(-20%,0%);
+                text-align: left;
+                margin: 0px;
+                width: 100%;
+                //top:-10%;
+                //height: 1%;
+            }
+ 			#QuestionSpace{
+
+ 				padding-top: 10px;
+				padding-bottom: 10px;
+				padding-left: 10%;
+				padding-right: 10%;
+ 			}
+            .text2 p{
+                font-size: 4vw;
+                color: #ffffff;
+                font-weight:normal;
+            }
+            
+            h1{
+                font-size: 5vw;
+                color: #ffffff;
+                font-weight: bold;
+            }
+
+            h2{
+            	font-size: 5vw;
+                color: #ffffff;
+                font-weight: normal;
+            }
+            
+           
+            .avatar{
+                text-align: center;
+                width: 100%;
+            }
+            
+            .frida{
+                position: relative;
+                width: 50%;
+                left: 50%;
+                //margin: 20px;
+                transform: translate(-50%,0%);
+            }
+
+            .fridaBig{
+            	position: relative;
+                width: 100%;
+                top:10%;
+                //left: 50%;
+                //margin: 20px;
+                //transform: translate(-50%,0%);
+            }
+
+            #videoDiv{
+            	display: none;
+            }
+            #initDiv{
+            	margin: 0px;
+            	padding: 0px;
+            	width: 100%;
+            	height: 100%;
+            }
+
+            #questionsDiv{
+            	margin: 0px;
+            	padding: 0px;
+            	width: 100%;
+            	height: 100%;
+            	display: none;
+            }
+
+            #finishDiv{
+            	margin: 0px;
+            	padding: 0px;
+            	width: 100%;
+            	height: 100%;
+            	display: none;
+            }
+
+            #shareDiv{
+            	margin: 0px;
+            	padding: 0px;
+            	width: 100%;
+            	height: 100%;
+            	display: none;
+            }
+
+            .buttonClass{
+				position: absolute;
+				bottom:10%;
+				left: 50%;
+				transform: translate(-50%,0%);
+			}
+
+			#buttonInit{
+				width: 50%;
+				position: relative;
+				left: 50%;
+				top:-10%;
+				transform: translate(-50%,0%);
+				height: 50px;
+				
+			}
+
+			#buttonFinish{
+				width: 50%;
+				position: relative;
+				left: 50%;
+				top:0%;
+				transform: translate(-50%,0%);
+				height: 50px;
+				
+			}
+
+			#buttonclose{
+				width: 50%;
+				position: relative;
+				left: 50%;
+				top:-10%;
+				transform: translate(-50%,0%);
+				height: 50px;
+				
+			}
+
+			.ansBtn{
+				border-radius:20px;
+				width: 80%;
+				//left: 10%;
+				margin-top: 20px;
+				padding: 10px;
+				//transform: translate(-50%,0%);
+				background-color: #73DF00;
+				text-align: center;
+				position: relative;
+				left:50%;
+				color: #ffffff;
+				transform: translate(-50%,0%);
+
+			}
+
+			.divAnswers{
+				
+			}
+
+			#arrows{
+				display: none;
+			}
+
+			#arrowLeft{
+				position: absolute;
+				left: 0px;
+				top: 50%;
+				transform: translate(0%,-50%);
+				width: 50px;
+			}
+
+			#arrowRigth{
+				position: absolute;
+				right: 0px;
+				top: 50%;
+				transform: translate(0%,-50%);
+				width: 50px;
+			}
+
+			#wrongAnswer{
+				margin: 0px;
+            	padding: 0px;
+            	width: 100%;
+            	height: 100%;
+            	display: none;
+			}
+
+			#bottomText{
+				background-color: #E16206;
+				border-radius:20px;
+				position: absolute;
+				bottom: 10px;
+				//height: 100px;
+				width: 100%;
+			}
+
+			#bottomText p{
+				padding: 10px;
+				width: 100%;
+				text-align: center;
+				font-size: 3vh;
+				color: #ffffff;
+			}
+
+			/*#retro{
+				width: 100%;
+				text-align: center;
+				font-size: 3vh;
+				color: #ffffff;
+			}*/
+
+			#bottomTextGood{
+				background-color: #29D113;
+				border-radius:20px;
+				position: absolute;
+				bottom: -20px;
+				//height: 100px;
+				width: 100%;
+			}
+			#bottomTextGood p{
+				padding: 10px;
+				width: 100%;
+				text-align: center;
+				font-size: 3vh;
+				color: #ffffff;
+			}
+
+			#buttonContinue{
+				position: absolute;
+				bottom:10%;
+				width: 80%;
+				left: 50%;
+				transform: translate(-50%,0%);
+				display: none;
+			}
+
+			#message{
+				width: 100%;
+				position: absolute;
+				top:2%;
+
+				display: none;
+
+			}
+			#messageImage{
+				position: relative;
+				width: 50%;
+				left: 50%;
+				transform: translate(-50%,0%);
+
+			}
+
+
+			.circleBase {
+			    
+			    //behavior: url(PIE.htc); /* remove if you don't care about IE8 */
+			}
+
+			.type1 {
+				border-radius: 50%;
+			    width: 20px;
+			    height: 20px;
+			    position: absolute;
+			    bottom: 50px;
+			    background: orange;
+			    //border: 3px solid red;
+			    opacity: 0.5;
+			}
+
+            @media (orientation : portrait) { 
+           /*#contentSlide{
+                top: 15%;
+                position: absolute;
+                transform: translate(0%,0%);
+            }
+            
+            h1{
+                font-size: 5vh;
+                color: #4059A7;
+                font-weight: bold;
+                text-align: center;
+            }
+            
+            .text1 p{
+    
+                font-size: 2vh;
+                color: #ffffff;
+                font-weight:normal;
+
+            }    */
+                
+            }
+            
+        </style>
+
+</style>
+</head>
+  
+<body>
+	<div id="videoDiv">
+		<video id="video"></video>
+		<canvas id="canvas"></canvas>
+		<button type="button" id="buttonSnap" class="btn btn-primary col-sm-12 col-xs-12 col-md-12">
+		Tomar Imagen
+		</button>
+
+		<button type="button" id="buttonContinue" class="btn btn-primary col-sm-12 col-xs-12 col-md-12" onclick="clickNext()">
+		Continuar
+		</button>
+
+		<!--<button type="button" class="button6 btn btn-primary col-sm-3 col-xs-3 col-md-3" onclick="clickChaleco(1)">
+		</button>-->
+
+		<div id="arrows">
+			<img id="arrowLeft" src="images/6taPregunta/arrows_previous.png" onclick="clickArrow(-1)">
+			<img id="arrowRigth" src="images/6taPregunta/arrows_next.png" onclick="clickArrow(1)">
+
+		</div>
+
+		<div id="message">
+			<img id="messageImage" src="images/6taPregunta/6taPregunta_banners_1.jpg" >
+		</div>
+
+		<div id="bottomTextGood">       
+	        <p id="retro">Respuesta Correcta</p>   
+		</div>
+	</div>
+
+	<div id="wrongAnswer">
+		<div id="bgImageOrange"></div>
+		<div id="contentMain">
+            <div id="contentSlide" class="row ">
+                <div class="col-sm-12 col-xs-12 col-md-12 " >
+                    <img class="fridaBig" src="images/frida.svg">
+                </div>
+
+                <div id="bottomText">
+                    
+                        <p id="badAnswer">Respuesta Incorrecta</p>
+                       
+                </div>
+
+            </div>
+        </div>
+	</div>
+
+	<div id ="initDiv">
+		<div id="bgImage"></div>
+		<div id="contentMain">
+            <div id="contentSlide" class="row ">
+                <div class="col-sm-2 col-xs-12 col-md-12 " >
+                    <img class="frida" src="images/frida.svg">
+                </div>
+
+                <div class="text1">
+                    
+                        <h2>Evaluacion del <br>aprendizaje</h2>
+                       
+                </div>
+                <div class="text1">
+                	 <h1>¡Comencemos!</h1>
+                </div>
+
+                 <div class=" text2">
+                    	<p>1.Asegúrate de tener una<br>
+						conexión de internet estable<br>
+						2. Siempre mantén tu dispositivo<br>
+						de forma vertical.<br>
+						3. Lee con atención.<br>
+						4. Interactúa y ¡diviértete!<br>
+					</p>
+                </div>
+                <button type="button" id="buttonInit" class="btn btn-warning col-sm-6 col-xs-6 col-md-6" onclick="clickInit()">Comienza aquí</button>
+
+
+            </div>
+        </div>
+	</div>
+
+	<div id ="finishDiv">
+		<div id="bgImage"></div>
+		<div id="contentMain">
+            <div id="contentSlide" class="row ">
+                <div class="col-sm-2 col-xs-12 col-md-12 " >
+                    <img class="frida" src="images/frida.svg">
+                </div>
+
+                <div class="text1">
+                    	<h1>¿Bien Hecho!</h1>
+                       
+                       
+                </div>
+                <div class="text1">
+                	  <h2>Has concluido tu <br> evaluación del módulo<br><br> Continua con el siguiente<br>módulo para aprender <br> ¿Qué debes hacer?</h2>
+                </div>
+
+                 
+                <button type="button" id="buttonFinish" class="btn btn-warning col-sm-6 col-xs-6 col-md-6" onclick="clickNextShare()">Continuar</button>
+
+
+            </div>
+        </div>
+	</div>
+
+	<div id ="shareDiv">
+		<div id="bgImage"></div>
+		<div id="contentMain">
+            <div id="contentSlide" class="row ">
+                <div class="col-sm-2 col-xs-12 col-md-12 ">
+                    <img class="frida" src="images/logoProteccionCivil.png">
+                </div>
+
+                <div class="text3">
+                    <p>Completado<br>Modulo 1</p>
+                       
+                       
+                </div>
+                <div class="text1">
+                	  <h2>¡Comparte tu logro!</h2>
+                </div>
+
+                 
+                <button type="button" id="buttonclose" class="btn btn-warning col-sm-6 col-xs-6 col-md-6" onclick="closeApp()">Cerrar</button>
+
+
+            </div>
+        </div>
+	</div>
+
+	<div id ="questionsDiv">
+		<div id="bgImage"></div>
+		<div id="contentMain">
+            <div id="contentSlide2">
+                <div class="textPanel">
+                	 <h1 id="QuestionNumberSpace">Pregunta 1</h1>
+                </div>
+
+                 <div id="QuestionSpace" class=" textPanel">
+                    	
+					
+                </div>
+
+                <div class="divAnswers col-sm-12 col-xs-12 col-md-12">
+                	<div id="answer1" class="ansBtn col-sm-12 col-xs-12 col-md-12" onclick="clickAns(1)">Comienza aquí
+                 	</div>
+                 </div>
+
+                    <div class="divAnswers col-sm-12 col-xs-12 col-md-12">
+                	<div id="answer2" class="ansBtn col-sm-12 col-xs-12 col-md-12" onclick="clickAns(2)">Comienza aquí
+                 	</div>
+                 </div>
+                 	<div class="divAnswers col-sm-12 col-xs-12 col-md-12">
+                	<div id="answer3" class="ansBtn col-sm-12 col-xs-12 col-md-12" onclick="clickAns(3)">Comienza aquí
+                 	</div>
+                 </div>
+					
+                </div>
+
+                <div id="circle1" class="circleBase type1" style="left:5%; opacity:1.0;"></div>
+                <div id="circle2" class="circleBase type1"style="left:14%"></div>
+                <div id="circle3" class="circleBase type1"style="left:23%"></div>
+                <div id="circle4" class="circleBase type1"style="left:32%"></div>
+                <div id="circle5" class="circleBase type1"style="left:41%"></div>
+                <div id="circle6" class="circleBase type1"style="left:50%"></div>
+                <div id="circle7" class="circleBase type1"style="left:59%"></div>
+                <div id="circle8" class="circleBase type1"style="left:68%"></div>
+                <div id="circle9" class="circleBase type1"style="left:77%"></div>
+                <div id="circle10" class="circleBase type1"style="left:86%"></div>
+
+
+            </div>
+        </div>
+	</div>
+
+<script>
+
+	var questions= [
+		{
+		"question":"Es la probabilidad de que ocurra un fenómeno perturbador que produzca daños en la integridad, bienes o entorno de la población.",
+		"ans":[
+			{
+				"text":"Riesgo"
+			},
+			{
+				"text":"Fenómeno natural"
+			},
+			{
+				"text":"Siniestro"
+			}
+		],
+		"retroalimentacion":"En efecto, todos estamos propensos a enfrentar riesgos y ante ello, es importante saber cómo disminuir su impacto."
+		},
+		{
+		"question":"¿Cuál es nuestra responsabilidad ante los riesgos?",
+		"ans":[
+			{
+				"text":"Aprender a resguardar nuestra integridad y la de otros."
+			},
+			{
+				"text":"Aprender los pasos básicos para salvar personas."
+			},
+			{
+				"text":"Conocer el código de protección civil para evacuación."
+			}
+		],
+		"retroalimentacion":"¡En efecto! Para prevenir y enfrentar de la mejor manera las consecuencias de los riesgos se necesita aprender cómo lograrlo."
+		
+		},
+		{
+		"question":"¿Cuáles son las cualidades de una ruta de evacuación apropiada?",
+		"ans":[{
+			"text":"Debe estar acondicionada, ensayada y supervisada con anterioridad."
+		},
+		{
+			"text":"Debe estar por escrito que ha sido autorizada y supervisada por las autoridades."
+		},
+		{
+			"text":"La comunidad debe aceptar la ruta y llevarla a cabo por áreas."
+		}
+		],
+		"retroalimentacion":"¡Muy bien! Estas tres condiciones, generan mayores oportunidades ante una emergencia."
+
+		},
+		{
+		"question":"¿Cuáles son las razones de responsabilidad individual en una evacuación?",
+		"ans":[{
+			"text":"Integridad, Orden y Seguridad"
+		},
+		{
+			"text":"Solidaridad y ayudar a los otros."
+		},
+		{
+			"text":"Empatía y deseos personales por ayudar."
+		}
+		],
+		"retroalimentacion":"¡Así es! Los planes de emergencia tienen por objetivo, llevar a la población lejos de una situación de peligro, sin poner en riesgo su persona."
+		},
+		{
+		"question":"Grupo de personas se encarga de organizar, capacitar y verificar las acciones de prevención y detección para mitigar riesgos:",
+		"ans":[{
+			"text":"Comité interno de protección civil"
+		},
+		{
+			"text":"Coordinación interna de EVACUACIÓN"
+		},
+		{
+			"text":"Seguridad y protección humana"
+		}
+		],
+		"retroalimentacion":"Y tú… ¿Ya conoces al Comité de protección civil?"
+		},
+		{
+		"question":"¿Cuáles son las cuatro brigadas obligatorias según la Ley de Protección Civil?",
+		"ans":[{
+			"text":"Evacuación, primeros auxilios, comunicación e incendios"
+		},
+		{
+			"text":"Coordinador de brigadas y jefe de edificio."
+		},
+		{
+			"text":"Evacuación, primeros auxilios, fugas y prevención total."
+		}
+		],
+		"retroalimentacion":"¡En efecto! Las brigadas esenciales son: Evacuación, primeros auxilios, comunicación e incendios."
+		},
+		{
+		"question":"Tipo de evacuación que se genera primero en un área afectada y posteriormente a las áreas próximas:",
+		"ans":[{
+			"text":"Evacuación por etapas."
+		},
+		{
+			"text":"Evacuación por totalidad."
+		},
+		{
+			"text":"Evacuación por emergencia."
+		}
+		],
+		"retroalimentacion":"¡Excelente! Es la evacuación en la cual se desaloja el área del fenómeno y posteriormente a las áreas más cercanas al mismo."
+		},
+		{
+		"question":"Tipo de evacuación en la que no pueden permanecer ni brigadistas ni población.",
+		"ans":[{
+			"text":"Evacuación crítica."
+		},
+		{
+			"text":"Evacuación permanente."
+		},
+		{
+			"text":"Evacuación por etapas."
+		}
+		],
+		"retroalimentacion":"¡Muy bien! Se presenta cuando el fenómeno ha salido de control o los daños son tan severos que deben evacuarse todas las áreas y a todas las personas en el lugar."
+		},
+		{
+		"question":"Completa la frase: La indicación para evacuar un lugar depende del fenómeno que se enfrente y:",
+		"ans":[{
+			"text":"Del grado en que se afecta el desarrollo de las actividades normales."
+		},
+		{
+			"text":"Del grado en que se deterioran tus movimientos y respuestas."
+		},
+		{
+			"text":"La decisión de evacuar es personal."
+		}
+		],
+		"retroalimentacion":"¡En efecto! Recuerda además que el Coordinador General debe deducir el grado de afectación, para determinar una evacuación viable."
+		},
+		{
+		"question":"Si el olfato, la vista y el oído se ven afectados yno puedes realizar tus actividades normales entonces:",
+		"ans":[{
+			"text":"Debes dar aviso a las autoridades para evaluar las condiciones de evacuación."
+		},
+		{
+			"text":"Debes dar aviso a tus compañeros más cercanos y evaluar las condiciones de evacuación."
+		},
+		{
+			"text":"La decisión de evacuar es personal.Debes salir lo más rápido posible por los lugares que te sean más conocidos."
+		}
+		],
+		"retroalimentacion":"Nuestros sentidos están preparados para recibir información del exterior y avisarnos de cualquier anomalía, por ello es importante tener en cuenta cualquier cosa que nos perturbe y actuar para salvaguardar nuestra vida.."
+		}
+
+
+		]
+
+
+	var canvas = document.getElementById('canvas');
+	var context = canvas.getContext('2d');
+	var video = document.getElementById('video');
+
+	var myImage = new Image();
+	//myImage.src = "images/testSpriteSheet.png";
+	myImage.addEventListener("load", loadImage, false);
+	//document.body.appendChild(myImage);
+
+	function loadImage(e) {
+		//console.log("finishLoad");
+	  //animate();
+
+	  context.clearRect(0, 0,canvas.width, canvas.height);
+	  context.drawImage(myImage, 0,0,720, 1280,0,0,canvas.width, canvas.height);
+
+	  if((questionId==1 ||questionId==3 ||questionId==7 ||questionId==8 ||questionId==9 ||questionId==10) && !takeImage){
+	  	setTimeout(function(){
+	  		animate();
+
+	  	},10);
+	  }
+
+	  //if(takeImage){}
+
+	}
+
+	var shift = 0;
+	var frameWidth = 75;
+	var frameHeight = 85;
+	var totalFrames = 27;
+	
+	var totalWidth = 520;
+	var shiftY = 0;
+
+	var takeImage = false;
+
+	var questionId;
+	var currentCorrect;
+	var currentFrame = 0;
+	var currentImageName;
+	var maxFrames;
+
+	var currentChaleco = 1;
+	 
+	function animate() {
+		//console.log("animate");
+	  /*context.clearRect(0, 0,canvas.width, canvas.height);
+	  if(takeImage){
+	  	context.drawImage(video, 0, 0, canvas.width, canvas.height);
+	  }
+	 
+	  //draw each frame + place them in the middle
+	  context.drawImage(myImage, shift, shiftY, frameWidth, frameHeight,120, 25, frameWidth, frameHeight);
+	 
+
+	  shift += frameWidth + 1;
+	  if(shift > (totalWidth-frameWidth)){
+	  	shiftY+= frameHeight+1;
+	  }
+	 
+	  
+	  if (currentFrame == totalFrames) {
+	    shift = 0;
+	    shiftY = 0;
+	    currentFrame = 0;
+	  }
+	 
+	  currentFrame++;
+	  if(takeImage){
+	  	var dt = canvas.toDataURL('image/png');
+	    //this.href = dt;
+	    //console.log(dt);
+	    //alert();
+	    var link = document.createElement('a');
+		link.href = dt;
+		link.download = 'Download.png';
+		document.body.appendChild(link);
+		link.click();
+		document.body.removeChild(link);
+		takeImage = false;
+	  }
+	 
+	  requestAnimationFrame(animate);*/
+	  currentFrame++;
+	  if(currentFrame>maxFrames){
+	  	currentFrame=0;
+	  }
+	  if(currentFrame<10){
+	  	myImage.src = "images/"+currentImageName+"00"+currentFrame+".png";
+	  }
+	  else if(currentFrame < 100){
+	  	myImage.src = "images/"+currentImageName+"0"+currentFrame+".png";
+	  }
+	  else{
+	  	myImage.src = "images/"+currentImageName+""+currentFrame+".png";
+	  }
+
+	}
+
+// Get access to the camera!
+//alert("check camera v7");
+navigator.getUserMedia = ( navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia || navigator.mediaDevices.getUserMedia);
+
+
+//if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+    // Not adding `{ audio: true }` since we only want video now
+    video.setAttribute('autoplay', '');
+    video.setAttribute('muted', '');
+    video.setAttribute('playsinline', true);
+
+    navigator.getUserMedia({ video: {
+             facingMode: 'user'
+         } ,audio: false},gotStream,noStream);
+
+
+
+    function gotStream (stream) {
+        //video.src = window.URL.createObjectURL(stream);
+        video.srcObject = stream;
+        video.play();
+
+        //canvas.width
+    }
+    function noStream(){
+
+    }
+/*}
+else {
+	alert("camera ios");
+	var constraints = {
+         audio: false,
+         video: {
+             facingMode: 'user'
+         }
+    }
+
+	navigator.getUserMedia(constraints).then(function success(stream) {
+        //video.src = window.URL.createObjectURL(stream);
+        video.srcObject = stream;
+        video.play();
+
+        //canvas.width
+    });
+}*/
+
+window.onload = function(){
+	//alert(window.innerWidth+ "  h"+window.innerHeight);
+	canvas.width = window.innerWidth;
+	canvas.height = window.innerHeight;
+
+	questionId = 6;
+	currentCorrect = 0;
+	console.log(questionId);
+
+
+	//context.drawImage(myImage,0,0);
+}
+
+document.getElementById("buttonSnap").addEventListener("click", function() {
+	//takeImage = true;
+	video.pause();
+
+	setTimeout(function(){
+
+		context.clearRect(0, 0,canvas.width, canvas.height);
+		context.drawImage(video, 0, 0, canvas.width, canvas.height);
+		context.drawImage(myImage, 0,0,720, 1280,0,0,canvas.width, canvas.height);
+
+		
+	},100)
+
+	setTimeout(function(){
+		/*var dt = canvas.toDataURL('image/png');
+	    //this.href = dt;
+	    //console.log(dt);
+	    //alert();
+	    var link = document.createElement('a');
+		link.href = dt;
+		link.target = "_blank";
+		link.download = 'Download.png';
+		document.body.appendChild(link);
+		link.click();
+		document.body.removeChild(link);*/
+
+		
+		document.getElementById("buttonContinue").style.display = "block";
+	})
+   	
+	takeImage = true;
+	document.getElementById("buttonSnap").style.display = "none";
+	
+
+
+});
+
+/*let scanner = new Instascan.Scanner({ video: document.getElementById('preview'), mirror:false });
+      scanner.addListener('scan', function (content) {
+        alert(content)
+      });
+      Instascan.Camera.getCameras().then(function (cameras) {
+        if (cameras.length > 1) {
+          scanner.start(cameras[1]);
+        } else {
+          console.error('No cameras found.');
+        }
+      }).catch(function (e) {
+        console.error(e);
+      });
+*/
+
+
+function clickInit(){
+	document.getElementById("initDiv").style.display = "none";
+	loadQuestion();
+	document.getElementById("questionsDiv").style.display = "block";
+}
+
+
+
+function loadQuestion(){
+	video.play();
+	context.clearRect(0, 0,canvas.width, canvas.height);
+	takeImage = false;
+	currentFrame = 0;
+	document.getElementById("QuestionNumberSpace").innerHTML = "Pregunta "+questionId;
+	document.getElementById("QuestionSpace").innerHTML = questions[questionId-1].question;
+	var answers = questions[questionId-1].ans;
+	var ids = [0,1,2];
+	for(var i = 1; i <= 3; i++){
+		var random = getRandomInt(0,ids.length-1);
+		document.getElementById("answer"+i).innerHTML = answers[ids[random]].text;
+		if(ids[random] == 0){
+			currentCorrect = i;
+			//document.getElementById("retro").innerHTML = questions[questionId-1].retroalimentacion;
+		}
+		ids.splice(random,1);
+	}
+}
+
+function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function clickAns(selectedId){
+	//console.log(selectedId)
+
+	if(selectedId == currentCorrect){
+		document.getElementById("buttonSnap").style.display = "block";
+		document.getElementById("buttonContinue").style.display = "none";
+		document.getElementById("questionsDiv").style.display = "none";
+		document.getElementById("videoDiv").style.display = "block";
+		if(questionId == 1){
+			myImage.src = "images/1erPregunta/1erPregunta_000.png";
+			currentImageName = "1erPregunta/1erPregunta_";
+			maxFrames = 240;
+		}
+		else if(questionId == 2){
+			myImage.src = "images/2daPregeunta.png";
+		}
+		else if(questionId == 3){
+			myImage.src = "images/3raPregunta/3raPregunta_000.png";
+			currentImageName = "3raPregunta/3raPregunta_";
+			maxFrames = 120;
+		}
+		else if(questionId == 4){
+			myImage.src = "images/4taPregunta.png";
+		}
+		else if(questionId == 5){
+			myImage.src = "images/5taPregunta.png";
+			document.getElementById("message").style.display = "block";
+			document.getElementById("messageImage").src = "images/5taPregunta_banner.png";
+		}
+		else if(questionId == 6){
+			myImage.src = "images/6taPregunta/6taPregunta_1.png";
+			document.getElementById("arrows").style.display = "block";
+			document.getElementById("arrowLeft").style.opacity = 0.5;
+			document.getElementById("message").style.display = "block";
+			document.getElementById("messageImage").src = "images/6taPregunta/6taPregunta_banners_1.png";
+		}
+		else if(questionId == 7){
+			myImage.src = "images/3raPregunta/3raPregunta_000.png";
+			currentImageName = "3raPregunta/3raPregunta_";
+			maxFrames = 120;
+		}
+		else if(questionId == 8){
+			myImage.src = "images/8va_pregunta/8vaPregunta_000.png";
+			currentImageName = "8va_pregunta/8vaPregunta_";
+			maxFrames = 144;
+		}
+		else if(questionId == 9){
+			myImage.src = "images/9na_Pregunta/9na_Pregunta_000.png";
+			currentImageName = "9na_Pregunta/9na_Pregunta_";
+			maxFrames = 144;
+		}
+		else if(questionId == 10){
+			myImage.src = "images/10maPregunta/10maPregunta_000.png";
+			currentImageName = "10maPregunta/10maPregunta_";
+			maxFrames = 120;
+		}
+		document.getElementById("retro").innerHTML = "Respuesta Correcta <br>"+document.getElementById("answer"+selectedId).innerHTML;
+		console.log((document.getElementById("bottomTextGood").clientHeight +200)+"px");
+		document.getElementById("buttonSnap").style.bottom = (document.getElementById("bottomTextGood").clientHeight )+"px";
+		document.getElementById("buttonContinue").style.bottom = (document.getElementById("bottomTextGood").clientHeight )+"px";
+	}
+	else{
+		document.getElementById("questionsDiv").style.display = "none";
+		document.getElementById("wrongAnswer").style.display = "block";
+		setTimeout(function(){
+			document.getElementById("questionsDiv").style.display = "block";
+			document.getElementById("wrongAnswer").style.display = "none";
+		},3000)
+		document.getElementById("badAnswer").innerHTML = "Respuesta Incorrecta <br>"+document.getElementById("answer"+selectedId).innerHTML;
+	}
+}
+
+function clickNext(){
+	document.getElementById("circle"+questionId).style.opacity = 0.5;
+	questionId++;
+	
+	document.getElementById("arrows").style.display = "none";
+	document.getElementById("message").style.display = "none";
+
+	if(questionId == 11){
+		document.getElementById("videoDiv").style.display = "none";
+		loadQuestion();
+		document.getElementById("finishDiv").style.display = "block";
+	}
+	else{
+		document.getElementById("circle"+questionId).style.opacity = 1.0;
+		document.getElementById("videoDiv").style.display = "none";
+		loadQuestion();
+		document.getElementById("questionsDiv").style.display = "block";
+	}
+}
+
+
+function clickArrow(direction){
+	currentChaleco+=direction;
+	if(currentChaleco < 1){
+		currentChaleco = 1;
+	}
+	else if(currentChaleco > 4){
+		currentChaleco = 4;
+	}
+	if(currentChaleco ==1){
+		document.getElementById("arrowLeft").style.opacity = 0.5;
+
+	}
+	else{
+		document.getElementById("arrowLeft").style.opacity = 1.0;
+	}
+
+	if(currentChaleco ==4){
+		document.getElementById("arrowRigth").style.opacity = 0.5;
+	}
+	else{
+		document.getElementById("arrowRigth").style.opacity = 1.0;
+	}
+
+	myImage.src = "images/6taPregunta/6taPregunta_"+currentChaleco+".png";
+
+	document.getElementById("messageImage").src = "images/6taPregunta/6taPregunta_banners_"+currentChaleco+".png";
+}
+
+
+function clickNextShare(){
+	document.getElementById("finishDiv").style.display = "none";
+	document.getElementById("shareDiv").style.display = "block";
+}
+
+function closeApp(){
+
+}
+
+initCourse();    
+    
+</script>
+</body>
+</html>
