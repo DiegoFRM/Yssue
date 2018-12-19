@@ -5,6 +5,7 @@
         <title>slide1</title>
         <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
+                <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
         <style>
             body{
@@ -145,7 +146,7 @@
                 </div>
 -->
                 <div class="videoDiv">
-            	<video id="video1" controls class="videoObject" autoplay onended="endVideo();">
+            	<video id="video1" class="videoObject" autoplay onended="endVideo();">
 				  <source src="../../img/slide11.mp4" type="video/mp4">
 				  Your browser does not support HTML5 video.
 				</video>
@@ -162,30 +163,19 @@
                     <br>
                     <p>¿Cómo debe ser el procedimiento de traslado de evacuación? <br>¿Lo recuerdas?</p>
                     <form action="answerQuestion">
-                      <input type="radio" name="answer" value="a"> <span> a) Conocido, validado y fácil</span><br><br>
-                      <input type="radio" name="answer" value="b"> <span> b) Claro, seguro y practicado</span><br><br>
-                      <input type="radio" name="answer" value="c"> <span> c) Preestablecido, practicado y supervisado</span>
+                      <input type="radio" name="answer" onclick="showmenu(0)" value="a"> <span> a) Conocido, validado y fácil</span><br><br>
+                      <input type="radio" name="answer" onclick="showmenu(0)" value="b"> <span> b) Claro, seguro y practicado</span><br><br>
+                      <input type="radio" name="answer" onclick="showmenu(2)" value="c"> <span> c) Preestablecido, practicado y supervisado</span>
                     </form>
+                    <div id="menu_Question" style="display:flex;justify-content: space-between;align-items: center;">
+                        <div id="verificar" class="btn btn-success">Verificar</div>
+                        <div id="continuar" class="btn btn-primary">continuar</div>
+                    </div>
                 </div>
                 
 
             </div>
             
-            <div id="questionDiv" class="question">
-                <img id="avatarVideo" src="../../img/mambo.svg">
-                <div class="text2  col-sm-12 col-xs-12 col-md-12 ">
-                    <h1>Pregunta: </h1>
-                    <br>
-                    <p>¿Cómo debe ser el procedimiento de traslado de evacuación? <br>¿Lo recuerdas?</p>
-                    <form action="answerQuestion">
-                      <input type="radio" name="answer" value="a"> <span> a) Conocido, validado y fácil</span><br><br>
-                      <input type="radio" name="answer" value="b"> <span> b) Claro, seguro y practicado</span><br><br>
-                      <input type="radio" name="answer" value="c"> <span> c) Preestablecido, practicado y supervisado</span>
-                    </form>
-                </div>
-                
-
-            </div>
             
         </div>
 
@@ -219,6 +209,33 @@
         function answerQuestion(){
 
         }
+            
+            var respuesta = 0;
+            $("#menu_Question").hide();
+            $("#continuar").hide();
+                        function showmenu(dato){
+                            $("#menu_Question").show();
+                            respuesta = dato
+                        }
+                        
+                        $("#verificar").click(function(){
+                                if(respuesta != 2){
+                                    swal("La respuesta correcta es: Preestablecido, practicado y supervisado", {
+                                    className: "red-bg",
+                                     title: "Incorrecto",   
+                                    });
+                                }else{
+                                    swal("¡Muy bien!", {
+                                    icon: "success",
+                                    className: "red-bg",
+                                     title: "Correcto",   
+                                    });  
+                                }
+                            })
+            
+            
+                        //parent.cortinillaTweenModule(parent.module1,6);
+                        //parent.activeButton(7)
 
         </script>
     </body>
