@@ -38,14 +38,13 @@
  
 
             .bodytext{                
-                font-size: 2vw;
+                font-size: 1.5vw;
                 color: #4059A7;
-                margin: 2vw;
                 opacity: 0;
             }
             
             h1{
-                font-size: 8vw;
+                font-size: 4vw;
                 color: #4059A7;
                 width: 100%;
                 font-weight: bold;
@@ -60,17 +59,26 @@
             
             .frida{
                 position: relative;
-                width: 100%;
                 left: 50%;
-                transform: translate(-50%,0%);
+                transform: translate(-50%,30%);
+            }
+            
+                       #contentSlide{
+width: 100%;
+
+position: absolute;
+
+height: 100%;
+
+top: 50%;
+
+left: 50%;
+
+transform: translate(-60%,160%);
             }
             
             @media (orientation : portrait) { 
-           #contentSlide{
-                top: 15%;
-                position: absolute;
-                transform: translate(0%,0%);
-            }
+
             
             h1{
                 font-size: 5vh;
@@ -94,13 +102,17 @@
        
         <div id="bgImage"></div>
         <div id="contentMain">
+            
+            
+            
             <div id="contentSlide" class="row ">
-                <div class="avatar col-sm-3 col-xs-12" >
+          <div class="avatar col-sm-6 col-xs-12" >
                     <img class="frida" src="../../img/frida.svg">
                 </div>
-                <div class="text1  col-sm-9 col-xs-12 ">
-                        <h1>¿Qué hacer?</h1>
-                </div>
+                <div class="text1  col-sm-6 col-xs-12 ">
+                    <div>
+                         <h1>¿Qué hacer?</h1>
+                    </div>
                 <div class="col-xs-12 col-sm-12">
                     <p id="text_1" class="bodytext">
                         Implementar <b>medidas</b> para <b>prevenir</b> y
@@ -114,8 +126,13 @@
                         cuándo realizar una evacuación.
                     </p>
                 </div>
+                </div>
 
             </div>
+            
+            
+            
+
         </div>
          <audio id="sound">
             <source src="../../sounds/slide8.wav">

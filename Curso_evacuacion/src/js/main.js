@@ -82,14 +82,14 @@ var listSlides = [
 
 var module0 = [
     {slide:"slide1",name:"Bienvenido"},
+    {slide:"slide5",name:"Recomendaciones de navegación"},
     {slide:"slide2",name:"Objetivo"},
-    {slide:"slide3",name:"Componentes del curso"}
+    {slide:"slide3",name:"Componentes del curso"},
+    {slide:"slide6",name:"¡Muy bien!"}
 ]
 
 var module1 = [
     {slide:"slide4",name:"Comenzaremos con el Módulo I"},
-    {slide:"slide5",name:"Recomendaciones de navegación"},
-    {slide:"slide6",name:"¡Muy bien!"},
     {slide:"slide7",name:"Breve reflexión sobre el riesgo"},
     {slide:"slide8",name:"¿Qué hacer?"},
 ]

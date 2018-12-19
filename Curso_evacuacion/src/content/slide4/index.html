@@ -78,40 +78,35 @@
                 font-size: 1.5vw;
                 color: #4059A7;
                 font-weight:bold;
-                margin: 2vw; 
+                margin: 1vw; 
                 list-style-type: none;
+                    width: 100%;
+    height: 100%;
             }
             
             .fas{
-                font-size: 2vw;
-                background-color: forestgreen;
+                font-size: 3vw;
+/*                background-color: forestgreen;*/
                 padding: 1vw;
-                color:#FFF;
+                color: orange;
                 border-radius: 1vw;
                 margin: 0.2vw;
             }
             
             @media (orientation : portrait) { 
-           #contentSlide{
-                top: 15%;
-                position: absolute;
-                transform: translate(0%,0%);
+ 
             }
             
-            h1{
-                font-size: 5vh;
-                color: #4059A7;
-                font-weight: bold;
-                text-align: center;
-            }
-            
-            .text1 p{
-    
-                font-size: 2vh;
-                color: #4059A7;
-                font-weight:normal;
-            }    
-                
+            .temas{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 50%;
+    top: 200%;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    width: 100%;
+    height: 100%;
             }
             
         </style>
@@ -129,6 +124,8 @@
                 <div class="col-xs-12 col-sm-12">
                     <p class="bodytext">
                        Los temas a revisar son:</p>
+                    
+                    <div class="temas">
                         <ul>
                             
                     <li class="point1"><i class="fas fa-house-damage"></i>
@@ -136,14 +133,21 @@ Breve reflexión sobre el riesgo</li>
                     <li class="point2">
                         
                         <i class="fas fa-arrow-alt-circle-right"></i> Definición de evacuación</li>
-                    <li class="point3"><i class="fas fa-street-view"></i> Responsabilidad individual ante una
-                    evacuación<br> (3 razones: integridad, orden,
-                    seguridad)</li>
-                    <li class="point4"><i class="fas fa-users"></i> Comité Interno y Brigadas</li>
-                    <li class="point5"><i class="fas fa-user-shield"></i> Tipos de evacuación</li>
-                    <li class="point6"><i class="fas fa-running" style="font-size: 3vw;"></i> ¿Cuándo evacuar?</li>
+                    <li class="point3" style="display: flex;justify-content: center;align-items: center;"><i class="fas fa-street-view"></i>
+                        <div>Responsabilidad individual ante una
+                    evacuación (3 razones: integridad, orden,
+                    seguridad)</div></li>
+                    
                     </ul>
-
+                    
+                    
+                    <ul>
+                        <li class="point4"><i class="fas fa-users"></i> Comité Interno y Brigadas</li>
+                    <li class="point5"><i class="fas fa-user-shield"></i> Tipos de evacuación</li>
+                    <li class="point6"><i class="fas fa-running" style="font-size: 3.5vw;"></i> ¿Cuándo evacuar?</li>
+                    </ul>
+                    </div>
+                        
                    
                 </div>
 
