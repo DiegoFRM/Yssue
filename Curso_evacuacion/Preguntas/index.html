@@ -61,7 +61,7 @@
                 padding:0;
                 font-family: 'Roboto Condensed', sans-serif;
                 overflow-x: hidden;
-                //overflow-y: hidden;
+                overflow-y: hidden;
             }
             
             #bgImage{
@@ -546,7 +546,7 @@
 		<div id="contentMain">
             <div id="contentSlide" class="row ">
                 <div class="col-sm-12 col-xs-12 col-md-12 " >
-                    <img class="fridaBig" src="images/frida.svg">
+                    <img class="fridaBig" id="imageWrong" src="images/frida.svg">
                 </div>
 
                 <div id="bottomText">
@@ -560,6 +560,7 @@
 	</div>
 
 	<div id = "gallery">
+		<div id="bgImage"></div>
 		<div id ="containerGallery">
 		</div>
 		<div id="arrowsGallery">
@@ -578,19 +579,19 @@
 		<div id="contentMain">
             <div id="contentSlide" class="row ">
                 <div class="col-sm-2 col-xs-12 col-md-12 " >
-                    <img class="frida" src="images/frida.svg">
+                    <img class="frida" id ="initImage" src="images/frida.svg">
                 </div>
 
-                <div class="text1">
+                <div class="text1" id="initText1">
                     
                         <h2>Evaluacion del <br>aprendizaje</h2>
                        
                 </div>
-                <div class="text1">
+                <div class="text1" id="initText2">
                 	 <h1>¡Comencemos!</h1>
                 </div>
 
-                 <div class=" text2">
+                 <div class=" text2" id="initText3">
                     	<p>1.Asegúrate de tener una<br>
 						conexión de internet estable<br>
 						2. Siempre mantén tu dispositivo<br>
@@ -609,15 +610,15 @@
 		<div id="contentMain">
             <div id="contentSlide" class="row ">
                 <div class="col-sm-2 col-xs-12 col-md-12 " >
-                    <img class="frida" src="images/frida.svg">
+                    <img class="frida" id="finishImage" src="images/frida.svg">
                 </div>
 
-                <div class="text1">
+                <div class="text1" id="finishText1">
                     	<h1>¿Bien Hecho!</h1>
                        
                        
                 </div>
-                <div class="text1">
+                <div class="text1" id="finishText2">
                 	  <h2>Has concluido tu <br> evaluación del módulo<br><br> Continua con el siguiente<br>módulo para aprender <br> ¿Qué debes hacer?</h2>
                 </div>
 
@@ -634,15 +635,15 @@
 		<div id="contentMain">
             <div id="contentSlide" class="row ">
                 <div class="col-sm-2 col-xs-12 col-md-12 ">
-                    <img class="frida" src="images/logoProteccionCivil.png">
+                    <img class="frida" id="shareImage" src="images/logoProteccionCivil.png">
                 </div>
 
-                <div class="text3">
+                <div class="text3" id="shareText1">
                     <p>Completado<br>Modulo 1</p>
                        
                        
                 </div>
-                <div class="text1">
+                <div class="text1" id="shareText2">
                 	  <h2>¡Comparte tu logro!</h2>
                 </div>
 
@@ -708,6 +709,13 @@
             xfbml   : true,
             version : 'v2.9'
           });
+
+	TweenMax.fromTo($("#initImage"),1,{scale:0,alpha:0},{scale:1,alpha:1,ease:Back.easeOut});
+	TweenMax.fromTo($("#initText1"),1,{x:-250,alpha:0},{x:0,alpha:1,ease:Back.easeOut,delay:1.5});
+	TweenMax.fromTo($("#initText2"),1,{x:-250,alpha:0},{x:0,alpha:1,ease:Back.easeOut,delay:3});
+	TweenMax.fromTo($("#initText3"),1,{x:-250,alpha:0},{x:0,alpha:1,ease:Back.easeOut,delay:4.5});
+	TweenMax.fromTo($("#buttonInit"),1,{alpha:0},{alpha:1,ease:Back.easeOut,delay:6});
+
 	var questions= [
 		{
 		"question":"Es la probabilidad de que ocurra un fenómeno perturbador que produzca daños en la integridad, bienes o entorno de la población.",
@@ -1085,16 +1093,23 @@ function clickInit(){
 
 
 function loadQuestion(){
+
 	video.play();
 	context.clearRect(0, 0,canvas.width, canvas.height);
 	takeImage = false;
 	currentFrame = 0;
+
+	TweenMax.fromTo($("#QuestionNumberSpace"),1,{x:-250,alpha:0},{x:0,alpha:1,ease:Back.easeOut});
+	TweenMax.fromTo($("#QuestionSpace"),1,{x:-250,alpha:0},{x:0,alpha:1,ease:Back.easeOut,delay:1});
+
 	document.getElementById("QuestionNumberSpace").innerHTML = "Pregunta "+questionId;
 	document.getElementById("QuestionSpace").innerHTML = questions[questionId-1].question;
 	var answers = questions[questionId-1].ans;
 	var ids = [0,1,2];
+
 	for(var i = 1; i <= 3; i++){
 		var random = getRandomInt(0,ids.length-1);
+		TweenMax.fromTo($("#answer"+i),1.5,{alpha:0},{alpha:1,ease:Back.easeOut,delay:1+(1.5*i)});
 		document.getElementById("answer"+i).innerHTML = answers[ids[random]].text;
 		if(ids[random] == 0){
 			currentCorrect = i;
@@ -1170,6 +1185,10 @@ function clickAns(selectedId){
 		console.log((document.getElementById("bottomTextGood").clientHeight +200)+"px");
 		document.getElementById("buttonSnap").style.bottom = (document.getElementById("bottomTextGood").clientHeight )+"px";
 		document.getElementById("buttonContinue").style.bottom = (document.getElementById("bottomTextGood").clientHeight )+"px";
+
+		TweenMax.fromTo($("#bottomTextGood"),1,{y:250,alpha:0},{y:0,alpha:1,ease:Back.easeOut});
+
+		TweenMax.fromTo($("#buttonSnap"),1,{alpha:0},{alpha:1,ease:Back.easeOut});
 	}
 	else{
 		document.getElementById("questionsDiv").style.display = "none";
@@ -1179,6 +1198,9 @@ function clickAns(selectedId){
 			document.getElementById("wrongAnswer").style.display = "none";
 		},3000)
 		document.getElementById("badAnswer").innerHTML = "Respuesta Incorrecta <br>"+document.getElementById("answer"+selectedId).innerHTML;
+
+		TweenMax.fromTo($("#bottomText"),1,{y:250,alpha:0},{y:0,alpha:1,ease:Back.easeOut});
+		TweenMax.fromTo($("#imageWrong"),1,{scale:0,alpha:0},{scale:1,alpha:1,ease:Back.easeOut});
 	}
 }
 
@@ -1193,6 +1215,11 @@ function clickNext(){
 		document.getElementById("videoDiv").style.display = "none";
 		//setComplete();  
 		document.getElementById("finishDiv").style.display = "block";
+
+		TweenMax.fromTo($("#finishImage"),1,{scale:0,alpha:0},{scale:1,alpha:1,ease:Back.easeOut});
+		TweenMax.fromTo($("#finishText1"),1,{x:-250,alpha:0},{x:0,alpha:1,ease:Back.easeOut,delay:1});
+		TweenMax.fromTo($("#finishText2"),1,{x:-250,alpha:0},{x:0,alpha:1,ease:Back.easeOut,delay:2});
+		TweenMax.fromTo($("#buttonFinish"),1,{alpha:0},{alpha:1,ease:Back.easeOut,delay:4});
 	}
 	else{
 		document.getElementById("circle"+questionId).style.opacity = 1.0;
@@ -1235,6 +1262,11 @@ function clickArrow(direction){
 function clickNextShare(){
 	document.getElementById("finishDiv").style.display = "none";
 	document.getElementById("shareDiv").style.display = "block";
+	TweenMax.fromTo($("#shareImage"),1,{scale:0,alpha:0},{scale:1,alpha:1,ease:Back.easeOut});
+	TweenMax.fromTo($("#shareText1"),1,{x:-250,alpha:0},{x:0,alpha:1,ease:Back.easeOut,delay:1});
+	TweenMax.fromTo($("#shareText2"),1,{x:-250,alpha:0},{x:0,alpha:1,ease:Back.easeOut,delay:2});
+	TweenMax.fromTo($("#buttonclose"),1,{alpha:0},{alpha:1,ease:Back.easeOut,delay:3});
+	TweenMax.fromTo($("#buttonGallery"),1,{alpha:0},{alpha:1,ease:Back.easeOut,delay:3});
 }
 
 function closeApp(){
@@ -1304,6 +1336,12 @@ function openGallery(){
 function closeGalery(){
 	document.getElementById("gallery").style.display = "none"; 
 	document.getElementById("shareDiv").style.display = "block"; 
+
+	/*TweenMax.fromTo($("#shareImage"),1,{scale:0,alpha:0},{scale:1,alpha:1,ease:Back.easeOut});
+	TweenMax.fromTo($("#shareText1"),1,{x:-250,alpha:0},{x:0,alpha:1,ease:Back.easeOut,delay:1});
+	TweenMax.fromTo($("#shareText2"),1,{x:-250,alpha:0},{x:0,alpha:1,ease:Back.easeOut,delay:2});
+	TweenMax.fromTo($("#buttonclose"),1,{alpha:0},{alpha:1,ease:Back.easeOut,delay:3});
+	TweenMax.fromTo($("#buttonGallery"),1,{alpha:0},{alpha:1,ease:Back.easeOut,delay:3});*/
 }
 
 //initCourse(); 
