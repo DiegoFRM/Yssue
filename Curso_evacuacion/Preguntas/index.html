@@ -60,7 +60,7 @@
                 padding:0;
                 font-family: 'Roboto Condensed', sans-serif;
                 overflow-x: hidden;
-                overflow-y: hidden;
+                //overflow-y: hidden;
             }
             
             #bgImage{
@@ -423,7 +423,7 @@
 			    width: 20px;
 			    height: 20px;
 			    position: absolute;
-			    bottom: 50px;
+			    bottom: 20px;
 			    background: orange;
 			    //border: 3px solid red;
 			    opacity: 0.5;
@@ -480,7 +480,7 @@
 		</div>
 
 		<div id="message">
-			<img id="messageImage" src="images/6taPregunta/6taPregunta_banners_1.jpg" >
+			<img id="messageImage" src="images/6taPregunta/6taPregunta_banners_1.png" >
 		</div>
 
 		<div id="bottomTextGood">       
@@ -533,8 +533,6 @@
 					</p>
                 </div>
                 <button type="button" id="buttonInit" class="btn btn-warning col-sm-6 col-xs-6 col-md-6" onclick="clickInit()">Comienza aquí</button>
-
-
             </div>
         </div>
 	</div>
@@ -633,9 +631,14 @@
             </div>
         </div>
 	</div>
-
+<script src="https://connect.facebook.net/en_US/sdk.js"></script>
 <script>
-
+	 FB.init({
+            appId   : 311604959460575,
+            status  : true,
+            xfbml   : true,
+            version : 'v2.9'
+          });
 	var questions= [
 		{
 		"question":"Es la probabilidad de que ocurra un fenómeno perturbador que produzca daños en la integridad, bienes o entorno de la población.",
@@ -937,7 +940,7 @@ window.onload = function(){
 	canvas.width = window.innerWidth;
 	canvas.height = window.innerHeight;
 
-	questionId = 6;
+	questionId = 10;
 	currentCorrect = 0;
 	console.log(questionId);
 
@@ -957,23 +960,24 @@ document.getElementById("buttonSnap").addEventListener("click", function() {
 
 		
 	},100)
+	if(!iOS()){
+		setTimeout(function(){
+			/*var dt = canvas.toDataURL('image/png');
+		    //this.href = dt;
+		    //console.log(dt);
+		    //alert();
+		    var link = document.createElement('a');
+			link.href = dt;
+			link.target = "_blank";
+			link.download = 'Download.png';
+			document.body.appendChild(link);
+			link.click();
+			document.body.removeChild(link);*/
 
-	setTimeout(function(){
-		/*var dt = canvas.toDataURL('image/png');
-	    //this.href = dt;
-	    //console.log(dt);
-	    //alert();
-	    var link = document.createElement('a');
-		link.href = dt;
-		link.target = "_blank";
-		link.download = 'Download.png';
-		document.body.appendChild(link);
-		link.click();
-		document.body.removeChild(link);*/
-
-		
-		document.getElementById("buttonContinue").style.display = "block";
-	})
+			
+			document.getElementById("buttonContinue").style.display = "block";
+		})
+	}
    	
 	takeImage = true;
 	document.getElementById("buttonSnap").style.display = "none";
@@ -1113,7 +1117,7 @@ function clickNext(){
 
 	if(questionId == 11){
 		document.getElementById("videoDiv").style.display = "none";
-		loadQuestion();
+		//loadQuestion();
 		document.getElementById("finishDiv").style.display = "block";
 	}
 	else{
@@ -1160,7 +1164,30 @@ function clickNextShare(){
 }
 
 function closeApp(){
+	FB.ui({
+	  method: 'share',
+	  href: 'www.google.com'
+	}, function(response){});
+}
 
+function iOS() {
+
+  var iDevices = [
+    'iPad Simulator',
+    'iPhone Simulator',
+    'iPod Simulator',
+    'iPad',
+    'iPhone',
+    'iPod'
+  ];
+
+  if (!!navigator.platform) {
+    while (iDevices.length) {
+      if (navigator.platform === iDevices.pop()){ return true; }
+    }
+  }
+
+  return false;
 }
 
 </script>
