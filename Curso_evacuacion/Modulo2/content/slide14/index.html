@@ -1,0 +1,179 @@
+<HTML>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>slide1</title>
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
+
+        <style>
+            body{
+                margin:0;
+                padding:0;
+                font-family: 'Roboto Condensed', sans-serif;
+                overflow-x: hidden;
+            }
+            
+            #bgImage{
+               position: absolute;
+                width: 100%;
+                height: 100%;
+                background:url("../../img/bg1.jpg");
+                background-size: cover;
+                opacity: 0.1;
+                top: 0%;
+            }
+            
+            #contentMain{
+                position: relative;
+                width: 80%;
+                top: 0%;
+                left: 10%;
+                padding: 2vw;
+            }
+
+            
+            .text1{
+                position: relative;
+                font-size: 2vh;
+                color: #4059A7;
+                font-weight:normal;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+ 
+
+            .bodytext{                
+                font-size: 2vw;
+                color: #4059A7;
+                font-weight:normal;
+                margin: 2vw;
+            }
+            
+            h1{
+                font-size: 4vw;
+                color: #4059A7;
+                font-weight: bold;
+            }
+            
+           
+            .avatar{
+                text-align: center;
+                width: 100%;
+            }
+            
+            .frida{
+                position: relative;
+                width: 50%;
+                left: 50%;
+                transform: translate(-50%,0%);
+            }
+            
+            ul{
+                font-size: 2vw;
+                color: #4059A7;
+                font-weight:bold;
+                margin: 2vw; 
+                list-style:none;
+            }
+            
+            .imgcircle{
+                position: absolute;
+                overflow: hidden;
+                width: 400px;
+                height: 390px;
+                border-radius: 20px;
+                left: 0%;
+                margin-top: 10%;
+            }
+            
+            .img1{
+                background-image: url("../../img/puntoreunion.jpg");
+                background-position: 50% 200%;
+                
+            }
+            
+            .img2{
+                background-image: url("../../img/Salida-Emergencia.jpg");
+                background-position: 50% 50%;
+            }
+            
+            .img3{
+                background-image: url("../../img/puntoreunion.jpg");
+                background-position: 50% 200%;
+            }
+            
+            .point1{
+                font-size: 2vw;
+            }
+            
+        </style>
+    </head>
+    <body >
+        <div id="bgImage"></div>
+        <div id="contentMain">
+            <div id="contentSlide" class="row ">
+
+                <div class="text1  col-sm-12 col-xs-12 ">
+                    <div>
+                        <h1>Punto de reunión:</h1>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-12">
+
+            <div class="row">
+                         
+                <div class="col-sm-5">
+                    <div class="imgcircle"></div>
+                
+                </div>
+                <ul class="col-sm-6">
+                    
+                    <li class="point1">
+                    Es un lugar de menor riesgo, en el exterior
+del inmueble, debe establecerse y
+delimitarse previamente tomando en cuenta:<br><br>
+a) Distancia razonable al peligro<br>
+b) Las condiciones de riesgo<br>
+c) El espacio adecuado para la
+población<br>
+d) El acceso a los servicios de
+emergencia
+                    
+                    </li>
+                    
+                </ul>
+            </div>
+                   
+                        
+
+                   
+                </div>
+
+            </div>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+        <script>
+            
+             var audio1 = new Audio();
+       // audio1.src = "../../sounds/slide3.wav"
+        //audio1.controls = true;
+            //document.body.appendChild(audio1);
+       // audio1.play();
+            
+            TweenMax.fromTo($(".avatar"),0.9,{alpha:0},{alpha:1,ease:Back.easeOut,delay:1});
+            
+            TweenMax.fromTo($(".text1").find("h1"),0.5,{x:200,alpha:0},{x:0,alpha:1,delay:1.3});
+
+        
+            TweenMax.fromTo($(".imgcircle"),0.5,{scale:0,alpha:0},{scale:1,alpha:1,delay:2});
+            
+            TweenMax.fromTo($(".point1"),0.5,{y:0,alpha:0},{y:70,alpha:1,delay:2.1});
+            
+        $(".imgcircle").addClass("img1");
+            
+        </script>
+    </body>
+</HTML>

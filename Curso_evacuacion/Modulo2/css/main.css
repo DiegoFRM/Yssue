@@ -1,0 +1,261 @@
+html{
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+}
+
+body{
+    background-color: #F9F7E8;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+.bg-orange{
+    background-color: #EA9036;
+}
+
+.bg-blue{
+    background-color: #4059A7;
+}
+
+#advanceBarContainer{
+    z-index: 100;
+    position: absolute;
+    height: 2%;
+    width: 100%;
+}
+
+#barAdvance{
+    position: relative;
+    height: 100%;
+    width: 10%;
+    transition: width 2s;
+}
+
+#menuBar{
+    position: absolute;
+    width: 10%;
+    max-width: 120px;
+    height: 97%;
+    top: 2%;
+}
+
+.logo{
+    position: relative;
+    width: 10%;
+    max-width: 150px;
+    text-align: center;
+    margin-bottom: 2vw;
+    z-index: 200;
+    top: 2%;
+}
+
+.logo img{
+    width: 80%;
+}
+
+
+.spacio-logo{
+    width: 100%;
+    height: 20%;
+}
+
+.menuContainer{
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    height: 100%;
+    opacity: 0;
+}
+
+.botones{
+    width: 100%;
+    color:#4059A7;
+    cursor: pointer;
+}
+
+
+.botones img{
+    width: 30%;
+}
+
+#navButtons{
+    position: absolute;
+    display: flex;
+    justify-content:space-around;
+    left: 50%;
+    transform: translate(-50%,0%);
+    bottom: 0%;
+    height: 8%;
+    margin: 2vw;
+}
+
+#subNavButtons{
+    position: absolute;
+    right: 0%;
+    transform: translate(0%,-50%);
+    bottom: 0%;
+    width: 6%;
+    top: 50%;
+    display: table;
+    align-items: center;
+    }
+
+.SubButtonModule{
+    position: relative;
+    width: 30px;
+    height: 30px;
+    background-color: #4059A7;
+    border-radius: 50%;
+    margin: 1.5vw;
+    opacity: 0.5;
+    color:#FFF;
+}
+
+.SubButtonModule p{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.buttonModule{
+    position: relative;
+    width: 30px;
+    height: 30px;
+    background-color: #EA9036;
+    border-radius: 50%;
+    margin: 1vw;
+    margin-bottom: 0vw;
+    opacity: 0.5;
+}
+
+.buttonModule p{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#loadMovies{
+    border: 0;
+    position: absolute;
+    top: 2%;
+    left:0;
+    width: 100%;
+    height: 97%;
+    overflow: hidden;
+}
+
+    #menumovil{
+        display: block;
+        position: absolute;
+        z-index: 200;
+        top: 5%;
+        left:50%;
+        transform: translate(-50%,0%);
+        width: 15%;    
+    }
+    
+    #menumovil img{
+        width: 50%;    
+    }
+
+#cortinilla{
+    position: absolute;
+    width: 0%;
+    height: 100%;
+    background-color: #EA9036;
+    top: 0%;
+    left: 0%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #FFF;
+    display: none;
+}
+
+#cortinilla h1{
+    position: relative;
+    opacity: 0;
+    text-align: center;
+    top: 50%;
+}
+
+@media (orientation : portrait) { 
+    
+    #menumovil{
+        display: block;
+        position: absolute;
+        z-index: 200;
+        top: 5%;
+        left:50%;
+        transform: translate(-50%,0%);
+        width: 15%;    
+    }
+    
+    #menumovil img{
+        width: 100%;    
+    }
+    
+    #menuBar{
+        width: 100%;
+        max-width: 100%;
+        display: none;
+        opacity: 0;
+    }
+    .menuContainer{
+        opacity: 1;
+    }
+    
+    #navButtons{
+        position: absolute;
+        width: 10%;
+    }   
+    
+
+    
+    .botones{
+        width: 50%;
+        float: left;
+    }
+    
+    .menu1{
+        width: 100%;
+    }
+    
+    .menu5{
+        transform: translate(0%,10%);
+    }
+    
+    .logo{
+        position: relative;
+        width: 20%;
+        max-width: 150px;
+        text-align: center;
+        margin-bottom: 2vw;
+        z-index: 200;
+        top: 3%;
+    }
+
+    .logo img{
+        width: 100%;
+    }  
+    
+    #navButtons{
+        position: absolute;
+        width: 100%;
+        justify-content: space-between;
+        margin: 0;
+        margin-bottom: 2vw;
+    }
+
+    #navButtons img{
+        height: 100%;
+    }
+
+}

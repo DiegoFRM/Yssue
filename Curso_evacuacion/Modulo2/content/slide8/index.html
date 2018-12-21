@@ -1,0 +1,148 @@
+<HTML>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>slide1</title>
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
+
+        <style>
+            body{
+                margin:0;
+                padding:0;
+                font-family: 'Roboto Condensed', sans-serif;
+                overflow-x: hidden;
+            }
+            
+            #bgImage{
+               position: absolute;
+                width: 100%;
+                height: 100%;
+                background:url("../../img/bg1.jpg");
+                background-size: cover;
+                opacity: 0.1;
+                top: 0%;
+            }
+            
+            #contentMain{
+                position: relative;
+                width: 80%;
+                top: 0%;
+                left: 10%;
+                padding: 2vw;
+            }
+
+            
+            .text1{
+            }
+ 
+
+            .bodytext{                
+                font-size: 2em;
+                color: #4059A7;
+                opacity: 0;
+            }
+            
+            h1{
+                font-size: 4vw;
+                color: #4059A7;
+                width: 100%;
+                font-weight: bold;
+                margin-top: 5%;
+            }
+            
+           
+            .avatar{
+                text-align: center;
+                width: 100%;
+            }
+            
+            .frida{
+                position: relative;
+                left: 50%;
+                top: 50%;
+                width: 80%;
+                transform: translate(-40%,-10%);
+            }
+            
+                       #contentSlide{
+width: 100%;
+
+position: absolute;
+
+height: 100%;
+
+top: 50%;
+
+left: 50%;
+
+transform: translate(-60%,160%);
+            }
+            
+            @media (orientation : portrait) { 
+
+            
+            h1{
+                font-size: 5vh;
+                color: #4059A7;
+                font-weight: bold;
+                text-align: center;
+            }
+            
+            .text1 p{
+    
+                font-size: 2vh;
+                color: #4059A7;
+                font-weight:normal;
+            }    
+                
+            }
+            
+        </style>
+    </head>
+    <body >
+       
+        <div id="bgImage"></div>
+        <div id="contentMain">
+            
+            
+            
+            <div id="contentSlide" class="row ">
+          <div class="avatar col-sm-6 col-xs-12" >
+                    <img class="frida" src="../../img/M2-IMG-32.svg">
+                </div>
+                <div class="text1  col-sm-6 col-xs-12 ">
+       
+                <div class="col-xs-12 col-sm-12">
+                    <p id="text_1" class="bodytext">
+                        Empecemos por conocer nuestros derechos y responsabilidades
+                    </p>
+      
+                </div>
+                </div>
+
+            </div>
+            
+            
+            
+
+        </div>
+         <audio id="sound">
+            <source src="../../sounds/slide8.wav">
+        </audio>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+        <script>
+            //var sound1 = document.getElementById("sound");
+            
+            //function soundPlay(){sound1.play();};
+            TweenMax.fromTo($(".avatar"),0.9,{alpha:0,scale:0},{alpha:1,scale:1,ease:Back.easeOut,delay:1});
+            
+            
+            TweenMax.fromTo($("#text_1"),0.5,{y:-50,alpha:0},{y:150,alpha:1,delay:2});
+            
+
+        
+        </script>
+    </body>
+</HTML>

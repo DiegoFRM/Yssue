@@ -1,0 +1,175 @@
+<HTML>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>slide1</title>
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
+         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+        <style>
+            body{
+                margin:0;
+                padding:0;
+                font-family: 'Roboto Condensed', sans-serif;
+                overflow-x: hidden;
+            }
+            
+            #bgImage{
+               position: absolute;
+                width: 100%;
+                height: 100%;
+                background:url("../../img/bg1.jpg");
+                background-size: cover;
+                opacity: 0.1;
+                top: 0%;
+            }
+            
+            #contentMain{
+                position: relative;
+                width: 80%;
+                top: 0%;
+                left: 10%;
+                padding: 2vw;
+            }
+
+            
+            .text1{
+                position: relative;
+                font-size: 2vh;
+                color: #4059A7;
+                font-weight:normal;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+ 
+
+            .bodytext{                
+                font-size: 2vw;
+                color: #4059A7;
+                font-weight:normal;
+                margin: 2vw;
+            }
+            
+            .point5{
+               font-size: 2.3vw; 
+                font-weight:bold;
+            }
+            
+            h1{
+                font-size: 4vw;
+                color: #4059A7;
+                font-weight: bold;
+            }
+            
+           
+            .avatar{
+                text-align: center;
+                width: 100%;
+            }
+            
+            .frida{
+                position: relative;
+                width: 50%;
+                left: 50%;
+                transform: translate(-50%,0%);
+            }
+            
+            ul{
+                font-size: 1.5vw;
+                color: #4059A7;
+                font-weight:bold;
+                margin: 2vw;
+                 list-style-type: none;
+            }
+            
+                .fas{
+                font-size: 3vw;
+/*                background-color: forestgreen;*/
+                padding: 1vw;
+                color: orange;
+                border-radius: 1vw;
+                margin: 0.2vw;
+            }
+            
+            
+            @media (orientation : portrait) { 
+           #contentSlide{
+                top: 15%;
+                position: absolute;
+                transform: translate(0%,0%);
+            }
+            
+            h1{
+                font-size: 5vh;
+                color: #4059A7;
+                font-weight: bold;
+                text-align: center;
+            }
+            
+            .text1 p{
+    
+                font-size: 2vh;
+                color: #4059A7;
+                font-weight:normal;
+            }    
+                
+            }
+            
+        </style>
+    </head>
+    <body >
+        <div id="bgImage"></div>
+        <div id="contentMain">
+            <div id="contentSlide" class="row ">
+
+                <div class="text1  col-sm-12 col-xs-12 ">
+                    <div>
+                        <h1>Recomendaciones de navegación</h1>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-12">
+                    <p class="bodytext text2">
+                        Bienvenido al módulo, para que vivas una experiencia de
+aprendizaje ágil, toma en cuenta las siguientes recomendaciones:</p>
+                        <ul>
+                    <li class="point1" ><i class="fas fa-wifi"></i> Asegúrate de tener una conexión de internet estable.</li>
+                    <li class="point2" ><i class="fas fa-diagnoses"></i> Asegura un espacio adecuado para que puedas centrar
+tu atención unos minutos a este contenido.</li>
+                    <li class="point3" ><i class="fas fa-desktop"></i> Revisa tu pantalla, para que conozcas cada elemento y
+te familiarices con ella.</li>
+                    <li class="point4" ><i class="fas fa-book-open"></i> Ten a la mano un cuaderno de notas para registras la
+información.</li>
+                    </ul>
+
+                   <p class="bodytext point5" style="text-align:center;"><b>¡Recuerda que una evaluación de aprendizaje te espera al final de cada módulo!</b></p>
+                    
+                </div>
+
+            </div>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+        <script>
+            var audio1 = new Audio();
+        audio1.src = "../../sounds/slide5.wav"
+        audio1.play();
+            //audio1.controls = true;
+            //document.body.appendChild(audio1)
+        
+            TweenMax.fromTo($(".avatar"),0.9,{alpha:0},{alpha:1,ease:Back.easeOut,delay:1});
+            
+            TweenMax.fromTo($(".text1").find("h1"),0.5,{x:200,alpha:0},{x:0,alpha:1,delay:1.3});
+            TweenMax.fromTo($(".text2"),0.5,{x:200,alpha:0},{x:0,alpha:1,delay:3.5});
+            
+            TweenMax.fromTo($(".point1"),0.5,{x:200,alpha:0},{x:0,alpha:1,delay:11});
+            TweenMax.fromTo($(".point2"),0.5,{x:200,alpha:0},{x:0,alpha:1,delay:15});
+            TweenMax.fromTo($(".point3"),0.5,{x:200,alpha:0},{x:0,alpha:1,delay:20});
+            TweenMax.fromTo($(".point4"),0.5,{x:200,alpha:0},{x:0,alpha:1,delay:27});
+            
+            TweenMax.fromTo($(".point5"),0.5,{y:-100,alpha:0},{y:0,alpha:1,delay:31});
+        
+        </script>
+    </body>
+</HTML>

@@ -1,0 +1,207 @@
+<HTML>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>slide1</title>
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="../../css/font-awesome.css" />
+        
+
+
+
+        <style>
+            body{
+                margin:0;
+                padding:0;
+                font-family: 'Roboto Condensed', sans-serif;
+                overflow-x: hidden;
+            }
+            
+            #bgImage{
+               position: absolute;
+                width: 100%;
+                height: 100%;
+                background:url("../../img/bg1.jpg");
+                background-size: cover;
+                opacity: 0.1;
+                top: 0%;
+            }
+            
+            #contentMain{
+                position: relative;
+                width: 80%;
+                top: 0%;
+                left: 10%;
+                padding: 2vw;
+            }
+
+            
+            .text1{
+                position: relative;
+                font-size: 1vh;
+                color: #4059A7;
+                font-weight:normal;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+ 
+
+            .bodytext{                
+                font-size: 3vw;
+                color: #4059A7;
+                font-weight:normal;
+                margin: 2vw;
+                margin-bottom: 0;
+                text-align: center;
+            }
+            
+            h1{
+                font-size: 3vw;
+                color: #4059A7;
+                font-weight: bold;
+                
+            }
+            
+           
+            .avatar{
+                text-align: center;
+                width: 100%;
+            }
+            
+            .frida{
+                position: relative;
+                width: 50%;
+                left: 50%;
+                transform: translate(-50%,0%);
+            }
+            
+            ul{
+                font-size: 1.5vw;
+                color: #4059A7;
+                font-weight:bold;
+                margin: 1vw; 
+                list-style-type: none;
+                    width: 100%;
+    height: 100%;
+            }
+            
+            .fas{
+                font-size: 3vw;
+/*                background-color: forestgreen;*/
+                padding: 1vw;
+                color: orange;
+                border-radius: 1vw;
+                margin: 0.2vw;
+            }
+            
+            @media (orientation : portrait) { 
+ 
+            }
+            
+            .img-cont{
+                width: 20%;
+                text-align: center;
+                left:50%;
+                position: relative;
+                transform: translate(-50%,-50%);
+            }
+            
+            .temas{
+                margin-top: 10%;
+            }
+            
+            .cardMambo{
+                position: relative;
+                background-image:url("../../img/M2-IMG-24.svg");
+                background-repeat: no-repeat;
+                background-size: contain;
+                background-position: center;
+                height: 40%;
+                width: 100%;
+                
+            }    
+            
+            
+            .cardRed{
+                background-image:url("../../img/M2-IMG-33.svg");
+            } 
+            .cardGreen{
+                background-image:url("../../img/M2-IMG-34.svg");
+            } 
+            .cardYellow{
+                background-image:url("../../img/M2-IMG-35.svg");
+            } 
+            .cardBrown{
+                background-image:url("../../img/M2-IMG-36.svg");
+            }
+            
+            .textCard{
+                position: absolute;
+                height: 80%;
+                width: 60%;
+                top: 10%;
+                left: 20%;
+                text-align: center;
+                font-size: 1.4vw;
+                
+               
+            }
+            
+            .textCard p{
+                color:#FFF;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%,-50%);
+            }
+
+            
+        </style>
+    </head>
+    <body >
+        <div id="bgImage"></div>
+        <div id="contentMain">
+            <div id="contentSlide" class="row ">
+
+  
+                <div class="col-xs-12 col-sm-12">
+                   
+                       <div class="a1 bodytext">¡Sigamos avanzando!</div>
+                    
+            <div class="row" style="margin-top:4%;">
+            <div class="a2 col-sm-4">
+                <img class="img-fluid" src="../../img/escalera-emergencia.jpg">
+            </div>
+            <div class="a3 col-sm-4">
+                <img class="img-fluid" src="../../img/salida-emergencia-senal.jpg">
+            </div>
+            <div class="a4 col-sm-4">
+                <img class="img-fluid" src="../../img/punto-reunion-senal.jpg">
+            </div>
+     
+            </div>
+                        
+                   
+                </div>
+
+            </div>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+        <script>
+            var audio1 = new Audio();
+       // audio1.src = "../../sounds/slide4.wav"
+            //audio1.controls = true;
+            //document.body.appendChild(audio1).style.marginLeft="80%";
+        //audio1.play();
+
+            for(var i = 1;i<=4;i++){
+                TweenMax.fromTo($(".a" + i),1,{alpha:0,y:-50},{alpha:1,y:0,delay:0.3*i});
+            }
+        
+        </script>
+    </body>
+</HTML>
