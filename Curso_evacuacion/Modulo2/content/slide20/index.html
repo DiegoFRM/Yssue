@@ -2,11 +2,16 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>slide 20</title>
+        <title>slide1</title>
         <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="../../css/font-awesome.css" />
+        
 
-         <style>
+
+
+        <style>
             body{
                 margin:0;
                 padding:0;
@@ -34,30 +39,30 @@
 
             
             .text1{
+                position: relative;
+                font-size: 1vh;
+                color: #4059A7;
+                font-weight:normal;
+                display: flex;
+                justify-content: center;
+                align-items: center;
             }
  
 
             .bodytext{                
                 font-size: 2vw;
                 color: #4059A7;
+                font-weight:normal;
                 margin: 2vw;
-                opacity: 0;
+                margin-bottom: 0;
+                text-align: center;
             }
             
             h1{
                 font-size: 3vw;
                 color: #4059A7;
-                width: 100%;
                 font-weight: bold;
-                margin-top: 10%;
-            }
-            h2{
-                font-size: 2vw;
-                color: #4059A7;
-                width: 100%;
-                font-weight: normal;
-                text-align: center;
-                margin-top: 8%;
+                
             }
             
            
@@ -66,127 +71,97 @@
                 width: 100%;
             }
             
-            .imagePc{
-                position: relative;
-                width: 100%;
-                left: 50%;
-                transform: translate(-50%,0%);
-            }
-
             .frida{
                 position: relative;
-                width: 100%;
+                width: 50%;
                 left: 50%;
                 transform: translate(-50%,0%);
-            }
-
-            .hierarchy{
-                position: relative;
-                width: 100%;
-                left: 50%;
-                transform: translate(-50%,0%);
-            }
-            #mamboFull{
-                width: 60%;    
-                height: 60%;
-                margin-left: auto;
-                margin-right: auto;
-                margin-bottom: 5%;
-                display: block;
-                margin-top: 14%;
-            }
-            tr{
-                padding: 10px;
-                
-            }
-            td{
-                padding: 10px;
-                
-            }
-            td p{
-                font-size: 1.4vw;
-                color: #4059A7;
-                font-weight: normal;
-                text-align: left;
             }
             
-   
-             .divImageMambo{
-                 position: relative;
-             }
-
-             #noSound{
-             	position: absolute;
-             	top:15%;
-             	left: 10%;
-             	transform: scale(0.3);
-             	display: none;
-             }
-			
-
-			 .visionObstacle{
-             	position: absolute;
-             	top:25%;
-             	//left: 0;
-             	width: 40%;
-
-             }  
-
-             .respirarObstacle{
-             	position: absolute;
-             	top:60%;
-             	//left: 0;
-             	width: 40%;
-
-             }  
-             #vision1{
-             	left:0px;
-
-             }  
-             #vision2{
-             	left: 10%;
-             }
-
-             #vision3{
-             	left: 20%;
-             }
-
-             #respirar1{
-             	left:0%;
-             }
-             #respirar2{
-             	left:25%;
-             }
-             #respirar3{
-             	left:50%;
-             }
-
-            @media (orientation : portrait) { 
-
-            	#noSound{
-	             	position: absolute;
-	             	top:15%;
-	             	//left: -5%;
-	             	transform: scale(0.15);
-	             	display: none;
-	             }
-            	.visionObstacle{
-	             	position: absolute;
-	             	top:35%;
-	             	//left: 0;
-	             	width: 40%;
-
-	             }  
-
-	             .respirarObstacle{
-	             	position: absolute;
-	             	top:60%;
-	             	//left: 0;
-	             	width: 40%;
-
-	             } 
+            ul{
+                font-size: 1.5vw;
+                color: #4059A7;
+                font-weight:bold;
+                margin: 1vw; 
+                list-style-type: none;
+                    width: 100%;
+    height: 100%;
             }
+            
+            .fas{
+                font-size: 3vw;
+/*                background-color: forestgreen;*/
+                padding: 1vw;
+                color: orange;
+                border-radius: 1vw;
+                margin: 0.2vw;
+            }
+            
+            @media (orientation : portrait) { 
+ 
+            }
+            
+            .img-cont{
+                width: 20%;
+                text-align: center;
+                left:50%;
+                position: relative;
+                transform: translate(-50%,-50%);
+            }
+            
+            .temas{
+                margin-top: 10%;
+            }
+            
+            .cardMambo{
+                position: relative;
+                background-image:url("../../img/M2-IMG-24.svg");
+                background-repeat: no-repeat;
+                background-size: contain;
+                background-position: center;
+                height: 40%;
+                width: 100%;
                 
+            }    
+            
+            #popwindow{
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0,0,0,0.5);
+                top: 0;
+                left: 0;
+                opacity: 0;
+                
+            }
+
+            .window-base{
+                position: relative;
+                width: 80%;
+                height: auto;
+                background-color: #FFF;
+                top:50%;
+                left: 50%;
+                transform: translate(-50%,-50%);
+                border-radius: 1vw;
+                padding: 3vw;
+                
+            }
+
+            .body-window{
+                position: relative;
+                margin: 2vw;
+            }
+            
+            .green-card{
+                position: relative;
+                background-color: green;
+                padding: 2vw;
+                border-radius: 1vw;
+                text-align: center;
+            }
+            
+            
             
         </style>
     </head>
@@ -194,238 +169,85 @@
         <div id="bgImage"></div>
         <div id="contentMain">
             <div id="contentSlide" class="row ">
-            <div class="divImageMambo col-sm-6 col-xs-6 col-md-6">
-                <img id="mamboFull" src = "../../img/mambo_full.svg">
-                
-                <img id="vision1" class="visionObstacle" src = "../../img/polvo1.svg">
-                <img id="vision2" class="visionObstacle" src = "../../img/polvo1.svg">
-                <img id="vision3" class="visionObstacle" src = "../../img/polvo1.svg">
 
-                <img id="respirar1" class="respirarObstacle" src = "../../img/polvo2.svg">
-                <img id="respirar2" class="respirarObstacle" src = "../../img/polvo2.svg">
-                <img id="respirar3" class="respirarObstacle" src = "../../img/polvo2.svg">
-
-                <img id="noSound" src = "../../img/nosound.svg">
-                <h2 id = "textBehind">Sigue trabajando con normalidad</h2>
+  
+                <div class="col-xs-12 col-sm-12">
+                   
+                       <div class="a1 bodytext">Saber cuándo y cómo evacuar
+depende de la identificación de alertas y
+alarmas.</div>
+                    
+            <div class="row" style="margin-top:4%;">
+            <div class="col-sm-12 row">
+                <img id="btn1" class="img-fluid" src="../../img/M2-arrow-22.svg">
+                <img id="btn2" class="img-fluid" src="../../img/M2-arrow-23.svg">
+                <img id="btn3" class="img-fluid" src="../../img/M2-arrow-24.svg">
+                <img id="btn4" class="img-fluid" src="../../img/M2-arrow-25.svg">
             </div>
-                
-            <div class = "tableQuestions col-sm-6 col-xs-6 col-md-6">
-                <table>
-                    <tr>
-                        <td>
-                            <h1>Pregunta</h1>
-                        </td>
-                        <td>
-                            <h1>Si</h1>
-                        </td>
-                        <td>
-                            <h1>No</h1>
-                        </td>
-                    </tr>
-                    <br><br><br><br>
-                    <tr>
-                        <td>
-                            <p>¿Puedes ver con normalidad?</p>
-                        </td>
-                        <td>
-                            <button type="button" id="s1" class="btn btn-success" onclick="clickS1()">SI</button>
-                        </td>
-                        <td>
-                            
-                            <button type="button" id="n1" class="btn btn-danger" onclick="clickN1()">NO</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <p>¿Puedes respirar con normalidad?</p>
-                        </td>
-                        <td>
-                            <button type="button" id="s2" class="btn btn-success" onclick="clickS2()">SI</button>
-                        </td>
-                        <td>
-                            
-                            <button type="button" id="n2" class="btn btn-danger" onclick="clickN2()">NO</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <p>¿Puedes trabajar con normalidad?</p>
-                        </td>
-                        <td>
-                            <button type="button" id="s4" class="btn btn-success" onclick="clickS3()">SI</button>
-                        </td>
-                        <td>
-                            
-                            <button type="button" id="n4" class="btn btn-danger" onclick="clickN3()">NO</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <p>¿Puedes escuchar con nomalidad?</p>
-                        </td>
-                        <td>
-                            <button type="button" id="s3" class="btn btn-success" onclick="clickS4()">SI</button>
-                        </td>
-                        <td>
-                            
-                            <button type="button" id="n3" class="btn btn-danger" onclick="clickN4()">NO</button>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>
-                            
-                        </td>
-<!--
-                        <td colspan="2">
-                            <button type="button" class="btn btn-primary" onclick="clickWhat()">
-                            ¿Qué hacer?
-                            </button>
-                        </td>
--->
+            <div class="col-sm-12" style="text-align:center;">
+                <img id="btn5" class="img-fluid" src="../../img/M2-arrow-26.svg">
+            </div>
+     
+            </div>
                         
-                    </tr>
-                </table>
-            </div>
+                   
+                </div>
 
-            <div class = "behindText col-sm-6 col-xs-6 col-md-6">
-                
             </div>
-
+            
         </div>
-
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+        <div id="popwindow">
+            <div class="window-base">
+                <div class="header-window row">
+                <div class="col-sm-2" style="text-align: center;"><span class="green-card"></span></div>
+                <div class="col-sm-10"><h1>Normal</h1></div>
+                </div>
+                <div class="body-window row"> 
+                    <div class="col-sm-12"><img class="img-fluid" style="width:7%;" src="../../img/casco.svg"> 
+                    <span class="bodytext">Funcionamiento normal, las acciones cotidianas de la empresa se llevan a cabo de manera rutinaria</span>
+                    </div>
+                    <div class="col-sm-12" style="padding:1vw;text-align: right;">
+                        <div id="closeWindow" class="btn btn-primary">Ok</div>
+                    </div>
+                </div>
+            
+            </div>
         
+        </div>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
         <script>
-             /*var audio1 = new Audio();
-        audio1.src = "../../sounds/slide19.wav"
-        audio1.load();
-        audio1.addEventListener('load', function () {
-            audio1.play();
-        });
-        audio1.onloadeddata = function(){
-            audio1
-            y();
-        }
-            audio1.play();
-            */
-            var mamboBibrate = TweenMax.fromTo("#mamboFull", 0.2, {rotation:-10}, {rotation:10, ease:Linear.easeNone, repeat:-1}).yoyo(true);
-			mamboBibrate.progress(0.5).pause();
-			$("#vision1").alpha = 0;
-			var vision1Animation = TweenMax.fromTo("#vision1",4,{rotation:0},{rotation:360,ease:Linear.easeNone,repeat:-1});
-			var vision2Animation = TweenMax.fromTo("#vision2",4,{rotation:0},{rotation:-360,ease:Linear.easeNone,repeat:-1});
-			var vision3Animation = TweenMax.fromTo("#vision3",4,{rotation:0},{rotation:360,ease:Linear.easeNone,repeat:-1});
-			
-			vision1Animation.progress(0).pause();
-			vision2Animation.progress(0).pause();
-			vision3Animation.progress(0).pause();
-
-			document.getElementById("vision1").style.display = "none";
-			document.getElementById("vision2").style.display = "none";
-			document.getElementById("vision3").style.display = "none";
-
-
-			var respirarAnimation1 = TweenMax.fromTo("#respirar1",3,{y:0,alpha:1},{y:-300,alpha:0,ease:Linear.easeNone,repeat:-1});
-			var respirarAnimation2 = TweenMax.fromTo("#respirar2",3,{y:0,alpha:1},{y:-300,alpha:0,ease:Linear.easeNone,repeat:-1});
-			var respirarAnimation3 = TweenMax.fromTo("#respirar3",3,{y:0,alpha:1},{y:-300,alpha:0,ease:Linear.easeNone,repeat:-1});
-
-			respirarAnimation1.progress(0.3).pause();
-			respirarAnimation2.progress(0).pause();
-			respirarAnimation3.progress(0.6).pause();
-
-			document.getElementById("respirar1").style.display = "none";
-			document.getElementById("respirar2").style.display = "none";
-			document.getElementById("respirar3").style.display = "none";
-
-            var q1 = true;
-            var q2 = true;
-            var q3 = true;
-            var q4 = true;
-
-            function clickS1(){
-                q1 = true;
-                document.getElementById("vision1").style.display = "none";
-				document.getElementById("vision2").style.display = "none";
-				document.getElementById("vision3").style.display = "none";
-				vision1Animation.progress(0).pause();
-				vision2Animation.progress(0).pause();
-				vision3Animation.progress(0).pause();
-                clickWhat()
-
+            var audio1 = new Audio();
+       // audio1.src = "../../sounds/slide4.wav"
+            //audio1.controls = true;
+            //document.body.appendChild(audio1).style.marginLeft="80%";
+        //audio1.play();
+            $("#popwindow").hide();
+            $("#closeWindow").click(function(){
+                TweenMax.to($("#popwindow"),0.5,{alpha:0,onComplete:hideWindow})
+                function hideWindow(){
+                    $("#popwindow").hide();
+                }
+                
+            })
+            
+            for(var i = 1;i<=5;i++){
+                $("#btn" + i).mouseover(function(){
+                     TweenMax.to($(this),0.5,{scale:1.1})
+                })
+                
+                $("#btn" + i).mouseout(function(){
+                     TweenMax.to($(this),0.5,{scale:1})
+                })
+                
+                $("#btn" + i).click(function(){
+                    $("#popwindow").show();
+                    TweenMax.to($("#popwindow"),0.5,{alpha:1})
+                   
+                });
             }
-
-             function clickN1(){
-                q1 = false;
-                document.getElementById("vision1").style.display = "block";
-				document.getElementById("vision2").style.display = "block";
-				document.getElementById("vision3").style.display = "block";
-				vision1Animation.play();
-				vision2Animation.play();
-				vision3Animation.play();
-                clickWhat() 
-            }
-
-             function clickS2(){
-                q2 = true;
-                document.getElementById("respirar1").style.display = "none";
-			document.getElementById("respirar2").style.display = "none";
-			document.getElementById("respirar3").style.display = "none";
-			respirarAnimation1.progress(0.25).pause();
-			respirarAnimation2.progress(0).pause();
-			respirarAnimation3.progress(0.5).pause();
-                 clickWhat()
-            }
-
-             function clickN2(){
-                q2 = false;
-                document.getElementById("respirar1").style.display = "block";
-			document.getElementById("respirar2").style.display = "block";
-			document.getElementById("respirar3").style.display = "block";
-			respirarAnimation1.play();
-			respirarAnimation2.play();
-			respirarAnimation3.play();
-                 clickWhat()
-            }
-
-             function clickS3(){
-                q3 = true;
-
-                document.getElementById("noSound").style.display = "none";
-            }
-
-             function clickN3(){
-                q3 = false;
-                document.getElementById("noSound").style.display = "block";
-                clickWhat()
-            }
-
-             function clickS4(){
-                q4 = true;
-                mamboBibrate.progress(0.5).pause();
-                 clickWhat()
-            }
-
-             function clickN4(){
-                q4 = false;
-                mamboBibrate.play();
-                 clickWhat()
-            }
-
-            function clickWhat(){
-
-            	if(!q1 || !q2 || !q3 || !q4){
-            		document.getElementById("textBehind").innerHTML = "Avisa a la brigada";
-                    $("#textBehind").css("color","red");
-            	}
-            	else{
-
-            		document.getElementById("textBehind").innerHTML = "Sigue trabajando con normalidad";
-                                        $("#textBehind").css("color","green");
-            	}
-            }
-$("#textBehind").css("color","green");
+           
+        
         </script>
     </body>
 </HTML>
