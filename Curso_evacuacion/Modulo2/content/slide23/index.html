@@ -5,6 +5,11 @@
         <title>slide1</title>
         <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="../../css/font-awesome.css" />
+        
+
+
 
         <style>
             body{
@@ -25,117 +30,288 @@
             }
             
             #contentMain{
-                position: absolute;
-                width: 100%;
-                height: 100%;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-            }
-            
-            #contentSlide{
-                top: 0%;
                 position: relative;
-               /* width: 100%;
-                height: 100%;
-                */
+                width: 80%;
+                top: 0%;
+                left: 10%;
+                padding: 2vw;
             }
+
             
             .text1{
                 position: relative;
-                font-size: 2vh;
+                font-size: 1vh;
                 color: #4059A7;
                 font-weight:normal;
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                transform: translate(-20%,0%);
             }
  
-            .text1 p{
-                font-size: 1.5vw;
+
+            .bodytext{                
+                font-size: 2vw;
                 color: #4059A7;
                 font-weight:normal;
+                margin: 2vw;
+                margin-bottom: 0;
+                text-align: center;
             }
             
             h1{
-                font-size: 4vw;
+                font-size: 3vw;
                 color: #4059A7;
                 font-weight: bold;
-            }
-
-             h2{
-                font-size: 2vw;
-                color: #4059A7;
-                font-weight: bold;
+                
             }
             
            
             .avatar{
                 text-align: center;
                 width: 100%;
-                display: block;
-                align-content: center;
             }
             
-            .mambo{
-                //position: relative;
-                width: 40%;
-                //left: 50%;
-                //transform: translate(-50%,0%);
+            .frida{
+                position: relative;
+                width: 50%;
+                left: 50%;
+                transform: translate(-50%,0%);
+            }
+            
+            ul{
+                font-size: 1.5vw;
+                color: #4059A7;
+                font-weight:bold;
+                margin: 1vw; 
+                list-style-type: none;
+                    width: 100%;
+    height: 100%;
+            }
+            
+            .fas{
+                font-size: 3vw;
+/*                background-color: forestgreen;*/
+                padding: 1vw;
+                color: orange;
+                border-radius: 1vw;
+                margin: 0.2vw;
             }
             
             @media (orientation : portrait) { 
-           #contentSlide{
-                top: 15%;
-                position: absolute;
-                transform: translate(0%,0%);
+ 
             }
             
-            h1{
-                font-size: 5vh;
-                color: #4059A7;
-                font-weight: bold;
+            .img-cont{
+                width: 20%;
+                text-align: center;
+                left:50%;
+                position: relative;
+                transform: translate(-50%,-50%);
+            }
+            
+            .temas{
+                margin-top: 10%;
+            }
+            
+            .cardMambo{
+                position: relative;
+                background-image:url("../../img/M2-IMG-24.svg");
+                background-repeat: no-repeat;
+                background-size: contain;
+                background-position: center;
+                height: 40%;
+                width: 100%;
+                
+            }    
+            
+            #popwindow{
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0,0,0,0.5);
+                top: 0;
+                left: 0;
+                opacity: 0;
+                
+            }
+
+            .window-base{
+                position: relative;
+                width: 80%;
+                height: auto;
+                background-color: #FFF;
+                top:50%;
+                left: 50%;
+                transform: translate(-50%,-50%);
+                border-radius: 1vw;
+                padding: 3vw;
+                
+            }
+
+            .body-window{
+                position: relative;
+                margin: 2vw;
+            }
+            
+            .base-card{
+                position: relative;
+                padding: 2vw;
+                border-radius: 1vw;
                 text-align: center;
             }
             
-            .text1 p{
-    
-                font-size: 2vh;
-                color: #4059A7;
-                font-weight:normal;
-            }    
+            .btn{
+                width: 100%;
+                padding: 2vw;
+                margin:0.5vw;
+            }
+            
+            .containerbuttons{
+                width: 100%;
+                padding: 2vw;
+            }
+            
+            .col-sm-4{
+                text-align: center;
+            }
+            
+            .btnclose{
+                width: auto;
                 
+                padding:0 2vw;
+                margin:0;
             }
             
         </style>
     </head>
     <body >
         <div id="bgImage"></div>
-        <div id="contentMain" class="">
+        <div id="contentMain">
             <div id="contentSlide" class="row ">
-                <div class="avatar col-sm-12 col-xs-12 col-md-12" >
-                    <img class="mambo" src="../../img/mambo.svg">
-                    <br><br><br>
-                    <div class="congrats col-sm-12 col-xs-12 col-md-12">
 
-                        <h1>Felicidades</h1>
-                        <h2>Has concluido el Módulo I.<br> Te invitamos a realizar la evaluación de tu aprendizaje <br>y prepararte para cursar el módulo II.</h2>
+  
+                <div class="col-xs-12 col-sm-12">
+                   
+                       <div class="a1 bodytext">Existen diversas técnicas de evacuación, éstas son: </div>
+                    
+            <div class="row containerbuttons">
+            <div class="col-sm-4">
+                <div id="btn1" class="btn btn-primary ">Repliegue</div>
+            </div>
+            <div class="col-sm-4">
+                <div id="btn2" class="btn btn-primary ">Guía y retaguardia.</div>
+            </div>
+            <div class="col-sm-4">
+                <div id="btn3" class="btn btn-primary ">Portero o contador.</div>
+            </div>
+            <div class="col-sm-4">
+                <div id="btn4" class="btn btn-primary ">Zipper o por fases.</div>
+            </div>
+            <div class="col-sm-4">
+                <div id="btn5" class="btn btn-primary ">Por escaleras.</div>
+            </div>
+            <div class="col-sm-4">
+                <div id="btn6" class="btn btn-primary ">Conteo fino.</div>
+            </div>
+            <div class="col-sm-4">
+                <div id="btn7" class="btn btn-primary ">Conteo rápido.</div>
+            </div>
+            <div class="col-sm-4">
+                <div id="btn8" class="btn btn-primary ">Conteo general.</div>
+            </div>
+            <div class="col-sm-4">
+                <div id="btn9" class="btn btn-primary ">Evacuación asistida.</div>
+            </div>
+            </div>
+            
+            </div>
+        </div>
+                    </div>
+
+        <div id="popwindow">
+            <div class="window-base">
+                <div class="header-window row">
+                <div class="col-sm-2" style="text-align: center;"><span class="base-card"></span></div>
+                <div id="titleWindow" class="col-sm-10"><h1></h1></div>
+                </div>
+                <div class="body-window row"> 
+                    <div class="col-sm-12">
+                    <span id="textWindow" class="bodytext"></span>
+                    </div>
+                    <div class="col-sm-12" style="padding:1vw;text-align: right;">
+                        <div id="closeWindow" class="btn btnclose btn-secondary">Ok</div>
                     </div>
                 </div>
-                <div class="text1  col-sm-12 col-xs-12 col-md-12 ">
-                    
-                    
-                </div>
-
+            
             </div>
         </div>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
         <script>
-            TweenMax.fromTo($(".mambo"),0.5,{scale:0,alpha:0},{scale:1,alpha:1,ease:Back.easeOut,delay:1});
+            var audio1 = new Audio();
+       // audio1.src = "../../sounds/slide4.wav"
+            //audio1.controls = true;
+            //document.body.appendChild(audio1).style.marginLeft="80%";
+        //audio1.play();
             
-           TweenMax.fromTo($(".congrats"),1,{x:250,alpha:0},{x:0,alpha:1,ease:Linear.easeNone,delay:2});
+        var info = [
+            {
+                color:"green",
+                titulo:"Normal",
+                texto:"Funcionamiento normal, las acciones cotidianas de la empresa se llevan a cabo de manera rutinaria"
+            },
+            {
+                color:"yellow",
+                titulo:"Fase Pre-alerta",
+                texto:"Cuando existe la posibilidad de que un fenómeno esté ocurriendo.<br>En esta fase, los brigadistas suspenden sus labores y se mantienen pendientes para recibir instrucciones."
+            },
+            {
+                color:"orange",
+                titulo:"Fase de Alerta",
+                texto:"El fenómeno está confirmado y sus efectos son próximos a sentirse en el inmueble y población.<br>En esta fase, los brigadistas se equipan y preparan para realizar los protocolos de respuesta de acuerdo con la emergencia declarada y están listos para realizar laevacuación del inmueble."
+            },
+            {
+                color:"red",
+                titulo:"Fase de Alarma",
+                texto:"El fenómeno ya está ocurriendo y toda la población es avisada por medio de la alarma. El CIPC, activa los protocolos de emergencia y hace partícipe a la población general.<br>En esta fase los brigadistas ejecutan todas las acciones que corresponden a su responsabilidad, que permitan la salvaguarda de las personas, los bienes y el entorno. Principalmente ejecutan labores de evacuación."
+            },
+            {
+                color:"red",
+                titulo:"Fase Alarma crítica",
+                texto:"Los daños del fenómeno han rebasado la capacidad de respuesta del CIPC.<br>En esta etapa los brigadistas deben evacuar a la zona de menor riesgo y preparar la transferencia del mando a los servicios externos de emergencia."
+            }
+        ]    
+            
+            $("#popwindow").hide();
+            $("#closeWindow").click(function(){
+                TweenMax.to($("#popwindow"),0.5,{alpha:0,onComplete:hideWindow})
+                function hideWindow(){
+                    $("#popwindow").hide();
+                }
+                
+            })
+            
+            for(var i = 1;i<=5;i++){
+                $("#btn" + i).attr("index",[i-1]);
+                $("#btn" + i).mouseover(function(){
+                     TweenMax.to($(this),0.5,{scale:1.1})
+                })
+                
+                $("#btn" + i).mouseout(function(){
+                     TweenMax.to($(this),0.5,{scale:1})
+                })
+                
+                $("#btn" + i).click(function(){
+                    var index = $(this).attr("index");
+                    //$(".base-card").css("background-color",info[index].color);
+                    //$("#titleWindow").find("h1").html(info[index].titulo);
+                    //$("#textWindow").html(info[index].texto);
+                    $("#popwindow").show();
+                    TweenMax.to($("#popwindow"),0.5,{alpha:1})
+                   
+                });
+            }
+           
         
         </script>
     </body>

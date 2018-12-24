@@ -2,11 +2,12 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>slide19</title>
+        <title>slide1</title>
         <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
+         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 
-         <style>
+        <style>
             body{
                 margin:0;
                 padding:0;
@@ -34,32 +35,28 @@
 
             
             .text1{
+                position: relative;
+                font-size: 2vh;
+                color: #4059A7;
+                font-weight:normal;
+                display: flex;
+                justify-content: center;
+                align-items: center;
             }
  
 
             .bodytext{                
                 font-size: 2vw;
                 color: #4059A7;
+                font-weight:normal;
                 margin: 2vw;
-                opacity: 0;
             }
             
+            
             h1{
-                font-size: 3vw;
+                font-size: 4vw;
                 color: #4059A7;
-                width: 100%;
                 font-weight: bold;
-                margin-top: 10%;
-            }
-            h2{
-                font-size: 2vw;
-                color: #4059A7;
-                width: 100%;
-                font-weight: normal;
-                //margin-top: 10%;
-                text-align: center;
-                //top:-100%;
-                //position: relative;
             }
             
            
@@ -68,148 +65,37 @@
                 width: 100%;
             }
             
-            .imagePc{
-                position: relative;
-                width: 100%;
-                left: 50%;
-                transform: translate(-50%,0%);
-            }
-
             .frida{
                 position: relative;
-                width: 100%;
+                width: 50%;
                 left: 50%;
                 transform: translate(-50%,0%);
             }
-
-            .hierarchy{
-                position: relative;
-                width: 100%;
-                left: 50%;
-                transform: translate(-50%,0%);
-            }
-            #mamboFull{
-                width: 60%;    
-                height: 60%;
-                margin-left: auto;
-                margin-right: auto;
-                display: block;
-            }
-            tr{
-                padding: 10px;
-            }
-            td{
-                padding: 10px;
-            }
-            p{
-                font-size: 2vh;
+            
+            ul{
+                font-size: 1.5vw;
                 color: #4059A7;
-                font-weight: normal;
-                text-align: center;
+                font-weight:bold;
+                margin: 2vw;
+                 list-style-type: none;
             }
-
-            #slider-wrapper {
-position: relative;
-width: 60%;
-max-width: 100%;
-margin: 0 auto;
-padding: 0 10px;
-font-family: arial, sans-serif;
-font-size: 0;
--webkit-box-sizing: border-box;
--moz-box-sizing: border-box;
-box-sizing: border-box;
-}
-/* Contenedor slider */
-#slider { 
-position: relative;
-width: 100%;
-padding-bottom: 50%; /* Aspect ratio */
-overflow: hidden;
-border:5px solid #e79213;
-border-radius: 5%/10%;
--webkit-box-sizing: border-box;
--moz-box-sizing: border-box;
-box-sizing: border-box;
-}
-#slider > a {
-position:absolute;
-top:0;
-left:0;
-width: 100%;
-min-height: 100%;
-}
-/* Ajuste de las imágenes */
-#slider img {
-width: 100%;
-min-height: 100%;
-position: absolute;
-margin:0;
-padding:0; 
-border:0;
-}
-/* Texto que acompaña a cada imagen */
-#slider p {
-position: absolute;
-bottom: 0;
-left: 0;
-display: block;
-overflow: hidden;
-white-space: nowrap;
-text-overflow: ellipsis;
-width: 100%;
-height: 70px;
-margin:0;
-padding: 5px 0;
-border-radius: 0 20px 20px 0;
-color: #000;
-background: #fff;
-font-size: 18px;
-line-height: 18px;
-text-align:center;
-opacity: 0.7;
-line-height: 60px;
-}
-/* Flechas de navegación */
-a.mas, a.menos {
-position: absolute;
-top: 50%;
-left: 0px;
-z-index: 10;
-width: 20px;
-height: 30px;
-text-align: center;
-line-height: 30px;
-font-size: 30px;
-color: white;
-background: #333;
-text-decoration: none;
-transition: .5s margin ease;
-}
-a.mas {
-left: 100%;
-margin-left: 100px;
-}
-#slider-wrapper:hover a.mas {
-margin-left: -40px;
-}
-a.menos {
-left: 0;
-margin-left: -100px;
-}
-#slider-wrapper:hover a.menos {
-margin-left: 10px;
-}
-            .text{
-                padding: 30px; 
+            
+                li{
+                font-size: 2vw;
+/*                background-color: forestgreen;*/
+                padding: 1vw;
+            }    
+            
+                .fas{
+                font-size: 3vw;
+/*                background-color: forestgreen;*/
+                padding: 1vw;
+                color: orange;
+                border-radius: 1vw;
+                margin: 0.2vw;
             }
-            .dotImage{
-                width: 30px;
-            }
-            .tableDots{
-                padding: 10px;
-            }
-
+            
+            
             @media (orientation : portrait) { 
            #contentSlide{
                 top: 15%;
@@ -217,9 +103,21 @@ margin-left: 10px;
                 transform: translate(0%,0%);
             }
             
-            /* Contenedor general */
-
+            h1{
+                font-size: 5vh;
+                color: #4059A7;
+                font-weight: bold;
+                text-align: center;
+            }
             
+            .text1 p{
+    
+                font-size: 2vh;
+                color: #4059A7;
+                font-weight:normal;
+            }    
+                
+            }
             
         </style>
     </head>
@@ -227,118 +125,46 @@ margin-left: 10px;
         <div id="bgImage"></div>
         <div id="contentMain">
             <div id="contentSlide" class="row ">
-                <div class="text col-sm-12 col-xs-12 col-md-12">
-                    <h2>Recuerda que ante un riesgo hay acciones concretas que debes conocer para salvaguardar tu integridad y la de los demás. Por ejemplo:</h2>
-                </div>
-                
-                <div id="slider-wrapper">
-                <div id="slider">
-                    <a id="slide1"><img  src="../../img/9na_pregunta.jpg" /><p>¿Cómo debe ser una evacuación?</p></a>
-                    <a id="slide2"><img  src="../../img/9na_pregunta.jpg"  /><p>¿Cuál es tu responsabilidad ante la evacuación?</p></a>
-                    <a id="slide3"><img src="../../img/9na_pregunta.jpg"  /><p>¿Quién conforma las brigadas de tu organización?</p></a>
-                    <a id="slide4"><img  src="../../img/9na_pregunta.jpg"  /><p>¿Quién es la autoridad que podrá indicarte cómo y cuándo evacuar?</p></a>
-                    <a id="slide5"><img src="../../img/9na_pregunta.jpg"  /><p>¿Cómo saber cuándo evacuar?</p></a>
-                </div>
-                <div class="tableDots col-sm-12 col-xs-12 col-md-12">
-                    <table align="center">
-                        <tr>
-                            <td>
-                                <img class="dotImage" src="../../img/dot.png" onclick="dot(1)">
-                            </td>
-                            <td>
-                                <img class="dotImage" src="../../img/dot.png" onclick="dot(2)">
-                            </td>
 
-<td>
-                                <img class="dotImage"  src="../../img/dot.png" onclick="dot(3)">
-                            </td>
 
-<td>
-                                <img class="dotImage" src="../../img/dot.png" onclick="dot(4)">
-                            </td>
+                <div class="col-xs-12 col-sm-12">
+                    <p class="bodytext text2">
+                        Recuerda que al realizar una
+evacuación eficaz debes vigilar: </p>
+                        <ul>
+                    <li class="point1" > a) La evacuación de todo el personal </li>
+                    <li class="point2" >b) El orden y disciplina mostrados</li>
+                    <li class="point3" >c) Contar a las personas y saber quién falta</li>
+                    <li class="point4" >d) El previo conocimiento de sus procedimientos</li>
+                    <li class="point5" >e) Evacuación segura sin lesionados</li>
+                    </ul>
 
-<td>
-                                <img class="dotImage" src="../../img/dot.png" onclick="dot(5)">
-                            </td>
-
-                        </tr>
-                    </table>
+         
+                    
                 </div>
 
             </div>
-            <!--<a href="javascript:void();" class="mas">&rsaquo;</a>
-            <a href="javascript:void();" class="menos">&lsaquo;</a></div>-->
-
         </div>
-
-        </div>
-
-        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
         <script>
-            
-   
-            
-        /*$(function(){
-
-var interval = setInterval(changeDiv, 6000);
-function changeDiv(){
-$('#slider a:first-child').fadeOut(1000).next('a').fadeIn(1000).end().appendTo('#slider');
-};
-$('.mas').click(function(){
-changeDiv();
-clearInterval(interval);
-interval = setInterval(changeDiv, 6000);
-});
-$('.menos').click(function(){
-$('#slider a:first-child').fadeOut(1000);
-$('#slider a:last-child').fadeIn(1000).prependTo('#slider');
-clearInterval(interval);
-interval = setInterval(changeDiv, 6000);
-});
-});*/
-        var currentDot = 1;
-        /*$('.mas').click(function(){
-            changeDiv();
-            clearInterval(interval);
-            interval = setInterval(changeDiv, 6000);
-        };*/
-        $('#slider a:gt(0)').hide();
-
-        var interval = setInterval(automaticChange, 6000);
-
-        function dot(number){
-            
-            if(currentDot!=number){
-                //console.log("djsab");
-                //$('#slider a:first-child').fadeOut(1000).next('a').fadeIn(1000).end().appendTo('#slider');
-                $("#slide"+currentDot).fadeOut(1000);
-                currentDot = number;
-                $("#slide"+currentDot).fadeIn(1000).end().appendTo("#slider");
-
-                clearInterval(interval);
-                interval = setInterval(automaticChange, 6000);
-                //jQuery("#slide"+currentDot).fadeOut(1000);
-                /*TweenMax.to($("#slide"+currentDot),0.5,{opacity:0,ease:Linear.easeNone});
-                currentDot = number;
-                TweenMax.to($("#slide"+currentDot),0.5,{opacity:1,ease:Linear.easeNone});*/
-            }
-        }
-
+            var audio1 = new Audio();
+        audio1.src = "../../sounds/slide5.wav"
+        audio1.play();
+            //audio1.controls = true;
+            //document.body.appendChild(audio1)
         
-
-        function automaticChange(){
-            var temp = currentDot+1;
-            if(temp > 5 ){
-                temp = 0;
-            }
-            dot(temp);
-        }
-
- 
+            TweenMax.fromTo($(".avatar"),0.9,{alpha:0},{alpha:1,ease:Back.easeOut,delay:1});
             
-
-
+            TweenMax.fromTo($(".text2"),0.5,{x:200,alpha:0},{x:0,alpha:1,delay:1.5});
+            
+            TweenMax.fromTo($(".point1"),0.5,{x:200,alpha:0},{x:0,alpha:1,delay:2});
+            TweenMax.fromTo($(".point2"),0.5,{x:200,alpha:0},{x:0,alpha:1,delay:3});
+            TweenMax.fromTo($(".point3"),0.5,{x:200,alpha:0},{x:0,alpha:1,delay:4});
+            TweenMax.fromTo($(".point4"),0.5,{x:200,alpha:0},{x:0,alpha:1,delay:5});
+            TweenMax.fromTo($(".point5"),0.5,{x:200,alpha:0},{x:0,alpha:1,delay:6});
+            
+        
         </script>
     </body>
 </HTML>

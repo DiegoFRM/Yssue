@@ -153,14 +153,12 @@
                 margin: 2vw;
             }
             
-            .green-card{
+            .base-card{
                 position: relative;
-                background-color: green;
                 padding: 2vw;
                 border-radius: 1vw;
                 text-align: center;
             }
-            
             
             
         </style>
@@ -199,12 +197,12 @@ alarmas.</div>
         <div id="popwindow">
             <div class="window-base">
                 <div class="header-window row">
-                <div class="col-sm-2" style="text-align: center;"><span class="green-card"></span></div>
-                <div class="col-sm-10"><h1>Normal</h1></div>
+                <div class="col-sm-2" style="text-align: center;"><span class="base-card"></span></div>
+                <div id="titleWindow" class="col-sm-10"><h1>Normal</h1></div>
                 </div>
                 <div class="body-window row"> 
                     <div class="col-sm-12"><img class="img-fluid" style="width:7%;" src="../../img/casco.svg"> 
-                    <span class="bodytext">Funcionamiento normal, las acciones cotidianas de la empresa se llevan a cabo de manera rutinaria</span>
+                    <span id="textWindow" class="bodytext">Funcionamiento normal, las acciones cotidianas de la empresa se llevan a cabo de manera rutinaria</span>
                     </div>
                     <div class="col-sm-12" style="padding:1vw;text-align: right;">
                         <div id="closeWindow" class="btn btn-primary">Ok</div>
@@ -222,6 +220,35 @@ alarmas.</div>
             //audio1.controls = true;
             //document.body.appendChild(audio1).style.marginLeft="80%";
         //audio1.play();
+            
+        var info = [
+            {
+                color:"green",
+                titulo:"Normal",
+                texto:"Funcionamiento normal, las acciones cotidianas de la empresa se llevan a cabo de manera rutinaria"
+            },
+            {
+                color:"yellow",
+                titulo:"Fase Pre-alerta",
+                texto:"Cuando existe la posibilidad de que un fenómeno esté ocurriendo.<br>En esta fase, los brigadistas suspenden sus labores y se mantienen pendientes para recibir instrucciones."
+            },
+            {
+                color:"orange",
+                titulo:"Fase de Alerta",
+                texto:"El fenómeno está confirmado y sus efectos son próximos a sentirse en el inmueble y población.<br>En esta fase, los brigadistas se equipan y preparan para realizar los protocolos de respuesta de acuerdo con la emergencia declarada y están listos para realizar laevacuación del inmueble."
+            },
+            {
+                color:"red",
+                titulo:"Fase de Alarma",
+                texto:"El fenómeno ya está ocurriendo y toda la población es avisada por medio de la alarma. El CIPC, activa los protocolos de emergencia y hace partícipe a la población general.<br>En esta fase los brigadistas ejecutan todas las acciones que corresponden a su responsabilidad, que permitan la salvaguarda de las personas, los bienes y el entorno. Principalmente ejecutan labores de evacuación."
+            },
+            {
+                color:"red",
+                titulo:"Fase Alarma crítica",
+                texto:"Los daños del fenómeno han rebasado la capacidad de respuesta del CIPC.<br>En esta etapa los brigadistas deben evacuar a la zona de menor riesgo y preparar la transferencia del mando a los servicios externos de emergencia."
+            }
+        ]    
+            
             $("#popwindow").hide();
             $("#closeWindow").click(function(){
                 TweenMax.to($("#popwindow"),0.5,{alpha:0,onComplete:hideWindow})
@@ -232,6 +259,7 @@ alarmas.</div>
             })
             
             for(var i = 1;i<=5;i++){
+                $("#btn" + i).attr("index",[i-1]);
                 $("#btn" + i).mouseover(function(){
                      TweenMax.to($(this),0.5,{scale:1.1})
                 })
@@ -241,6 +269,10 @@ alarmas.</div>
                 })
                 
                 $("#btn" + i).click(function(){
+                    var index = $(this).attr("index");
+                    $(".base-card").css("background-color",info[index].color);
+                    $("#titleWindow").find("h1").html(info[index].titulo);
+                    $("#textWindow").html(info[index].texto);
                     $("#popwindow").show();
                     TweenMax.to($("#popwindow"),0.5,{alpha:1})
                    
