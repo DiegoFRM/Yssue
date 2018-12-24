@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no" />
+  <title>Pedometer</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
+ <style>
+ #canvas {
+      width: 100%;
+    }
+    body{
+        margin:0;
+        padding:0;
+        font-family: 'Roboto Condensed', sans-serif;
+        overflow-x: hidden;
+        overflow-y: hidden;
+    }
+
+    #contentMain{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        //display: flex;
+        //justify-content: center;
+        align-items: center;
+    }
+
+    #dataContainer{
+
+    	position: absolute;
+    	width: 100%;
+    	height: 100%;
+    	align-items: center;
+    	display: none;
+    }
+
+    #data{
+    	position: absolute;
+    	bottom: 0px;
+    	width: 100%;
+    	align-items: center;
+    }
+
+    #time{
+    	width: 30%;
+    	position: absolute;
+    	left: 10%;
+    	bottom: 50px;
+    	margin: 0px;
+    	padding: 10px;
+    	color:white;
+    	background-color: orange;
+    	border-radius:10px;
+    	text-align: center;
+    }
+
+    #distance{
+    	width: 30%;
+    	position: absolute;
+    	right: 10%;
+    	bottom: 50px;
+    	margin: 0px;
+    	padding: 10px;
+    	color:white;
+    	background-color: orange;
+    	border-radius:10px;
+    	text-align: center;
+    	
+    }
+
+    p{
+    	margin: 0px;
+    }
+
+    #bgImage{
+       position: absolute;
+        width: 100%;
+        height: 100%;
+        //background:url("../../img/bg1.jpg");
+        background-color: #3FB4DC;
+        background-size: cover;
+        //opacity: 0;
+        top: 0%;
+    }
+
+    #canvas {
+position: absolute;
+
+    }
+
+    #contentSlide{
+        top: 5%;
+        position: absolute;
+        margin: 0px;
+
+        width: 100%;
+        height: 100%;
+        
+    }
+
+    .text1{
+                position: relative;
+                font-size: 2vh;
+                color: #ffffff;
+                font-weight:normal;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                //transform: translate(-20%,0%);
+                text-align: center;
+                margin: 10px;
+                margin-top: -2%;
+                width: 100%;
+                height: 1%;
+
+            }
+
+            .text2{
+                position: relative;
+                //font-size: 2vh;
+                color: #ffffff;
+                font-weight:normal;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                //transform: translate(-20%,0%);
+                text-align: left;
+                margin: 0px;
+                width: 100%;
+                top:-5%;
+
+            }
+
+            .text3{
+                position: relative;
+                font-size: 4vh;
+                color: white;
+                font-weight:normal;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                //transform: translate(-20%,0%);
+                text-align: left;
+                margin: 0px;
+                width: 100%;
+                top:-5%;
+                text-align: center;
+
+            }
+
+             .text2 p{
+                font-size: 4vw;
+                color: #ffffff;
+                font-weight:normal;
+            }
+            
+            h1{
+                font-size: 5vw;
+                color: #ffffff;
+                font-weight: bold;
+            }
+
+            h2{
+            	font-size: 5vw;
+                color: #ffffff;
+                font-weight: normal;
+            }
+            
+           
+            .avatar{
+                text-align: center;
+                width: 100%;
+            }
+            
+            .frida{
+                position: relative;
+                width: 50%;
+                left: 50%;
+                //margin: 20px;
+                transform: translate(-50%,0%);
+            }
+
+    #initDiv{
+            	margin: 0px;
+            	padding: 0px;
+            	width: 100%;
+            	height: 100%;
+            }
+            #qrDiv{
+            	margin: 0px;
+            	padding: 0px;
+            	width: 100%;
+            	height: 100%;
+            	display:  none;
+
+            }
+
+             #wrongDiv{
+            	margin: 0px;
+            	padding: 0px;
+            	width: 100%;
+            	height: 100%;
+            	display:  none;
+
+            }
+
+             #finishDiv{
+            	margin: 0px;
+            	padding: 0px;
+            	width: 100%;
+            	height: 100%;
+            	display:  none;
+
+            }
+
+            #buttonInit{
+				width: 50%;
+				position: relative;
+				left: 50%;
+				top: 0%;
+				transform: translate(-50%,0%);
+				height: 50px;
+				
+			}
+
+			#buttonFinish{
+				width: 50%;
+				position: relative;
+				left: 50%;
+				top:0%;
+				transform: translate(-50%,0%);
+				height: 50px;
+				
+			}
+
+			#buttonQr{
+				width: 50%;
+				position: relative;
+				left: 50%;
+				top:0%;
+				transform: translate(-50%,0%);
+				height: 50px;
+				
+			}
+
+			#buttonWronQr{
+				width: 50%;
+				position: relative;
+				left: 50%;
+				top:0%;
+				transform: translate(-50%,0%);
+				height: 50px;
+				
+			}
+
+</style>
+</head>
+<body>
+	
+
+	<div id ="dataContainer">
+		<div id="bgImage"></div>
+		<canvas id="canvas" hidden></canvas>
+		<div id="data">
+			<div id="time" >
+				<p>Tiempo</p>
+				<p id="timeData"></p>
+			</div>
+			<div id="distance" >
+				<p>Distancia</p>
+				
+				<p id="distanceData">100mts</p>
+			</div>
+		</div>
+  	</div>
+
+  <div id ="initDiv">
+		<div id="bgImage"></div>
+		<div id="contentMain">
+            <div id="contentSlide" class="row ">
+                <div class="col-sm-2 col-xs-12 col-md-12 " >
+                    <img class="frida" id ="initImage" src="img/Mambitos/mambo_Normal.png">
+                </div>
+
+                <div class="text1" id="initText1">
+                    
+                        <h2>Evaluacion del <br>aprendizaje</h2>
+                       
+                </div>
+                <div class="text1" id="initText2">
+                	 <h1>¡Comencemos!</h1>
+                </div>
+
+                 <div class=" text2" id="initText3">
+                    	<p>1.Asegúrate de tener una<br>
+						conexión de internet estable<br>
+						2. Siempre mantén tu dispositivo<br>
+						de forma vertical.<br>
+						3. Lee con atención.<br>
+						4. Interactúa y ¡diviértete!<br>
+					</p>
+                </div>
+                <button type="button" id="buttonInit" class="btn btn-warning col-sm-6 col-xs-6 col-md-6" onclick="clickInit()">Comienza aquí</button>
+            </div>
+        </div>
+	</div>
+
+	<div id ="qrDiv">
+		<div id="bgImage"></div>
+		<div id="contentMain">
+            <div id="contentSlide" class="row ">
+                
+
+                <div class="text3" id="initText1">
+                    
+                   <p>Busca la señalizacion que contenga el codigo Qr:</p>
+                       
+                </div>
+                
+
+                <div class="col-sm-2 col-xs-12 col-md-12 " >
+                    <img class="frida" id ="qr" src="qrs/Yssue_m2_1.png">
+                </div>
+
+                <button type="button" id="buttonQr" class="btn btn-warning col-sm-6 col-xs-6 col-md-6" onclick="clickFoundQr()">Entendido</button>
+            </div>
+        </div>
+	</div>
+
+	<div id ="wrongDiv">
+		<div id="bgImage"></div>
+		<div id="contentMain">
+            <div id="contentSlide" class="row ">
+                
+
+                <div class="text3" id="initText1">
+                    
+                   <p>Código Qr escaneado incorrecto</p>
+                   
+                       
+                </div>
+
+                <div class="text3" id="initText2">
+                	<p>Busca la señalizacion que contenga el codigo Qr:</p>
+                </div>
+                
+
+                <div class="col-sm-2 col-xs-12 col-md-12 " >
+                    <img class="frida" id ="qrWrong" src="qrs/Yssue_m2_1.png">
+                </div>
+
+                <button type="button" id="buttonWronQr" class="btn btn-warning col-sm-6 col-xs-6 col-md-6" onclick="clickWrongQr()">Entendido</button>
+            </div>
+        </div>
+	</div>
+
+	<div id ="finishDiv">
+		<div id="bgImage"></div>
+		<div id="contentMain">
+            <div id="contentSlide" class="row ">
+                <div class="col-sm-2 col-xs-12 col-md-12 " >
+                    <img class="frida" id="finishImage" src="img/Mambitos/mambo_Normal.png">
+                </div>
+
+                <div class="text1" id="finishText1">
+                    	<h1>¡Bien Hecho!</h1>       
+                       
+                </div>
+                <div class="text1" id="finishText2">
+                	  <h2>Haz completado tu evaluacion</h2>
+                </div>
+
+                 <div class="text1 col-sm-3 col-xs-3 col-md-3" id="tiempoFinish">
+                	  <h2 id="timeFinishData">Tiempo</h2>
+                </div>
+
+                <div class="text1 col-sm-3 col-xs-3 col-md-3" id="distanciaFinish">
+                	  <h2 id="distanceFinishData">Distancia</h2>
+                </div>
+
+                 
+                <button type="button" id="buttonFinish" class="btn btn-warning col-sm-6 col-xs-6 col-md-6" onclick="clickFinish()">Continuar</button>
+
+
+            </div>
+        </div>
+	</div>
+
+
+	<script src="js/jsQR.js"></script>
+  <script src="js/jquery-2.1.1.min.js" type="text/javascript" charset="utf-8"></script><!-- This library is under MIT Licence -->
+  <script src="js/jquery.nouislider.min5.0.js" type="text/javascript" charset="utf-8"></script><!-- This library is under Do What The Fuck You Want To Public License (WTFPL) -->
+  <script src="js/underscore-min1.6.0.js" type="text/javascript" charset="utf-8"></script>
+  <script src="js/backbone-min1.1.2.js" type="text/javascript" charset="utf-8"></script><!-- This library is under MIT Licence -->
+  <script src="js/status.js" type="text/javascript" charset="utf-8"></script>
+  
+  <script src="js/lang.js" type="text/javascript" charset="utf-8" defer></script> 
+  <script src="js/podo.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="js/app.js" type="text/javascript" charset="utf-8"></script>
+
+</body>
+</html>
+
