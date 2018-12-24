@@ -178,6 +178,11 @@
                 margin:0;
             }
             
+            #textWindow{
+                padding: 0;
+                margin: 0;
+            }
+            
         </style>
     </head>
     <body >
@@ -236,28 +241,50 @@
         var info = [
             {
                 color:"green",
-                titulo:"Normal",
-                texto:"Funcionamiento normal, las acciones cotidianas de la empresa se llevan a cabo de manera rutinaria"
+                titulo:"Activación",
+                texto:"En esta fase el CIPC, activa la alarma."
             },
             {
                 color:"yellow",
-                titulo:"Fase Pre-alerta",
-                texto:"Cuando existe la posibilidad de que un fenómeno esté ocurriendo.<br>En esta fase, los brigadistas suspenden sus labores y se mantienen pendientes para recibir instrucciones."
+                titulo:"Evacuación",
+                texto:"Se activa el procedimiento de evacuación"
             },
             {
                 color:"orange",
-                titulo:"Fase de Alerta",
-                texto:"El fenómeno está confirmado y sus efectos son próximos a sentirse en el inmueble y población.<br>En esta fase, los brigadistas se equipan y preparan para realizar los protocolos de respuesta de acuerdo con la emergencia declarada y están listos para realizar laevacuación del inmueble."
+                titulo:"Contar",
+                texto:"Contar a las personas que se encuentren en el punto de reunión. Para detectar quien falta"
             },
             {
                 color:"red",
-                titulo:"Fase de Alarma",
-                texto:"El fenómeno ya está ocurriendo y toda la población es avisada por medio de la alarma. El CIPC, activa los protocolos de emergencia y hace partícipe a la población general.<br>En esta fase los brigadistas ejecutan todas las acciones que corresponden a su responsabilidad, que permitan la salvaguarda de las personas, los bienes y el entorno. Principalmente ejecutan labores de evacuación."
+                titulo:"Búsqueda",
+                texto:"Los brigadistas buscan en el interior del inmueble a quien falte de evacuar, si por alguna razón no pudo salir y está dentro de sus capacidades activan protocolo de recuperación."
             },
             {
                 color:"red",
-                titulo:"Fase Alarma crítica",
-                texto:"Los daños del fenómeno han rebasado la capacidad de respuesta del CIPC.<br>En esta etapa los brigadistas deben evacuar a la zona de menor riesgo y preparar la transferencia del mando a los servicios externos de emergencia."
+                titulo:"Recuperar",
+                texto:"Extraer a las personas por maniobras específicas."
+            },
+            {
+                color:"red",
+                titulo:"Revisión de daños ",
+                texto:`Cuando se ha evacuado al 100% del personal y atendido a los lesionados en caso de que existan.
+Se revisa y se levanta un inventario de los daños existentes.<br>
+Revisión visual<br>
+Revisión Física<br>
+Revisión Técnica`
+            },
+            {
+                color:"red",
+                titulo:"Restablecimiento",
+                texto:`El personal de mantenimiento, brigadistas y algunas veces con especialistas; limpian, recuperan y arreglaran los daños en el inmueble, en el mobiliario, equipo e instalaciones con el objetivo de que el lugar sea de nuevo apto para el trabajo.<br>
+Esta fase puede durar minutos horas o días, y puede hacerse en etapas.<br>
+Debe siempre hacerse pensando en la prospectiva de que no vuelva a dañarse los elementos
+afectados por el fenómeno. `
+            },
+            {
+                color:"red",
+                titulo:"Reingreso",
+                texto:"Una vez que una determinada área ha sido restablecida, el Coordinador General del Comité Interno de Protección Civil puede ordenar el ingreso a las labores. "
             }
         ]    
             
@@ -283,8 +310,8 @@
                 $("#btn" + i).click(function(){
                     var index = $(this).attr("index");
                     //$(".base-card").css("background-color",info[index].color);
-                    //$("#titleWindow").find("h1").html(info[index].titulo);
-                    //$("#textWindow").html(info[index].texto);
+                    $("#titleWindow").find("h1").html(info[index].titulo);
+                    $("#textWindow").html(info[index].texto);
                     $("#popwindow").show();
                     TweenMax.to($("#popwindow"),0.5,{alpha:1})
                    
