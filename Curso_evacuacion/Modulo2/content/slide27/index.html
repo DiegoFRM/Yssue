@@ -1,0 +1,127 @@
+<HTML>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>slide1</title>
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="../../css/font-awesome.css" />
+
+
+
+
+        <style>
+            body{
+                margin:0;
+                padding:0;
+                font-family: 'Roboto Condensed', sans-serif;
+                overflow-x: hidden;
+            }
+            
+            #bgImage{
+               position: absolute;
+                width: 100%;
+                height: 100%;
+                background:url("../../img/bg1.jpg");
+                background-size: cover;
+                opacity: 0.1;
+                top: 0%;
+            }
+            
+            #contentMain{
+                position: relative;
+                top: 0%;
+                height: 100%;
+            }
+
+            
+            .text1{
+                position: relative;
+                font-size: 1vh;
+                color: #4059A7;
+                font-weight:normal;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+ 
+
+            .bodytext{                
+                font-size: 2vw;
+                color: #4059A7;
+                font-weight:normal;
+                margin: 2vw;
+            }
+            
+            h1{
+                font-size: 3vw;
+                color: #4059A7;
+                font-weight: bold;
+                
+            }
+            
+            .imgcenter{
+                text-align: center;
+            }
+            
+            .imgcenter img{
+                height: 100%;
+            }
+            
+            .super{
+                position: absolute;
+                width: 100%;
+                height: auto;
+                background-color: rgba(250,250,250,0.9);
+                top: 50%;
+                transform: translate(0,-50%);
+                text-align: center;
+                
+            }     
+            
+            .super img{
+                width: 10%;
+                
+            }
+            
+            
+        </style>
+    </head>
+    <body >
+        <div id="bgImage"></div>
+        <div id="contentMain">
+            <div id="contentSlide" class="row">
+
+                <div class="col-sm-12 imgcenter">
+                    <img class="img-fluid" src="../../img/M2-IMG-31.svg" >  
+                </div>
+                
+                <div class="super">
+                    <img class="star" src="../../img/star.png">
+                    <p class="bodytext">
+                    Has reunido las cuatro insignias y concluiste
+el segundo módulo del curso. ¡Felicidades!<br>
+Ahora, realizaremos una pequeña prueba.
+Continúa para descubrirla.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+        <script>
+            //var audio1 = new Audio();
+            TweenMax.fromTo($(".imgcenter"),0.5,{scale:0,alpha:0},{scale:1,alpha:1,delay:1,ease:Back.easeOut})
+            
+            TweenMax.fromTo($(".super"),1,{scaleY:0},{scaleY:1,delay:2,ease:Back.easeOut})
+            
+            TweenMax.fromTo($(".star"),0.5,{scale:0},{scale:1,delay:3,ease:Back.easeOut})
+            
+            TweenMax.fromTo($(".bodytext"),0.5,{alpha:0},{alpha:1,delay:3.5,ease:Back.easeOut})
+            
+            
+        </script>
+    </body>
+</HTML>

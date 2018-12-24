@@ -144,7 +144,7 @@
                 top: 10%;
                 left: 20%;
                 text-align: center;
-                font-size: 1.4vw;
+                font-size: 0.7em;
                 
                
             }
@@ -157,6 +157,13 @@
                 transform: translate(-50%,-50%);
             }
 
+            
+            .col-sm-2 {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 16.666667%;
+    flex: 0 0 16.666667%;
+    max-width: 14%;
+}
             
         </style>
     </head>
@@ -172,80 +179,138 @@
 Da click en las tarjetas para conocerlos.</div>
                     
             <div class="row">
-            <div class="col-sm-3">
+            <div class="col-sm-2">
                 <div id="card1" data=1  class="cardMambo ">
                     <span class="textCard">
                         <p>
-                        rojo
+                        A un lugar seguro para trabajar.
                         </p>
                     </span>
                 </div>
             </div>
-            <div class="col-sm-3">
+            <div class="col-sm-2">
                 <div id="card2" data=2  class="cardMambo">
                     <span class="textCard">
                         <p>
-                        verde
+                        Conocer los protocolos de emergencia.
                         </p>
                     </span>
                 </div>
                 
             </div>
-            <div class="col-sm-3">
+            <div class="col-sm-2">
                 <div id="card3" data=2  class="cardMambo">
                 <span class="textCard">
                         <p>
-                        verde
+                        Poner los protocolos en práctica.
                         </p>
                     </span>
                 </div>
                 
             </div>
-            <div class="col-sm-3">
+            <div class="col-sm-2">
                 <div id="card4" data=3 class="cardMambo">
                     <span class="textCard">
                         <p>
-                        amarillo
+                        A que se practiquen los protocolos de un simulacro.
                         </p>
                     </span>
                 </div>
                 
             </div>
-            <div  class="col-sm-3">
+            <div  class="col-sm-2">
                 <div id="card5" data=4 class="cardMambo">
                     <span class="textCard">
                         <p>
-                        cafe
+                        Formar parte de las Brigadas de tu inmueble.
                         </p>
                     </span>
                 </div>
                 
             </div>
-            <div class="col-sm-3">
+            <div class="col-sm-2">
                 <div id="card6" data=4 class="cardMambo">
                     <span class="textCard">
                         <p>
-                        cafe
+                        Participar en el Comité Interno de Protección civil.
                         </p>
                     </span>
                 </div>
                 
             </div>
-            <div  class="col-sm-3">
+            <div  class="col-sm-2">
                 <div id="card7" data=3 class="cardMambo">
                     <span class="textCard">
                         <p>
-                       amarillo
+                       Participar en los simulacros de manera proactiva.
                         </p>
                     </span>
                 </div>
                 
             </div>
-            <div class="col-sm-3">
+            <div class="col-sm-2">
                 <div id="card8" data=1 class="cardMambo">
                      <span class="textCard">
                         <p>
-                        rojo
+                        Mantenerlo Seguro
+                        </p>
+                    </span>
+                </div>
+            </div> 
+                
+            <div  class="col-sm-2">
+                <div id="card9" data=5 class="cardMambo">
+                    <span class="textCard">
+                        <p>
+                       A Recibir Capacitación
+                        </p>
+                    </span>
+                </div>
+                
+            </div>
+            <div class="col-sm-2">
+                <div id="card10" data=5 class="cardMambo">
+                     <span class="textCard">
+                        <p>
+                        Participar en las capacitaciones.
+                        </p>
+                    </span>
+                </div>
+            </div>  
+            <div  class="col-sm-2">
+                <div id="card11" data=6 class="cardMambo">
+                    <span class="textCard">
+                        <p>
+                       Conocer las condiciones de riesgo del inmueble.
+                        </p>
+                    </span>
+                </div>
+                
+            </div>
+            <div class="col-sm-2">
+                <div id="card12" data=6 class="cardMambo">
+                     <span class="textCard">
+                        <p>
+                        Revisar continuamente el inmueble.
+                        </p>
+                    </span>
+                </div>
+            </div>   
+            <div  class="col-sm-2">
+                <div id="card13" data=7 class="cardMambo">
+                    <span class="textCard">
+                        <p>
+                       Conocer las medidas de reducción de riesgo.
+                        </p>
+                    </span>
+                </div>
+                
+            </div>
+            <div class="col-sm-2">
+                <div id="card14" data=7 class="cardMambo">
+                     <span class="textCard">
+                        <p>
+                        Colaborar para reducir condiciones de riesgo.
                         </p>
                     </span>
                 </div>
@@ -270,7 +335,7 @@ Da click en las tarjetas para conocerlos.</div>
             var cardFind2 = "";
             var viewTotal = 0;
             $(".textCard").hide();
-            for(var i=1;i<=8;i++){
+            for(var i=1;i<=14;i++){
                 $("#card" + i).click(function(){
                     
                    TweenMax.fromTo($(this),0.5,{scale:1.2},{scale:1}); 
@@ -288,6 +353,15 @@ Da click en las tarjetas para conocerlos.</div>
                         break;
                         case 4:
                         $(this).addClass("cardBrown");
+                        break;
+                        case 5:
+                        $(this).addClass("cardRed");
+                        break;
+                        case 6:
+                        $(this).addClass("cardGreen");
+                        break;
+                        case 7:
+                        $(this).addClass("cardYellow");
                         break;
                     }
                     if(cardFind1 == ""){
@@ -312,7 +386,7 @@ Da click en las tarjetas para conocerlos.</div>
                         }
                     }
                     
-                    if(viewTotal == 4){
+                    if(viewTotal == 7){
                         swal("¡Buen trabajo!", "¡Encontraste todos los pares!", "success");
                     }
                 })

@@ -70,25 +70,25 @@ var themes = 3;
 var countSlide = 0;
 var activeButton;
 var listSlides = [
-    {slide:"slide1",name:"Evacuación en caso de emergencia."},
-    {slide:"slide4",name:"Comenzaremos con el Módulo I"},
-    {slide:"slide9",name:"Tema 2: Definición de evacuación"},
-    {slide:"slide13",name:"Tema 3"},
-    {slide:"slide17",name:"Tema 4"},
-    {slide:"slide19",name:"¿Cuándo evacuar?"}
+     {slide:"slide0",name:"Bienvenido"},
+     {slide:"slide5",name:"¡Recorre la ruta que puede salvar tu vida!"},
+   {slide:"slide11",name:"Tema 2"},
+    {slide:"slide19",name:"Tema 3"},
+     {slide:"slide25",name:"Tema 4"}
 ]
 
 
 
 var module0 = [
-    {slide:"slide1",name:"Bienvenido"},
-    {slide:"slide5",name:"Recomendaciones de navegación"},
+    {slide:"slide0",name:"Bienvenido"},
+    {slide:"slide1",name:"Recomendaciones de navegación"},
     {slide:"slide2",name:"Objetivo"},
-    {slide:"slide6",name:"¡Muy bien!"}
+    {slide:"slide3",name:"Temas a revisar"},
+    {slide:"slide4",name:"¡Muy bien!"}
 ]
 
 var module1 = [
-    {slide:"slide4",name:"¡Recorre la ruta que puede salvar tu vida!"},
+    {slide:"slide5",name:"¡Recorre la ruta que puede salvar tu vida!"},
     {slide:"slide7",name:"Responsabilidades y derechos de los empleados."},
     {slide:"slide8",name:"Empecemos por conocer nuestros derechos y responsabilidades"},
     {slide:"slide9",name:"Derechos y responsabilidades"},
@@ -97,29 +97,33 @@ var module1 = [
 
 var module2 = [
     
-    {slide:"slide11",name:"Reconocimiento de rutas de evacuación, salidas de emergencia y puntos de reunión."},
+    {slide:"slide11",name:"Tema 2"},
     {slide:"slide12",name:"Tres elementos que pueden salvar tu vida"},
-    {slide:"slide13",name:"Tema 3"}
+    {slide:"slide13",name:"Rutas de evacuación"},
+    {slide:"slide14",name:"Punto de reunión"},
+    {slide:"slide15",name:"Salida de emergencia"},
+    {slide:"slide16",name:"Recordemos"},
+    {slide:"slide17",name:"¡Sigamos avanzando!"},
+    {slide:"slide18",name:"¡Recorre la ruta que puede salvar tu vida!"}
     
 ]
 var module3 = [
   
-//    {slide:"slide14",name:"Evacuación"},
-    {slide:"slide15",name:"Evacuación"},
-    {slide:"slide16",name:"Evacuación"}
-]
+    {slide:"slide19",name:"Tema 3"},
+    {slide:"slide20",name:"Saber cuándo y cómo evacuar depende de la identificación de alertas y alarmas."},
+    {slide:"slide21",name:"Recuerda"},
+    {slide:"slide22",name:"Ya sabes los procedimientos para evacuar"},
+    {slide:"slide23",name:"Lista de técnicas de evacuación"},
+    {slide:"slide24",name:"¡Recorre la ruta que puede salvar tu vida!"}
+    ]
 
 var module4 = [
-    {slide:"slide17",name:"Tema 4 Tipos de evacuación"},
-    {slide:"slide18",name:"Tipos de evacuación"}
+    {slide:"slide25",name:"Tema 4"},
+    {slide:"slide26",name:"Diagrama de proceso"},
+    {slide:"slide27",name:" las cuatro insignias"}
 ]
 
 var module5 = [
-    {slide:"slide19",name:"¿Cuándo evacuar?"},
-    {slide:"slide20",name:"¿Cuándo evacuar?"},
-    {slide:"slide21",name:"¿Cuándo evacuar?"},
-    {slide:"slide22",name:"El puño en alto"},
-    {slide:"slide23",name:"¡Felicidades!"}
 ]
 
 function loadModule(moduloChoice){
@@ -217,7 +221,7 @@ for(var i = 1;i<=listSlides.length;i++){
                 break;
             case "5":
                 loadModule(module5);
-                $("#barAdvance").css("width","75%");
+                $("#barAdvance").css("width","100%");
                 break;
         }
     })
