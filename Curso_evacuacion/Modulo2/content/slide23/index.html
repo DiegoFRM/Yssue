@@ -231,7 +231,6 @@
         <div id="popwindow">
             <div class="window-base">
                 <div class="header-window row">
-                <div class="col-sm-2" style="text-align: center;"><span class="base-card"></span></div>
                 <div id="titleWindow" class="col-sm-10"><h1></h1></div>
                 </div>
                 <div class="body-window row"> 
@@ -256,29 +255,61 @@
             
         var info = [
             {
-                color:"green",
-                titulo:"Normal",
-                texto:"Funcionamiento normal, las acciones cotidianas de la empresa se llevan a cabo de manera rutinaria"
+                titulo:"Repliegue",
+                texto:"Es la retirada o retroceso ordenado de un grupo de personas que pretenden refugiarse en las zonas más cercanas designadas en caso de emergencia."
             },
             {
-                color:"yellow",
-                titulo:"Fase Pre-alerta",
-                texto:"Cuando existe la posibilidad de que un fenómeno esté ocurriendo.<br>En esta fase, los brigadistas suspenden sus labores y se mantienen pendientes para recibir instrucciones."
+                titulo:"Guía y retaguardia",
+                texto:`El guía es la persona designada para guiar el contingente de
+evacuación. El retaguardia, por su parte, se encarga de cerrar
+el recorrido, mientras que verifica que todos lo hayan
+concluido y asiste a quienes lo necesiten.`
             },
             {
-                color:"orange",
-                titulo:"Fase de Alerta",
-                texto:"El fenómeno está confirmado y sus efectos son próximos a sentirse en el inmueble y población.<br>En esta fase, los brigadistas se equipan y preparan para realizar los protocolos de respuesta de acuerdo con la emergencia declarada y están listos para realizar laevacuación del inmueble."
+                titulo:"Portero o contador",
+                texto:`Persona encargada contar el número de evacuados del área
+delimitada, sin afectar de ninguna forma el recorrido.`
             },
             {
-                color:"red",
-                titulo:"Fase de Alarma",
-                texto:"El fenómeno ya está ocurriendo y toda la población es avisada por medio de la alarma. El CIPC, activa los protocolos de emergencia y hace partícipe a la población general.<br>En esta fase los brigadistas ejecutan todas las acciones que corresponden a su responsabilidad, que permitan la salvaguarda de las personas, los bienes y el entorno. Principalmente ejecutan labores de evacuación."
+                titulo:"Zipper o por partes",
+                texto:`Es la técnica de evacuación utilizada en caso del encuentro
+entre dos contingentes de evacuación en un área. Indica que
+deben ceder el paso entre un integrante de contingente y
+otro; es decir intercalar para formar una única fila.`
             },
             {
-                color:"red",
-                titulo:"Fase Alarma crítica",
-                texto:"Los daños del fenómeno han rebasado la capacidad de respuesta del CIPC.<br>En esta etapa los brigadistas deben evacuar a la zona de menor riesgo y preparar la transferencia del mando a los servicios externos de emergencia."
+                titulo:"Por escaleras",
+                texto:`Una vez que se ha asegurado el área de escaleras, el
+contingente de emergencias puede avanzar por el lado
+derecho y dejar libre el acceso a brigadistas y equipo de
+emergencia.`
+            },
+            {
+                titulo:"Conteo fino",
+                texto:`Es el conteo final, es preciso y se hace al cotejar una lista de
+asistencia o control de accesos. Se realiza para obtener la
+información completa sobre personas evacuadas, aquellas
+en los puntos de reunión o ausentes, personas que no
+lograron evacuar y la clasificación correspondiente.`
+            },
+            {
+                titulo:"Conteo rápido",
+                texto:`Se trata del conteo generado por el portero o contador, en el
+cual, se deben incluir todas las áreas y evacuados sin
+distinción.`
+            },
+            {
+                titulo:"Conteo general",
+                texto:`Se trata de la suma del conteo rápido cotejado con aquel que
+se realiza en el punto de reunión con los evacuados
+ordenados por filas y columnas.`
+            },
+            {
+                titulo:"Evacuación asistida",
+                texto:`Se trata de la evacuación completa y asistida por los
+brigadistas y las herramientas adecuadas, hacia una persona
+que no puede realizar el recorrido o seguir las medidas de
+seguridad.`
             }
         ]    
             
@@ -291,7 +322,7 @@
                 
             })
             
-            for(var i = 1;i<=5;i++){
+            for(var i = 1;i<=9;i++){
                 $("#btn" + i).attr("index",[i-1]);
                 $("#btn" + i).mouseover(function(){
                      TweenMax.to($(this),0.5,{scale:1.1})
@@ -304,8 +335,8 @@
                 $("#btn" + i).click(function(){
                     var index = $(this).attr("index");
                     //$(".base-card").css("background-color",info[index].color);
-                    //$("#titleWindow").find("h1").html(info[index].titulo);
-                    //$("#textWindow").html(info[index].texto);
+                    $("#titleWindow").find("h1").html(info[index].titulo);
+                    $("#textWindow").html(info[index].texto);
                     $("#popwindow").show();
                     TweenMax.to($("#popwindow"),0.5,{alpha:1})
                    
