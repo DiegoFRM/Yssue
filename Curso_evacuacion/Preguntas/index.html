@@ -953,11 +953,18 @@
 	  context.clearRect(0, 0,canvas.width, canvas.height);
 	  context.drawImage(myImage, 0,0,720, 1280,0,0,canvas.width, canvas.height);
 
-	  if((questionId==1 ||questionId==3 ||questionId==7 ||questionId==8 ||questionId==9 ||questionId==10) && !takeImage){
+	  if((questionId==1  ||questionId==7  ||questionId==9 ||questionId==10) && !takeImage){
 	  	setTimeout(function(){
 	  		animate();
 
 	  	},40);
+	  }
+
+	  if((questionId==3||questionId==8) && !takeImage){
+	  	setTimeout(function(){
+	  		animate();
+
+	  	},30);
 	  }
 
 	  //if(takeImage){}
