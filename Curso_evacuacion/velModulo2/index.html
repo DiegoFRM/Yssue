@@ -17,6 +17,7 @@
         font-family: 'Roboto Condensed', sans-serif;
         overflow-x: hidden;
         overflow-y: hidden;
+        background-color: #3FB4DC;
     }
 
     #contentMain{
@@ -216,6 +217,15 @@ position: absolute;
 
             }
 
+            #retroDiv{
+                margin: 0px;
+                padding: 0px;
+                width: 100%;
+                height: 100%;
+                display:  none;
+
+            }
+
             #buttonInit{
 				width: 50%;
 				position: relative;
@@ -235,6 +245,17 @@ position: absolute;
 				height: 50px;
 				
 			}
+
+            #qrRetro{
+                opacity: 0;
+                width: 80%;
+                padding: 20px;
+            }
+
+            #retroImage{
+                width: 50%;
+                padding: 50px;
+            }
 
 			#buttonQr{
 				width: 50%;
@@ -291,7 +312,7 @@ position: absolute;
                        
                 </div>
                 <div class="text1" id="initText2">
-                	 <h1>¡Comencemos!</h1>
+                	 <h1>Realiza la ruta que puede salvar tu vida.<br>¡Comencemos!</h1>
                 </div>
 
                  <div class=" text2" id="initText3">
@@ -356,6 +377,38 @@ position: absolute;
             </div>
         </div>
 	</div>
+
+    <div id ="retoDiv">
+        <div id="bgImage"></div>
+        <div id="contentMain">
+            <div id="contentSlide" class="row ">
+                
+                <div class="col-sm-4 col-xs-4 col-md-4 " >
+                    <img class="qrRetro" id ="qrR1" src="qrs/Yssue_m2_1.png">
+                </div>
+                <div class="col-sm-4 col-xs-4 col-md-4 " >
+                    <img class="qrRetro" id ="qrR2" src="qrs/Yssue_m2_2.png">
+                </div>
+                <div class="col-sm-4 col-xs-4 col-md-4 " >
+                    <img class="qrRetro" id ="qrR3" src="qrs/Yssue_m2_3.png">
+                </div>
+                <div class="col-sm-6 col-xs-6 col-md-6 " >
+                    <img class="qrRetro" id ="qrR4" src="qrs/Yssue_m2_4.png">
+                </div>
+                <div class="col-sm-6 col-xs-6 col-md-6 " >
+                    <img class="qrRetro" id ="qrR5" src="qrs/Yssue_m2_5.png">
+                </div>
+
+                <div class="col-sm-12 col-xs-12 col-md-12 " >
+                    <img class="retroprincipal" id ="retroImage" src="qrs/Yssue_m2_5.png">
+                </div>
+                 
+                <button type="button" id="buttonRetro" class="btn btn-warning col-sm-6 col-xs-6 col-md-6" onclick="clickRetro()">Continuar</button>
+
+
+            </div>
+        </div>
+    </div>
 
 	<div id ="finishDiv">
 		<div id="bgImage"></div>

@@ -35,6 +35,25 @@ function clickInit(){
   	document.getElementById("qrDiv").style.display = "block";
 }
 
+function clickRetro(){
+	if(currentQr<5){
+		document.getElementById("qrDiv").style.display = "block";
+		document.getElementById("retroDiv").style.display = "none";
+	}
+	else{
+		document.getElementById("retroDiv").style.display = "none";
+      	document.getElementById("finishDiv").style.display = "block";
+      	document.getElementById("timeFinishData").innerHTML = "Tiempo: "+ min+":"+sec;
+      	document.getElementById("distanceFinishData").innerHTML = "Distancia: "+document.getElementById("distanceData").innerHTML;
+      	TweenMax.fromTo($("#finishImage"),1,{scale:0,alpha:0},{scale:1,alpha:1,ease:Back.easeOut});
+		TweenMax.fromTo($("#finishText1"),1,{x:-250,alpha:0},{x:0,alpha:1,ease:Back.easeOut,delay:1});
+		TweenMax.fromTo($("#finishText2"),1,{x:-250,alpha:0},{x:0,alpha:1,ease:Back.easeOut,delay:2});
+		TweenMax.fromTo($("#tiempoFinish"),1,{x:-250,alpha:0},{x:0,alpha:1,ease:Back.easeOut,delay:3});
+		TweenMax.fromTo($("#distanciaFinish"),1,{x:-250,alpha:0},{x:0,alpha:1,ease:Back.easeOut,delay:4});
+		TweenMax.fromTo($("#buttonFinish"),1,{alpha:0},{alpha:1,ease:Back.easeOut,delay:6});
+	}
+}
+
  function gotStream(stream) {
       video.srcObject = stream;
       video.setAttribute("playsinline", true); // required to tell iOS safari we don't want fullscreen
@@ -104,33 +123,57 @@ function clickInit(){
           //alert(code.data)
           if(currentQr == 0 && code.data == "Yssue_m2_1"){
           	document.getElementById("dataContainer").style.display = "none";
-          	document.getElementById("qrDiv").style.display = "block";
+          	document.getElementById("retroDiv").style.display = "block";
           	currentQr = 1;
           	canScan = false;
           	document.getElementById("qr").src = "qrs/Yssue_m2_2.png";
           	document.getElementById("qrWrong").src = "qrs/Yssue_m2_2.png";
+          	document.getElementById("retroImage").src = "qrs/Yssue_m2_1.png";
 
           }
           else if(currentQr == 1 && code.data == "Yssue_m2_2"){
           	document.getElementById("dataContainer").style.display = "none";
-          	document.getElementById("qrDiv").style.display = "block";
+          	document.getElementById("retroDiv").style.display = "block";
           	currentQr = 2;
           	canScan = false;
           	document.getElementById("qr").src = "qrs/Yssue_m2_3.png";
           	document.getElementById("qrWrong").src = "qrs/Yssue_m2_3.png";
+          	document.getElementById("retroImage").src = "qrs/Yssue_m2_2.png";
+          	document.getElementById("qrR"+(currentQr-1)).style.opacity = 1;
           }
           else if(currentQr == 2 && code.data == "Yssue_m2_3"){
-          	canScan = false;
           	document.getElementById("dataContainer").style.display = "none";
-          	document.getElementById("finishDiv").style.display = "block";
-          	document.getElementById("timeFinishData").innerHTML = "Tiempo: "+ min+":"+sec;
-          	document.getElementById("distanceFinishData").innerHTML = "Distancia: "+document.getElementById("distanceData").innerHTML;
-          	TweenMax.fromTo($("#finishImage"),1,{scale:0,alpha:0},{scale:1,alpha:1,ease:Back.easeOut});
-			TweenMax.fromTo($("#finishText1"),1,{x:-250,alpha:0},{x:0,alpha:1,ease:Back.easeOut,delay:1});
-			TweenMax.fromTo($("#finishText2"),1,{x:-250,alpha:0},{x:0,alpha:1,ease:Back.easeOut,delay:2});
-			TweenMax.fromTo($("#tiempoFinish"),1,{x:-250,alpha:0},{x:0,alpha:1,ease:Back.easeOut,delay:3});
-			TweenMax.fromTo($("#distanciaFinish"),1,{x:-250,alpha:0},{x:0,alpha:1,ease:Back.easeOut,delay:4});
-			TweenMax.fromTo($("#buttonFinish"),1,{alpha:0},{alpha:1,ease:Back.easeOut,delay:6});
+          	document.getElementById("retroDiv").style.display = "block";
+          	currentQr = 3;
+          	canScan = false;
+          	document.getElementById("qr").src = "qrs/Yssue_m2_4.png";
+          	document.getElementById("qrWrong").src = "qrs/Yssue_m2_4.png";
+          	document.getElementById("retroImage").src = "qrs/Yssue_m2_3.png";
+          	document.getElementById("qrR"+(currentQr-1)).style.opacity = 1;
+          }
+          else if(currentQr == 3 && code.data == "Yssue_m2_4"){
+          	document.getElementById("dataContainer").style.display = "none";
+          	document.getElementById("retroDiv").style.display = "block";
+          	currentQr = 4;
+          	canScan = false;
+          	document.getElementById("qr").src = "qrs/Yssue_m2_5.png";
+          	document.getElementById("qrWrong").src = "qrs/Yssue_m2_5.png";
+          	document.getElementById("retroImage").src = "qrs/Yssue_m2_4.png";
+          	document.getElementById("qrR"+(currentQr-1)).style.opacity = 1;
+          }
+          else if(currentQr == 4 && code.data == "Yssue_m2_5"){
+
+          	document.getElementById("dataContainer").style.display = "none";
+          	document.getElementById("retroDiv").style.display = "block";
+          	currentQr = 5;
+          	canScan = false;
+          	document.getElementById("qr").src = "qrs/Yssue_m2_5.png";
+          	document.getElementById("qrWrong").src = "qrs/Yssue_m2_5.png";
+          	document.getElementById("retroImage").src = "qrs/Yssue_m2_5.png";
+          	document.getElementById("qrR"+(currentQr-1)).style.opacity = 1;
+
+          	//canScan = false;
+          	
           }
           else {
           	canScan = false;
