@@ -129,6 +129,7 @@ function clickRetro(){
           	document.getElementById("qr").src = "qrs/Yssue_m2_2.png";
           	document.getElementById("qrWrong").src = "qrs/Yssue_m2_2.png";
           	document.getElementById("retroImage").src = "qrs/Yssue_m2_1.png";
+          	document.getElementById("retrotext").innerHTML = "<h1>Primera señalización escaneada</h1>";
 
           }
           else if(currentQr == 1 && code.data == "Yssue_m2_2"){
@@ -140,6 +141,7 @@ function clickRetro(){
           	document.getElementById("qrWrong").src = "qrs/Yssue_m2_3.png";
           	document.getElementById("retroImage").src = "qrs/Yssue_m2_2.png";
           	document.getElementById("qrR"+(currentQr-1)).style.opacity = 1;
+          	document.getElementById("retrotext").innerHTML = "<h1>Segunda señalización escaneada</h1>";
           }
           else if(currentQr == 2 && code.data == "Yssue_m2_3"){
           	document.getElementById("dataContainer").style.display = "none";
@@ -150,6 +152,7 @@ function clickRetro(){
           	document.getElementById("qrWrong").src = "qrs/Yssue_m2_4.png";
           	document.getElementById("retroImage").src = "qrs/Yssue_m2_3.png";
           	document.getElementById("qrR"+(currentQr-1)).style.opacity = 1;
+          	document.getElementById("retrotext").innerHTML = "<h1>Tercera señalización escaneada</h1>";
           }
           else if(currentQr == 3 && code.data == "Yssue_m2_4"){
           	document.getElementById("dataContainer").style.display = "none";
@@ -160,6 +163,7 @@ function clickRetro(){
           	document.getElementById("qrWrong").src = "qrs/Yssue_m2_5.png";
           	document.getElementById("retroImage").src = "qrs/Yssue_m2_4.png";
           	document.getElementById("qrR"+(currentQr-1)).style.opacity = 1;
+          	document.getElementById("retrotext").innerHTML = "<h1>Cuarta señalización escaneada</h1>";
           }
           else if(currentQr == 4 && code.data == "Yssue_m2_5"){
 
@@ -171,6 +175,7 @@ function clickRetro(){
           	document.getElementById("qrWrong").src = "qrs/Yssue_m2_5.png";
           	document.getElementById("retroImage").src = "qrs/Yssue_m2_5.png";
           	document.getElementById("qrR"+(currentQr-1)).style.opacity = 1;
+          	document.getElementById("retrotext").innerHTML = "<h1>Quinta señalización escaneada</h1>";
 
           	//canScan = false;
           	
@@ -249,6 +254,15 @@ $(function () {
 		currentQr = 0;
 		canScan = false;
 		//control = setInterval(cronometro,1);
+		var h = (window.innerWidth*0.333)-30;
+		$("#divR1").height(h);
+		$("#divR2").height(h);
+		$("#divR3").height(h);
+		$("#divR4").height(h);
+		$("#divR5").height(h);
+
+		h = (window.innerWidth*0.7)-100;
+		$("retroprincipal").height(h);
 	}
 
 	var timeData = document.getElementById("timeData");
