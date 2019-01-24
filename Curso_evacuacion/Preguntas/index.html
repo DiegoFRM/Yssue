@@ -182,7 +182,7 @@
                 //height: 1%;
             }
  			#QuestionSpace{
-
+                text-align: justify;
  				padding-top: 10px;
 				padding-bottom: 10px;
 				padding-left: 10%;
@@ -345,6 +345,7 @@
 				position: relative;
 				left:50%;
 				color: #ffffff;
+                font-size: 2.5vh;
 				transform: translate(-50%,0%);
 
 			}
@@ -415,9 +416,13 @@
 				padding: 10px;
 				width: 100%;
 				text-align: center;
-				font-size: 3vh;
+				font-size: 2.5vh;
 				color: #ffffff;
 			}
+
+            #titleRetro{
+                font-size: 4vh;
+            }
 
 			/*#retro{
 				width: 100%;
@@ -650,12 +655,12 @@
                 </div>
 
                 <div class="text1" id="finishText1">
-                    	<h1>¿Bien Hecho!</h1>
+                    	<h1>¡Bien Hecho!</h1>
                        
                        
                 </div>
                 <div class="text1" id="finishText2">
-                	  <h2>Has concluido tu <br> evaluación del módulo<br><br> Continua con el siguiente<br>módulo para aprender <br> ¿Qué debes hacer?</h2>
+                	  <h2>Has concluido tu <br> evaluación del módulo<br><br> Continua con el siguiente<br>módulo para aprender <br> ¿Qué hacer en casos de emergencia?</h2>
                 </div>
 
                  
@@ -1268,7 +1273,7 @@ function clickAns(selectedId){
 			currentImageName = "10maPregunta/10maPregunta_";
 			maxFrames = 120;
 		}
-		document.getElementById("retro").innerHTML = "Respuesta Correcta <br>"+document.getElementById("answer"+selectedId).innerHTML;
+		document.getElementById("retro").innerHTML = "<a id=\"titleRetro\">Respuesta Correcta</a> <br>"+document.getElementById("answer"+selectedId).innerHTML+"<br>"+questions[questionId-1].retroalimentacion;
 		console.log((document.getElementById("bottomTextGood").clientHeight +200)+"px");
 		document.getElementById("buttonSnap").style.bottom = (document.getElementById("bottomTextGood").clientHeight )+"px";
 		document.getElementById("buttonContinue").style.bottom = (document.getElementById("bottomTextGood").clientHeight )+"px";
@@ -1284,7 +1289,7 @@ function clickAns(selectedId){
 			document.getElementById("questionsDiv").style.display = "block";
 			document.getElementById("wrongAnswer").style.display = "none";
 		},3000)
-		document.getElementById("badAnswer").innerHTML = "Respuesta Incorrecta <br>"+document.getElementById("answer"+selectedId).innerHTML;
+		document.getElementById("badAnswer").innerHTML = "Respuesta Incorrecta <br>";
 
 		TweenMax.fromTo($("#bottomText"),1,{y:250,alpha:0},{y:0,alpha:1,ease:Back.easeOut});
 		TweenMax.fromTo($("#imageWrong"),1,{scale:0,alpha:0},{scale:1,alpha:1,ease:Back.easeOut});
