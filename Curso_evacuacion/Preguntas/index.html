@@ -1339,6 +1339,7 @@ function clickAns(selectedId){
     			currentImageName = "10maPregunta/10maPregunta_";
     			maxFrames = 120;
     		}
+            document.getElementById("bottomTextGood").style.backgroundColor = "#29D113";
     		document.getElementById("retro").innerHTML = "<a id=\"titleRetro\">Respuesta Correcta</a> <br>"+document.getElementById("answer"+selectedId).innerHTML+"<br>"+questions[questionId-1].retroalimentacion;
     		
 
