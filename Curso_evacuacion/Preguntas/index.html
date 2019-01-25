@@ -439,6 +439,7 @@
 				//height: 100px;
 				width: 100%;
 			}
+
 			#bottomTextGood p{
 				padding: 10px;
 				width: 100%;
@@ -455,6 +456,15 @@
 				transform: translate(-50%,0%);
 				display: none;
 			}
+
+            #buttonContinueWrong{
+                position: absolute;
+                bottom:10%;
+                width: 80%;
+                left: 50%;
+                transform: translate(-50%,0%);
+                display: none;
+            }
 
 			#message{
 				width: 100%;
@@ -590,9 +600,13 @@
                     <img class="fridaBig" id="imageWrong" src="images/Mambitos/mambo_Normal.png">
                 </div>
 
+                <button type="button" id="buttonContinueWrong" class="btn btn-primary col-sm-12 col-xs-12 col-md-12" onclick="clickNext()">
+                Continuar
+                </button>
+
                 <div id="bottomText">
                     
-                        <p id="badAnswer">Respuesta Incorrecta</p>
+                    <p id="badAnswer">Respuesta Incorrecta</p>
                        
                 </div>
 
@@ -1102,7 +1116,7 @@ window.onload = function(){
 	canvas.width = window.innerWidth;
 	canvas.height = window.innerHeight;
 
-	questionId = 1;
+	questionId = 9;
 	currentCorrect = 0;
 	console.log(questionId);
 
@@ -1138,8 +1152,17 @@ document.getElementById("buttonSnap").addEventListener("click", function() {
 			link.click();
 			document.body.removeChild(link);
 		}
-		
-		document.getElementById("buttonContinue").style.display = "block";
+		if(questionId ==9){
+		  
+            setTimeout(function(){
+                document.getElementById("questionsDiv").style.display = "block";
+                document.getElementById("wrongAnswer").style.display = "none";
+            },3000)
+
+        }
+        else{
+            document.getElementById("buttonContinue").style.display = "block";
+        }
 	},100);
 	
    	
@@ -1227,81 +1250,121 @@ function getRandomInt(min, max) {
 function clickAns(selectedId){
 	//console.log(selectedId)
 
-	if(selectedId == currentCorrect){
-		document.getElementById("buttonSnap").style.display = "block";
-		document.getElementById("buttonContinue").style.display = "none";
-		document.getElementById("questionsDiv").style.display = "none";
-		document.getElementById("videoDiv").style.display = "block";
-		if(questionId == 1){
-			myImage.src = "images/1erPregunta/1erPregunta_000.png";
-			currentImageName = "1erPregunta/1erPregunta_";
-			maxFrames = 240;
-		}
-		else if(questionId == 2){
-			myImage.src = "images/2daPregeunta.png";
-		}
-		else if(questionId == 3){
-			myImage.src = "images/3raPregunta/3raPregunta_000.png";
-			currentImageName = "3raPregunta/3raPregunta_";
-			maxFrames = 120;
-		}
-		else if(questionId == 4){
-			myImage.src = "images/4taPregunta.png";
-		}
-		else if(questionId == 5){
-			myImage.src = "images/5taPregunta.png";
-			document.getElementById("message").style.display = "block";
-			document.getElementById("messageImage").src = "images/5taPregunta_banner.png";
-		}
-		else if(questionId == 6){
-			myImage.src = "images/6taPregunta/6taPregunta_1.png";
-			document.getElementById("arrows").style.display = "block";
-			document.getElementById("arrowLeft").style.opacity = 0.5;
-			document.getElementById("message").style.display = "block";
-			document.getElementById("messageImage").src = "images/6taPregunta/6taPregunta_banners_1.png";
-		}
-		else if(questionId == 7){
-			myImage.src = "images/7maPregunta/7maPregunta_000.png";
-			currentImageName = "7maPregunta/7maPregunta_";
-			maxFrames = 126;
-		}
-		else if(questionId == 8){
-			myImage.src = "images/8va_pregunta/8vaPregunta_000.png";
-			currentImageName = "8va_pregunta/8vaPregunta_";
-			maxFrames = 129;
-		}
-		else if(questionId == 9){
-			myImage.src = "images/9na_Pregunta/9na_Pregunta_000.png";
-			currentImageName = "9na_Pregunta/9na_Pregunta_";
-			maxFrames = 239;
-		}
-		else if(questionId == 10){
-			myImage.src = "images/10maPregunta/10maPregunta_000.png";
-			currentImageName = "10maPregunta/10maPregunta_";
-			maxFrames = 120;
-		}
-		document.getElementById("retro").innerHTML = "<a id=\"titleRetro\">Respuesta Correcta</a> <br>"+document.getElementById("answer"+selectedId).innerHTML+"<br>"+questions[questionId-1].retroalimentacion;
-		console.log((document.getElementById("bottomTextGood").clientHeight +200)+"px");
-		document.getElementById("buttonSnap").style.bottom = (document.getElementById("bottomTextGood").clientHeight )+"px";
-		document.getElementById("buttonContinue").style.bottom = (document.getElementById("bottomTextGood").clientHeight )+"px";
+    if(questionId == 9){
+        if(selectedId == currentCorrect){
+            document.getElementById("bgImageOrange").style.backgroundColor = "#3FB4DC";
+            document.getElementById("questionsDiv").style.display = "none";
+            document.getElementById("wrongAnswer").style.display = "block";
+            document.getElementById("badAnswer").innerHTML = "<a id=\"titleRetro\">Respuesta Correcta</a> <br>"+document.getElementById("answer"+selectedId).innerHTML+"<br>"+questions[questionId-1].retroalimentacion;
+            document.getElementById("buttonContinueWrong").display = "block";
+            document.getElementById("buttonContinueWrong").style.bottom = (document.getElementById("bottomTextGood").clientHeight )+"px";
+            document.getElementById("bottomText").style.backgroundColor = "#29D113";
+            TweenMax.fromTo($("#bottomText"),1,{y:250,alpha:0},{y:0,alpha:1,ease:Back.easeOut});
+            TweenMax.fromTo($("#imageWrong"),1,{scale:0,alpha:0},{scale:1,alpha:1,ease:Back.easeOut});
+            document.getElementById("imageWrong").src = "images/Mambitos/mambo_Normal.png";
+        }
+        else{
+            document.getElementById("buttonSnap").style.display = "block";
+            document.getElementById("buttonContinue").style.display = "none";
+            document.getElementById("questionsDiv").style.display = "none";
+            document.getElementById("videoDiv").style.display = "block";
 
-		TweenMax.fromTo($("#bottomTextGood"),1,{y:250,alpha:0},{y:0,alpha:1,ease:Back.easeOut});
+            myImage.src = "images/9na_Pregunta/9na_Pregunta_000.png";
+            currentImageName = "9na_Pregunta/9na_Pregunta_";
+            maxFrames = 239;
 
-		TweenMax.fromTo($("#buttonSnap"),1,{alpha:0},{alpha:1,ease:Back.easeOut});
-	}
-	else{
-		document.getElementById("questionsDiv").style.display = "none";
-		document.getElementById("wrongAnswer").style.display = "block";
-		setTimeout(function(){
-			document.getElementById("questionsDiv").style.display = "block";
-			document.getElementById("wrongAnswer").style.display = "none";
-		},3000)
-		document.getElementById("badAnswer").innerHTML = "Respuesta Incorrecta <br>";
+            document.getElementById("retro").innerHTML = "Respuesta Incorrecta <br>";
+            document.getElementById("bottomTextGood").backgroundColor = "#E16206";
 
-		TweenMax.fromTo($("#bottomText"),1,{y:250,alpha:0},{y:0,alpha:1,ease:Back.easeOut});
-		TweenMax.fromTo($("#imageWrong"),1,{scale:0,alpha:0},{scale:1,alpha:1,ease:Back.easeOut});
-		document.getElementById("imageWrong").src = "images/Mambitos/mambo_Emocion"+currentEmotions[selectedId]+".png";
-	}
+            document.getElementById("buttonSnap").style.bottom = (document.getElementById("bottomTextGood").clientHeight )+"px";
+            document.getElementById("buttonContinue").style.bottom = (document.getElementById("bottomTextGood").clientHeight )+"px";
+
+            TweenMax.fromTo($("#bottomTextGood"),1,{y:250,alpha:0},{y:0,alpha:1,ease:Back.easeOut});
+
+            TweenMax.fromTo($("#buttonSnap"),1,{alpha:0},{alpha:1,ease:Back.easeOut});
+        }
+    }
+    else{
+
+    	if(selectedId == currentCorrect){
+    		document.getElementById("buttonSnap").style.display = "block";
+    		document.getElementById("buttonContinue").style.display = "none";
+    		document.getElementById("questionsDiv").style.display = "none";
+    		document.getElementById("videoDiv").style.display = "block";
+    		if(questionId == 1){
+    			myImage.src = "images/1erPregunta/1erPregunta_000.png";
+    			currentImageName = "1erPregunta/1erPregunta_";
+    			maxFrames = 240;
+    		}
+    		else if(questionId == 2){
+    			myImage.src = "images/2daPregeunta.png";
+    		}
+    		else if(questionId == 3){
+    			myImage.src = "images/3raPregunta/3raPregunta_000.png";
+    			currentImageName = "3raPregunta/3raPregunta_";
+    			maxFrames = 120;
+    		}
+    		else if(questionId == 4){
+    			myImage.src = "images/4taPregunta.png";
+    		}
+    		else if(questionId == 5){
+    			myImage.src = "images/5taPregunta.png";
+    			document.getElementById("message").style.display = "block";
+    			document.getElementById("messageImage").src = "images/5taPregunta_banner.png";
+    		}
+    		else if(questionId == 6){
+    			myImage.src = "images/6taPregunta/6taPregunta_1.png";
+    			document.getElementById("arrows").style.display = "block";
+    			document.getElementById("arrowLeft").style.opacity = 0.5;
+    			document.getElementById("message").style.display = "block";
+    			document.getElementById("messageImage").src = "images/6taPregunta/6taPregunta_banners_1.png";
+    		}
+    		else if(questionId == 7){
+    			myImage.src = "images/7maPregunta/7maPregunta_000.png";
+    			currentImageName = "7maPregunta/7maPregunta_";
+    			maxFrames = 126;
+    		}
+    		else if(questionId == 8){
+    			myImage.src = "images/8va_pregunta/8vaPregunta_000.png";
+    			currentImageName = "8va_pregunta/8vaPregunta_";
+    			maxFrames = 129;
+    		}
+    		else if(questionId == 9){
+    			myImage.src = "images/9na_Pregunta/9na_Pregunta_000.png";
+    			currentImageName = "9na_Pregunta/9na_Pregunta_";
+    			maxFrames = 239;
+    		}
+    		else if(questionId == 10){
+    			myImage.src = "images/10maPregunta/10maPregunta_000.png";
+    			currentImageName = "10maPregunta/10maPregunta_";
+    			maxFrames = 120;
+    		}
+    		document.getElementById("retro").innerHTML = "<a id=\"titleRetro\">Respuesta Correcta</a> <br>"+document.getElementById("answer"+selectedId).innerHTML+"<br>"+questions[questionId-1].retroalimentacion;
+    		
+
+    		document.getElementById("buttonSnap").style.bottom = (document.getElementById("bottomTextGood").clientHeight )+"px";
+    		document.getElementById("buttonContinue").style.bottom = (document.getElementById("bottomTextGood").clientHeight )+"px";
+
+    		TweenMax.fromTo($("#bottomTextGood"),1,{y:250,alpha:0},{y:0,alpha:1,ease:Back.easeOut});
+
+    		TweenMax.fromTo($("#buttonSnap"),1,{alpha:0},{alpha:1,ease:Back.easeOut});
+    	}
+    	else{
+            document.getElementById("bgImageOrange").style.backgroundColor = "#E1B900";
+            document.getElementById("buttonContinueWrong").display = "none";
+    		document.getElementById("questionsDiv").style.display = "none";
+    		document.getElementById("wrongAnswer").style.display = "block";
+    		setTimeout(function(){
+    			document.getElementById("questionsDiv").style.display = "block";
+    			document.getElementById("wrongAnswer").style.display = "none";
+    		},3000)
+    		document.getElementById("badAnswer").innerHTML = "Respuesta Incorrecta <br>";
+
+    		TweenMax.fromTo($("#bottomText"),1,{y:250,alpha:0},{y:0,alpha:1,ease:Back.easeOut});
+    		TweenMax.fromTo($("#imageWrong"),1,{scale:0,alpha:0},{scale:1,alpha:1,ease:Back.easeOut});
+    		document.getElementById("imageWrong").src = "images/Mambitos/mambo_Emocion"+currentEmotions[selectedId]+".png";
+    	}
+    }
 }
 
 function clickNext(){
