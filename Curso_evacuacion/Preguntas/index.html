@@ -1257,7 +1257,7 @@ function clickAns(selectedId){
             document.getElementById("wrongAnswer").style.display = "block";
             document.getElementById("badAnswer").innerHTML = "<a id=\"titleRetro\">Respuesta Correcta</a> <br>"+document.getElementById("answer"+selectedId).innerHTML+"<br>"+questions[questionId-1].retroalimentacion;
             document.getElementById("buttonContinueWrong").style.display = "block";
-            document.getElementById("buttonContinueWrong").style.bottom = (document.getElementById("bottomText").clientHeight )+"px";
+            document.getElementById("buttonContinueWrong").style.bottom = (document.getElementById("bottomText").clientHeight +100)+"px";
             document.getElementById("bottomText").style.backgroundColor = "#29D113";
             TweenMax.fromTo($("#bottomText"),1,{y:250,alpha:0},{y:0,alpha:1,ease:Back.easeOut});
             TweenMax.fromTo($("#imageWrong"),1,{scale:0,alpha:0},{scale:1,alpha:1,ease:Back.easeOut});
@@ -1351,8 +1351,9 @@ function clickAns(selectedId){
     		TweenMax.fromTo($("#buttonSnap"),1,{alpha:0},{alpha:1,ease:Back.easeOut});
     	}
     	else{
+
             document.getElementById("bgImageOrange").style.backgroundColor = "#E1B900";
-            document.getElementById("buttonContinueWrong").display = "none";
+            document.getElementById("buttonContinueWrong").style.display = "none";
     		document.getElementById("questionsDiv").style.display = "none";
     		document.getElementById("wrongAnswer").style.display = "block";
     		setTimeout(function(){
