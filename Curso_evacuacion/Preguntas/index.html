@@ -1257,7 +1257,7 @@ function clickAns(selectedId){
             document.getElementById("wrongAnswer").style.display = "block";
             document.getElementById("badAnswer").innerHTML = "<a id=\"titleRetro\">Respuesta Correcta</a> <br>"+document.getElementById("answer"+selectedId).innerHTML+"<br>"+questions[questionId-1].retroalimentacion;
             document.getElementById("buttonContinueWrong").display = "block";
-            document.getElementById("buttonContinueWrong").style.bottom = (document.getElementById("bottomTextGood").clientHeight )+"px";
+            document.getElementById("buttonContinueWrong").style.bottom = (document.getElementById("bottomText").clientHeight )+"px";
             document.getElementById("bottomText").style.backgroundColor = "#29D113";
             TweenMax.fromTo($("#bottomText"),1,{y:250,alpha:0},{y:0,alpha:1,ease:Back.easeOut});
             TweenMax.fromTo($("#imageWrong"),1,{scale:0,alpha:0},{scale:1,alpha:1,ease:Back.easeOut});
