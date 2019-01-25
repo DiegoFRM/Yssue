@@ -1256,7 +1256,7 @@ function clickAns(selectedId){
             document.getElementById("questionsDiv").style.display = "none";
             document.getElementById("wrongAnswer").style.display = "block";
             document.getElementById("badAnswer").innerHTML = "<a id=\"titleRetro\">Respuesta Correcta</a> <br>"+document.getElementById("answer"+selectedId).innerHTML+"<br>"+questions[questionId-1].retroalimentacion;
-            document.getElementById("buttonContinueWrong").display = "block";
+            document.getElementById("buttonContinueWrong").style.display = "block";
             document.getElementById("buttonContinueWrong").style.bottom = (document.getElementById("bottomText").clientHeight )+"px";
             document.getElementById("bottomText").style.backgroundColor = "#29D113";
             TweenMax.fromTo($("#bottomText"),1,{y:250,alpha:0},{y:0,alpha:1,ease:Back.easeOut});
@@ -1274,7 +1274,7 @@ function clickAns(selectedId){
             maxFrames = 239;
 
             document.getElementById("retro").innerHTML = "Respuesta Incorrecta <br>";
-            document.getElementById("bottomTextGood").backgroundColor = "#E16206";
+            document.getElementById("bottomTextGood").style.backgroundColor = "#E16206";
 
             document.getElementById("buttonSnap").style.bottom = (document.getElementById("bottomTextGood").clientHeight )+"px";
             document.getElementById("buttonContinue").style.bottom = (document.getElementById("bottomTextGood").clientHeight )+"px";
