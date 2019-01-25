@@ -1351,7 +1351,7 @@ function clickAns(selectedId){
     		TweenMax.fromTo($("#buttonSnap"),1,{alpha:0},{alpha:1,ease:Back.easeOut});
     	}
     	else{
-
+            document.getElementById("bottomText").style.backgroundColor = "#E16206";
             document.getElementById("bgImageOrange").style.backgroundColor = "#E1B900";
             document.getElementById("buttonContinueWrong").style.display = "none";
     		document.getElementById("questionsDiv").style.display = "none";
