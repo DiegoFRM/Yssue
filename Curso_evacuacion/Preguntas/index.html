@@ -327,9 +327,9 @@
 			#buttonCloseGallery{
 				width: 30%;
 				position: absolute;
-				right: 30%;
+				left: 50%;
 				top:5%;
-				transform: translate(50%,0%);
+				transform: translate(-50%,0%);
 				height: 50px;
 			}
 
@@ -1255,7 +1255,7 @@ function clickAns(selectedId){
             document.getElementById("bgImageOrange").style.backgroundColor = "#3FB4DC";
             document.getElementById("questionsDiv").style.display = "none";
             document.getElementById("wrongAnswer").style.display = "block";
-            document.getElementById("badAnswer").innerHTML = "<a id=\"titleRetro\">Respuesta Correcta</a> <br>"+document.getElementById("answer"+selectedId).innerHTML+"<br>"+questions[questionId-1].retroalimentacion;
+            document.getElementById("badAnswer").innerHTML = "<a id=\"titleRetro\">Respuesta Correcta</a> <br>"+document.getElementById("answer"+selectedId).innerHTML;
             document.getElementById("buttonContinueWrong").style.display = "block";
             document.getElementById("buttonContinueWrong").style.bottom = (document.getElementById("bottomText").clientHeight +20)+"px";
             document.getElementById("bottomText").style.backgroundColor = "#29D113";
@@ -1340,7 +1340,7 @@ function clickAns(selectedId){
     			maxFrames = 120;
     		}
             document.getElementById("bottomTextGood").style.backgroundColor = "#29D113";
-    		document.getElementById("retro").innerHTML = "<a id=\"titleRetro\">Respuesta Correcta</a> <br>"+document.getElementById("answer"+selectedId).innerHTML+"<br>"+questions[questionId-1].retroalimentacion;
+    		document.getElementById("retro").innerHTML = "<a id=\"titleRetro\">Respuesta Correcta</a> <br>"+document.getElementById("answer"+selectedId).innerHTML;
     		
 
     		document.getElementById("buttonSnap").style.bottom = (document.getElementById("bottomTextGood").clientHeight )+"px";
