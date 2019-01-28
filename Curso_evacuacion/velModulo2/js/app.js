@@ -46,7 +46,7 @@ function clickRetro(){
 		document.getElementById("buttonClose").style.display = "block";*/
 	}
 	else{
-
+		canScan = true;
 		document.getElementById("retroDiv").style.display = "none";
       	//document.getElementById("finishDiv").style.display = "block";
       	document.getElementById("timeFinishData").innerHTML = "Tiempo: "+ timeData.innerHTML;
@@ -241,6 +241,7 @@ function clickRetro(){
     }
 
     function clickTakePhoto(){
+    	canScan = false;
     	canvasElement.hidden = false;
 
         /*canvasElement.width = window.innerWidth;
