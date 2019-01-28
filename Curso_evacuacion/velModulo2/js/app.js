@@ -247,10 +247,9 @@ function clickRetro(){
         canvasElement.height = (video.videoHeight*window.innerWidth)/video.videoWidth;*/
 
         canvasElement.height = window.innerHeight;
-        canvasElement.widthi = (video.width*window.innerHeight)/video.videoHeight
-        ;
+        canvasElement.widthi = (video.width*window.innerHeight)/video.videoHeight;
 
-        //canvasElement.height = video.videoHeight;
+        //canvasElement.height = video.videoHeight; 
         //canvasElement.width = video.videoWidth;
 
         //canvas.drawImage(video, 0, 0, canvasElement.width, canvasElement.height);
@@ -261,7 +260,7 @@ function clickRetro(){
 
         var dt = canvas.toDataURL('image/png');
 
-        
+
     }
 
 $(function () {
@@ -405,7 +404,8 @@ $(function () {
 						var di = (Math.round(podo.distance/100)/1000);
 						timeFrame = totalElapsedTime/1000;
 						$("#distanceData").html(di+" mts");
-						$("#velocityData").html((di/timeFrame)+" mts");
+						var v = Math.round(di/timeFrame);
+						$("#velocityData").html(v+" mts");
 						timeFrame = 0;
 						
 					} else {
