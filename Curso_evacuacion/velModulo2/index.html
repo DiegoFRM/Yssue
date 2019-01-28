@@ -72,6 +72,20 @@
     	
     }
 
+    #velocity{
+        width: 30%;
+        position: absolute;
+        left: 45%;
+        bottom: 50px;
+        margin: 0px;
+        padding: 10px;
+        color:white;
+        background-color: orange;
+        border-radius:10px;
+        text-align: center;
+        
+    }
+
     p{
     	margin: 0px;
     }
@@ -316,6 +330,48 @@ position: absolute;
                 
             }
 
+            #buttonOpen{
+                width: 40%;
+                position: absolute;
+                left: 20%;
+                bottom:20%;
+                transform: translate(50%,0%);
+                height: 50px;
+                display: none;
+            }
+
+            #buttonClose{
+                width: 40%;
+                position: absolute;
+                right: 50%;
+                bottom:20%;
+                transform: translate(-50%,0%);
+                height: 50px;
+                display: none;
+            }
+
+            #buttonTakePhoto{
+                width: 40%;
+                position: absolute;
+                right: 50%;
+                bottom:20%;
+                transform: translate(-50%,0%);
+                height: 50px;
+                display: none;
+            }
+
+            #finalText{
+                width: 80%;
+                position: absolute;
+                right: 50%;
+                transform: translate(-50%,0%);
+                height: 50px;
+                font-size: 3vh;
+                bottom: 30%;
+                background-color: blue;
+                display: none;
+            }
+
 </style>
 </head>
 <body>
@@ -324,6 +380,18 @@ position: absolute;
 	<div id ="dataContainer">
 		<div id="bgImage"></div>
 		<canvas id="canvas" hidden></canvas>
+        <div id="finalText">
+            ¿La salida de emergencia esta abierta?
+        </div>
+        <div id="buttonOpen" class="btn btn-warning">{
+            Si
+        </div>
+        <div id="buttonClose" class="btn btn-warning">
+            No
+        </div>
+        <div id="buttonTakePhoto" class="btn btn-warning">
+            Tomar foto
+        </div>
 		<div id="data">
 			<div id="time" >
 				<p>Tiempo</p>
@@ -334,6 +402,11 @@ position: absolute;
 				
 				<p id="distanceData">100mts</p>
 			</div>
+            <div id="velocity" >
+                <p>Velocidad</p>
+                
+                <p id="velocityData">1m/s</p>
+            </div>
 		</div>
   	</div>
 
@@ -477,6 +550,10 @@ position: absolute;
 
                 <div class="text1 col-sm-3 col-xs-3 col-md-3" id="distanciaFinish">
                 	  <h2 id="distanceFinishData">Distancia</h2>
+                </div>
+
+                <div class="text1 col-sm-3 col-xs-3 col-md-3" id="velocidadFinish">
+                      <h2 id="velocityFinishData">Velocidad</h2>
                 </div>
 
                  

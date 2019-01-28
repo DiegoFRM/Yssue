@@ -39,18 +39,34 @@ function clickRetro(){
 	if(currentQr<5){
 		document.getElementById("qrDiv").style.display = "block";
 		document.getElementById("retroDiv").style.display = "none";
+		/*document.getElementById("dataContainer").style.display = "block";
+		document.getElementById("data").style.display = "none";
+		document.getElementById("finalText").style.display = "block";
+		document.getElementById("buttonOpen").style.display = "block";
+		document.getElementById("buttonClose").style.display = "block";*/
 	}
 	else{
+
+
+
 		document.getElementById("retroDiv").style.display = "none";
-      	document.getElementById("finishDiv").style.display = "block";
+      	//document.getElementById("finishDiv").style.display = "block";
       	document.getElementById("timeFinishData").innerHTML = "Tiempo: "+ min+":"+sec;
       	document.getElementById("distanceFinishData").innerHTML = "Distancia: "+document.getElementById("distanceData").innerHTML;
-      	TweenMax.fromTo($("#finishImage"),1,{scale:0,alpha:0},{scale:1,alpha:1,ease:Back.easeOut});
+      	document.getElementById("velocityFinishData").innerHTML = "Velocidad: "+document.getElementById("velocityData").innerHTML;
+      	/*TweenMax.fromTo($("#finishImage"),1,{scale:0,alpha:0},{scale:1,alpha:1,ease:Back.easeOut});
 		TweenMax.fromTo($("#finishText1"),1,{x:-250,alpha:0},{x:0,alpha:1,ease:Back.easeOut,delay:1});
 		TweenMax.fromTo($("#finishText2"),1,{x:-250,alpha:0},{x:0,alpha:1,ease:Back.easeOut,delay:2});
 		TweenMax.fromTo($("#tiempoFinish"),1,{x:-250,alpha:0},{x:0,alpha:1,ease:Back.easeOut,delay:3});
 		TweenMax.fromTo($("#distanciaFinish"),1,{x:-250,alpha:0},{x:0,alpha:1,ease:Back.easeOut,delay:4});
-		TweenMax.fromTo($("#buttonFinish"),1,{alpha:0},{alpha:1,ease:Back.easeOut,delay:6});
+		TweenMax.fromTo($("#buttonFinish"),1,{alpha:0},{alpha:1,ease:Back.easeOut,delay:6});*/
+
+		document.getElementById("dataContainer").style.display = "block";
+		document.getElementById("data").style.display = "none";
+		document.getElementById("finalText").style.display = "block";
+		document.getElementById("buttonOpen").style.display = "block";
+		document.getElementById("buttonClose").style.display = "block";
+
 	}
 }
 
@@ -181,6 +197,7 @@ function clickRetro(){
           	
           }
           else {
+
           	canScan = false;
           	document.getElementById("dataContainer").style.display = "none";
           	document.getElementById("wrongDiv").style.display = "block";
@@ -206,6 +223,45 @@ function clickRetro(){
 
     function clickFinish(){
 
+    }
+
+    function clickSi(){
+    	document.getElementById("buttonOpen").style.display = "none";
+    	document.getElementById("buttonClose").style.display = "none";
+    	document.getElementById("dataContainer").style.display = "none";
+    	document.getElementById("finishDiv").style.display = "block";
+    }
+
+    function clickNo(){
+    	//document.getElementById("dataContainer").style.display = "none";
+    	document.getElementById("buttonOpen").style.display = "none";
+    	document.getElementById("buttonClose").style.display = "none";
+    	document.getElementById("buttonTakePhoto").style.display = "block";
+
+    }
+
+    function clickTakePhoto(){
+    	canvasElement.hidden = false;
+
+        /*canvasElement.width = window.innerWidth;
+        canvasElement.height = (video.videoHeight*window.innerWidth)/video.videoWidth;*/
+
+        canvasElement.height = window.innerHeight;
+        canvasElement.widthi = (video.width*window.innerHeight)/video.videoHeight
+        ;
+
+        //canvasElement.height = video.videoHeight;
+        //canvasElement.width = video.videoWidth;
+
+        //canvas.drawImage(video, 0, 0, canvasElement.width, canvasElement.height);
+        //var imageData = canvas.getImageData(0, 0, canvasElement.width, canvasElement.height);
+        document.getElementById("buttonTakePhoto").style.display = "none";
+        document.getElementById("dataContainer").style.display = "none";
+        document.getElementById("finishDiv").style.display = "block";
+
+        var dt = canvas.toDataURL('image/png');
+
+        
     }
 
 $(function () {
@@ -241,7 +297,7 @@ $(function () {
 	
 	var activatePodo = 1;
 	var textActivate = lang.$pause;
-	
+	var timeFrame;
 	//---------------
 	// GPS event
 	//---------------
@@ -268,8 +324,10 @@ $(function () {
 	var timeData = document.getElementById("timeData");
 
 	function cronometro () {
+		timeFrame++;
 		if (centesimas < 99) {
 			centesimas++;
+
 			//if (centesimas < 10) { centesimas = "0"+centesimas }
 			//Centesimas.innerHTML = ":"+centesimas;
 		}
@@ -344,11 +402,18 @@ $(function () {
 					
 					if (isNaN(podo.distance) == 0){
 						console.log(""+(Math.round(podo.distance/100)/1000))
-						$("#distanceData").html((Math.round(podo.distance/100)/1000)+" mts");
+						var di = (Math.round(podo.distance/100)/1000);
+						timeFrame = totalElapsedTime/1000;
+						$("#distanceData").html(di+" mts");
+						$("#velocityData").html((di/timeFrame)+" mts");
+						timeFrame = 0;
 						
 					} else {
 						$("#distanceData").html(0);
+						$("#velocityData").html(0);
 					};
+
+
 					
 				};
 			};
