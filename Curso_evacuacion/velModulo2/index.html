@@ -46,9 +46,9 @@
     }
 
     #time{
-    	width: 30%;
+    	width: 25%;
     	position: absolute;
-    	left: 10%;
+    	left: 5%;
     	bottom: 50px;
     	margin: 0px;
     	padding: 10px;
@@ -59,9 +59,9 @@
     }
 
     #distance{
-    	width: 30%;
+    	width: 25%;
     	position: absolute;
-    	right: 10%;
+    	right: 5%;
     	bottom: 50px;
     	margin: 0px;
     	padding: 10px;
@@ -73,9 +73,9 @@
     }
 
     #velocity{
-        width: 30%;
+        width: 25%;
         position: absolute;
-        left: 45%;
+        left: 50%;
         bottom: 50px;
         margin: 0px;
         padding: 10px;
@@ -83,6 +83,7 @@
         background-color: orange;
         border-radius:10px;
         text-align: center;
+        transform: translate(-50%,0);
         
     }
 
@@ -331,44 +332,46 @@ position: absolute;
             }
 
             #buttonOpen{
-                width: 40%;
+                width: 30%;
                 position: absolute;
-                left: 20%;
+                left: 10%;
                 bottom:20%;
-                transform: translate(50%,0%);
-                height: 50px;
+                //transform: translate(50%,0%);
+                height: 40px;
                 display: none;
             }
 
             #buttonClose{
-                width: 40%;
+                width: 30%;
                 position: absolute;
-                right: 50%;
+                right: 10%;
                 bottom:20%;
-                transform: translate(-50%,0%);
-                height: 50px;
+                //transform: translate(-50%,0%);
+                height: 40px;
                 display: none;
             }
 
             #buttonTakePhoto{
                 width: 40%;
                 position: absolute;
-                right: 50%;
-                bottom:20%;
+                left: 50%;
+                bottom:10%;
                 transform: translate(-50%,0%);
-                height: 50px;
+                height: 40px;
                 display: none;
             }
 
             #finalText{
                 width: 80%;
                 position: absolute;
-                right: 50%;
+                left: 50%;
                 transform: translate(-50%,0%);
                 height: 50px;
-                font-size: 3vh;
-                bottom: 30%;
-                background-color: blue;
+                font-size: 2.5vh;
+                line-height: 50px;
+                bottom: 20%;
+                text-align: center;
+                background-color: orange;
                 display: none;
             }
 
@@ -383,7 +386,7 @@ position: absolute;
         <div id="finalText">
             ¿La salida de emergencia esta abierta?
         </div>
-        <div id="buttonOpen" class="btn btn-warning">{
+        <div id="buttonOpen" class="btn btn-warning">
             Si
         </div>
         <div id="buttonClose" class="btn btn-warning">

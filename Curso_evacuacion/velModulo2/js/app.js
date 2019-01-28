@@ -228,6 +228,7 @@ function clickRetro(){
     function clickSi(){
     	document.getElementById("buttonOpen").style.display = "none";
     	document.getElementById("buttonClose").style.display = "none";
+    	document.getElementById("finalText").style.display = "none";
     	document.getElementById("dataContainer").style.display = "none";
     	document.getElementById("finishDiv").style.display = "block";
     }
@@ -236,6 +237,7 @@ function clickRetro(){
     	//document.getElementById("dataContainer").style.display = "none";
     	document.getElementById("buttonOpen").style.display = "none";
     	document.getElementById("buttonClose").style.display = "none";
+    	document.getElementById("finalText").style.display = "none";
     	document.getElementById("buttonTakePhoto").style.display = "block";
 
     }
