@@ -49,7 +49,7 @@ function clickRetro(){
 
 		document.getElementById("retroDiv").style.display = "none";
       	//document.getElementById("finishDiv").style.display = "block";
-      	document.getElementById("timeFinishData").innerHTML = "Tiempo: "+ min+":"+sec;
+      	document.getElementById("timeFinishData").innerHTML = "Tiempo: "+ timeData.innerHTML;
       	document.getElementById("distanceFinishData").innerHTML = "Distancia: "+document.getElementById("distanceData").innerHTML;
       	document.getElementById("velocityFinishData").innerHTML = "Velocidad: "+document.getElementById("velocityData").innerHTML;
       	/*TweenMax.fromTo($("#finishImage"),1,{scale:0,alpha:0},{scale:1,alpha:1,ease:Back.easeOut});
