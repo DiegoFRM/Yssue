@@ -47,8 +47,6 @@ function clickRetro(){
 	}
 	else{
 
-
-
 		document.getElementById("retroDiv").style.display = "none";
       	//document.getElementById("finishDiv").style.display = "block";
       	document.getElementById("timeFinishData").innerHTML = "Tiempo: "+ min+":"+sec;
