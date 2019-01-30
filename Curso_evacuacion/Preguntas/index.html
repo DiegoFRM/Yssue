@@ -694,12 +694,12 @@
                 </div>
 
                 <div class="text3" id="shareText1">
-                    <p>Completado<br>Modulo 1</p>
+                    <p>Completado<br>Módulo 1</p>
                        
                        
                 </div>
                 <div class="text1" id="shareText2">
-                	  <h2>¡Comparte tu logro!</h2>
+                	  <h2>¡Comparte tu logro dentro del curso, en la sección Evaluación y vuelve a tu aprendizaje!</h2>
                 </div>
 
                  
@@ -1008,49 +1008,22 @@
 	var currentGalleryObject = 0;
 	var currentEmotions = [];
 	var localStream;
-	function animate() {
-		//console.log("animate");
-	  /*context.clearRect(0, 0,canvas.width, canvas.height);
-	  if(takeImage){
-	  	context.drawImage(video, 0, 0, canvas.width, canvas.height);
-	  }
-	 
-	  //draw each frame + place them in the middle
-	  context.drawImage(myImage, shift, shiftY, frameWidth, frameHeight,120, 25, frameWidth, frameHeight);
-	 
 
-	  shift += frameWidth + 1;
-	  if(shift > (totalWidth-frameWidth)){
-	  	shiftY+= frameHeight+1;
-	  }
-	 
-	  
-	  if (currentFrame == totalFrames) {
-	    shift = 0;
-	    shiftY = 0;
-	    currentFrame = 0;
-	  }
-	 
-	  currentFrame++;
-	  if(takeImage){
-	  	var dt = canvas.toDataURL('image/png');
-	    //this.href = dt;
-	    //console.log(dt);
-	    //alert();
-	    var link = document.createElement('a');
-		link.href = dt;
-		link.download = 'Download.png';
-		document.body.appendChild(link);
-		link.click();
-		document.body.removeChild(link);
-		takeImage = false;
-	  }
-	 
-	  requestAnimationFrame(animate);*/
+	var isLoop = true;
+
+	function animate() {
+
 	  currentFrame++;
 	  if(currentFrame>maxFrames){
-	  	currentFrame=0;
+	  	if(isLoop){
+	  		currentFrame=0;
+	  	}
+	  	else{
+	  		currentFrame--;
+	  		return;
+	  	}
 	  }
+	  
 	  if(currentFrame<10){
 	  	myImage.src = "images/"+currentImageName+"00"+currentFrame+".png";
 	  }
@@ -1110,6 +1083,16 @@ else {
         //canvas.width
     });
 }*/
+
+window.onclick = function(){
+	if(questionId == 7){
+		currentFrame = 0;
+		myImage.src = "images/7maPregunta/abierta/7mapregunta_abierta_000.png";
+		currentImageName = "7maPregunta/cerrada/7mapregunta_abierta_";
+		maxFrames = 14;
+		isLoop = false;
+	}
+}
 
 window.onload = function(){
 	//alert(window.innerWidth+ "  h"+window.innerHeight);
@@ -1252,6 +1235,7 @@ function clickAns(selectedId){
 
     if(questionId == 9){
         if(selectedId == currentCorrect){
+        	isLoop = true;
             document.getElementById("bgImageOrange").style.backgroundColor = "#3FB4DC";
             document.getElementById("questionsDiv").style.display = "none";
             document.getElementById("wrongAnswer").style.display = "block";
@@ -1287,6 +1271,7 @@ function clickAns(selectedId){
     else{
 
     	if(selectedId == currentCorrect){
+    		isLoop = true;
     		document.getElementById("buttonSnap").style.display = "block";
     		document.getElementById("buttonContinue").style.display = "none";
     		document.getElementById("questionsDiv").style.display = "none";
@@ -1294,6 +1279,7 @@ function clickAns(selectedId){
     		if(questionId == 1){
     			myImage.src = "images/1erPregunta/1erPregunta_000.png";
     			currentImageName = "1erPregunta/1erPregunta_";
+    			document.getElementById("buttonSnap").style.display = "none";
     			maxFrames = 240;
     		}
     		else if(questionId == 2){
@@ -1320,9 +1306,10 @@ function clickAns(selectedId){
     			document.getElementById("messageImage").src = "images/6taPregunta/6taPregunta_banners_1.png";
     		}
     		else if(questionId == 7){
-    			myImage.src = "images/7maPregunta/7maPregunta_000.png";
-    			currentImageName = "7maPregunta/7maPregunta_";
-    			maxFrames = 126;
+    			document.getElementById("buttonSnap").style.display = "none";
+    			myImage.src = "images/7maPregunta/cerrada/7maPregunta_cerrada_000.png";
+    			currentImageName = "7maPregunta/cerrada/7mapregunta_cerrada_";
+    			maxFrames = 47;
     		}
     		else if(questionId == 8){
     			myImage.src = "images/8va_pregunta/8vaPregunta_000.png";
