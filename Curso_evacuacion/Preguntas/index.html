@@ -1008,7 +1008,7 @@
 	var currentGalleryObject = 0;
 	var currentEmotions = [];
 	var localStream;
-
+	var canclick7 = false;
 	var isLoop = true;
 
 	function animate() {
@@ -1085,10 +1085,10 @@ else {
 }*/
 
 window.onclick = function(){
-	if(questionId == 7){
+	if(questionId == 7 && canclick7){
 		currentFrame = 0;
 		myImage.src = "images/7maPregunta/abierta/7mapregunta_abierta_000.png";
-		currentImageName = "7maPregunta/cerrada/7mapregunta_abierta_";
+		currentImageName = "7maPregunta/abierta/7mapregunta_abierta_";
 		maxFrames = 14;
 		isLoop = false;
 	}
@@ -1099,7 +1099,7 @@ window.onload = function(){
 	canvas.width = window.innerWidth;
 	canvas.height = window.innerHeight;
 
-	questionId = 1;
+	questionId = 7;
 	currentCorrect = 0;
 	console.log(questionId);
 
@@ -1320,6 +1320,9 @@ function clickAns(selectedId){
     			myImage.src = "images/7maPregunta/cerrada/7maPregunta_cerrada_000.png";
     			currentImageName = "7maPregunta/cerrada/7mapregunta_cerrada_";
     			maxFrames = 47;
+    			setTimeout(function(){
+    				canclick7 = true;
+    			}, 100);
     		}
     		else if(questionId == 8){
     			myImage.src = "images/8va_pregunta/8vaPregunta_000.png";
