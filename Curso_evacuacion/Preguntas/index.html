@@ -1023,7 +1023,7 @@
 	  		return;
 	  	}
 	  }
-	  
+
 	  if(currentFrame<10){
 	  	myImage.src = "images/"+currentImageName+"00"+currentFrame+".png";
 	  }
@@ -1108,45 +1108,52 @@ window.onload = function(){
 }
 
 document.getElementById("buttonSnap").addEventListener("click", function() {
+
 	//takeImage = true;
 	video.pause();
 
-	setTimeout(function(){
+	if(questionId !=1 && questionId !=7){
 
-		context.clearRect(0, 0,canvas.width, canvas.height);
-		context.drawImage(video, 0, 0, canvas.width, canvas.height);
-		context.drawImage(myImage, 0,0,720, 1280,0,0,canvas.width, canvas.height);
+		setTimeout(function(){
 
+			context.clearRect(0, 0,canvas.width, canvas.height);
+			context.drawImage(video, 0, 0, canvas.width, canvas.height);
+			context.drawImage(myImage, 0,0,720, 1280,0,0,canvas.width, canvas.height);
+
+			
+		},50)
 		
-	},50)
-	
-	setTimeout(function(){
-		var dt = canvas.toDataURL('image/png');
-	    //this.href = dt;
-	    //console.log(dt);
-	    //alert();
-	    dataImages.push(dt);
-	    if(!iOS()){
-		    var link = document.createElement('a');
-			link.href = dt;
-			link.target = "_blank";
-			link.download = 'Download.png';
-			document.body.appendChild(link);
-			link.click();
-			document.body.removeChild(link);
-		}
-		if(questionId ==9){
-		  
-            setTimeout(function(){
-                document.getElementById("questionsDiv").style.display = "block";
-                document.getElementById("wrongAnswer").style.display = "none";
-            },3000)
+		setTimeout(function(){
+			var dt = canvas.toDataURL('image/png');
+		    //this.href = dt;
+		    //console.log(dt);
+		    //alert();
+		    dataImages.push(dt);
+		    if(!iOS()){
+			    var link = document.createElement('a');
+				link.href = dt;
+				link.target = "_blank";
+				link.download = 'Download.png';
+				document.body.appendChild(link);
+				link.click();
+				document.body.removeChild(link);
+			}
+			if(questionId ==9){
+			  
+	            setTimeout(function(){
+	                document.getElementById("questionsDiv").style.display = "block";
+	                document.getElementById("wrongAnswer").style.display = "none";
+	            },3000)
 
-        }
-        else{
-            document.getElementById("buttonContinue").style.display = "block";
-        }
-	},100);
+	        }
+	        else{
+	            document.getElementById("buttonContinue").style.display = "block";
+	        }
+		},100);
+	}
+	else{
+		clickNext();
+	}
 	
    	
 	takeImage = true;
@@ -1249,6 +1256,7 @@ function clickAns(selectedId){
         }
         else{
             document.getElementById("buttonSnap").style.display = "block";
+            document.getElementById("buttonSnap").innerHTML = "Tomar Imagen";
             document.getElementById("buttonContinue").style.display = "none";
             document.getElementById("questionsDiv").style.display = "none";
             document.getElementById("videoDiv").style.display = "block";
@@ -1272,6 +1280,7 @@ function clickAns(selectedId){
 
     	if(selectedId == currentCorrect){
     		isLoop = true;
+    		document.getElementById("buttonSnap").innerHTML = "Tomar Imagen";
     		document.getElementById("buttonSnap").style.display = "block";
     		document.getElementById("buttonContinue").style.display = "none";
     		document.getElementById("questionsDiv").style.display = "none";
@@ -1279,7 +1288,8 @@ function clickAns(selectedId){
     		if(questionId == 1){
     			myImage.src = "images/1erPregunta/1erPregunta_000.png";
     			currentImageName = "1erPregunta/1erPregunta_";
-    			document.getElementById("buttonSnap").style.display = "none";
+    			//document.getElementById("buttonSnap").style.display = "none";
+    			document.getElementById("buttonSnap").innerHTML = "Continuar";
     			maxFrames = 240;
     		}
     		else if(questionId == 2){
@@ -1306,7 +1316,7 @@ function clickAns(selectedId){
     			document.getElementById("messageImage").src = "images/6taPregunta/6taPregunta_banners_1.png";
     		}
     		else if(questionId == 7){
-    			document.getElementById("buttonSnap").style.display = "none";
+    			document.getElementById("buttonSnap").innerHTML = "Continuar";
     			myImage.src = "images/7maPregunta/cerrada/7maPregunta_cerrada_000.png";
     			currentImageName = "7maPregunta/cerrada/7mapregunta_cerrada_";
     			maxFrames = 47;
