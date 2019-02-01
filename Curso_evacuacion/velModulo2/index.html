@@ -375,6 +375,27 @@ position: absolute;
                 display: none;
             }
 
+            #codeIns{
+                width: 80%;
+                left: 50%;
+                transform: translate(-50%,0);
+                //top: -2%;
+                margin: 0;
+
+            }
+
+
+            #codeText{
+                transform: translate(-50%,-50%);
+                background-color: orange;
+                height: 50px;
+                width: 50%;
+                line-height: 50px;
+                left: 50%;
+                font-size: 5vh;
+                margin: 0;
+            }
+
 </style>
 </head>
 <body>
@@ -559,8 +580,15 @@ position: absolute;
                       <h2 id="velocityFinishData">Velocidad</h2>
                 </div>
 
+
+                <div class="text1" id="codeIns">
+                        <h2>Ingresa este código en la plataforma del curso para continuar</h2>
+                </div>
+                <div class="text1" id="codeText">
+                     
+                </div>
                  
-                <button type="button" id="buttonFinish" class="btn btn-warning col-sm-6 col-xs-6 col-md-6" onclick="clickFinish()">Continuar</button>
+                <!--<button type="button" id="buttonFinish" class="btn btn-warning col-sm-6 col-xs-6 col-md-6" onclick="clickFinish()">Continuar</button>-->
 
 
             </div>

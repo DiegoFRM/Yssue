@@ -255,6 +255,14 @@
             	display: none;
             }
 
+            #codeDiv{
+                margin: 0px;
+                padding: 0px;
+                width: 100%;
+                height: 100%;
+                display: none;
+            }
+
             #shareDiv{
             	margin: 0px;
             	padding: 0px;
@@ -317,11 +325,12 @@
 			}
 			#buttonGallery{
 				width: 30%;
-				position: relative;
-				left: 22%;
-				top:-10%;
-				//transform: translate(0%,0%);
-				height: 50px;
+                position: relative;
+                left: 50%;
+                top: -5%;
+                
+                height: 50px;
+                transform: translate(-50%,0);
 			}
 
 			#buttonCloseGallery{
@@ -499,6 +508,26 @@
 			    opacity: 0.5;
 			}
 
+            #codeIns{
+                width: 60%;
+                left: 50%;
+                transform: translate(-50%,0);
+                top: -5%;
+
+            }
+
+
+            #codeText{
+                transform: translate(-50%,-50%);
+                background-color: orange;
+                height: 50px;
+                width: 50%;
+                line-height: 50px;
+                left: 50%;
+                font-size: 5vh;
+                top: -2%;
+            }
+
             @media (orientation : portrait) { 
            /*#contentSlide{
                 top: 15%;
@@ -555,6 +584,7 @@
                 text-align: center;
 
             }
+
             }
             
         </style>
@@ -681,9 +711,26 @@
                 <button type="button" id="buttonFinish" class="btn btn-warning col-sm-6 col-xs-6 col-md-6" onclick="clickNextShare()">Continuar</button>
 
 
+
             </div>
         </div>
 	</div>
+
+    <div id ="codeDiv">
+        <div id="bgImage"></div>
+        <div id="contentMain">
+            <div id="contentSlide" class="row ">
+
+                <div class="text1" id="codeIns">
+                        <h2>Ingresa este código en la plataforma del curso para continuar</h2>
+                </div>
+                <div class="text1" id="codeText">
+                      
+                </div>
+
+            </div>
+        </div>
+    </div>
 
 	<div id ="shareDiv">
 		<div id="bgImage"></div>
@@ -695,17 +742,21 @@
 
                 <div class="text3" id="shareText1">
                     <p>Completado<br>Módulo 1</p>
-                       
-                       
+                </div>
+                <div class="text1" id="codeIns">
+                        <h2>Ingresa este código en la plataforma del curso para continuar</h2>
+                </div>
+                <div class="text1" id="codeText">
+                     
                 </div>
                 <div class="text1" id="shareText2">
                 	  <h2>¡Comparte tu logro dentro del curso, en la sección Evaluación y vuelve a tu aprendizaje!</h2>
                 </div>
 
                  
-                <button type="button" id="buttonclose" class="btn btn-warning col-sm-6 col-xs-6 col-md-6" onclick="closeApp()">Cerrar</button>
+                <!--<button type="button" id="buttonclose" class="btn btn-warning col-sm-6 col-xs-6 col-md-6" onclick="closeApp()">Continuar</button>-->
 
-                <button type="button" id="buttonGallery" class="btn btn-warning col-sm-6 col-xs-6 col-md-6" onclick="openGallery()">Galería</button>
+                <button type="button" id="buttonGallery" class="btn btn-warning col-sm-12 col-xs-12 col-md-12" onclick="openGallery()">Galería</button>
 
 
             </div>
@@ -1101,10 +1152,8 @@ window.onload = function(){
 
 	questionId = 1;
 	currentCorrect = 0;
-	console.log(questionId);
+	
 
-
-	//context.drawImage(myImage,0,0);
 }
 
 document.getElementById("buttonSnap").addEventListener("click", function() {
@@ -1115,12 +1164,9 @@ document.getElementById("buttonSnap").addEventListener("click", function() {
 	if(questionId !=1 && questionId !=7){
 
 		setTimeout(function(){
-
 			context.clearRect(0, 0,canvas.width, canvas.height);
 			context.drawImage(video, 0, 0, canvas.width, canvas.height);
 			context.drawImage(myImage, 0,0,720, 1280,0,0,canvas.width, canvas.height);
-
-			
 		},50)
 		
 		setTimeout(function(){
@@ -1427,6 +1473,7 @@ function clickArrow(direction){
 function clickNextShare(){
 	document.getElementById("finishDiv").style.display = "none";
 	document.getElementById("shareDiv").style.display = "block";
+    document.getElementById("codeText").innerHTML = ""+makeid()+"";
 	TweenMax.fromTo($("#shareImage"),1,{scale:0,alpha:0},{scale:1,alpha:1,ease:Back.easeOut});
 	TweenMax.fromTo($("#shareText1"),1,{x:-250,alpha:0},{x:0,alpha:1,ease:Back.easeOut,delay:1});
 	TweenMax.fromTo($("#shareText2"),1,{x:-250,alpha:0},{x:0,alpha:1,ease:Back.easeOut,delay:2});
@@ -1435,14 +1482,21 @@ function clickNextShare(){
 }
 
 function closeApp(){
-	/*FB.ui({
-	  method: 'share',
-	  href: 'https://diegofrm.github.io/Yssue/Curso_evacuacion/Preguntas/'
-	}, function(response){});*/
-
 	
+    document.getElementById("shareDiv").style.display = "none";
+    document.getElementById("codeDiv").style.display = "block";
 
-	
+    document.getElementById("codeText").innerHTML = ""+makeid()+"";
+}
+
+function makeid() {
+  var text = "";
+  var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+
+  for (var i = 0; i < 7; i++)
+    text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+  return text;
 }
 
 function clickArrowGallery(direction){

@@ -14,6 +14,7 @@ var elapsedSinceLastLoop;
 
 var currentQr;
 var canScan;
+var canScanQr = true;
 
 TweenMax.fromTo($("#initImage"),1,{scale:0,alpha:0},{scale:1,alpha:1,ease:Back.easeOut});
 	TweenMax.fromTo($("#initText1"),1,{x:-250,alpha:0},{x:0,alpha:1,ease:Back.easeOut,delay:1.5});
@@ -47,6 +48,7 @@ function clickRetro(){
 	}
 	else{
 		canScan = true;
+		canScanQr = false;
 		document.getElementById("retroDiv").style.display = "none";
       	//document.getElementById("finishDiv").style.display = "block";
       	document.getElementById("timeFinishData").innerHTML = "Tiempo: "+ timeData.innerHTML;
@@ -130,79 +132,81 @@ function clickRetro(){
 
         canvas.drawImage(video, 0, 0, canvasElement.width, canvasElement.height);
         var imageData = canvas.getImageData(0, 0, canvasElement.width, canvasElement.height);
-        var code = jsQR(imageData.data, imageData.width, imageData.height, {
-          inversionAttempts: "dontInvert",
-        });
-        if (code) {
-          //alert(code.data)
-          if(currentQr == 0 && code.data == "Yssue_m2_1"){
-          	document.getElementById("dataContainer").style.display = "none";
-          	document.getElementById("retroDiv").style.display = "block";
-          	currentQr = 1;
-          	canScan = false;
-          	document.getElementById("qr").src = "qrs/Yssue_m2_2.png";
-          	document.getElementById("qrWrong").src = "qrs/Yssue_m2_2.png";
-          	document.getElementById("retroImage").src = "qrs/Yssue_m2_1.png";
-          	document.getElementById("retroText").innerHTML = "<h1>Primera señalización escaneada</h1>";
+        if(canScanQr){
+	        var code = jsQR(imageData.data, imageData.width, imageData.height, {
+	          inversionAttempts: "dontInvert",
+	        });
+	        if (code) {
+	          //alert(code.data)
+	          if(currentQr == 0 && code.data == "Yssue_m2_1"){
+	          	document.getElementById("dataContainer").style.display = "none";
+	          	document.getElementById("retroDiv").style.display = "block";
+	          	currentQr = 1;
+	          	canScan = false;
+	          	document.getElementById("qr").src = "qrs/Yssue_m2_2.png";
+	          	document.getElementById("qrWrong").src = "qrs/Yssue_m2_2.png";
+	          	document.getElementById("retroImage").src = "qrs/Yssue_m2_1.png";
+	          	document.getElementById("retroText").innerHTML = "<h1>Primera señalización escaneada</h1>";
 
-          }
-          else if(currentQr == 1 && code.data == "Yssue_m2_2"){
-          	document.getElementById("dataContainer").style.display = "none";
-          	document.getElementById("retroDiv").style.display = "block";
-          	currentQr = 2;
-          	canScan = false;
-          	document.getElementById("qr").src = "qrs/Yssue_m2_3.png";
-          	document.getElementById("qrWrong").src = "qrs/Yssue_m2_3.png";
-          	document.getElementById("retroImage").src = "qrs/Yssue_m2_2.png";
-          	document.getElementById("qrR"+(currentQr-1)).style.opacity = 1;
-          	document.getElementById("retroText").innerHTML = "<h1>Segunda señalización escaneada</h1>";
-          }
-          else if(currentQr == 2 && code.data == "Yssue_m2_3"){
-          	document.getElementById("dataContainer").style.display = "none";
-          	document.getElementById("retroDiv").style.display = "block";
-          	currentQr = 3;
-          	canScan = false;
-          	document.getElementById("qr").src = "qrs/Yssue_m2_4.png";
-          	document.getElementById("qrWrong").src = "qrs/Yssue_m2_4.png";
-          	document.getElementById("retroImage").src = "qrs/Yssue_m2_3.png";
-          	document.getElementById("qrR"+(currentQr-1)).style.opacity = 1;
-          	document.getElementById("retroText").innerHTML = "<h1>Tercera señalización escaneada</h1>";
-          }
-          else if(currentQr == 3 && code.data == "Yssue_m2_4"){
-          	document.getElementById("dataContainer").style.display = "none";
-          	document.getElementById("retroDiv").style.display = "block";
-          	currentQr = 4;
-          	canScan = false;
-          	document.getElementById("qr").src = "qrs/Yssue_m2_5.png";
-          	document.getElementById("qrWrong").src = "qrs/Yssue_m2_5.png";
-          	document.getElementById("retroImage").src = "qrs/Yssue_m2_4.png";
-          	document.getElementById("qrR"+(currentQr-1)).style.opacity = 1;
-          	document.getElementById("retroText").innerHTML = "<h1>Cuarta señalización escaneada</h1>";
-          }
-          else if(currentQr == 4 && code.data == "Yssue_m2_5"){
+	          }
+	          else if(currentQr == 1 && code.data == "Yssue_m2_2"){
+	          	document.getElementById("dataContainer").style.display = "none";
+	          	document.getElementById("retroDiv").style.display = "block";
+	          	currentQr = 2;
+	          	canScan = false;
+	          	document.getElementById("qr").src = "qrs/Yssue_m2_3.png";
+	          	document.getElementById("qrWrong").src = "qrs/Yssue_m2_3.png";
+	          	document.getElementById("retroImage").src = "qrs/Yssue_m2_2.png";
+	          	document.getElementById("qrR"+(currentQr-1)).style.opacity = 1;
+	          	document.getElementById("retroText").innerHTML = "<h1>Segunda señalización escaneada</h1>";
+	          }
+	          else if(currentQr == 2 && code.data == "Yssue_m2_3"){
+	          	document.getElementById("dataContainer").style.display = "none";
+	          	document.getElementById("retroDiv").style.display = "block";
+	          	currentQr = 3;
+	          	canScan = false;
+	          	document.getElementById("qr").src = "qrs/Yssue_m2_4.png";
+	          	document.getElementById("qrWrong").src = "qrs/Yssue_m2_4.png";
+	          	document.getElementById("retroImage").src = "qrs/Yssue_m2_3.png";
+	          	document.getElementById("qrR"+(currentQr-1)).style.opacity = 1;
+	          	document.getElementById("retroText").innerHTML = "<h1>Tercera señalización escaneada</h1>";
+	          }
+	          else if(currentQr == 3 && code.data == "Yssue_m2_4"){
+	          	document.getElementById("dataContainer").style.display = "none";
+	          	document.getElementById("retroDiv").style.display = "block";
+	          	currentQr = 4;
+	          	canScan = false;
+	          	document.getElementById("qr").src = "qrs/Yssue_m2_5.png";
+	          	document.getElementById("qrWrong").src = "qrs/Yssue_m2_5.png";
+	          	document.getElementById("retroImage").src = "qrs/Yssue_m2_4.png";
+	          	document.getElementById("qrR"+(currentQr-1)).style.opacity = 1;
+	          	document.getElementById("retroText").innerHTML = "<h1>Cuarta señalización escaneada</h1>";
+	          }
+	          else if(currentQr == 4 && code.data == "Yssue_m2_5"){
 
-          	document.getElementById("dataContainer").style.display = "none";
-          	document.getElementById("retroDiv").style.display = "block";
-          	currentQr = 5;
-          	canScan = false;
-          	document.getElementById("qr").src = "qrs/Yssue_m2_5.png";
-          	document.getElementById("qrWrong").src = "qrs/Yssue_m2_5.png";
-          	document.getElementById("retroImage").src = "qrs/Yssue_m2_5.png";
-          	document.getElementById("qrR"+(currentQr-1)).style.opacity = 1;
-          	document.getElementById("retroText").innerHTML = "<h1>Quinta señalización escaneada</h1>";
+	          	document.getElementById("dataContainer").style.display = "none";
+	          	document.getElementById("retroDiv").style.display = "block";
+	          	currentQr = 5;
+	          	canScan = false;
+	          	document.getElementById("qr").src = "qrs/Yssue_m2_5.png";
+	          	document.getElementById("qrWrong").src = "qrs/Yssue_m2_5.png";
+	          	document.getElementById("retroImage").src = "qrs/Yssue_m2_5.png";
+	          	document.getElementById("qrR"+(currentQr-1)).style.opacity = 1;
+	          	document.getElementById("retroText").innerHTML = "<h1>Quinta señalización escaneada</h1>";
 
-          	//canScan = false;
-          	
-          }
-          else {
-
-          	canScan = false;
-          	document.getElementById("dataContainer").style.display = "none";
-          	document.getElementById("wrongDiv").style.display = "block";
-          }
-        }
+	          	//canScan = false;
+	          	
+	          }
+	          else {
+	          	canScan = false;
+	          	document.getElementById("dataContainer").style.display = "none";
+	          	document.getElementById("wrongDiv").style.display = "block";
+	          }
+	        }
+	    }
       }
   	}
+
   	lastTime=Date.now();
       requestAnimationFrame(tick);
     }
@@ -229,6 +233,7 @@ function clickRetro(){
     	document.getElementById("finalText").style.display = "none";
     	document.getElementById("dataContainer").style.display = "none";
     	document.getElementById("finishDiv").style.display = "block";
+    	document.getElementById("codeText").innerHTML = ""+makeid()+"";
     }
 
     function clickNo(){
@@ -242,27 +247,54 @@ function clickRetro(){
 
     function clickTakePhoto(){
     	canScan = false;
-    	canvasElement.hidden = false;
+    	//canvasElement.hidden = false;
 
         /*canvasElement.width = window.innerWidth;
         canvasElement.height = (video.videoHeight*window.innerWidth)/video.videoWidth;*/
 
-        canvasElement.height = window.innerHeight;
-        canvasElement.widthi = (video.width*window.innerHeight)/video.videoHeight;
+        //canvasElement.height = window.innerHeight;
+        //canvasElement.widthi = (video.width*window.innerHeight)/video.videoHeight;
 
         //canvasElement.height = video.videoHeight; 
         //canvasElement.width = video.videoWidth;
-
-        //canvas.drawImage(video, 0, 0, canvasElement.width, canvasElement.height);
+        canvas.clearRect(0, 0,canvasElement.width, canvasElement.height);
+        canvas.drawImage(video, 0, 0, canvasElement.width, canvasElement.height);
         //var imageData = canvas.getImageData(0, 0, canvasElement.width, canvasElement.height);
         document.getElementById("buttonTakePhoto").style.display = "none";
         document.getElementById("dataContainer").style.display = "none";
         document.getElementById("finishDiv").style.display = "block";
+        document.getElementById("codeText").innerHTML = ""+makeid()+"";
 
-        var dt = canvas.toDataURL('image/png');
-
+        setTimeout(function(){
+	        var dt = canvasElement.toDataURL('image/png');
+	        //document.getElementById("finishImage").src = dt;
+	        //console.log("send image");
+	        //console.log(dt);
+	        $.ajax({
+			  type: "POST",
+			  url: "php/saveImage.php",
+			  data: { 
+			     imgBase64: dt
+			  }
+			}).done(function(o) {
+			  console.log('saved'); 
+			  // If you want the file to be visible in the browser 
+			  // - please modify the callback in javascript. All you
+			  // need is to return the url to the file, you just saved 
+			  // and than put the image in your browser.
+			});
+		},100);
 
     }
+    function makeid() {
+	  var text = "";
+	  var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+
+	  for (var i = 0; i < 7; i++)
+	    text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+	  return text;
+	}
 
 $(function () {
 	
